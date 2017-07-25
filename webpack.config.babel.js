@@ -12,7 +12,7 @@ const nunjucksEnv = configureNunjucks();
 
 module.exports = async (env = {}) => ({
   entry: {
-    bundle: './client/index.js',
+    bundle: ["babel-polyfill", './client/index.js'],
   },
   resolve: {
     modules: ['node_modules', 'bower_components'],
@@ -28,7 +28,25 @@ module.exports = async (env = {}) => ({
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
+          options: {
+            "presets": [
+              [
+                "env",
+                {
+                  "targets": {
+                    "browsers": ["last 2 versions"]
+                  }
+                }
+              ],
+              "stage-0",
+              "es2015"
+            ]
+          }
         },
+      },
+      {
+        test: /\.(txt|csv)$/,
+        use: 'raw-loader'
       },
       {
         test: /\.(html|njk)$/,
@@ -72,6 +90,7 @@ module.exports = async (env = {}) => ({
     }),
     new CopyWebpackPlugin([
       { from: 'client/components/core/top.css', to: 'top.css' },
+      { from: 'client/data/**/*', to: 'data/' }
     ], {
       copyUnmodified: true,
     }),

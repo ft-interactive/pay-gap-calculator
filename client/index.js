@@ -1,21 +1,28 @@
+import 'babel-polyfill';
+
 import './styles.scss';
 
-/*
-  TODO: delete this comment
+import * as d3 from 'd3';
+import women from './data/women.csv';
 
-  This file is where you bootstrap your JS code
-  For example import stuff here:
 
-  import {select} from 'd3-selection';
-  import myComponent from './components/my-component';
+async function app(){
+  // Generate a set of ratios from the raw male / female data
+  const womenPay = d3.csvParse(women);
+  const tester = d3.csvParse('./data/test.csv');
 
-  Split logical parts of you project into components e.g.
+  //use median to generate median pay gap
 
-  /client
-    - /components
-        - /component-name
-            - styles.scss
-            - index.js
-            - template.html
+  console.log("hellllooooooo");
 
-*/
+  console.log(tester);
+  console.log(tester);
+
+  console.log(womenPay.columns);
+  console.log(womenPay);
+  console.log(womenPay.length);
+};
+
+app();
+
+export { app };
