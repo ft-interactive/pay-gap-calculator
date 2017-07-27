@@ -1,4 +1,4 @@
-Role,Main group,Age,Code,Median gross annual pay (£),10,20,25,30,40,60,70,75,80,90
+role,mainGroup,age,code,medianPay,percent10,percent20,percent25,percent30,percent40,percent60,percent70,percent75,percent80,percent90
 "Managers, directors and senior officials",TRUE,18-21,1,x,x,x,x,x,x,x,x,x,x,x
 Corporate managers and directors,,18-21,11,x,x,x,x,x,x,x,x,x,x,x
 Other managers and proprietors,,18-21,12,x,x,x,x,x,x,x,x,x,x,x

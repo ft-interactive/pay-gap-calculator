@@ -4,25 +4,46 @@ import './styles.scss';
 
 import * as d3 from 'd3';
 import women from './data/women.csv';
+import men from './data/men.csv'
 
+const womenPay = d3.csvParse(women);
+const menPay = d3.csvParse(men);
 
-async function app(){
-  // Generate a set of ratios from the raw male / female data
-  const womenPay = d3.csvParse(women);
-  const tester = d3.csvParse('./data/test.csv');
+async function app() {
 
-  //use median to generate median pay gap
+  function findSalaryRange(gender, sector, age){
+    const dataSource = gender === 'women' ? womenPay : menPay;
 
-  console.log("hellllooooooo");
+    const sectorSelected = dataSource.filter( row => row.role === sector);
 
-  console.log(tester);
-  console.log(tester);
+    const ageSectorSelected = sectorSelected.filter( row => {
+      const [lowestAge, highestAge] = row.age.split("-");
+      return age <= highestAge && age >= lowestAge;
+    })
+    const selected = {...ageSectorSelected[0]};
+    return selected;
+  };
 
-  console.log(womenPay.columns);
-  console.log(womenPay);
-  console.log(womenPay.length);
+  function findSalaryDecile(salary, salarySet){
+    const keys = Object.keys(salarySet);
+    const percentGroups = keys.filter(x => x.includes('percent'));
+    console.log(percentGroups);
+  }
+
+  function getRatioForWoman(salariesWomen, salariesMen){
+  };
+
+  const salarySetWomen = findSalaryRange('women', 'Managers, directors and senior officials', 32);
+  const salarySetMen = findSalaryRange('men', 'Managers, directors and senior officials', 32);
+
+  // getRatioForWoman(salarySetWomen, salarySetMen);
+
+  findSalaryDecile(34000, salarySetMen);
+
 };
 
 app();
 
-export { app };
+export {
+  app
+};
