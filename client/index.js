@@ -27,11 +27,23 @@ async function app() {
   function findSalaryDecile(salary, salarySet){
     const keys = Object.keys(salarySet);
     const percentGroups = keys.filter(x => x.includes('percent'));
-    console.log(percentGroups);
+
+    const salarySetNum = percentGroups.reduce((acc, curr, index) => {
+      const salaryAsNum = parseInt(salarySet[curr]);
+      acc[index] = {[curr]: salaryAsNum};
+      return acc;
+    }, []);
+
+    console.log(salarySetNum);
+
+    const matchingCategory = salarySetNum.filter((group, index) => {
+      return salary >= salarySetNum[index][group] && salary =< salarySetNum[index +1][group];
+    })
   }
 
   function getRatioForWoman(salariesWomen, salariesMen){
-  };
+
+  }
 
   const salarySetWomen = findSalaryRange('women', 'Managers, directors and senior officials', 32);
   const salarySetMen = findSalaryRange('men', 'Managers, directors and senior officials', 32);
