@@ -9,9 +9,9 @@ import men from './data/men.csv'
 const womenPay = d3.csvParse(women);
 const menPay = d3.csvParse(men);
 
-async function app() {
+async function app(gender, age, sector, salary) {
 
-  function findSalaryRange(gender, sector, age){
+  function findSalaryRange(gender, age, sector){
     const dataSource = gender === 'women' ? womenPay : menPay;
 
     const sectorSelected = dataSource.filter( row => row.role === sector);
@@ -52,30 +52,42 @@ async function app() {
   };
 
   function findComparisionDecile(decileToGet, salarySet){
-    console.log("salary", salarySet);
-    console.log("dectoget", decileToGet);
     const decileKey = decileToGet.group;
     return salarySet[decileKey];
   };
 
-  function getRatioForWoman(){
 
+  function getRatio(selectedSalary, comparisionSalary){
+    console.log("Selected", selectedSalary);
+    console.log("comparision", comparisionSalary);
+    return selectedSalary / comparisionSalary;
   };
 
-  try {
-    const salarySetWomen = findSalaryRange('women', 'Managers, directors and senior officials', 32);
-    const salarySetMen = findSalaryRange('men', 'Managers, directors and senior officials', 32);
-    const selectedDecile = findSalaryDecile(34000, salarySetWomen);
-    console.log("The decile is", selectedDecile);
-    const comparisonDecile = findComparisionSalary(selectedDecile, salarySetMen )
+  function outputSwappedSalary(salary, ratio){
+    // if ratio is > 1 user salary will be brought down, if ratio < 1, salary will go up
+      return salary / ratio;
+  }
 
-    getRatioForWoman(salarySetWomen, salarySetMen);
+  try {
+    const salarySetSelected = findSalaryRange(gender, age, sector);
+    const comparisonGender = gender === 'women' ? 'men' : 'women';
+    const salarySetComparison = findSalaryRange(comparisonGender, age, sector);
+    console.log("COMPARISON SET", salarySetComparison)
+    const selectedDecile = findSalaryDecile(salary, salarySetSelected);
+    console.log("Selected decile", selectedDecile);
+    const comparisonSalary = findComparisionDecile(selectedDecile, salarySetComparison );
+    const ratio = getRatio(selectedDecile.salary, comparisonSalary);
+
+    const swappedSalary = outputSwappedSalary(salary, ratio);
+    console.log(ratio);
+    console.log("Output Salary", swappedSalary);
+
   }
   catch(err){ console.log("ERROR", err) };
 
 };
 
-app();
+app('women', 32, 'Business, media and public service professionals', 40000);
 
 export {
   app
