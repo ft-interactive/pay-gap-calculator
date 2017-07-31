@@ -30,27 +30,48 @@ async function app() {
 
     const salarySetNum = percentGroups.reduce((acc, curr, index) => {
       const salaryAsNum = parseInt(salarySet[curr]);
-      acc[index] = {[curr]: salaryAsNum};
+      acc[index] = {
+                    group: curr,
+                    salary: salaryAsNum,
+                  };
       return acc;
     }, []);
 
-    console.log(salarySetNum);
+    const salaryDecilesDesc = salarySetNum.sort((a, b) => {
+      return b.salary > a.salary;
+    });
 
-    const matchingCategory = salarySetNum.filter((group, index) => {
-      return salary >= salarySetNum[index][group] && salary =< salarySetNum[index +1][group];
-    })
+    let matchingCategory;
+    for(let i=0; i < salaryDecilesDesc.length; i++ ){
+      if(salary > salaryDecilesDesc[i].salary){
+        matchingCategory = salaryDecilesDesc[i];
+        return matchingCategory;
+      }
+    };
+    return matchingCategory;
+  };
+
+  function findComparisionDecile(decileToGet, salarySet){
+    console.log("salary", salarySet);
+    console.log("dectoget", decileToGet);
+    const decileKey = decileToGet.group;
+    return salarySet[decileKey];
+  };
+
+  function getRatioForWoman(){
+
+  };
+
+  try {
+    const salarySetWomen = findSalaryRange('women', 'Managers, directors and senior officials', 32);
+    const salarySetMen = findSalaryRange('men', 'Managers, directors and senior officials', 32);
+    const selectedDecile = findSalaryDecile(34000, salarySetWomen);
+    console.log("The decile is", selectedDecile);
+    const comparisonDecile = findComparisionSalary(selectedDecile, salarySetMen )
+
+    getRatioForWoman(salarySetWomen, salarySetMen);
   }
-
-  function getRatioForWoman(salariesWomen, salariesMen){
-
-  }
-
-  const salarySetWomen = findSalaryRange('women', 'Managers, directors and senior officials', 32);
-  const salarySetMen = findSalaryRange('men', 'Managers, directors and senior officials', 32);
-
-  // getRatioForWoman(salarySetWomen, salarySetMen);
-
-  findSalaryDecile(34000, salarySetMen);
+  catch(err){ console.log("ERROR", err) };
 
 };
 
