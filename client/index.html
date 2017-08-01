@@ -3,32 +3,46 @@
 
 {% block article_body %}
 
-  <div id="gap-calculator">
+  <div class="gap-calculator">
     <div class="input-container">
-      <div>
+      <div class="input-box-gender">
         <span>I am a...: </span>
-        <button class="gender-choice" data="woman">Woman</button>
-        <button class="gender-choice" data="man">Man</button>
+        <button class="input-gender" data="woman">Woman</button>
+        <button class="input-gender" data="man">Man</button>
       </div>
 
-      <div>
-        <input type="text" value="Enter an age" />
-      </div>
-      <div>
-        <input type="salary" value="Enter a salary" />
+      <div class="input-box-age">
+        <input type="text" placeholder="Enter an age..." class="input-age" />
       </div>
 
-      <div>
+      <div class="input-box-salary">
+        <input type="salary" placeholder="Enter a salary..." class="input-salary" value="£" />
+      </div>
+
+      <div class="input-box-sector">
         <label>Select a sector</label>
-        <ul class="sector-list">
-          <li>Managers, directors and senior officials</li>
-          <li>Corporate managers and director</li>
+        <ul>
+          <li class="input-sector" data="Manager">Managers, directors and senior officials</li>
         </ul>
       </div>
+
+      <div class="input-box-compute">
+        <button class="input-compute">Calculate</button>
+      </div>
+
     </div>
 
+
     <div class="output-container">
-      <p> Your genderswapped salary is: <span class="output-salary"></span></p>
+      <div class="output-box-yearly-salary">
+        <p>Your genderswapped salary is: <span class="output-yearly-salary"></span></p>
+      </div>
+      <div class="output-box-weekly-salary">
+        <p>That would be <span class="output-weekly-salary"></span> extra spending money a week - (after tax)</p>
+      </div>
+      <div class="output-box-daily-salary">
+        <p>That would be <span class="output-weekly-salary"></span> extra spending money every day - (after tax)</p>
+      </div>
     </div>
 
   </div>
