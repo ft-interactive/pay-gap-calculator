@@ -7,17 +7,23 @@ const menPay = d3.csvParse(men);
 
 async function calculator(config) {
 
-  const dispatch = d3.dispatch('change');
-  let {
-    gender,
-    age,
-    sector,
-    salary
-  } = { ...config
-  };
-  console.log("GENDER", gender);
+  let gender = config.get("gender");
+  let age = config.get("age");
+  let sector = config.get("sector");
+  let salary = cleanSalary(config.get("salary"));
 
-  function calculate() {
+  function cleanSalary(rawSalary){
+    console.log("RAW SALARY", rawSalary);
+    const cleanSalary = rawSalary.match(/\d+.\d+/);
+    console.log("CLEAN SALRY", cleanSalary);
+    return parseInt(cleanSalary[0]);
+  }
+
+//  \d+,\d+.\d+
+    console.log("CONFIG", config);
+
+    console.log("salary", salary);
+
     try {
       const salarySetSelected = findSalaryRange(gender, age, sector);
       const comparisonGender = gender === 'women' ? 'men' : 'women';
@@ -33,7 +39,6 @@ async function calculator(config) {
     } catch (err) {
       console.log("ERROR", err)
     };
-  };
 
   function findSalaryRange(gender, age, sector) {
     const dataSource = gender === 'women' ? womenPay : menPay;
@@ -44,12 +49,12 @@ async function calculator(config) {
       const [lowestAge, highestAge] = row.age.split("-");
       return age <= highestAge && age >= lowestAge;
     })
-    const selected = { ...ageSectorSelected[0]
-    };
+    const selected = { ...ageSectorSelected[0]};
     return selected;
   };
 
   function findSalaryDecile(salary, salarySet) {
+    console.log("salaryset", salarySet);
     let matchingCategory;
     const keys = Object.keys(salarySet);
     const percentGroups = keys.filter(x => x.includes('percent'));
@@ -75,6 +80,7 @@ async function calculator(config) {
   };
 
   function findComparisionDecile(decileToGet, salarySet) {
+    console.log("Decile", decileToGet);
     const decileKey = decileToGet.group;
     return salarySet[decileKey];
   };
@@ -89,12 +95,6 @@ async function calculator(config) {
   }
 
 
-  return {
-    calculate,
-    updateState,
-  }
 };
 
-export {
-  calculator
-};
+export { calculator };
