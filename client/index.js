@@ -4,7 +4,7 @@ import './styles.scss';
 import * as d3 from 'd3';
 
 import {calculator} from './components/calculator.js';
-import {outputPanel} from './components/output-panel.js';
+import {makeOutputPanel} from './components/output-panel.js';
 
 
 const state = new Map;
@@ -23,7 +23,7 @@ dispatch.on("compute", async function(config){
   console.log("HERE IS OUTPUT DATA", outputData);
 });
 
-// const output = outputPanel();
+const output = makeOutputPanel();
 
 // listener on gender buttons
 const genderButtons = d3.selectAll(".input-gender");

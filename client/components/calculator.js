@@ -13,35 +13,29 @@ async function calculator(config) {
   let salary = cleanSalary(config.get("salary"));
 
   function cleanSalary(rawSalary){
-    console.log("RAW SALARY", rawSalary);
     const cleanSalary = rawSalary.match(/\d+.\d+/);
-    console.log("CLEAN SALRY", cleanSalary);
     return parseInt(cleanSalary[0]);
   }
 
-//  \d+,\d+.\d+
-    console.log("CONFIG", config);
-
-    console.log("salary", salary);
-
     try {
       const salarySetSelected = findSalaryRange(gender, age, sector);
-      const comparisonGender = gender === 'women' ? 'men' : 'women';
+      const comparisonGender = gender === 'woman' ? 'man' : 'woman';
       const salarySetComparison = findSalaryRange(comparisonGender, age, sector);
       const selectedDecile = findSalaryDecile(salary, salarySetSelected);
       const comparisonSalary = findComparisionDecile(selectedDecile, salarySetComparison);
       const ratio = getRatio(selectedDecile.salary, comparisonSalary);
 
       const swappedSalary = outputSwappedSalary(salary, ratio);
-      console.log(ratio);
+      console.log("RATIO", ratio);
       console.log("Output Salary", swappedSalary);
+      return swappedSalary;
 
     } catch (err) {
       console.log("ERROR", err)
     };
 
   function findSalaryRange(gender, age, sector) {
-    const dataSource = gender === 'women' ? womenPay : menPay;
+    const dataSource = gender === 'woman' ? womenPay : menPay;
 
     const sectorSelected = dataSource.filter(row => row.role === sector);
 
@@ -54,7 +48,6 @@ async function calculator(config) {
   };
 
   function findSalaryDecile(salary, salarySet) {
-    console.log("salaryset", salarySet);
     let matchingCategory;
     const keys = Object.keys(salarySet);
     const percentGroups = keys.filter(x => x.includes('percent'));
@@ -80,7 +73,6 @@ async function calculator(config) {
   };
 
   function findComparisionDecile(decileToGet, salarySet) {
-    console.log("Decile", decileToGet);
     const decileKey = decileToGet.group;
     return salarySet[decileKey];
   };
