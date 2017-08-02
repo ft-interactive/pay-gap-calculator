@@ -1,94 +1,61 @@
 import 'babel-polyfill';
-
 import './styles.scss';
 
 import * as d3 from 'd3';
-import women from './data/women.csv';
-import men from './data/men.csv'
 
-const womenPay = d3.csvParse(women);
-const menPay = d3.csvParse(men);
-
-async function app(gender, age, sector, salary) {
-
-  function findSalaryRange(gender, age, sector){
-    const dataSource = gender === 'women' ? womenPay : menPay;
-
-    const sectorSelected = dataSource.filter( row => row.role === sector);
-
-    const ageSectorSelected = sectorSelected.filter( row => {
-      const [lowestAge, highestAge] = row.age.split("-");
-      return age <= highestAge && age >= lowestAge;
-    })
-    const selected = {...ageSectorSelected[0]};
-    return selected;
-  };
-
-  function findSalaryDecile(salary, salarySet){
-    const keys = Object.keys(salarySet);
-    const percentGroups = keys.filter(x => x.includes('percent'));
-
-    const salarySetNum = percentGroups.reduce((acc, curr, index) => {
-      const salaryAsNum = parseInt(salarySet[curr]);
-      acc[index] = {
-                    group: curr,
-                    salary: salaryAsNum,
-                  };
-      return acc;
-    }, []);
-
-    const salaryDecilesDesc = salarySetNum.sort((a, b) => {
-      return b.salary > a.salary;
-    });
-
-    let matchingCategory;
-    for(let i=0; i < salaryDecilesDesc.length; i++ ){
-      if(salary > salaryDecilesDesc[i].salary){
-        matchingCategory = salaryDecilesDesc[i];
-        return matchingCategory;
-      }
-    };
-    return matchingCategory;
-  };
-
-  function findComparisionDecile(decileToGet, salarySet){
-    const decileKey = decileToGet.group;
-    return salarySet[decileKey];
-  };
+import {calculator} from './components/calculator.js';
+import {makeOutputPanel} from './components/output-panel.js';
 
 
-  function getRatio(selectedSalary, comparisionSalary){
-    console.log("Selected", selectedSalary);
-    console.log("comparision", comparisionSalary);
-    return selectedSalary / comparisionSalary;
-  };
+const state = new Map;
 
-  function outputSwappedSalary(salary, ratio){
-    // if ratio is > 1 user salary will be brought down, if ratio < 1, salary will go up
-      return salary / ratio;
-  }
+const dispatch = d3.dispatch("updateState", "compute");
 
-  try {
-    const salarySetSelected = findSalaryRange(gender, age, sector);
-    const comparisonGender = gender === 'women' ? 'men' : 'women';
-    const salarySetComparison = findSalaryRange(comparisonGender, age, sector);
-    console.log("COMPARISON SET", salarySetComparison)
-    const selectedDecile = findSalaryDecile(salary, salarySetSelected);
-    console.log("Selected decile", selectedDecile);
-    const comparisonSalary = findComparisionDecile(selectedDecile, salarySetComparison );
-    const ratio = getRatio(selectedDecile.salary, comparisonSalary);
+dispatch.on("updateState", function (o){
+  const key = Object.keys(o)[0];
+  const value = Object.values(o)[0];
+  state.set(key, value);
+  console.log(`STATE IS NOW:`, state);
+});
 
-    const swappedSalary = outputSwappedSalary(salary, ratio);
-    console.log(ratio);
-    console.log("Output Salary", swappedSalary);
+dispatch.on("compute", async function(config){
+  const outputData = await calculator(config);
+  console.log("HERE IS OUTPUT DATA", outputData);
+});
 
-  }
-  catch(err){ console.log("ERROR", err) };
+const output = makeOutputPanel();
 
-};
+// listener on gender buttons
+const genderButtons = d3.selectAll(".input-gender");
+genderButtons.on("click", function(){
+  dispatch.call("updateState", this, {gender: this.getAttribute('data')} );
+})
 
-app('women', 32, 'Business, media and public service professionals', 40000);
+const ageInput = d3.select(".input-age");
+ageInput.on("change", function(){
+  dispatch.call("updateState", this, {age: this.value} );
+})
 
-export {
-  app
-};
+const salaryInput = d3.select(".input-salary");
+salaryInput.on("change", function(){
+  dispatch.call("updateState", this, {salary: this.value} );
+})
+
+const sectorInput = d3.selectAll('.input-sector');
+sectorInput.on("click", function(){
+  dispatch.call("updateState", this, {sector: this.getAttribute('data')} );
+})
+
+// run compute function and generate output
+const computeButton = d3.select('.input-compute');
+computeButton.on("click", function(){
+  dispatch.call("compute", this, state)
+})
+
+// writer on outputPanel
+const outputContainer = d3.select('.output-container');
+
+//
+// const config = { gender: 'women', age: 32, sector:'Business, media and public service professionals', salary: 40000 }
+//
+// calculator(config);
