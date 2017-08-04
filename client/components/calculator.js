@@ -28,7 +28,7 @@ async function calculator(config) {
       const swappedSalary = outputSwappedSalary(salary, ratio);
       console.log("RATIO", ratio);
       console.log("Output Salary", swappedSalary);
-      return swappedSalary;
+      return { swappedSalary, ratio, salary }
 
     } catch (err) {
       console.log("ERROR", err)

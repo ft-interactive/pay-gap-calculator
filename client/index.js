@@ -4,11 +4,11 @@ import './styles.scss';
 import * as d3 from 'd3';
 
 import {calculator} from './components/calculator.js';
-import {makeOutputPanel} from './components/output-panel.js';
+import {getSectors} from '../components/sectors.js';
 
 
 const state = new Map;
-
+const outputContainer = d3.select('.output-container');
 const dispatch = d3.dispatch("updateState", "compute");
 
 dispatch.on("updateState", function (o){
@@ -20,10 +20,21 @@ dispatch.on("updateState", function (o){
 
 dispatch.on("compute", async function(config){
   const outputData = await calculator(config);
-  console.log("HERE IS OUTPUT DATA", outputData);
+  fillOutput(outputContainer, outputData);
 });
 
-const output = makeOutputPanel();
+// const output = makeOutputPanel();
+// console.log(output);
+
+function fillOutput(element, data ){
+  const cleanSalary = data.swappedSalary.toFixed(2);
+  const cleanWeekly = (cleanSalary / 52).toFixed(2);
+  const cleanDaily = (cleanSalary / 365).toFixed(2);
+  element.select('.output-yearly-salary').text(`£${cleanSalary.toLocaleString("en")}`);
+  element.select('.output-weekly-salary-salary').text(`£${cleanSalary.toLocaleString("en")}`);
+  element.select('.output-yearly-salary').text(`£${cleanSalary.toLocaleString("en")}`);
+
+}
 
 // listener on gender buttons
 const genderButtons = d3.selectAll(".input-gender");
@@ -51,11 +62,3 @@ const computeButton = d3.select('.input-compute');
 computeButton.on("click", function(){
   dispatch.call("compute", this, state)
 })
-
-// writer on outputPanel
-const outputContainer = d3.select('.output-container');
-
-//
-// const config = { gender: 'women', age: 32, sector:'Business, media and public service professionals', salary: 40000 }
-//
-// calculator(config);
