@@ -3,13 +3,33 @@ import './styles.scss';
 
 import * as d3 from 'd3';
 
-import {calculator} from './components/calculator.js';
-import {getSectors} from '../components/sectors.js';
+import {calculator} from './components/calculator';
+import {roles, mainRoles} from './components/sectors';
 
 
 const state = new Map;
 const outputContainer = d3.select('.output-container');
 const dispatch = d3.dispatch("updateState", "compute");
+
+
+//generate sector list
+function generateSectorList(){
+  const sectors = roles;
+  const mainSectors = mainRoles;
+  const sectorList = d3.select('.input-sector-list');
+  sectors.forEach(sector => {
+    sectorList.append('li')
+    .attr('class', "input-sector")
+    .attr('data', sector)
+    .text(sector)
+    .classed("main-category", function(){
+      return mainSectors.has(sector);
+    });
+  });
+}
+
+// add generated list of roles
+generateSectorList();
 
 dispatch.on("updateState", function (o){
   const key = Object.keys(o)[0];
@@ -23,16 +43,18 @@ dispatch.on("compute", async function(config){
   fillOutput(outputContainer, outputData);
 });
 
-// const output = makeOutputPanel();
-// console.log(output);
-
 function fillOutput(element, data ){
-  const cleanSalary = data.swappedSalary.toFixed(2);
-  const cleanWeekly = (cleanSalary / 52).toFixed(2);
-  const cleanDaily = (cleanSalary / 365).toFixed(2);
-  element.select('.output-yearly-salary').text(`£${cleanSalary.toLocaleString("en")}`);
-  element.select('.output-weekly-salary-salary').text(`£${cleanSalary.toLocaleString("en")}`);
-  element.select('.output-yearly-salary').text(`£${cleanSalary.toLocaleString("en")}`);
+  const cleanSalary = parseInt(data.swappedSalary).toLocaleString();
+  console.log("TYPE", typeof cleanSalary)
+  const salaryDifference = data.swappedSalary - data.salary;
+  const cleanWeekly = (salaryDifference / 52).toFixed(2);
+  const cleanDaily = (salaryDifference / 365).toFixed(2);
+
+  const comparatorWord = salaryDifference > 0 ? 'more' : 'less';
+
+  element.select('.output-yearly-salary').text(`£${cleanSalary}`);
+  element.select('.output-weekly-salary').text(`£${cleanWeekly} ${comparatorWord}`);
+  element.select('.output-daily-salary').text(`£${cleanDaily} ${comparatorWord}`);
 
 }
 

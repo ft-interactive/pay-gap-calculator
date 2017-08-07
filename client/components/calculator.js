@@ -22,9 +22,9 @@ async function calculator(config) {
       const comparisonGender = gender === 'woman' ? 'man' : 'woman';
       const salarySetComparison = findSalaryRange(comparisonGender, age, sector);
       const selectedDecile = findSalaryDecile(salary, salarySetSelected);
+      console.log("DECILE", selectedDecile);
       const comparisonSalary = findComparisionDecile(selectedDecile, salarySetComparison);
       const ratio = getRatio(selectedDecile.salary, comparisonSalary);
-
       const swappedSalary = outputSwappedSalary(salary, ratio);
       console.log("RATIO", ratio);
       console.log("Output Salary", swappedSalary);
@@ -36,9 +36,7 @@ async function calculator(config) {
 
   function findSalaryRange(gender, age, sector) {
     const dataSource = gender === 'woman' ? womenPay : menPay;
-
     const sectorSelected = dataSource.filter(row => row.role === sector);
-
     const ageSectorSelected = sectorSelected.filter(row => {
       const [lowestAge, highestAge] = row.age.split("-");
       return age <= highestAge && age >= lowestAge;
@@ -48,11 +46,11 @@ async function calculator(config) {
   };
 
   function findSalaryDecile(salary, salarySet) {
-    let matchingCategory;
+    console.log("SALARYSET", salarySet)
     const keys = Object.keys(salarySet);
-    const percentGroups = keys.filter(x => x.includes('percent'));
-
-    const salarySetNum = percentGroups.reduce((acc, curr, index) => {
+    const payGroups = keys.filter(x => x.includes('percent') || x.includes('median'));
+    //add Median in here
+    const salarySetNum = payGroups.reduce((acc, curr, index) => {
       const salaryAsNum = parseInt(salarySet[curr]);
       acc[index] = {
         group: curr,
@@ -62,15 +60,26 @@ async function calculator(config) {
     }, []);
 
     const salaryDecilesDesc = salarySetNum.sort((a, b) => b.salary - a.salary);
+    const matchingCategory = getMatchingCategory(salary, salaryDecilesDesc);
+    return matchingCategory;
+  };
 
-    for (let i = 0; i < salaryDecilesDesc.length; i++) {
-      if (salary > salaryDecilesDesc[i].salary) {
-        matchingCategory = salaryDecilesDesc[i];
+  function getMatchingCategory(salary, salaryDeciles){
+    let matchingCategory;
+    // REMOVE MEDIAN HERE, unless all % fail 
+    for (let i = 0; i < salaryDeciles.length; i++) {
+      let current = salaryDeciles[i];
+      if (salary > current.salary) {
+        matchingCategory = current;
+        return matchingCategory;
+      }
+      else if(i === (salaryDeciles.length - 1) && (salary < current.salary)){
+        matchingCategory = current;
         return matchingCategory;
       }
     };
-    return matchingCategory;
   };
+
 
   function findComparisionDecile(decileToGet, salarySet) {
     const decileKey = decileToGet.group;
