@@ -43,3 +43,11 @@ main {
 .is-next .hide-falcon {
   display: inherit;
 }
+
+li.input-sector.main-category {
+  font-weight: 700;
+  list-style-type: disc;
+}
+li.input-sector {
+  list-style-type: circle;
+}
