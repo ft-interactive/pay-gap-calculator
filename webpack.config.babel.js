@@ -2,7 +2,8 @@ import 'babel-polyfill';
 import NunjucksWebpackPlugin from 'nunjucks-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-// import ManifestPlugin from 'webpack-manifest-plugin';
+import ImageminWebpackPlugin from 'imagemin-webpack-plugin';
+import { HotModuleReplacementPlugin } from 'webpack';
 import { resolve, extname } from 'path';
 import { readFileSync, writeFileSync } from 'fs';
 import { configure as configureNunjucks } from './views';
@@ -10,43 +11,48 @@ import getContext from './config';
 
 const nunjucksEnv = configureNunjucks();
 
-module.exports = async (env = {}) => ({
+module.exports = async (env = 'development') => ({
   entry: {
-    bundle: ["babel-polyfill", './client/index.js'],
+    bundle: ['babel-polyfill', './client/index.js'],
   },
   resolve: {
     modules: ['node_modules', 'bower_components'],
   },
   output: {
-    filename: env.production ? '[name].[hash].js' : '[name].js',
+    filename: env === 'production' ? '[name].[hash].js' : '[name].js',
     path: resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
+      {
+        test: /\.(txt|csv|tsv|xml)$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'raw-loader',
+        },
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
-            "presets": [
+            presets: [
               [
-                "env",
+                'env',
                 {
-                  "targets": {
-                    "browsers": ["last 2 versions"]
-                  }
-                }
+                  // Via: https://docs.google.com/document/d/1mByh6sT8zI4XRyPKqWVsC2jUfXHZvhshS5SlHErWjXU/view
+                  browsers: [
+                    'last 2 versions',
+                    'ie >= 11',
+                    'safari >= 10',
+                    'ios >= 9',
+                  ],
+                },
               ],
-              "stage-0",
-              "es2015"
-            ]
-          }
+            ],
+          },
         },
-      },
-      {
-        test: /\.(txt|csv)$/,
-        use: 'raw-loader'
       },
       {
         test: /\.(html|njk)$/,
@@ -72,13 +78,17 @@ module.exports = async (env = {}) => ({
       },
     ],
   },
+  devServer: {
+    hot: true,
+    contentBase: resolve(__dirname, 'client'),
+  },
   devtool: 'source-map',
   plugins: [
+    new HotModuleReplacementPlugin(),
     new ExtractTextPlugin({
-      filename: env.production ? '[name].[contenthash].css' : '[name].css',
-      // disable: process.env.NODE_ENV !== 'production',
+      filename: env === 'production' ? '[name].[contenthash].css' : '[name].css',
+      disable: env !== 'production',
     }),
-    // new ManifestPlugin(),
     new NunjucksWebpackPlugin({
       template: [{
         from: resolve(__dirname, 'client/index.html'),
@@ -90,13 +100,14 @@ module.exports = async (env = {}) => ({
     }),
     new CopyWebpackPlugin([
       { from: 'client/components/core/top.css', to: 'top.css' },
-      { from: 'client/data/**/*', to: 'data/' }
+      { from: 'client/images/*.+(jpg|jpeg|svg|png|gif)', to: 'images/', flatten: true },
     ], {
       copyUnmodified: true,
     }),
+    env === 'production' ? new ImageminWebpackPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }) : undefined,
     function revReplace() {
       this.plugin('done', (stats) => {
-        if (!env.production) return; // Only rev in prod
+        if (env !== 'production') return; // Only rev in prod
 
         const items = stats.toJson().assetsByChunkName.bundle.reduce((col, item) => {
           if (extname(item) === '.map') return col;
@@ -110,5 +121,5 @@ module.exports = async (env = {}) => ({
         writeFileSync(resolve(__dirname, 'dist', 'index.html'), html, { encoding: 'utf-8' });
       });
     },
-  ],
+  ].filter(i => i),
 });
