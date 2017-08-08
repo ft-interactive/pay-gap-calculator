@@ -44,6 +44,14 @@ main {
   display: inherit;
 }
 
+.output-container span[class^='output']{
+  background-color: red;
+  color: white;
+}
+
+.input-container div {
+  margin: .5em 0;
+}
 li.input-sector.main-category {
   font-weight: 700;
   list-style-type: disc;

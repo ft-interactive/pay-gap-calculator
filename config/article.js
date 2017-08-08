@@ -11,7 +11,7 @@ export default () => ({ // eslint-disable-line
   //       new Date('2016-05-17T17:11:22Z')
   publishedDate: new Date(),
 
-  headline: 'Genderswap your salary: how much would you earn if you were a man',
+  headline: 'Genderswap your salary',
 
   // summary === standfirst (Summary is what the content API calls it)
   summary: 'How much could you spend on lunch if you were a man?',
