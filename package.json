@@ -77,6 +77,7 @@
   },
   "dependencies": {
     "babel-loader": "^7.1.1",
+    "d3": "^4.10.0",
     "webpack": "^3.3.0"
   }
 }
