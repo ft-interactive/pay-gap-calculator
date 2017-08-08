@@ -50,4 +50,8 @@ li.input-sector.main-category {
 }
 li.input-sector {
   list-style-type: circle;
+  cursor: pointer;
+}
+li.input-sector.selected{
+  background-color: #1AECFF;
 }

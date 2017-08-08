@@ -76,6 +76,9 @@ salaryInput.on("change", function(){
 
 const sectorInput = d3.selectAll('.input-sector');
 sectorInput.on("click", function(){
+  const prevSelectedEl = document.querySelector('.input-sector.selected');
+  if(prevSelectedEl){ prevSelectedEl.classList.remove("selected"); }
+  this.classList.add("selected");
   dispatch.call("updateState", this, {sector: this.getAttribute('data')} );
 })
 
