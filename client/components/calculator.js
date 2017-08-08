@@ -12,27 +12,28 @@ async function calculator(config) {
   let sector = config.get("sector");
   let salary = cleanSalary(config.get("salary"));
 
+  try {
+    const salarySetSelected = findSalaryRange(gender, age, sector);
+    const comparisonGender = gender === 'woman' ? 'man' : 'woman';
+    const salarySetComparison = findSalaryRange(comparisonGender, age, sector);
+    const selectedDecile = findSalaryDecile(salary, salarySetSelected);
+    console.log("DECILE", selectedDecile);
+    const comparisonSalary = findComparisionDecile(selectedDecile, salarySetComparison);
+    const ratio = getRatio(selectedDecile.salary, comparisonSalary);
+    const swappedSalary = outputSwappedSalary(salary, ratio);
+    console.log("RATIO", ratio);
+    console.log("Output Salary", swappedSalary);
+    return { swappedSalary, ratio, salary };
+
+  } catch (err) {
+    console.log("ERROR", err)
+  };
+
+
   function cleanSalary(rawSalary){
     const cleanSalary = rawSalary.match(/\d+.\d+/);
     return parseInt(cleanSalary[0]);
   }
-
-    try {
-      const salarySetSelected = findSalaryRange(gender, age, sector);
-      const comparisonGender = gender === 'woman' ? 'man' : 'woman';
-      const salarySetComparison = findSalaryRange(comparisonGender, age, sector);
-      const selectedDecile = findSalaryDecile(salary, salarySetSelected);
-      console.log("DECILE", selectedDecile);
-      const comparisonSalary = findComparisionDecile(selectedDecile, salarySetComparison);
-      const ratio = getRatio(selectedDecile.salary, comparisonSalary);
-      const swappedSalary = outputSwappedSalary(salary, ratio);
-      console.log("RATIO", ratio);
-      console.log("Output Salary", swappedSalary);
-      return { swappedSalary, ratio, salary }
-
-    } catch (err) {
-      console.log("ERROR", err)
-    };
 
   function findSalaryRange(gender, age, sector) {
     const dataSource = gender === 'woman' ? womenPay : menPay;
@@ -48,8 +49,8 @@ async function calculator(config) {
   function findSalaryDecile(salary, salarySet) {
     console.log("SALARYSET", salarySet)
     const keys = Object.keys(salarySet);
-    const payGroups = keys.filter(x => x.includes('percent') || x.includes('median'));
-    //add Median in here
+    const payGroups = keys.filter(x => x.includes('percent'));
+
     const salarySetNum = payGroups.reduce((acc, curr, index) => {
       const salaryAsNum = parseInt(salarySet[curr]);
       acc[index] = {
@@ -59,23 +60,23 @@ async function calculator(config) {
       return acc;
     }, []);
 
+    const salaryMedian = {group: 'medianPay', salary: parseInt(salarySet.medianPay)};
+
     const salaryDecilesDesc = salarySetNum.sort((a, b) => b.salary - a.salary);
-    const matchingCategory = getMatchingCategory(salary, salaryDecilesDesc);
+    const matchingCategory = getMatchingCategory(salary, salaryDecilesDesc, salaryMedian);
     return matchingCategory;
   };
 
-  function getMatchingCategory(salary, salaryDeciles){
-    let matchingCategory;
-    // REMOVE MEDIAN HERE, unless all % fail 
+  function getMatchingCategory(salary, salaryDeciles, median){
     for (let i = 0; i < salaryDeciles.length; i++) {
       let current = salaryDeciles[i];
+
       if (salary > current.salary) {
-        matchingCategory = current;
-        return matchingCategory;
+        return current;
       }
-      else if(i === (salaryDeciles.length - 1) && (salary < current.salary)){
-        matchingCategory = current;
-        return matchingCategory;
+      else if(i === (salaryDeciles.length - 1)){
+        if(salary < current.salary){ return current }
+        else { return median }
       }
     };
   };
