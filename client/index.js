@@ -64,9 +64,9 @@ genderButtons.on("click", function(){
   dispatch.call("updateState", this, {gender: this.getAttribute('data')} );
 })
 
-const ageInput = d3.select(".input-age");
-ageInput.on("change", function(){
-  dispatch.call("updateState", this, {age: this.value} );
+const ageInput = d3.selectAll(".input-age");
+ageInput.on("click", function(){
+  dispatch.call("updateState", this, {age: this.getAttribute('data')} );
 })
 
 const salaryInput = d3.select(".input-salary");
