@@ -51,6 +51,30 @@ label {
   margin: .2em 0;
 }
 
+.input-container .input-box-gender{
+  display: flex;
+  max-width: 500px;
+}
+
+.input-container .icon-option {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 7em;
+  background-color: teal;
+  margin-right: .2em;
+}
+.input-container .icon-option div.icon-content{
+  flex: 0 1 auto;
+}
+
+.input-container .icon-option span {
+  text-transform: uppercase;
+  color: white;
+  font-weight: 500;
+}
+
 .input-container .input-box-age div{
   display: block
 }
