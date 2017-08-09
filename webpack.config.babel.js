@@ -87,7 +87,6 @@ module.exports = async (env = 'development') => ({
     new HotModuleReplacementPlugin(),
     new ExtractTextPlugin({
       filename: env === 'production' ? '[name].[contenthash].css' : '[name].css',
-      disable: env !== 'production',
     }),
     new NunjucksWebpackPlugin({
       template: [{
