@@ -69,7 +69,7 @@
     "check-accessibility:preview": "pa11y --threshold 100 $(ft-graphics-deploy --preview --get-commit-url)",
     "clean": "rm -rf dist",
     "deploy": "ft-graphics-deploy --assets-prefix=https://ig.ft.com/v2/__assets/",
-    "postinstall": "bower install --allow-root",
+    "postinstall": "bower install",
     "prebuild": "npm run clean",
     "pretest": "npm run build",
     "qa": "mocha ./test/**/*.spec.js",
