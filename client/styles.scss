@@ -1,7 +1,9 @@
 $o-buttons-is-silent: false;
 $o-grid-is-silent: false;
+$o-forms-is-silent: false;
 
 @import 'o-colors/main';
 @import 'o-grid/main';
 @import 'components/core/main';
 @import 'o-buttons/main';
+@import 'o-forms/main';

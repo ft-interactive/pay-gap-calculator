@@ -6,14 +6,23 @@
   <div class="gap-calculator">
     <div class="input-container">
       <div class="input-box-gender">
-        <button class="input-gender o-buttons o-buttons--primary" data="woman">Woman</button>
-        <button class="input-gender o-buttons o-buttons--primary" data="man">Man</button>
+        <div class="input-gender icon-option" data="woman">
+          <div class="icon-content">
+            <img src="">
+            <span>Woman</span>
+          </div>
+        </div>
+        <div class="input-gender icon-option" data="man">
+          <div class="icon-content">
+            <img src="" >
+            <span>Man</span>
+          </div>
+        </div>
       </div>
 
       <div class="input-box-age">
         <label>Choose an age</label>
         <div>
-          <button class="input-age o-buttons" data="18">18-21</button>
           <button class="input-age o-buttons" data="22">22-29</button>
           <button class="input-age o-buttons" data="30">30-39</button>
           <button class="input-age o-buttons" data="40">40-49</button>
@@ -24,17 +33,17 @@
 
       <div class="input-box-salary">
         <label>Enter a salary</label>
-        <input type="salary" placeholder="e.g. 20,000 or 45,000" class="input-salary" />
+        <small class="o-forms__additional-info">Salary per year, before tax</small>
+        <input type="salary" placeholder="e.g. 20,000 or 45,000" class="input-salary o-forms__text" />
       </div>
 
       <div class="input-box-sector">
-        <label>Select a job type:</label>
         <ul class="input-sector-list">
         </ul>
       </div>
 
       <div class="input-box-compute">
-        <button class="input-compute o-buttons o-buttons--primary o-buttons--big">Calculate</button>
+        <button class="input-compute o-buttons o-buttons--primary o-buttons--big">Reveal the pay gap</button>
       </div>
     </div>
 
