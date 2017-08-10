@@ -6,22 +6,27 @@
   <div class="gap-calculator">
     <div class="input-container">
       <div class="input-box-gender">
-        <div class="input-gender icon-option" data="woman">
-          <div class="icon-content">
-            <img src="">
-            <span>Woman</span>
+        <hr>
+        <label>1. Are you a woman or a man?</label>
+        <div>
+          <div class="input-gender icon-option" data="woman">
+            <div class="icon-content">
+              <img src="components/core/women-headshot.svg" alt="woman icon" width="50px">
+              <span>Woman</span>
+            </div>
           </div>
-        </div>
-        <div class="input-gender icon-option" data="man">
-          <div class="icon-content">
-            <img src="" >
-            <span>Man</span>
+          <div class="input-gender icon-option" data="man" >
+            <div class="icon-content">
+              <img src="components/core/man-headshot.svg" alt="man icon" width="50px">
+              <span>Man</span>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="input-box-age">
-        <label>Choose an age</label>
+        <hr>
+        <label>2. What age are you?</label>
         <div>
           <button class="input-age o-buttons" data="22">22-29</button>
           <button class="input-age o-buttons" data="30">30-39</button>
@@ -32,12 +37,15 @@
       </div>
 
       <div class="input-box-salary">
-        <label>Enter a salary</label>
+        <hr>
+        <label>3. Enter your salary</label>
         <small class="o-forms__additional-info">Salary per year, before tax</small>
         <input type="salary" placeholder="e.g. 20,000 or 45,000" class="input-salary o-forms__text" />
       </div>
 
       <div class="input-box-sector">
+        <hr>
+        <label>4. Choose which sector your job is in:</label>
         <ul class="input-sector-list">
         </ul>
       </div>

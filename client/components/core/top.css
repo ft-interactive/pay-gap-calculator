@@ -51,9 +51,16 @@ label {
   margin: .2em 0;
 }
 
-.input-container .input-box-gender{
+/* ALL INPUT BOXES */
+.input-container div[class^='input-box']{
+  width: 100%;
+}
+
+/* GENDER INPUT */
+.input-container .input-box-gender div{
   display: flex;
-  max-width: 500px;
+  align-items: center;
+  max-width: 300px;
 }
 
 .input-container .icon-option {
@@ -67,14 +74,20 @@ label {
 }
 .input-container .icon-option div.icon-content{
   flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
 }
 
 .input-container .icon-option span {
   text-transform: uppercase;
   color: white;
   font-weight: 500;
+  margin-top: .4em;
 }
 
+/* AGE INPUT */
 .input-container .input-box-age div{
   display: block
 }
