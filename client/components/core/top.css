@@ -5,7 +5,7 @@ html {
 
 html,
 body {
-  background-color: #fff1e0;
+  background-color: #fff1e5;
   font-family: MetricWeb, sans-serif;
   margin:0;
   padding:0;
@@ -56,22 +56,39 @@ label {
   width: 100%;
 }
 
-/* GENDER INPUT */
-.input-container .input-box-gender div{
-  display: flex;
-  align-items: center;
-  max-width: 300px;
+/* WIDE BUTTONS */
+.input-compute, .see-more {
+  width: 100%;
 }
 
+/* GENDER INPUT */
+.input-container .input-box-gender > div{
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+}
 .input-container .icon-option {
   flex: 1 1 auto;
   display: flex;
   justify-content: center;
   width: 50%;
   height: 7em;
-  background-color: teal;
+  background-color: gray;
   margin-right: .2em;
 }
+.input-container .input-box-gender .or-box {
+  border: 1px solid black;
+  background-color: white;
+  width: 1.2em;
+  padding: 0 1.2%;
+  position: absolute;
+  top: 5em;
+  left: 47%;
+}
+.input-container .icon-option.selected {
+  background-color: #14bdcc;
+}
+
 .input-container .icon-option div.icon-content{
   flex: 0 1 auto;
   display: flex;
@@ -94,12 +111,25 @@ label {
 .input-container .input-box-age button{
   margin: .2em .3em;
 }
+.input-container .input-box-age button.selected{
+  background-color: #1AECFF;
+}
 .input-container div {
   margin: .5em 0;
 }
+
+/* SECTOR INPUT */
+.input-container ul.input-sector-list{
+  padding-left: 0px;
+}
+.input-container ul.input-sector-list li{
+  font-family: MetricWeb,sans-serif;
+  padding: .2em 0;
+}
 li.input-sector.main-category {
-  font-weight: 700;
-  list-style-type: disc;
+  font-weight: 500;
+  list-style-type: none;
+  color: #08474d;
 }
 li.input-sector {
   list-style-type: circle;
@@ -108,6 +138,7 @@ li.input-sector {
 li.input-sector.selected{
   background-color: #1AECFF;
 }
+
 
 /* OUTPUT BOX */
 .output-container span[class^='output']{
