@@ -4,16 +4,18 @@ import './styles.scss';
 import * as d3 from 'd3';
 
 import {calculator} from './components/calculator';
-import {roles, mainRoles} from './components/sectors';
+import {roles, mainRoles, groupedRoles} from './components/sectors';
 
 const mainSectors = Array.from(mainRoles);
 const sectors = Array.from(roles);
 
-const state = new Map;
 const outputContainer = d3.select('.output-container');
-const sectorUl = d3.select('ul.input-sector-list');
+const sectorDiv = d3.select('div.input-sector-list');
 const dispatch = d3.dispatch("updateState", "compute", "seeMore");
 
+
+const state = new Map;
+state.set("gender", "woman"); //default state set to women
 
 dispatch.on("updateState", function (o){
   const key = Object.keys(o)[0];
@@ -28,29 +30,51 @@ dispatch.on("compute", async function(config){
 });
 
 dispatch.on("seeMore", function(length){
-  clearSectorList(sectorUl);
-  generateMainSectorList(sectorUl, length);
+  clearSectorList(sectorDiv);
+  generateMainSectorList(sectorDiv, length);
 });
 
 function clearSectorList(sectorList){
-  console.log("IN CLEAR", sectorList.firstChild);
-  //this doesn't work with d3 selection
   sectorList.html("")
-
 }
 
 function generateMainSectorList(sectorList, num){
-  const sectorsToShow = mainSectors.slice(0, num);
-  console.log("sectorList", sectorList);
+  const mainSectorsToShow = mainSectors.slice(0, num);
 
-  sectorsToShow.forEach(sector => {
-    sectorList.append('li')
-    .attr('class', "input-sector main-category")
-    .attr('data', sector)
-    .text(sector)
+  console.log("NOW CHOSEN", mainSectorsToShow);
+
+  mainSectorsToShow.forEach(sector => {
+    const sectionEl = sectorList.attr("class", "o-forms")
+      .append('div')
+      .attr('class', 'input-sector-group')
+
+    sectionEl.append("p")
+      .attr('class', "main-category")
+      .attr('data', sector)
+      .text(sector)
+
+    generateSubSectorList(sectionEl, sector)
   });
-}
+};
 
+function generateSubSectorList(sectionEl, sectorName){
+  const relevantGroup = groupedRoles.filter(group => group.includes(sectorName)).pop();
+
+  relevantGroup.forEach(subSector => {
+    const subSectorJoined = subSector.toLowerCase().replace(/,/, "").split(" ").join("");
+    sectionEl.append("input")
+      .attr("type", "radio")
+      .attr("class", "input-sector sub-category o-forms__radio")
+      .attr("value", subSector)
+      .attr("id", subSectorJoined)
+      .attr("name", "sector-choice")
+
+    sectionEl.append("label")
+      .attr("class", "o-forms__label")
+      .attr("for", subSectorJoined)
+      .text(subSector)
+    });
+};
 
 function fillOutput(element, data ){
   const cleanSalary = parseInt(data.swappedSalary).toLocaleString();
@@ -62,12 +86,12 @@ function fillOutput(element, data ){
   element.select('.output-yearly-salary').text(`£${cleanSalary}`);
   element.select('.output-weekly-salary').text(`£${cleanWeekly} ${comparatorWord}`);
   element.select('.output-daily-salary').text(`£${cleanDaily} ${comparatorWord}`);
-}
+};
 
 function toggleSelection(selectedEl, prevSelectedEl){
   if(prevSelectedEl){ prevSelectedEl.classList.remove("selected"); }
   selectedEl.classList.add("selected");
-}
+};
 
 function formatSalaryInput(input){
   if(input){
@@ -76,10 +100,8 @@ function formatSalaryInput(input){
     const formattedInput = parseInt(cleanInput).toLocaleString();
     inputBox.value = formattedInput;
   }
-  else{
-    return;
-  }
-}
+  else{ return }
+};
 
 // listener on gender buttons
 const genderButtons = d3.selectAll(".input-gender");
@@ -102,11 +124,12 @@ salaryInput.on("keyup", function(){
   dispatch.call("updateState", this, {salary: this.value} );
 })
 
-const sectorInput = d3.selectAll('.input-sector');
-sectorInput.on("click", function(){
-  const prevSelectedEl = document.querySelector('.input-sector.selected');
-  toggleSelection(this, prevSelectedEl);
-  dispatch.call("updateState", this, {sector: this.getAttribute('data')} );
+const sectorForm = d3.select('.input-box-sector .o-forms');
+sectorForm.on("change", function(){
+  const selectedInput = document.querySelector('input[selected=true]');
+  console.log("INPUT IS", selectedInput);
+
+  dispatch.call("updateState", this, {sector: selectedInput.value} );
 })
 
 // run compute function and generate output
@@ -118,13 +141,13 @@ computeButton.on("click", function(){
 // listener on compute button
 const seeMoreButton = d3.select('.see-more');
 seeMoreButton.on("click", function(){
-  let numberShown = document.querySelectorAll('li.input-sector').length;
-  console.log("Number shown", numberShown);
-
-  const numberToShow = numberShown = 4 ? 9 : 4;
+  let numberShown = document.querySelectorAll('.input-sector-group').length;
+  console.log("number shown", numberShown);
+  const numberToShow = (numberShown === 4) ? 9 : 4;
+  console.log("is this happening?" + numberToShow);
   dispatch.call("seeMore", this, numberToShow);
 })
 
 window.onload = function(){
-  generateMainSectorList(sectorUl, 4);
+  generateMainSectorList(sectorDiv, 4);
 }

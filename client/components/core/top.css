@@ -83,7 +83,13 @@ label {
   padding: 0 1.2%;
   position: absolute;
   top: 5em;
-  left: 47%;
+  left: 200px;
+}
+
+@media(max-width: 400px){
+  .input-container .input-box-gender .or-box {
+    left: 47%;
+  }
 }
 .input-container .icon-option.selected {
   background-color: #14bdcc;
@@ -119,14 +125,12 @@ label {
 }
 
 /* SECTOR INPUT */
-.input-container ul.input-sector-list{
-  padding-left: 0px;
-}
-.input-container ul.input-sector-list li{
+
+.input-container div.input-sector-list p{
   font-family: MetricWeb,sans-serif;
   padding: .2em 0;
 }
-li.input-sector.main-category {
+/*li.input-sector.main-category {
   font-weight: 500;
   list-style-type: none;
   color: #08474d;
@@ -137,7 +141,7 @@ li.input-sector {
 }
 li.input-sector.selected{
   background-color: #1AECFF;
-}
+}*/
 
 
 /* OUTPUT BOX */

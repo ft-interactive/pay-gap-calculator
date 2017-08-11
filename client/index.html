@@ -1,74 +1,69 @@
-{% import "macros.html" as macros %}
-{% extends "layout.html" %}
+{% import "macros.html" as macros %} {% extends "layout.html" %} {% block article_body %}
 
-{% block article_body %}
-
-  <div class="gap-calculator">
-    <div class="input-container">
-      <div class="input-box-gender">
-        <hr>
-        <label>1. Are you a woman or a man?</label>
-        <div>
+<div class="gap-calculator">
+  <div class="input-container">
+    <div class="input-box-gender">
+      <hr>
+      <label>1. Are you a woman or a man?</label>
+      <div>
         <div class="or-box">OR</div>
-          <div class="input-gender icon-option" data="woman">
-            <div class="icon-content">
-              <img src="https://s3-eu-west-1.amazonaws.com/ft-ig-images-prod/v1/women-headshot.svg" alt="woman icon" width="50px">
-              <span>Woman</span>
-            </div>
+        <div class="input-gender icon-option selected" data="woman">
+          <div class="icon-content">
+            <img src="https://s3-eu-west-1.amazonaws.com/ft-ig-images-prod/v1/women-headshot.svg" alt="woman icon" width="50px">
+            <span>Woman</span>
           </div>
-          <div class="input-gender icon-option" data="man" >
-            <div class="icon-content">
-              <img src="https://s3-eu-west-1.amazonaws.com/ft-ig-images-prod/v1/man-headshot.svg" alt="man icon" width="50px">
-              <span>Man</span>
-            </div>
+        </div>
+        <div class="input-gender icon-option" data="man">
+          <div class="icon-content">
+            <img src="https://s3-eu-west-1.amazonaws.com/ft-ig-images-prod/v1/man-headshot.svg" alt="man icon" width="50px">
+            <span>Man</span>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="input-box-age">
-        <hr>
-        <label>2. What age are you?</label>
-        <div>
-          <button class="input-age o-buttons" data="22">22-29</button>
-          <button class="input-age o-buttons" data="30">30-39</button>
-          <button class="input-age o-buttons" data="40">40-49</button>
-          <button class="input-age o-buttons" data="50">50-59</button>
-          <button class="input-age o-buttons" data="60">60+</button>
-        </div>
-      </div>
-
-      <div class="input-box-sector">
-        <hr>
-        <label>3. Choose what type of job you have:</label>
-        <ul class="input-sector-list">
-        </ul>
-        <button class="see-more o-buttons o-buttons--big">See more job types</button>
-      </div>
-
-      <div class="input-box-salary">
-        <hr>
-        <label>4. Enter your salary</label>
-        <small class="o-forms__additional-info">£ per year, before tax</small>
-        <input type="salary" placeholder="e.g. 20,000 or 45,000" class="input-salary o-forms__text" />
-      </div>
-
-      <div class="input-box-compute">
-        <button class="input-compute o-buttons o-buttons--primary o-buttons--big">Reveal the pay gap</button>
+    <div class="input-box-age">
+      <hr>
+      <label>2. What age are you?</label>
+      <div>
+        <button class="input-age o-buttons" data="22">22-29</button>
+        <button class="input-age o-buttons" data="30">30-39</button>
+        <button class="input-age o-buttons" data="40">40-49</button>
+        <button class="input-age o-buttons" data="50">50-59</button>
+        <button class="input-age o-buttons" data="60">60+</button>
       </div>
     </div>
 
-    <div class="output-container">
-      <div class="output-box-yearly-salary">
-        <p>Your genderswapped salary is: <span class="output-yearly-salary"></span> per year</p>
+    <div class="input-box-sector">
+      <hr>
+      <label>3. Choose what type of job you have:</label>
+      <div class="input-sector-list">
       </div>
-      <div class="output-box-weekly-salary">
-        <p>That would be <span class="output-weekly-salary"></span> spending money a week - (before tax)</p>
-      </div>
-      <div class="output-box-daily-salary">
-        <p>That would be <span class="output-daily-salary"></span> spending money every day - (before tax)</p>
-      </div>
+      <button class="see-more o-buttons o-buttons--big">See more job types</button>
     </div>
 
+    <div class="input-box-salary">
+      <hr>
+      <label>4. Enter your salary</label>
+      <small class="o-forms__additional-info">£ per year, before tax</small>
+      <input type="salary" placeholder="e.g. 20,000 or 45,000" class="input-salary o-forms__text" />
+    </div>
+
+    <div class="input-box-compute">
+      <button class="input-compute o-buttons o-buttons--primary o-buttons--big">Reveal the pay gap</button>
+    </div>
   </div>
+
+  <div class="output-container">
+    <div class="output-box-yearly-salary">
+      <p>Your genderswapped salary is: <span class="output-yearly-salary"></span> per year</p>
+    </div>
+    <div class="output-box-daily-salary">
+      <p>That would be <span class="output-daily-salary"></span> spending money every day - (before tax)</p>
+    </div>
+  </div>
+  <script src="//origami-build.ft.com/v2/bundles/js?modules=o-forms%404.0.4%3A%2Fdemos%2Fsrc%2Fdemo.js%2Co-fonts%40%5E3%2Co-buttons%40%5E5"></script>
+</div>
+
 
 {% endblock %}

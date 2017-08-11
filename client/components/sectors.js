@@ -16,9 +16,12 @@ function getSectors(){
   const rolesDeduped = new Set(rolesNoNulls);
   const rolesClean = removeSectorsPatchyFemaleSalaryData(rolesDeduped);
   const mainRolesDeduped = new Set(mainRoles);
+  const groupedRoles = groupSubRoles(rolesClean, mainRolesDeduped);
+
   return {
     roles: rolesClean,
     mainRoles: mainRolesDeduped,
+    groupedRoles,
   }
 }
 
@@ -29,7 +32,25 @@ function removeSectorsPatchyFemaleSalaryData(sectorSet){
   return sectorSet;
 }
 
+function groupSubRoles(roles, mainRoles){
+  const rolesArr = Array.from(roles);
+  const mainRolesArr = Array.from(mainRoles);
+
+  return rolesArr.reduce((acc,curr,index) => {
+    if(mainRolesArr.includes(curr)){
+      const arr = [curr];
+      acc.push(arr);
+    }
+    else{
+      const latestObjPos = acc.length;
+      acc[latestObjPos -1].push(curr);
+    }
+    return acc;
+  }, []);
+}
+
 const roles = getSectors().roles;
 const mainRoles = getSectors().mainRoles;
+const groupedRoles = getSectors().groupedRoles;
 
-export {roles, mainRoles};
+export {roles, mainRoles, groupedRoles};
