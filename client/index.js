@@ -5,17 +5,18 @@ import * as d3 from 'd3';
 
 import {calculator} from './components/calculator';
 import {roles, mainRoles, groupedRoles} from './components/sectors';
+import {fillOutput} from './components/fillOutput';
 
 const mainSectors = Array.from(mainRoles);
 const sectors = Array.from(roles);
 
 const outputContainer = d3.select('.output-container');
 const sectorDiv = d3.select('div.input-sector-list');
-const dispatch = d3.dispatch("updateState", "compute", "seeMore");
-
+const dispatch = d3.dispatch("updateState", "compute", "toggleMore");
 
 const state = new Map;
 state.set("gender", "woman"); //default state set to women
+const sectorsToShowDefault = 4;
 
 dispatch.on("updateState", function (o){
   const key = Object.keys(o)[0];
@@ -29,27 +30,26 @@ dispatch.on("compute", async function(config){
   fillOutput(outputContainer, outputData);
 });
 
-dispatch.on("seeMore", function(length){
-  clearSectorList(sectorDiv);
-  generateMainSectorList(sectorDiv, length);
+dispatch.on("toggleMore", function(inputsToChange, titlesToChange){
+  inputsToChange.forEach( input => {
+    input.classList.toggle("hidden")
+  })
+  titlesToChange.forEach(title => {
+    title.classList.toggle("hidden");
+  })
 });
 
-function clearSectorList(sectorList){
-  sectorList.html("")
-}
+function generateMainSectorList(mainSectors, sectorDiv){
 
-function generateMainSectorList(sectorList, num){
-  const mainSectorsToShow = mainSectors.slice(0, num);
-
-  console.log("NOW CHOSEN", mainSectorsToShow);
-
-  mainSectorsToShow.forEach(sector => {
-    const sectionEl = sectorList.attr("class", "o-forms")
+  mainSectors.forEach((sector, index) => {
+    const sectionEl = sectorDiv.attr("class", "o-forms")
       .append('div')
       .attr('class', 'input-sector-group')
+      .classed('hidden', index > 3)
 
     sectionEl.append("p")
       .attr('class', "main-category")
+      .classed('hidden', index > 3)
       .attr('data', sector)
       .text(sector)
 
@@ -70,22 +70,10 @@ function generateSubSectorList(sectionEl, sectorName){
       .attr("name", "sector-choice")
 
     sectionEl.append("label")
-      .attr("class", "o-forms__label")
+      .attr("class", "input-sector o-forms__label")
       .attr("for", subSectorJoined)
       .text(subSector)
     });
-};
-
-function fillOutput(element, data ){
-  const cleanSalary = parseInt(data.swappedSalary).toLocaleString();
-  const salaryDifference = data.swappedSalary - data.salary;
-  const cleanWeekly = (salaryDifference / 52).toFixed(2);
-  const cleanDaily = (salaryDifference / 365).toFixed(2);
-  const comparatorWord = salaryDifference > 0 ? 'more' : 'less';
-
-  element.select('.output-yearly-salary').text(`£${cleanSalary}`);
-  element.select('.output-weekly-salary').text(`£${cleanWeekly} ${comparatorWord}`);
-  element.select('.output-daily-salary').text(`£${cleanDaily} ${comparatorWord}`);
 };
 
 function toggleSelection(selectedEl, prevSelectedEl){
@@ -124,12 +112,12 @@ salaryInput.on("keyup", function(){
   dispatch.call("updateState", this, {salary: this.value} );
 })
 
-const sectorForm = d3.select('.input-box-sector .o-forms');
-sectorForm.on("change", function(){
-  const selectedInput = document.querySelector('input[selected=true]');
-  console.log("INPUT IS", selectedInput);
-
-  dispatch.call("updateState", this, {sector: selectedInput.value} );
+const sectorChoices = d3.select(".input-sector");
+sectorChoices.on("click", function(){
+  console.log("this runs");
+  // const selectedInput = document.querySelector('input[selected=true]');
+  // console.log("INPUT IS", selectedInput);
+  // dispatch.call("updateState", this, {sector: selectedInput.value} );
 })
 
 // run compute function and generate output
@@ -138,16 +126,23 @@ computeButton.on("click", function(){
   dispatch.call("compute", this, state)
 })
 
-// listener on compute button
+// listener on see more button
 const seeMoreButton = d3.select('.see-more');
 seeMoreButton.on("click", function(){
-  let numberShown = document.querySelectorAll('.input-sector-group').length;
-  console.log("number shown", numberShown);
-  const numberToShow = (numberShown === 4) ? 9 : 4;
-  console.log("is this happening?" + numberToShow);
-  dispatch.call("seeMore", this, numberToShow);
-})
+  let inputs = document.querySelectorAll('.input-sector-group');
+  let titles = document.querySelectorAll('.main-category');
+  const inputsToChange = [];
+  inputs.forEach(function(currValue, index){
+    if(index > (sectorsToShowDefault -1)){inputsToChange.push(currValue)}
+  })
+  const titlesToChange = [];
+  titles.forEach(function(currValue, index){
+    if(index > (sectorsToShowDefault -1)){titlesToChange.push(currValue)}
+  })
+  dispatch.call("toggleMore", this, inputsToChange, titlesToChange);
+});
+
 
 window.onload = function(){
-  generateMainSectorList(sectorDiv, 4);
+  generateMainSectorList(mainSectors, sectorDiv);
 }
