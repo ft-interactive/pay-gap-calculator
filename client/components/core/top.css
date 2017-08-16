@@ -50,6 +50,9 @@ label {
   display: block;
   margin: .2em 0;
 }
+.hidden {
+  display: none;
+}
 
 /* ALL INPUT BOXES */
 .input-container div[class^='input-box']{
