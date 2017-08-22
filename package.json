@@ -73,7 +73,7 @@
     "prebuild": "npm run clean",
     "pretest": "npm run build",
     "qa": "mocha ./test/**/*.spec.js",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --hot"
   },
   "dependencies": {
     "babel-loader": "^7.1.1",

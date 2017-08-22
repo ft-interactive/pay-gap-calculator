@@ -6,21 +6,25 @@ import * as d3 from 'd3';
 import {calculator} from './components/calculator';
 import {roles, mainRoles, groupedRoles} from './components/sectors';
 import {fillOutput} from './components/fillOutput';
-import {generateMainSectorList} from './components/generateSectorList';
+import {generateDesktopSectorList, generateMobileSectorList} from './components/generateSectorList';
 import {toggleSelection, formatSalaryInput} from './components/helpers';
 
 const mainSectors = Array.from(mainRoles);
 const sectors = Array.from(roles);
 
+const article = document.querySelector("body main article");
 const outputContainer = d3.select('.output-container');
-const sectorDiv = d3.select('div.input-sector-list');
+const sectorDivDesktop = d3.select('div.sector-desktop-view .input-sector-list');
+const sectorDivMobile = d3.select('div.sector-mobile-view .input-sector-list');
 const genderButtons = d3.selectAll(".input-gender");
 const ageInput = d3.selectAll(".input-age");
 const salaryInput = d3.select(".input-salary");
 const computeButton = d3.select('.input-compute');
 const seeMoreButton = d3.select('.see-more');
+const showAllMobileButton = d3.select('.input-box-sector .see-all');
+const hideAllMobileButton = d3.select('.input-box-sector .sector-back-button');
 
-const dispatch = d3.dispatch("updateState", "compute", "toggleMore", "toggleSubsection");
+const dispatch = d3.dispatch("updateState", "compute", "toggleMore", "toggleSubsection", "hideAllMobile", "showAllMobile");
 
 // DEFAULT CONFIG
 const state = new Map;
@@ -51,10 +55,29 @@ dispatch.on("toggleMore", function(inputsToChange, titlesToChange){
 });
 
 dispatch.on("toggleSubsection", function(selectedSector){
+  console.log("selectedSector", selectedSector)
   const subSectorToToggle = selectedSector.nextSibling;
+  selectedSector.classList.toggle("expanded");
   subSectorToToggle.classList.toggle("hidden");
 });
 
+dispatch.on("showAllMobile", function(){
+  const mobView = document.querySelector('div.sector-mobile-view .o-forms');
+  mobView.classList.remove("hidden");
+  const article = document.querySelector('article');
+  article.classList.add("sector-choice");
+  const backButton = document.querySelector('div.sector-mobile-view .sector-back-button');
+  backButton.classList.remove("hidden");
+});
+
+dispatch.on("hideAllMobile", function(){
+  const mobView = document.querySelector('div.sector-mobile-view .o-forms')
+  mobView.classList.add("hidden");
+  const article = document.querySelector('article');
+  article.classList.remove("sector-choice");
+  const backButton = document.querySelector('div.sector-mobile-view .sector-back-button');
+  backButton.classList.add("hidden");
+});
 
 // ADD EVENT LISTENERS
 genderButtons.on("click", function(){
@@ -74,7 +97,14 @@ salaryInput.on("keyup", function(){
   dispatch.call("updateState", this, {salary: this.value} );
 });
 
-sectorDiv.on("click", function(){
+sectorDivDesktop.on("click", function(){
+  // if main category heading is clicked, show/hide subsection
+  const clicked = d3.event.target;
+  if(clicked.classList.contains("main-category")){
+    const selectedSector = clicked;
+    dispatch.call("toggleSubsection", this, selectedSector);
+  }
+
   // if radio button is selected
   const selectedInput = document.querySelector(".o-forms__radio:checked");
   if(selectedInput !== null){
@@ -82,10 +112,13 @@ sectorDiv.on("click", function(){
   }
 });
 
-sectorDiv.on('click', function(){
-  const selectedSector = d3.event.target;
-  dispatch.call("toggleSubsection", this, selectedSector);
-})
+sectorDivMobile.on("click", function(){
+  // if radio button is selected
+  const selectedInput = document.querySelector(".sector-mobile-view .o-forms__radio:checked");
+  if(selectedInput !== null){
+    dispatch.call("updateState", this, {sector: selectedInput.value} );
+  }
+});
 
 computeButton.on("click", function(){
   dispatch.call("compute", this, state)
@@ -105,8 +138,35 @@ seeMoreButton.on("click", function(){
   dispatch.call("toggleMore", this, inputsToChange, titlesToChange);
 });
 
+showAllMobileButton.on("click", function(){
+  dispatch.call("showAllMobile", this);
+});
 
+hideAllMobileButton.on("click", function(){
+  dispatch.call("hideAllMobile", this);
+});
+
+// catch screen resizes and reapply width classes, nb not an d3 element so using standard event listener
+window.addEventListener("resize", resizeThrottler, false);
+
+// apply some throttling to screen resizing events to reduce load
+let resizeTimeout;
+function resizeThrottler(){
+  if(!resizeTimeout){
+    resizeTimeout = setTimeout(() =>{
+      resizeTimeout = null;
+      actualResizeHandler();
+    }, 66) // 15fps
+  }
+}
+function actualResizeHandler(){
+  const screenWidth = window.innerWidth;
+  if(screenWidth < 400){ article.classList.add('small')}
+  else { article.classList.remove('small')}
+}
 
 window.onload = function(){
-  generateMainSectorList(mainSectors, sectorDiv);
+  actualResizeHandler();
+  generateDesktopSectorList(mainSectors, sectorDivDesktop);
+  generateMobileSectorList(mainSectors, sectorDivMobile);
 }

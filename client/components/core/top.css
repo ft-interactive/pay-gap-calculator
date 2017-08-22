@@ -60,7 +60,7 @@ label {
 }
 
 /* WIDE BUTTONS */
-.input-compute, .see-more {
+.input-compute, .see-more, .see-all {
   width: 100%;
 }
 
@@ -126,26 +126,68 @@ label {
 .input-container div {
   margin: .5em 0;
 }
+p.main-category::after{
+  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-registry);
+  width: 20px;
+  top: 6px;
+  position: relative;
+  display: inline-block;
+}
+p.main-category.expanded::after{
+  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-registry);
+  width: 20px;
+  top: 6px;
+  display: inline-block;
+  position: relative;
+}
 
-/* SECTOR INPUT */
+/* SECTOR ALL */
+.input-box-sector .input-sector-group{
+  cursor: pointer;
+}
+
+/* SECTOR INPUT MOBILE VIEW */
+article.small.sector-choice .article-head,
+article.small.sector-choice .article-body footer,
+article.small.sector-choice .article-body .gap-calculator .output-container,
+article.small.sector-choice .article-body .gap-calculator .input-container > div:not(.input-box-sector) {
+  display:none;
+}
+
+article.small .input-box-sector .sector-desktop-view{
+  display: none;
+}
+article.small .input-box-sector .sector-mobile-view{
+  display: block;
+}
+article.small .input-box-sector .sector-mobile-view .o-forms.hidden{
+  display: none;
+}
+article.small .input-box-sector .sector-mobile-view label:nth-of-type(1){
+  font-weight: 600;
+}
+article.small .input-box-sector .sector-mobile-view .sub-section-box{
+  border-top: solid gray 0.8px;
+}
+article.small .input-box-sector .sector-mobile-view .sector-back-button{
+  font-family: MetricWeb, sans-serif;
+  color: #00757f;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* SECTOR INPUT DESKTOP */
+article .input-box-sector .sector-desktop-view{
+  display: block;
+}
+article .input-box-sector .sector-mobile-view{
+  display: none;
+}
 
 .input-container div.input-sector-list p{
   font-family: MetricWeb,sans-serif;
   padding: .2em 0;
 }
-/*li.input-sector.main-category {
-  font-weight: 500;
-  list-style-type: none;
-  color: #08474d;
-}
-li.input-sector {
-  list-style-type: circle;
-  cursor: pointer;
-}
-li.input-sector.selected{
-  background-color: #1AECFF;
-}*/
-
 
 /* OUTPUT BOX */
 .output-container span[class^='output']{
