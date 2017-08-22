@@ -60,7 +60,7 @@ label {
 }
 
 /* WIDE BUTTONS */
-.input-compute, .see-more {
+.input-compute, .see-more, .see-all {
   width: 100%;
 }
 
@@ -126,26 +126,41 @@ label {
 .input-container div {
   margin: .5em 0;
 }
+p.main-category::after{
+  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-registry);
+  width: 20px;
+  top: 6px;
+  position: relative;
+  display: inline-block;
+}
+p.main-category.expanded::after{
+  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-registry);
+  width: 20px;
+  top: 6px;
+  display: inline-block;
+  position: relative;
+}
 
-/* SECTOR INPUT */
+/* SECTOR INPUT MOBILE VIEW */
+article .input-box-sector .sector-desktop-view{
+  display: none;
+}
+article .input-box-sector .sector-mobile-view{
+  display: block;
+}
+
+/* SECTOR INPUT DESKTOP */
+article.large .input-box-sector .sector-desktop-view{
+  display: block;
+}
+article.large .input-box-sector .sector-mobile-view{
+  display: none;
+}
 
 .input-container div.input-sector-list p{
   font-family: MetricWeb,sans-serif;
   padding: .2em 0;
 }
-/*li.input-sector.main-category {
-  font-weight: 500;
-  list-style-type: none;
-  color: #08474d;
-}
-li.input-sector {
-  list-style-type: circle;
-  cursor: pointer;
-}
-li.input-sector.selected{
-  background-color: #1AECFF;
-}*/
-
 
 /* OUTPUT BOX */
 .output-container span[class^='output']{

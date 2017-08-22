@@ -1,8 +1,8 @@
 import * as d3 from 'd3';
 import {roles, mainRoles, groupedRoles} from './sectors';
 
-function generateMainSectorList(mainSectors, sectorDiv){
 
+function generateSectorList(mainSectors, sectorDiv){
   mainSectors.forEach((sector, index) => {
     const sectionEl = sectorDiv.attr("class", "o-forms")
       .append('div')
@@ -40,4 +40,4 @@ function generateSubSectorList(sectionEl, sectorName){
     });
 }
 
-export{generateMainSectorList};
+export{generateSectorList};
