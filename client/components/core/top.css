@@ -141,19 +141,46 @@ p.main-category.expanded::after{
   position: relative;
 }
 
+/* SECTOR ALL */
+.input-box-sector .input-sector-group{
+  cursor: pointer;
+}
+
 /* SECTOR INPUT MOBILE VIEW */
-article .input-box-sector .sector-desktop-view{
+article.small.sector-choice .article-head,
+article.small.sector-choice .article-body footer,
+article.small.sector-choice .article-body .gap-calculator .output-container,
+article.small.sector-choice .article-body .gap-calculator .input-container > div:not(.input-box-sector) {
+  display:none;
+}
+
+article.small .input-box-sector .sector-desktop-view{
   display: none;
 }
-article .input-box-sector .sector-mobile-view{
+article.small .input-box-sector .sector-mobile-view{
   display: block;
+}
+article.small .input-box-sector .sector-mobile-view .o-forms.hidden{
+  display: none;
+}
+article.small .input-box-sector .sector-mobile-view label:nth-of-type(1){
+  font-weight: 600;
+}
+article.small .input-box-sector .sector-mobile-view .sub-section-box{
+  border-top: solid gray 0.8px;
+}
+article.small .input-box-sector .sector-mobile-view .sector-back-button{
+  font-family: MetricWeb, sans-serif;
+  color: #00757f;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 /* SECTOR INPUT DESKTOP */
-article.large .input-box-sector .sector-desktop-view{
+article .input-box-sector .sector-desktop-view{
   display: block;
 }
-article.large .input-box-sector .sector-mobile-view{
+article .input-box-sector .sector-mobile-view{
   display: none;
 }
 
