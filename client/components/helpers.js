@@ -8,11 +8,20 @@ function toggleSelection(selectedEl, prevSelectedEl){
 function formatSalaryInput(input){
   if(input){
     const inputBox = document.querySelector('.input-salary');
-    const cleanInput = input.replace(/,/, "");
+    const cleanInput = input.split(",").join("");
+    console.log("CLEANDED", cleanInput);
     const formattedInput = parseInt(cleanInput).toLocaleString();
     inputBox.value = formattedInput;
   }
   else{ return }
 };
 
-export{toggleSelection, formatSalaryInput};
+function setElementsToChange(elements, sectorsToShowDefault){
+  let elementsToChange = [];
+  elements.forEach(function(currValue, index){
+    if(index > (sectorsToShowDefault -1)){elementsToChange.push(currValue)}
+  })
+  return elementsToChange;
+}
+
+export{toggleSelection, formatSalaryInput, setElementsToChange};
