@@ -31,9 +31,12 @@ async function calculator(config) {
 
 
   function cleanSalary(rawSalary){
-    const cleanSalary = rawSalary.match(/\d+.\d+/);
-    const noComma = cleanSalary[0].replace(",", "");
-    return parseInt(noComma);
+    if(typeof rawSalary === 'number'){ return rawSalary}
+    else if(typeof rawSalary === 'string'){
+      const noComma = rawSalary.split(",").join("");
+      const cleanSalary = noComma.match(/(\d+)(.\d+)?/);
+      return parseInt(cleanSalary);
+    }
   }
 
   function findSalaryRange(gender, age, sector) {
