@@ -126,6 +126,8 @@ label {
 .input-container div {
   margin: .5em 0;
 }
+
+/* SECTOR ALL */
 p.main-category::after{
   content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-registry);
   width: 20px;
@@ -141,7 +143,7 @@ p.main-category.expanded::after{
   position: relative;
 }
 
-/* SECTOR ALL */
+
 .input-box-sector .input-sector-group{
   cursor: pointer;
 }
@@ -154,6 +156,24 @@ article.small.sector-choice .article-body .gap-calculator .input-container > div
   display:none;
 }
 
+/* when sector choice box is closed, hide its elements */
+article.small div.sector-mobile-view .o-forms,
+article.small div.sector-mobile-view .sector-back-button {
+  display: none;
+}
+
+article.small div.sector-mobile-view .see-all-sectors-text::after{
+  content: 'See job types'
+}
+
+/* when sector choice box is open show its elements */
+article.small.sector-choice div.sector-mobile-view .o-forms,
+article.small.sector-choice div.sector-mobile-view .sector-back-button {
+  display: block;
+}
+article.small.sector-choice div.sector-mobile-view .see-all-sectors-text::after{
+  content: 'Continue with pay gap calculator'
+}
 article.small .input-box-sector .sector-desktop-view{
   display: none;
 }
@@ -183,10 +203,40 @@ article .input-box-sector .sector-desktop-view{
 article .input-box-sector .sector-mobile-view{
   display: none;
 }
-
 .input-container div.input-sector-list p{
   font-family: MetricWeb,sans-serif;
   padding: .2em 0;
+}
+
+.sector-desktop-view .toggle-more-sectors-text::after{
+  content:'See more job types';
+}
+.sector-desktop-view.expanded .toggle-more-sectors-text::after{
+  content:'See fewer job types';
+}
+
+/* SALARY INPUT */
+div.input-salary-time-period div{
+  display: inline-block;
+  margin: 0 .5em;
+}
+div.input-salary-time-period p{
+  display: inline-block;
+  margin: 0;
+}
+.input-salary-container{
+  position: relative;
+  max-width: 380px;
+}
+.input-salary-container span{
+  position: absolute;
+  font-style: italic;
+  color: gray;
+  top: 21px;
+  right: 20px;
+}
+.input-container button.input-salary-time.selected{
+  background-color: #1AECFF;
 }
 
 /* OUTPUT BOX */

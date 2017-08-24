@@ -4,7 +4,7 @@ import {roles, mainRoles, groupedRoles} from './sectors';
 
 function generateMobileSectorList(mainSectors, sectorDiv){
   mainSectors.forEach((sector, index) => {
-    const sectionEl = sectorDiv.attr("class", "o-forms hidden")
+    const sectionEl = sectorDiv.attr("class", "o-forms")
       .append('div')
       .attr('class', 'input-sector-group mobile');
 
