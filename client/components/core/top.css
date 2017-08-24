@@ -60,8 +60,10 @@ label {
 }
 
 /* WIDE BUTTONS */
-.input-compute, .see-more, .see-all {
-  width: 100%;
+@media(max-width:400px){
+  .input-compute, .see-more, .see-all {
+    width: 100%;
+  }
 }
 
 /* GENDER INPUT */
