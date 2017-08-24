@@ -2,7 +2,7 @@
 
 <div class="gap-calculator">
   <div class="input-container">
-    <div class="input-box-gender">
+    <div class="input-box-gender selection-made">
       <hr>
       <label>1. Are you a woman or a man?</label>
       <div>
@@ -20,7 +20,14 @@
           </div>
         </div>
       </div>
+      <!-- <div class="input-feedback">
+        <p>
+          As an average <span class="gender-choice">woman</span> working full-time in the UK you earn <span class="salary-difference-gender">15% less</span>
+          than an average <span class="gender-choice-inverse">man</span>
+        </p>
+      </div> -->
     </div>
+
 
     <div class="input-box-age">
       <hr>
@@ -32,7 +39,18 @@
         <button class="input-age o-buttons" data="50">50-59</button>
         <button class="input-age o-buttons" data="60">60+</button>
       </div>
+      <div class="input-feedback">
+        <p>
+          As an average <span class="gender-choice">woman</span>
+          in their <span class="age-choice"></span>s
+           working full-time in the UK,
+          you will earn <span class="salary-difference-gender-age">15% less</span> than an
+          average <span class="gender-choice-inverse">man</span>  in the same age group
+        </p>
+      </div>
     </div>
+
+
 
     <div class="input-box-sector">
       <hr>
@@ -45,6 +63,14 @@
         <p class="sector-back-button">< Pay gap calculator</p>
         <div class="input-sector-list"></div>
         <button class="see-all o-buttons o-buttons--big"><span class="see-all-sectors-text"></span></button>
+      </div>
+      <div class="input-feedback">
+        <p>
+          As an average <span class="gender-choice">woman</span> in their <span class="age-choice"></span>s
+          working full-time in a <span class="sector-choice">Associate Health Professional</span> role
+          in the UK, you will earn <span class="salary-difference-gender-age-sector">15% less</span>%
+          of what a <span class="gender-choice-inverse">man</span> in the same age group and job type gets.
+        </p>
       </div>
     </div>
 
