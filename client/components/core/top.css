@@ -54,6 +54,25 @@ label {
   display: none;
 }
 
+/* FEEDBACK BOXES */
+.input-container .input-feedback {
+  background-color: #fff;
+  padding: .1em 1.5em .2em 1.5em;
+  font-family: MetricWeb, sans-serif;
+  border-top: 5px solid #14BDCC;
+}
+.input-container .input-feedback p{
+  color: #4D4845;
+  font-family: MetricWeb, sans-serif;
+}
+
+.selection-made .input-feedback{
+  display: block;
+}
+.input-feedback{
+  display: none;
+}
+
 /* ALL INPUT BOXES */
 .input-container div[class^='input-box']{
   width: 100%;
@@ -117,7 +136,7 @@ label {
 
 /* AGE INPUT */
 .input-container .input-box-age div{
-  display: block
+  /*display: block*/
 }
 .input-container .input-box-age button{
   margin: .2em .3em;
@@ -130,21 +149,6 @@ label {
 }
 
 /* SECTOR ALL */
-p.main-category::after{
-  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-registry);
-  width: 20px;
-  top: 6px;
-  position: relative;
-  display: inline-block;
-}
-p.main-category.expanded::after{
-  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-registry);
-  width: 20px;
-  top: 6px;
-  display: inline-block;
-  position: relative;
-}
-
 
 .input-box-sector .input-sector-group{
   cursor: pointer;
@@ -215,6 +219,26 @@ article .input-box-sector .sector-mobile-view{
 }
 .sector-desktop-view.expanded .toggle-more-sectors-text::after{
   content:'See fewer job types';
+}
+
+p.main-category::after{
+  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-registry);
+  width: 20px;
+  top: 6px;
+  position: relative;
+  display: inline-block;
+}
+p.main-category.expanded::after{
+  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-registry);
+  width: 20px;
+  top: 6px;
+  display: inline-block;
+  position: relative;
+}
+article .input-box-sector .sector-desktop-view p.main-category{
+  font-family: MetricWeb, sans-serif;
+  color: #0d7680;
+  font-weight: 500;
 }
 
 /* SALARY INPUT */

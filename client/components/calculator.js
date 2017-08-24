@@ -5,30 +5,49 @@ import men from '../data/men.csv'
 const womenPay = d3.csvParse(women);
 const menPay = d3.csvParse(men);
 
-async function calculator(config) {
+async function calculation(config){
+    let gender = config.get("gender");
+    let age = config.get("age");
+    let sector = config.get("sector");
+    let salary = cleanSalary(config.get("salary"));
 
-  let gender = config.get("gender");
-  let age = config.get("age");
-  let sector = config.get("sector");
-  let salary = cleanSalary(config.get("salary"));
+    try {
+      const salarySetSelected = findSalaryRange(gender, age, sector);
+      const comparisonGender = gender === 'woman' ? 'man' : 'woman';
+      const salarySetComparison = findSalaryRange(comparisonGender, age, sector);
+      const selectedDecile = findSalaryDecile(salary, salarySetSelected);
+      console.log("DECILE", selectedDecile);
+      const comparisonSalary = findComparisionDecile(selectedDecile, salarySetComparison);
+      const ratio = getRatio(selectedDecile.salary, comparisonSalary);
+      const swappedSalary = outputSwappedSalary(salary, ratio);
+      console.log("RATIO", ratio);
+      console.log("Output Salary", swappedSalary);
+      return { swappedSalary, ratio, salary };
 
-  try {
-    const salarySetSelected = findSalaryRange(gender, age, sector);
-    const comparisonGender = gender === 'woman' ? 'man' : 'woman';
-    const salarySetComparison = findSalaryRange(comparisonGender, age, sector);
-    const selectedDecile = findSalaryDecile(salary, salarySetSelected);
-    console.log("DECILE", selectedDecile);
-    const comparisonSalary = findComparisionDecile(selectedDecile, salarySetComparison);
-    const ratio = getRatio(selectedDecile.salary, comparisonSalary);
-    const swappedSalary = outputSwappedSalary(salary, ratio);
-    console.log("RATIO", ratio);
-    console.log("Output Salary", swappedSalary);
-    return { swappedSalary, ratio, salary };
-
-  } catch (err) {
-    console.log("ERROR", err)
+    } catch (err) {
+      console.log("ERROR", err)
+    };
   };
 
+  async function calculationWithoutSalary(config){
+    let gender = config.get("gender");
+    let age = config.get("age");
+    let sector = config.get("sector");
+
+    try {
+      const salarySetSelected = findSalaryRange(gender, age, sector);
+      const comparisonGender = gender === 'woman' ? 'man' : 'woman';
+      const salarySetComparison = findSalaryRange(comparisonGender, age, sector);
+      const medianAgeSector = getMedianForAgeAndSector(salarySetSelected);
+      const comparisonMedianAgeSector = getMedianForAgeAndSector(salarySetComparison);
+      const ratio = getRatio(medianAgeSector, comparisonMedianAgeSector);
+      console.log("RATIO", ratio);
+      return { ratio };
+
+    } catch (err) {
+      console.log("ERROR", err)
+    };
+  }
 
   function cleanSalary(rawSalary){
     if(typeof rawSalary === 'number'){ return rawSalary}
@@ -51,7 +70,6 @@ async function calculator(config) {
   };
 
   function findSalaryDecile(salary, salarySet) {
-    console.log("SALARYSET", salarySet)
     const keys = Object.keys(salarySet);
     const payGroups = keys.filter(x => x.includes('percent'));
 
@@ -85,6 +103,10 @@ async function calculator(config) {
     };
   };
 
+  function getMedianForAgeAndSector(salarySet){
+    console.log("inside getMedianForAgeAndSector", salarySet);
+    return salarySet['medianPay'];
+  };
 
   function findComparisionDecile(decileToGet, salarySet) {
     const decileKey = decileToGet.group;
@@ -100,7 +122,4 @@ async function calculator(config) {
     return salary / ratio;
   }
 
-
-};
-
-export { calculator };
+export { calculation, calculationWithoutSalary };
