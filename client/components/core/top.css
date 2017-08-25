@@ -55,23 +55,59 @@ label {
 }
 
 /* FEEDBACK BOXES */
-.input-container .input-feedback {
-  background-color: #fff;
+.input-container .input-feedback,
+.input-container .data-error-feedback {
   padding: .1em 1.5em .2em 1.5em;
-  font-family: MetricWeb, sans-serif;
-  border-top: 5px solid #14BDCC;
 }
-.input-container .input-feedback p{
+.input-container .input-feedback {
+  border-top: 5px solid #9fe0d9;
+  background-color: #fff;
+}
+.input-container .input-feedback p,
+.input-container .data-error-feedback p {
   color: #4D4845;
   font-family: MetricWeb, sans-serif;
 }
 
-.selection-made .input-feedback{
+article .selection-made .input-feedback{
   display: block;
 }
 .input-feedback{
   display: none;
 }
+.input-feedback span:not(.gender-choice-inverse) {
+  font-weight: bold;
+}
+.input-feedback.sector-selected{
+  background-color: #9fe0d9;
+}
+.input-feedback.sector-selected p{
+  padding: 0;
+}
+
+/* DATA ERROR HANDLING */
+.input-container .data-error-feedback {
+  border-top: 5px solid #CC0000;
+  background-color: #fff;
+}
+article .data-error-feedback {
+  display: none;
+}
+
+article.insufficient-data .data-error-feedback{
+  display: block;
+}
+
+article.insufficient-data div.selection-made.input-box-sector .input-feedback{
+  display: none;
+}
+article.insufficient-data .input-salary{
+  background-color: #CCC1B7;
+}
+article.insufficient-data .input-compute{
+  disabled: true;
+}
+
 
 /* ALL INPUT BOXES */
 .input-container div[class^='input-box']{
@@ -116,7 +152,7 @@ label {
   }
 }
 .input-container .icon-option.selected {
-  background-color: #14bdcc;
+  background-color: #9fe0d9;
 }
 
 .input-container .icon-option div.icon-content{
@@ -135,9 +171,6 @@ label {
 }
 
 /* AGE INPUT */
-.input-container .input-box-age div{
-  /*display: block*/
-}
 .input-container .input-box-age button{
   margin: .2em .3em;
 }
@@ -149,7 +182,6 @@ label {
 }
 
 /* SECTOR ALL */
-
 .input-box-sector .input-sector-group{
   cursor: pointer;
 }
@@ -259,14 +291,50 @@ div.input-salary-time-period p{
   font-style: italic;
   color: gray;
   top: 21px;
-  right: 20px;
+  right: 10px;
 }
 .input-container button.input-salary-time.selected{
   background-color: #1AECFF;
 }
 
+
 /* OUTPUT BOX */
-.output-container span[class^='output']{
-  background-color: red;
-  color: white;
+article.computed .output-container{
+  display: block;
+}
+.output-container {
+  display: none;
+}
+
+article.computed .output-container span[class^='output']{
+  font-family: MetricWeb, sans-serif;
+  display: block;
+  font-size: 45px;
+  font-weight: 500;
+}
+article.computed .output-container {
+  background-color: #9fe0d9;
+  padding: 1.5em 1em;
+}
+article.computed .output-container p{
+  text-align: left;
+}
+article.computed .down-triangle {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 25px solid #fff1e5;
+  position: relative;
+  top: -1.5em;
+  left: 10%;
+}
+
+@media(max-width: 400px){
+  article.computed .down-triangle {
+    left: 46%;
+  }
+  article.computed .output-container p{
+    text-align: center;
+  }
 }

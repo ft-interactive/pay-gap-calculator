@@ -9,6 +9,7 @@ import {toggleSelection, formatSalaryInput, setElementsToChange} from './compone
 import {makeSectorComponents, sectorAddShowHideEvents} from './components/sectors/index';
 
 const article = document.querySelector("body main article");
+
 const outputContainer = d3.select('.output-container');
 const sectorDivDesktop = d3.select('div.sector-desktop-view');
 const sectorDivMobile = d3.select('div.sector-mobile-view');
@@ -43,16 +44,37 @@ dispatch.on("updateState", async function (o){
   console.log(`STATE IS NOW:`, state);
   toggleFeedbackBoxes(state);
   if(state.has("sector") && state.has("age")){
-    const medianRatio = await calculationWithoutSalary(state);
-    console.log("MEDIAN RATIO IN CALC", medianRatio);
-    addFeedbackText(payDifferentialAgeSectorText, (medianRatio.ratio * 100).toFixed(1));
+    const response = await calculationWithoutSalary(state);
+    handleCalculationWithoutSalaryResponse(response);
   }
 });
 
 dispatch.on("compute", async function(config){
   const outputData = await calculation(config);
-  fillOutput(outputContainer, outputData);
+  handleCalculationFull(outputData);
 });
+
+function handleCalculationFull(outputData){
+  article.classList.add("computed");
+  fillOutput(outputContainer, outputData);
+}
+
+// HANDLE INSUFFICIENT DATA ERRORS
+function handleCalculationWithoutSalaryResponse(response){
+  const ratio = response.ratio;
+  console.log("RESPONSE", response.ratio, typeof response.ratio)
+  if(Number.isNaN(ratio)){
+    article.classList.add('insufficient-data');
+    computeButton.attr("disabled", true);
+    return;
+  }
+  else if(typeof ratio === 'number'){
+    addFeedbackText(payDifferentialAgeSectorText, (ratio * 100).toFixed(1));
+    article.classList.remove('insufficient-data');
+    computeButton.attr("disabled", null);
+  }
+}
+
 
 // UPDATE FEEDBACK BOX DISPLAY BASED ON STATE
 function toggleFeedbackBoxes(state){
