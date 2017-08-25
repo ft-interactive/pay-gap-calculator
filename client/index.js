@@ -45,7 +45,7 @@ dispatch.on("updateState", async function (o){
   if(state.has("sector") && state.has("age")){
     const medianRatio = await calculationWithoutSalary(state);
     console.log("MEDIAN RATIO IN CALC", medianRatio);
-    addFeedbackText(payDifferentialAgeSectorText, medianRatio.ratio.toFixed(2));
+    addFeedbackText(payDifferentialAgeSectorText, (medianRatio.ratio * 100).toFixed(1));
   }
 });
 
