@@ -37,14 +37,14 @@
         <button class="input-age o-buttons" data="30">30-39</button>
         <button class="input-age o-buttons" data="40">40-49</button>
         <button class="input-age o-buttons" data="50">50-59</button>
-        <button class="input-age o-buttons" data="60">60+</button>
+        <!-- <button class="input-age o-buttons" data="60">60+</button> -->
       </div>
       <div class="input-feedback">
         <p>
-          As an average <span class="gender-choice">woman</span>
+          An average <span class="gender-choice">woman</span>
           in their <span class="age-choice"></span>s
-           working full-time in the UK,
-          you will earn <span class="salary-difference-gender-age">TBC</span>% than an
+           working full-time will earn
+           <span class="salary-difference-gender-age">TBC</span>% than an
           average <span class="gender-choice-inverse">man</span>  in the same age group
         </p>
       </div>
@@ -63,11 +63,24 @@
         <div class="input-sector-list"></div>
         <button class="see-all o-buttons o-buttons--big"><span class="see-all-sectors-text"></span></button>
       </div>
+      <div class="data-error-feedback">
+        <p>
+          Sorry: there's not enough data on people in their
+          <span class="age-choice"></span>s
+          working in <span class="sector-choice">Associate Health Professional</span> roles to calculate the gender pay gap.
+          Try selecting one of the bolded occupations to get a general view of the pay gap.
+        </p>
+      </div>
+      <div class="input-feedback sector-selected">
+        <p>
+          <span class="sector-choice"></span>
+        </p>
+      </div>
       <div class="input-feedback">
         <p>
-          As an average <span class="gender-choice">woman</span> in their <span class="age-choice"></span>s
+          An average <span class="gender-choice">woman</span> in their <span class="age-choice"></span>s
           working full-time in a <span class="sector-choice">Associate Health Professional</span> role
-          in the UK, you will earn <span class="salary-difference-gender-age-sector"></span>%
+          will earn <span class="salary-difference-gender-age-sector"></span>%
           of what a <span class="gender-choice-inverse">man</span> in the same age group and job type gets.
         </p>
       </div>
@@ -98,11 +111,12 @@
 
 
   <div class="output-container">
+    <div class="down-triangle"></div>
     <div class="output-box-yearly-salary">
-      <p>Your genderswapped salary is: <span class="output-yearly-salary"></span> per year</p>
+      <p>Your genderswapped salary, per year, is: <span class="output-yearly-salary"></span></p>
     </div>
     <div class="output-box-daily-salary">
-      <p>That would be <span class="output-daily-salary"></span> spending money every day - (before tax)</p>
+      <p>giving you <span class="output-daily-salary"></span> spending money every day (before tax)</p>
     </div>
   </div>
   <script src="//origami-build.ft.com/v2/bundles/js?modules=o-forms%404.0.4%3A%2Fdemos%2Fsrc%2Fdemo.js%2Co-fonts%40%5E3%2Co-buttons%40%5E5"></script>
