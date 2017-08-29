@@ -45,8 +45,12 @@ main {
 }
 
 /* CUSTOM CALCULATOR STYLES */
+hr{
+  background-color: #E5D8CE; height: 1px; border: 0;
+}
+
 label {
-  font-weight: 500;
+  font-weight: 600;
   display: block;
   margin: .2em 0;
 }
@@ -60,7 +64,7 @@ label {
   padding: .1em 1.5em .2em 1.5em;
 }
 .input-container .input-feedback {
-  border-top: 5px solid #9fe0d9;
+  border-top: 4px solid #B3D8DC;
   background-color: #fff;
 }
 .input-container .input-feedback p,
@@ -126,24 +130,36 @@ article.insufficient-data .input-compute{
   display: flex;
   align-items: center;
   max-width: 400px;
+  
 }
+
+.input-container .input-box-gender > hr {
+  background-color: #66605C; height: 1px; border: 0;
+}
+
+
+
 .input-container .icon-option {
   flex: 1 1 auto;
   display: flex;
   justify-content: center;
   width: 50%;
   height: 7em;
-  background-color: gray;
-  margin-right: .2em;
+  background-color: #F2E4DA;
 }
 .input-container .input-box-gender .or-box {
-  border: 1px solid black;
   background-color: white;
+  font-size: .9em;
+  line-height: 22px;
+  border-radius: 3px;
   width: 1.2em;
   padding: 0 1.2%;
   position: absolute;
-  top: 5em;
+  top: 6em;
   left: 200px;
+  -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+-moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 }
 
 @media(max-width: 400px){
@@ -152,7 +168,18 @@ article.insufficient-data .input-compute{
   }
 }
 .input-container .icon-option.selected {
-  background-color: #9fe0d9;
+  background-color: #12A5B3;
+  color:white;   
+}
+
+
+.input-container .icon-option.selected span {
+  color:white;
+}
+
+.input-container .icon-option .selected div.icon-content > img {
+   -webkit-filter: grayscale(50%);
+    filter: grayscale(50%);
 }
 
 .input-container .icon-option div.icon-content{
@@ -165,8 +192,9 @@ article.insufficient-data .input-compute{
 
 .input-container .icon-option span {
   text-transform: uppercase;
-  color: white;
-  font-weight: 500;
+  color: #8F857E;
+  font-size: 0.9em;
+  font-weight: 600;
   margin-top: .4em;
 }
 
