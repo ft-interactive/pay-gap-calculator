@@ -9,16 +9,14 @@ const genderText = document.querySelectorAll('.gender-choice');
 const inverseGenderText = document.querySelectorAll('.gender-choice-inverse');
 const ageText = document.querySelectorAll('.age-choice');
 const sectorText = document.querySelectorAll('.sector-choice');
-const payDifferentialAgeText = document.querySelectorAll('.salary-difference-age');
+const payDifferentialAgeText = document.querySelectorAll('.salary-difference-gender-age');
 const payDifferentialAgeSectorText = document.querySelectorAll('.salary-difference-gender-age-sector');
 
 const computeButton = d3.select('.input-compute');
 
-
 // HANDLE INSUFFICIENT DATA ERRORS
-function handleCalculationWithoutSalaryResponse(response){
+function handleCalculationAgeSector(response){
   const ratio = response.ratio;
-  console.log("RESPONSE", response.ratio, typeof response.ratio)
   if(Number.isNaN(ratio)){
     article.classList.add('insufficient-data');
     computeButton.attr("disabled", true);
@@ -29,6 +27,11 @@ function handleCalculationWithoutSalaryResponse(response){
     article.classList.remove('insufficient-data');
     computeButton.attr("disabled", null);
   }
+}
+
+function handleCalculationAge(response){
+  const ratio = response.ratio;
+  addFeedbackText(payDifferentialAgeText, formatPercentageDifference(ratio))
 }
 
 // UPDATE FEEDBACK BOX DISPLAY BASED ON STATE
@@ -75,4 +78,4 @@ function formatPercentageDifference(ratio){
   }
 }
 
-export {handleCalculationWithoutSalaryResponse, toggleFeedbackBoxes};
+export {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes};

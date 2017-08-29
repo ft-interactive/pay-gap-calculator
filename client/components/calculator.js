@@ -1,9 +1,11 @@
 import * as d3 from 'd3';
 import women from '../data/women.csv';
 import men from '../data/men.csv'
+import summary from '../data/median_pay_summary.csv'
 
 const womenPay = d3.csvParse(women);
 const menPay = d3.csvParse(men);
+const summaryPay = d3.csvParse(summary);
 
 async function calculation(config){
     let gender = config.get("gender");
@@ -27,7 +29,7 @@ async function calculation(config){
     };
   };
 
-  async function calculationWithoutSalary(config){
+  async function calculationAgeSector(config){
     let gender = config.get("gender");
     let age = config.get("age");
     let sector = config.get("sector");
@@ -45,6 +47,33 @@ async function calculation(config){
     } catch (err) {
       console.log("ERROR", err)
     };
+  };
+
+  async function calculationAge(config){
+    let gender = config.get("gender");
+    let age = config.get("age");
+
+    try {
+      const salaryAgeSelected = findSalaryAgeGroup(age);
+      const maleSalary = salaryAgeSelected.men;
+      const femaleSalary = salaryAgeSelected.women;
+      const salaryForSelectedGender = gender === 'woman' ? femaleSalary : maleSalary;
+      const salaryForComparisonGender = gender === 'woman' ? maleSalary : femaleSalary;
+      const ratio = getRatio(salaryForSelectedGender, salaryForComparisonGender);
+      console.log("RATIO", ratio);
+      return { ratio };
+
+    } catch (err){
+      console.log('ERROR', err);
+    }
+  }
+
+  function findSalaryAgeGroup(age){
+    const ageSelected = summaryPay.filter(row => {
+      const [lowestAge, highestAge] = row.age.split("-");
+      return age <= highestAge && age >= lowestAge;
+    });
+    return ageSelected[0];
   }
 
   function cleanSalary(rawSalary){
@@ -102,7 +131,6 @@ async function calculation(config){
   };
 
   function getMedianForAgeAndSector(salarySet){
-    console.log("inside getMedianForAgeAndSector", salarySet);
     return salarySet['medianPay'];
   };
 
@@ -120,4 +148,4 @@ async function calculation(config){
     return salary / ratio;
   }
 
-export { calculation, calculationWithoutSalary };
+export { calculation, calculationAgeSector, calculationAge };
