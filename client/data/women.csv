@@ -1,211 +1,205 @@
-role,mainGroup,age,code,medianPay,percent10,percent20,percent25,percent30,percent40,percent60,percent70,percent75,percent80,percent90,,,,,,
-"Managers, directors and senior officials",TRUE,18-21,1,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Corporate managers and directors,,18-21,11,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Other managers and proprietors,,18-21,12,,,,,,,,,,,,,,,,,
-Professional occupations,TRUE,18-21,2,13728,x,x,x,x,x,14754,16586,18320,21050,x,,,,,,
-"Science, research, engineering and technology professionals",,18-21,21,13704,x,x,x,x,x,x,x,x,x,x,,,,,,
-Health professionals,,18-21,22,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Teaching and educational professionals,,18-21,23,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-"Business, media and public service professionals",,18-21,24,19032,x,x,x,x,x,x,x,x,x,x,,,,,,
-Associate professional and technical occupations,TRUE,18-21,3,13972,x,x,x,x,x,16196,17018,18205,18821,21069,,,,,,
-"Science, engineering and technology associate professionals",,18-21,31,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Health and social care associate professionals,,18-21,32,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Protective service occupations,,18-21,33,,,,,,,,,,,,,,,,,
-"Culture, media and sports occupations",,18-21,34,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Business and public service associate professionals,,18-21,35,14303,x,x,x,x,x,16666,17424,18930,x,x,,,,,,
-Administrative and secretarial occupations,TRUE,18-21,4,12864,x,x,7744,8484,10801,14372,15829,16589,17144,19520,,,,,,
-Administrative occupations,,18-21,41,13761,x,x,x,10000,11854,15250,16502,17028,17951,x,,,,,,
-Secretarial and related occupations,,18-21,42,8607,x,x,x,x,x,x,x,x,x,x,,,,,,
-Skilled trades occupations,TRUE,18-21,5,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Skilled agricultural and related trades,,18-21,51,,,,,,,,,,,,,,,,,
-"Skilled metal, electrical and electronic trades",,18-21,52,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Skilled construction and building trades,,18-21,53,,,,,,,,,,,,,,,,,
-"Textiles, printing and other skilled trades",,18-21,54,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-"Caring, leisure and other service occupations",TRUE,18-21,6,10377,x,x,x,x,8537,11505,12693,13431,13973,15811,,,,,,
-Caring personal service occupations,,18-21,61,10666,x,x,x,x,9279,11895,13019,13506,14003,x,,,,,,
-"Leisure, travel and related personal service occupations",,18-21,62,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Sales and customer service occupations,TRUE,18-21,7,6056,x,3361,3749,4183,5037,6912,8364,9219,10418,13719,,,,,,
-Sales occupations,,18-21,71,5788,x,3206,3633,4119,4800,6606,7918,8541,9670,12749,,,,,,
-Customer service occupations,,18-21,72,9062,x,4832,5793,6830,8117,11106,14558,15959,x,x,,,,,,
-"Process, plant and machine operatives",TRUE,18-21,8,12325,x,x,x,x,x,13460,14431,x,15460,x,,,,,,
-"Process, plant and machine operatives",,18-21,81,13021,x,x,x,x,x,14386,15239,x,x,x,,,,,,
-Transport and mobile machine drivers and operatives,,18-21,82,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Elementary occupations,TRUE,18-21,9,5411,x,2517,2996,3508,4297,6781,8422,9568,10444,12936,,,,,,
-Elementary trades and related occupations,,18-21,91,11332,x,x,x,x,x,x,x,x,x,x,,,,,,
-Elementary administration and service occupations,,18-21,92,5351,x,2494,2958,3480,4247,6590,8193,9486,10154,12638,,,,,,
-"Managers, directors and senior officials",TRUE,22-29,1,23937,14103,17288,18466,19376,21457,26723,29266,30417,32986,x,,,,,,
-Corporate managers and directors,,22-29,11,25279,x,17748,18965,19750,22269,27757,30253,32308,x,x,,,,,,
-Other managers and proprietors,,22-29,12,21473,14947,16312,17536,18465,19537,23447,25483,27054,28472,x,,,,,,
-Professional occupations,TRUE,22-29,2,27001,15099,20502,22300,23478,25303,28995,30867,32242,33750,38575,,,,,,
-"Science, research, engineering and technology professionals",,22-29,21,28158,20124,22762,24058,x,25883,30593,33461,x,x,x,,,,,,
-Health professionals,,22-29,22,26693,x,19135,21480,23164,25413,28035,29815,30562,31811,x,,,,,,
-Teaching and educational professionals,,22-29,23,26263,14347,20150,22180,23177,24895,28165,29711,30976,32415,x,,,,,,
-"Business, media and public service professionals",,22-29,24,29028,x,21034,22451,24100,26466,31583,34386,36263,x,x,,,,,,
-Associate professional and technical occupations,TRUE,22-29,3,24345,13410,17725,18857,20196,22182,26453,29081,30578,32105,38365,,,,,,
-"Science, engineering and technology associate professionals",,22-29,31,20941,x,x,x,x,19231,23401,25325,x,x,x,,,,,,
-Health and social care associate professionals,,22-29,32,20321,8944,13883,16285,17867,18770,21683,23656,25214,26297,x,,,,,,
-Protective service occupations,,22-29,33,27863,x,22531,23458,23825,25946,31112,31681,32051,x,x,,,,,,
-"Culture, media and sports occupations",,22-29,34,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Business and public service associate professionals,,22-29,35,25500,15216,18888,20284,21466,23496,28319,30959,32844,34874,41772,,,,,,
-Administrative and secretarial occupations,TRUE,22-29,4,17861,8001,11830,13163,14333,16293,19387,21310,22415,23748,27236,,,,,,
-Administrative occupations,,22-29,41,18399,8620,12410,13992,15160,16828,20000,21824,22739,24050,27401,,,,,,
-Secretarial and related occupations,,22-29,42,15635,x,x,10459,11849,13886,17123,18926,20000,20999,x,,,,,,
-Skilled trades occupations,TRUE,22-29,5,17290,x,13160,13918,14397,16043,20711,21789,22390,x,x,,,,,,
-Skilled agricultural and related trades,,22-29,51,,,,,,,,,,,,,,,,,
-"Skilled metal, electrical and electronic trades",,22-29,52,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Skilled construction and building trades,,22-29,53,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-"Textiles, printing and other skilled trades",,22-29,54,16581,x,13305,13710,14112,14915,17971,20341,21113,x,x,,,,,,
-"Caring, leisure and other service occupations",TRUE,22-29,6,13382,5698,8019,8964,9835,11752,14626,15856,16632,17601,20274,,,,,,
-Caring personal service occupations,,22-29,61,13240,5657,7986,8959,9828,11617,14490,15653,16486,17392,19847,,,,,,
-"Leisure, travel and related personal service occupations",,22-29,62,14056,x,8106,9014,9853,12557,15380,16716,17593,18917,x,,,,,,
-Sales and customer service occupations,TRUE,22-29,7,12150,4753,6527,7380,8237,10015,14502,16410,17421,18613,21979,,,,,,
-Sales occupations,,22-29,71,10462,4284,6030,6607,7407,8838,12578,14780,15906,17000,20544,,,,,,
-Customer service occupations,,22-29,72,16058,x,10168,11475,12470,14626,17620,18989,20001,21223,x,,,,,,
-"Process, plant and machine operatives",TRUE,22-29,8,16034,7774,12055,13244,13781,14912,17124,18698,20048,20663,x,,,,,,
-"Process, plant and machine operatives",,22-29,81,15987,7893,12041,13140,13740,14879,17009,18076,19390,20433,x,,,,,,
-Transport and mobile machine drivers and operatives,,22-29,82,17133,x,x,x,x,x,x,x,x,x,x,,,,,,
-Elementary occupations,TRUE,22-29,9,10400,x,5256,5895,6759,8669,12347,14238,14903,15825,18489,,,,,,
-Elementary trades and related occupations,,22-29,91,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Elementary administration and service occupations,,22-29,92,9876,x,5097,5645,6454,8237,11805,13666,14604,15508,18229,,,,,,
-"Managers, directors and senior officials",TRUE,30-39,1,34139,14192,20091,22825,24419,28759,39351,46147,51028,54977,73574,,,,,,
-Corporate managers and directors,,30-39,11,37036,15133,21854,24226,26712,32045,43733,50958,54476,61131,79994,,,,,,
-Other managers and proprietors,,30-39,12,24827,10779,16581,18000,19633,23014,27364,31129,33200,35411,x,,,,,,
-Professional occupations,TRUE,30-39,2,30411,14074,19256,21221,23359,26924,33863,36935,38806,41045,48112,,,,,,
-"Science, research, engineering and technology professionals",,30-39,21,33364,x,23293,26094,27410,30441,36750,40249,42893,44880,x,,,,,,
-Health professionals,,30-39,22,26952,11932,17141,19196,20611,24202,29560,32911,34668,36248,42383,,,,,,
-Teaching and educational professionals,,30-39,23,32023,13831,18934,21430,23485,27470,35288,37902,39359,40810,45935,,,,,,
-"Business, media and public service professionals",,30-39,24,33125,16310,22086,24168,26370,30548,36337,41006,43930,46517,57291,,,,,,
-Associate professional and technical occupations,TRUE,30-39,3,26560,12868,17690,19502,21021,23713,29728,33348,35471,37993,46150,,,,,,
-"Science, engineering and technology associate professionals",,30-39,31,24493,12641,17204,18394,x,22365,26288,28926,x,x,x,,,,,,
-Health and social care associate professionals,,30-39,32,20303,9110,12473,13558,15200,18082,22275,24057,25240,26279,x,,,,,,
-Protective service occupations,,30-39,33,32549,20884,24707,26053,28427,30610,34867,36887,37562,38920,x,,,,,,
-"Culture, media and sports occupations",,30-39,34,23396,x,11380,15000,16307,20318,25628,28312,30070,31663,x,,,,,,
-Business and public service associate professionals,,30-39,35,28686,14087,18979,20375,22187,25104,32192,36086,39028,41831,52681,,,,,,
-Administrative and secretarial occupations,TRUE,30-39,4,17422,7538,9729,10600,11820,14767,19648,22063,23736,25379,30516,,,,,,
-Administrative occupations,,30-39,41,17923,7742,10000,10935,12318,15401,20032,22311,23924,25500,30200,,,,,,
-Secretarial and related occupations,,30-39,42,15014,7017,8890,9725,10400,12502,17473,20554,22236,24600,x,,,,,,
-Skilled trades occupations,TRUE,30-39,5,16796,7082,10799,12209,13412,15181,18504,20686,22428,24596,x,,,,,,
-Skilled agricultural and related trades,,30-39,51,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-"Skilled metal, electrical and electronic trades",,30-39,52,26464,x,x,x,20464,24127,29789,x,x,x,x,,,,,,
-Skilled construction and building trades,,30-39,53,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-"Textiles, printing and other skilled trades",,30-39,54,15252,6629,9404,10841,12165,14360,16620,18099,18721,20512,x,,,,,,
-"Caring, leisure and other service occupations",TRUE,30-39,6,12274,5594,7627,8316,9156,10719,14053,16016,17338,18544,21956,,,,,,
-Caring personal service occupations,,30-39,61,12182,5584,7574,8268,9089,10655,13875,15777,16948,18098,21266,,,,,,
-"Leisure, travel and related personal service occupations",,30-39,62,13229,x,7855,8489,9441,11056,15340,18474,19856,x,x,,,,,,
-Sales and customer service occupations,TRUE,30-39,7,11473,5503,6680,7377,7955,9496,13672,16130,17736,19464,24123,,,,,,
-Sales occupations,,30-39,71,9492,5142,6213,6666,7275,8217,11415,13616,14799,16069,20600,,,,,,
-Customer service occupations,,30-39,72,16000,6654,9334,10321,11445,13620,18362,20677,22019,23998,28022,,,,,,
-"Process, plant and machine operatives",TRUE,30-39,8,17015,x,11915,12945,13962,15138,18827,20905,21807,x,x,,,,,,
-"Process, plant and machine operatives",,30-39,81,16773,8593,11966,13348,14170,15141,18162,20240,21446,22089,x,,,,,,
-Transport and mobile machine drivers and operatives,,30-39,82,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Elementary occupations,TRUE,30-39,9,8272,2241,4146,5060,5602,6776,10394,12839,14150,15233,18711,,,,,,
-Elementary trades and related occupations,,30-39,91,14704,6649,9349,11277,12601,13767,16061,17446,17993,x,x,,,,,,
-Elementary administration and service occupations,,30-39,92,7990,2169,3824,4798,5471,6568,9776,12120,13440,14855,18017,,,,,,
-"Managers, directors and senior officials",TRUE,40-49,1,36949,14240,20402,22999,25475,31191,42312,51088,56432,64174,84515,,,,,,
-Corporate managers and directors,,40-49,11,39646,14624,21353,24499,28083,34319,47210,56108,63058,68525,89598,,,,,,
-Other managers and proprietors,,40-49,12,27716,12800,18508,19830,22070,24796,30823,35674,37554,40071,x,,,,,,
-Professional occupations,TRUE,40-49,2,31993,13492,19921,22216,24397,28356,35488,39051,40964,43444,52094,,,,,,
-"Science, research, engineering and technology professionals",,40-49,21,36534,20281,25818,27520,29783,33565,39588,44626,47456,51194,x,,,,,,
-Health professionals,,40-49,22,29185,11733,17961,20211,22236,25971,32213,35583,37922,39850,47274,,,,,,
-Teaching and educational professionals,,40-49,23,34230,12624,19437,22083,24328,29950,37482,40317,42172,44693,50872,,,,,,
-"Business, media and public service professionals",,40-49,24,34013,16688,22857,25250,27464,30834,37751,41343,44562,47453,x,,,,,,
-Associate professional and technical occupations,TRUE,40-49,3,26959,12237,17705,19462,20923,24120,30035,34426,36571,39296,47423,,,,,,
-"Science, engineering and technology associate professionals",,40-49,31,22749,x,x,x,x,x,x,x,x,x,x,,,,,,
-Health and social care associate professionals,,40-49,32,21915,x,12694,14209,16596,19372,23694,25737,26727,28314,x,,,,,,
-Protective service occupations,,40-49,33,37563,23521,28880,30241,32017,35788,38819,40296,41973,43494,x,,,,,,
-"Culture, media and sports occupations",,40-49,34,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Business and public service associate professionals,,40-49,35,28163,14340,19053,20804,22498,25275,31545,35442,38061,41145,52496,,,,,,
-Administrative and secretarial occupations,TRUE,40-49,4,17519,7748,10088,11314,12689,15198,19874,22260,23950,25802,32123,,,,,,
-Administrative occupations,,40-49,41,17999,7909,10498,11858,13310,15712,20246,22702,24167,25999,31999,,,,,,
-Secretarial and related occupations,,40-49,42,16152,7197,9291,10158,11114,13537,18408,21295,22634,25101,32486,,,,,,
-Skilled trades occupations,TRUE,40-49,5,13961,6227,9371,9957,10761,12210,16160,18354,20013,21870,x,,,,,,
-Skilled agricultural and related trades,,40-49,51,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-"Skilled metal, electrical and electronic trades",,40-49,52,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Skilled construction and building trades,,40-49,53,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-"Textiles, printing and other skilled trades",,40-49,54,13052,x,8486,9802,10397,11288,14639,16816,17993,18920,x,,,,,,
-"Caring, leisure and other service occupations",TRUE,40-49,6,12990,5541,7987,8896,9755,11295,14613,16413,17487,18849,22380,,,,,,
-Caring personal service occupations,,40-49,61,12969,5558,8010,8937,9823,11310,14559,16254,17361,18613,22115,,,,,,
-"Leisure, travel and related personal service occupations",,40-49,62,13102,5491,7684,8322,9098,11193,15311,18106,19618,x,x,,,,,,
-Sales and customer service occupations,TRUE,40-49,7,11612,5533,7223,7975,8564,10094,13392,15717,17107,18773,23752,,,,,,
-Sales occupations,,40-49,71,10470,5333,6600,7296,7984,9061,11746,13524,14484,15746,19488,,,,,,
-Customer service occupations,,40-49,72,17030,7525,9923,11010,12492,14593,19116,21251,22846,24461,x,,,,,,
-"Process, plant and machine operatives",TRUE,40-49,8,16295,7665,11120,12429,13385,14942,17803,20134,21463,22384,x,,,,,,
-"Process, plant and machine operatives",,40-49,81,16548,9143,11903,x,13779,15087,18002,19660,21194,22017,x,,,,,,
-Transport and mobile machine drivers and operatives,,40-49,82,15402,x,x,x,x,12938,x,x,x,x,x,,,,,,
-Elementary occupations,TRUE,40-49,9,7740,2342,3579,4233,5129,6273,9710,11961,13097,14325,18130,,,,,,
-Elementary trades and related occupations,,40-49,91,14948,x,x,x,x,x,x,x,x,x,x,,,,,,
-Elementary administration and service occupations,,40-49,92,7253,2250,3427,4028,4835,5977,9168,11233,12356,13597,17178,,,,,,
-"Managers, directors and senior officials",TRUE,50-59,1,32499,11876,18639,20768,23053,27320,38359,45259,49473,55117,72493,,,,,,
-Corporate managers and directors,,50-59,11,34946,12255,19214,21282,23829,28982,41826,48594,53650,60000,79912,,,,,,
-Other managers and proprietors,,50-59,12,27014,10605,16770,19668,20765,24448,30357,35716,37306,40590,x,,,,,,
-Professional occupations,TRUE,50-59,2,32851,12317,19321,21905,23873,28474,35929,40147,41642,44188,52533,,,,,,
-"Science, research, engineering and technology professionals",,50-59,21,36822,18529,24719,28287,30711,34498,41191,46547,48037,48890,x,,,,,,
-Health professionals,,50-59,22,30441,11385,17960,19955,22173,26007,33554,36674,39229,40964,47318,,,,,,
-Teaching and educational professionals,,50-59,23,35409,10500,18841,21954,24289,30319,38733,42244,44438,46936,54787,,,,,,
-"Business, media and public service professionals",,50-59,24,34070,17647,23109,24949,27078,31122,37002,40812,42543,46156,x,,,,,,
-Associate professional and technical occupations,TRUE,50-59,3,25105,12105,16791,18599,19834,22344,27750,30800,33021,36134,44514,,,,,,
-"Science, engineering and technology associate professionals",,50-59,31,21156,11988,15017,15887,17637,19270,23152,26437,27944,30207,x,,,,,,
-Health and social care associate professionals,,50-59,32,21622,9526,13189,15082,16219,19418,23375,25887,26802,27879,x,,,,,,
-Protective service occupations,,50-59,33,30053,x,21230,22879,23900,27677,33141,38183,39159,x,x,,,,,,
-"Culture, media and sports occupations",,50-59,34,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Business and public service associate professionals,,50-59,35,27801,15138,19336,20622,22238,25196,30634,34748,37132,39764,50117,,,,,,
-Administrative and secretarial occupations,TRUE,50-59,4,17484,7706,10101,11195,12556,15156,19634,22036,23218,25000,30184,,,,,,
-Administrative occupations,,50-59,41,18404,8035,10636,12006,13480,15950,20219,22575,23939,25421,31001,,,,,,
-Secretarial and related occupations,,50-59,42,15272,6767,9070,10000,10862,12887,17527,19775,21264,22890,28058,,,,,,
-Skilled trades occupations,TRUE,50-59,5,14500,x,8989,9866,11095,12766,16142,17997,19252,20566,x,,,,,,
-Skilled agricultural and related trades,,50-59,51,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-"Skilled metal, electrical and electronic trades",,50-59,52,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Skilled construction and building trades,,50-59,53,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-"Textiles, printing and other skilled trades",,50-59,54,13805,x,8876,9474,10713,12300,15542,17097,18255,19296,x,,,,,,
-"Caring, leisure and other service occupations",TRUE,50-59,6,13405,5550,8295,9332,10159,11865,15477,17500,18429,19693,23389,,,,,,
-Caring personal service occupations,,50-59,61,13407,5506,8393,9359,10201,11919,15394,17397,18284,19509,22903,,,,,,
-"Leisure, travel and related personal service occupations",,50-59,62,13372,6052,7739,8616,10004,11309,16196,18633,19855,21566,x,,,,,,
-Sales and customer service occupations,TRUE,50-59,7,11046,5482,6961,7632,8324,9606,12595,14569,15638,17108,21395,,,,,,
-Sales occupations,,50-59,71,10126,5220,6489,7137,7702,8902,11299,12716,13526,14582,17515,,,,,,
-Customer service occupations,,50-59,72,17240,7699,9967,11428,12773,15111,18986,20822,22373,24157,x,,,,,,
-"Process, plant and machine operatives",TRUE,50-59,8,16749,9416,12274,13098,13860,14920,17771,19907,21282,22189,26112,,,,,,
-"Process, plant and machine operatives",,50-59,81,16731,9898,12764,13515,14133,15131,17646,19279,20393,21374,x,,,,,,
-Transport and mobile machine drivers and operatives,,50-59,82,16855,x,9632,10872,12483,14332,21193,x,x,x,x,,,,,,
-Elementary occupations,TRUE,50-59,9,8608,2549,4101,4910,5492,7017,10530,12591,13640,14719,17944,,,,,,
-Elementary trades and related occupations,,50-59,91,15522,8560,11196,12481,13519,14457,16270,18305,19189,20726,x,,,,,,
-Elementary administration and service occupations,,50-59,92,8158,2431,3904,4552,5265,6588,9877,11867,12880,13942,16984,,,,,,
-"Managers, directors and senior officials",TRUE,60+,1,20891,8040,11281,12426,14298,17795,25009,30308,36147,40937,x,,,,,,
-Corporate managers and directors,,60+,11,20718,7482,10299,11833,13154,16837,24474,32295,x,x,x,,,,,,
-Other managers and proprietors,,60+,12,21052,x,14198,15034,15987,19428,25653,29883,x,x,x,,,,,,
-Professional occupations,TRUE,60+,2,22014,4984,9816,13022,14862,18384,25601,31548,34066,36303,45165,,,,,,
-"Science, research, engineering and technology professionals",,60+,21,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Health professionals,,60+,22,21382,6518,11875,13841,15271,18013,24654,28110,30812,33082,x,,,,,,
-Teaching and educational professionals,,60+,23,21586,x,x,8698,10847,16127,26381,35409,37726,40219,x,,,,,,
-"Business, media and public service professionals",,60+,24,22919,x,14639,16609,18204,21094,26648,31658,x,x,x,,,,,,
-Associate professional and technical occupations,TRUE,60+,3,21313,7725,12082,13612,15275,18109,23458,27146,28703,30195,x,,,,,,
-"Science, engineering and technology associate professionals",,60+,31,20027,x,x,x,x,17176,21383,x,x,x,x,,,,,,
-Health and social care associate professionals,,60+,32,18966,x,x,x,12413,15246,22438,27047,28182,x,x,,,,,,
-Protective service occupations,,60+,33,24370,x,x,x,x,x,x,x,x,x,x,,,,,,
-"Culture, media and sports occupations",,60+,34,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Business and public service associate professionals,,60+,35,22278,10365,13700,16107,17158,19174,24460,28529,30385,31908,x,,,,,,
-Administrative and secretarial occupations,TRUE,60+,4,12961,3850,6816,7800,8703,10687,15790,18497,19911,21567,25785,,,,,,
-Administrative occupations,,60+,41,13281,3444,6571,7708,8670,10774,16278,18833,20069,21634,25666,,,,,,
-Secretarial and related occupations,,60+,42,12470,4681,7109,8038,8845,10600,14881,17597,18949,21150,x,,,,,,
-Skilled trades occupations,TRUE,60+,5,14016,x,8789,10190,10926,11718,15943,16798,x,x,x,,,,,,
-Skilled agricultural and related trades,,60+,51,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-"Skilled metal, electrical and electronic trades",,60+,52,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Skilled construction and building trades,,60+,53,,,,,,,,,,,,,,,,,
-"Textiles, printing and other skilled trades",,60+,54,13795,x,7911,9098,10261,11613,15587,16878,x,x,x,,,,,,
-"Caring, leisure and other service occupations",TRUE,60+,6,11900,3624,6175,7223,8349,10247,13729,15935,17041,18608,21849,,,,,,
-Caring personal service occupations,,60+,61,12190,3803,6259,7461,8596,10598,14032,16134,17323,18769,21998,,,,,,
-"Leisure, travel and related personal service occupations",,60+,62,9909,x,5337,5923,6904,8441,11451,13751,15265,x,x,,,,,,
-Sales and customer service occupations,TRUE,60+,7,8341,4174,5395,5837,6357,7320,9520,11028,12038,13267,16336,,,,,,
-Sales occupations,,60+,71,7911,4091,5257,5639,6186,6991,8961,10197,10943,11940,15025,,,,,,
-Customer service occupations,,60+,72,13251,4954,7119,8121,9938,11701,x,x,x,x,x,,,,,,
-"Process, plant and machine operatives",TRUE,60+,8,13437,5319,8260,9603,10589,12587,14954,15682,16866,x,x,,,,,,
-"Process, plant and machine operatives",,60+,81,13645,7683,9777,10966,12221,12771,14935,15642,16232,x,x,,,,,,
-Transport and mobile machine drivers and operatives,,60+,82,x,x,x,x,x,x,x,x,x,x,x,,,,,,
-Elementary occupations,TRUE,60+,9,6120,1950,2743,3349,3885,4987,7671,9448,10718,12102,15616,,,,,,
-Elementary trades and related occupations,,60+,91,12169,x,x,x,8125,9967,13389,x,x,x,x,,,,,,
-Elementary administration and service occupations,,60+,92,5980,1918,2695,3201,3751,4763,7290,9177,10300,11769,15211,,,,,,
-,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,
+role,age,mainGroup,code,medianPay,percent10,percent20,percent25,percent30,percent40,percent60,percent70,percent75,percent80,percent90
+"Managers, directors and senior officials",18-21,TRUE,1,x,x,x,x,x,x,x,x,x,x,x
+Corporate managers and directors,18-21,,11,x,x,x,x,x,x,x,x,x,x,x
+Other managers and proprietors,18-21,,12,,,,,,,,,,,
+Professional occupations,18-21,TRUE,2,15607,x,x,x,x,x,17048,x,x,x,x
+"Science, research, engineering and technology professionals",18-21,,21,15147,x,x,x,x,x,x,x,x,x,x
+Health professionals,18-21,,22,x,x,x,x,x,x,x,x,x,x,x
+Teaching and educational professionals,18-21,,23,,,,,,,,,,,
+"Business, media and public service professionals",18-21,,24,19032,x,x,x,x,x,x,x,x,x,x
+Associate professional and technical occupations,18-21,TRUE,3,16843,x,13764,14116,14364,16481,18130,18982,20149,x,x
+"Science, engineering and technology associate professionals",18-21,,31,18206,x,x,x,x,x,x,x,x,x,x
+Health and social care associate professionals,18-21,,32,,,,,,,,,,,
+Protective service occupations,18-21,,33,,,,,,,,,,,
+"Culture, media and sports occupations",18-21,,34,13852,x,x,x,x,x,x,x,x,x,x
+Business and public service associate professionals,18-21,,35,16839,x,x,x,15002,16617,17958,19780,x,x,x
+Administrative and secretarial occupations,18-21,TRUE,4,15348,x,x,12020,13073,14183,16257,17294,18093,18890,x
+Administrative occupations,18-21,,41,15735,10000,11939,12877,13664,14741,16769,17848,18339,x,x
+Secretarial and related occupations,18-21,,42,12846,x,x,x,x,x,x,x,x,x,x
+Skilled trades occupations,18-21,TRUE,5,14458,x,x,x,x,x,x,x,x,x,x
+Skilled agricultural and related trades,18-21,,51,,,,,,,,,,,
+"Skilled metal, electrical and electronic trades",18-21,,52,20568,x,x,x,x,x,x,x,x,x,x
+Skilled construction and building trades,18-21,,53,,,,,,,,,,,
+"Textiles, printing and other skilled trades",18-21,,54,12523,x,x,x,x,x,x,x,x,x,x
+"Caring, leisure and other service occupations",18-21,TRUE,6,12830,x,x,10584,11024,12079,13697,14532,15167,x,x
+Caring personal service occupations,18-21,,61,13029,x,x,10829,11207,12214,13754,14523,15189,x,x
+"Leisure, travel and related personal service occupations",18-21,,62,x,x,x,x,x,x,x,x,x,x,x
+Sales and customer service occupations,18-21,TRUE,7,13618,6472,8893,9835,10771,12502,14636,15778,16248,16911,x
+Sales occupations,18-21,,71,12953,5839,8434,9406,10228,11549,13619,14503,15150,x,x
+Customer service occupations,18-21,,72,17000,x,x,x,x,x,x,x,x,x,x
+"Process, plant and machine operatives",18-21,TRUE,8,13663,x,x,x,x,13181,14442,x,x,x,x
+"Process, plant and machine operatives",18-21,,81,14435,x,x,x,x,x,x,x,x,x,x
+Transport and mobile machine drivers and operatives,18-21,,82,x,x,x,x,x,x,x,x,x,x,x
+Elementary occupations,18-21,TRUE,9,11668,x,x,x,x,10877,12340,x,x,x,x
+Elementary trades and related occupations,18-21,,91,12632,x,x,x,x,x,x,x,x,x,x
+Elementary administration and service occupations,18-21,,92,11570,x,x,x,x,10793,12128,x,x,x,x
+"Managers, directors and senior officials",22-29,TRUE,1,25334,x,18959,19622,20544,22742,27620,30000,31897,34226,x
+Corporate managers and directors,22-29,,11,26563,x,19216,20001,21383,24040,28566,31666,33920,x,x
+Other managers and proprietors,22-29,,12,22407,15883,18159,18881,19379,20994,23998,26855,28041,x,x
+Professional occupations,22-29,TRUE,2,27927,19128,23129,24001,24997,26307,29618,31773,33002,34751,39635
+"Science, research, engineering and technology professionals",22-29,,21,28424,20674,23319,24339,24859,x,30767,33609,x,x,x
+Health professionals,22-29,,22,27639,19162,23242,24489,25270,26407,28980,30410,31304,32325,x
+Teaching and educational professionals,22-29,,23,26989,18947,23146,23177,24145,25429,29060,30596,31926,33030,x
+"Business, media and public service professionals",22-29,,24,30000,x,22211,23998,25128,27513,32477,35000,37000,39846,x
+Associate professional and technical occupations,22-29,TRUE,3,25140,17066,19631,20556,21611,23401,27345,30069,31213,33000,39304
+"Science, engineering and technology associate professionals",22-29,,31,22302,x,x,x,x,20474,24438,x,x,x,x
+Health and social care associate professionals,22-29,,32,21821,17577,18645,18868,19412,20588,23538,25707,26379,x,x
+Protective service occupations,22-29,,33,29952,x,23504,23848,24783,26888,31275,31731,32143,x,x
+"Culture, media and sports occupations",22-29,,34,22262,x,18599,20000,20433,x,x,x,x,x,x
+Business and public service associate professionals,22-29,,35,26445,17472,20293,21434,22401,24394,29073,31529,33340,35365,41978
+Administrative and secretarial occupations,22-29,TRUE,4,19702,13997,15739,16466,17024,18378,21166,22862,23958,25031,28766
+Administrative occupations,22-29,,41,20047,14416,16282,16811,17458,18840,21611,23218,24126,25319,29115
+Secretarial and related occupations,22-29,,42,18021,x,14313,15047,15641,16592,19144,20886,22011,x,x
+Skilled trades occupations,22-29,TRUE,5,20775,13684,14641,15930,16507,17440,21580,22739,23977,x,x
+Skilled agricultural and related trades,22-29,,51,,,,,,,,,,,
+"Skilled metal, electrical and electronic trades",22-29,,52,x,x,x,x,x,x,x,x,x,x,x
+Skilled construction and building trades,22-29,,53,21084,x,x,x,x,x,x,x,x,x,x
+"Textiles, printing and other skilled trades",22-29,,54,18514,x,14353,14631,15482,16689,20276,21409,x,x,x
+"Caring, leisure and other service occupations",22-29,TRUE,6,15712,11441,13190,13694,14144,14996,16756,18000,18720,19479,22034
+Caring personal service occupations,22-29,,61,15582,11204,13001,13595,14024,14875,16630,17879,18525,19289,21669
+"Leisure, travel and related personal service occupations",22-29,,62,16507,12620,13761,14162,x,15658,17328,18948,19713,x,x
+Sales and customer service occupations,22-29,TRUE,7,17421,11738,13848,14601,15098,16318,18674,20084,21079,22060,24791
+Sales occupations,22-29,,71,16739,10901,13138,13872,14585,15580,18009,19536,20400,21484,x
+Customer service occupations,22-29,,72,18139,x,14917,15636,16014,17268,19492,21086,22089,23065,x
+"Process, plant and machine operatives",22-29,TRUE,8,17096,13358,14291,14720,15420,16227,18129,20272,20739,x,x
+"Process, plant and machine operatives",22-29,,81,16841,13277,13968,14676,15212,16061,17703,20048,20487,x,x
+Transport and mobile machine drivers and operatives,22-29,,82,18659,x,x,x,x,x,x,x,x,x,x
+Elementary occupations,22-29,TRUE,9,15167,x,11931,12682,13406,14363,16396,17489,18199,19001,x
+Elementary trades and related occupations,22-29,,91,15344,x,x,x,x,x,x,x,x,x,x
+Elementary administration and service occupations,22-29,,92,15124,x,11765,12448,13117,14255,16436,17451,18104,18922,x
+"Managers, directors and senior officials",30-39,TRUE,1,37030,19505,24105,25710,27886,32329,42881,50116,53736,59013,77793
+Corporate managers and directors,30-39,,11,40061,20751,25511,27944,30750,35446,46420,53820,57549,64968,83524
+Other managers and proprietors,30-39,,12,26526,16878,20005,21716,23346,24840,30001,32718,34934,37593,x
+Professional occupations,30-39,TRUE,2,34725,21573,26120,27548,29197,32143,37042,40026,41700,43995,51267
+"Science, research, engineering and technology professionals",30-39,,21,35401,x,26870,28188,29735,32372,38202,42384,44171,47052,x
+Health professionals,30-39,,22,32105,20819,25366,26609,27442,29349,34279,36495,38325,40284,x
+Teaching and educational professionals,30-39,,23,35578,21583,26315,28569,30494,33896,37915,40101,41299,42435,47157
+"Business, media and public service professionals",30-39,,24,35435,22481,26804,29191,30686,32986,39301,43789,45783,49190,x
+Associate professional and technical occupations,30-39,TRUE,3,29800,19321,22360,23422,24601,27093,32652,36001,38071,40674,49637
+"Science, engineering and technology associate professionals",30-39,,31,25954,18325,21080,21795,22775,24561,28182,30336,31494,32758,x
+Health and social care associate professionals,30-39,,32,23728,17653,19824,20392,21450,22381,24999,26602,27303,27997,x
+Protective service occupations,30-39,,33,33870,24317,28249,29323,30218,32293,35830,37470,38514,39415,x
+"Culture, media and sports occupations",30-39,,34,27295,19166,21989,23036,23563,25770,29867,31738,32343,x,x
+Business and public service associate professionals,30-39,,35,31362,19479,22673,24059,25511,28488,34591,38990,41526,44329,x
+Administrative and secretarial occupations,30-39,TRUE,4,22036,15000,17303,18054,18910,20412,24000,26184,27610,29196,34799
+Administrative occupations,30-39,,41,22063,15110,17598,18331,19157,20533,23997,26081,27468,29003,34181
+Secretarial and related occupations,30-39,,42,21792,13862,16166,16804,17682,19645,24330,26936,28778,32091,x
+Skilled trades occupations,30-39,TRUE,5,18674,13311,15076,16000,16469,17787,20360,22812,24632,x,x
+Skilled agricultural and related trades,30-39,,51,x,x,x,x,x,x,x,x,x,x,x
+"Skilled metal, electrical and electronic trades",30-39,,52,26357,x,x,x,20554,23993,x,x,x,x,x
+Skilled construction and building trades,30-39,,53,x,x,x,x,x,x,x,x,x,x,x
+"Textiles, printing and other skilled trades",30-39,,54,17751,12771,14528,14951,15391,16598,18514,19428,21312,x,x
+"Caring, leisure and other service occupations",30-39,TRUE,6,17506,11308,13287,13955,14612,16039,18857,20144,21122,22252,24984
+Caring personal service occupations,30-39,,61,17289,11225,13106,13809,14466,15936,18618,19793,20578,21628,23916
+"Leisure, travel and related personal service occupations",30-39,,62,19052,x,x,x,15341,17364,20921,x,x,x,x
+Sales and customer service occupations,30-39,TRUE,7,18848,12916,14331,15121,15707,17513,20614,22619,23858,25480,29108
+Sales occupations,30-39,,71,16973,11885,13484,14052,14557,15649,18438,20588,21706,23035,x
+Customer service occupations,30-39,,72,21137,13940,16249,17414,18104,19451,22504,24935,26148,27678,x
+"Process, plant and machine operatives",30-39,TRUE,8,19009,x,x,15019,15754,17410,20549,22164,x,x,x
+"Process, plant and machine operatives",30-39,,81,18108,13523,14581,15040,15709,16901,20017,21528,22132,23022,x
+Transport and mobile machine drivers and operatives,30-39,,82,x,x,x,x,x,x,x,x,x,x,x
+Elementary occupations,30-39,TRUE,9,15778,10296,12407,13091,13622,14818,17119,18372,19360,20593,x
+Elementary trades and related occupations,30-39,,91,16366,x,13239,13905,14136,15056,17275,18343,18963,x,x
+Elementary administration and service occupations,30-39,,92,15741,9951,12208,12917,13465,14782,17082,18365,19403,20746,x
+"Managers, directors and senior officials",40-49,TRUE,1,40506,20212,25997,28657,31215,36289,47511,56051,62377,68477,89483
+Corporate managers and directors,40-49,,11,44494,21075,28613,31521,34292,38747,52689,61663,67774,73914,95636
+Other managers and proprietors,40-49,,12,29959,18503,22416,23580,24896,27581,33504,37561,39962,41768,x
+Professional occupations,40-49,TRUE,2,37054,23865,28518,30285,31767,34474,39580,42418,44913,47306,57585
+"Science, research, engineering and technology professionals",40-49,,21,39034,25367,29939,31730,33428,36417,42424,47343,50094,53936,x
+Health professionals,40-49,,22,34880,23453,27682,28828,30232,32619,37669,40296,41326,43413,x
+Teaching and educational professionals,40-49,,23,37871,23738,29635,31392,33152,36019,40317,43548,45578,46949,x
+"Business, media and public service professionals",40-49,,24,38005,24817,29314,30892,32254,35022,40958,45157,47742,51084,x
+Associate professional and technical occupations,40-49,TRUE,3,30279,19533,22660,23923,25287,27519,33833,37537,39522,42408,50728
+"Science, engineering and technology associate professionals",40-49,,31,x,x,x,x,x,x,x,x,x,x,x
+Health and social care associate professionals,40-49,,32,24750,18239,20505,21466,22230,23145,26156,28350,28799,x,x
+Protective service occupations,40-49,,33,37916,25620,29810,32485,34456,36768,39298,41156,42520,43761,x
+"Culture, media and sports occupations",40-49,,34,30996,x,x,25352,25739,28560,32214,x,x,x,x
+Business and public service associate professionals,40-49,,35,31386,20046,23357,24717,25934,28336,34866,38641,41207,44370,x
+Administrative and secretarial occupations,40-49,TRUE,4,22142,15006,17095,18026,18920,20511,24129,26573,28274,30095,36303
+Administrative occupations,40-49,,41,22244,15085,17369,18427,19089,20643,24249,26689,28180,29884,35849
+Secretarial and related occupations,40-49,,42,21504,x,16449,17116,17955,19593,23484,26347,28618,31000,x
+Skilled trades occupations,40-49,TRUE,5,18605,x,x,14811,15924,17493,20596,x,x,x,x
+Skilled agricultural and related trades,40-49,,51,21734,x,x,x,x,x,x,x,x,x,x
+"Skilled metal, electrical and electronic trades",40-49,,52,x,x,x,x,x,x,x,x,x,x,x
+Skilled construction and building trades,40-49,,53,x,x,x,x,x,x,x,x,x,x,x
+"Textiles, printing and other skilled trades",40-49,,54,17572,x,x,x,x,16266,18655,x,x,x,x
+"Caring, leisure and other service occupations",40-49,TRUE,6,17287,12042,13694,14381,14950,15992,18661,20367,21273,22262,25382
+Caring personal service occupations,40-49,,61,17199,11984,13650,14313,14900,15946,18576,20254,21184,22123,25157
+"Leisure, travel and related personal service occupations",40-49,,62,18077,12670,14036,14922,15432,16755,19337,x,x,x,x
+Sales and customer service occupations,40-49,TRUE,7,18055,11976,13652,14441,15066,16254,19577,21462,23027,24380,x
+Sales occupations,40-49,,71,15918,11233,12818,13185,13903,14974,17152,18732,19727,20921,x
+Customer service occupations,40-49,,72,21028,14619,16929,17905,18508,19959,23149,25894,27620,28775,x
+"Process, plant and machine operatives",40-49,TRUE,8,18387,x,14418,15051,15720,16819,19661,21710,22617,24344,x
+"Process, plant and machine operatives",40-49,,81,17981,x,14229,14864,15546,16819,19489,21360,22045,x,x
+Transport and mobile machine drivers and operatives,40-49,,82,20690,x,x,15839,16302,16888,x,x,x,x,x
+Elementary occupations,40-49,TRUE,9,15507,x,12547,13076,13615,14601,16740,18459,19435,20786,x
+Elementary trades and related occupations,40-49,,91,x,x,x,x,x,x,x,x,x,x,x
+Elementary administration and service occupations,40-49,,92,15250,x,12303,12818,13366,14385,16535,18521,19623,21077,x
+"Managers, directors and senior officials",50-59,TRUE,1,37061,19223,23486,25706,27589,32070,42696,49613,53991,60000,79328
+Corporate managers and directors,50-59,,11,40302,19383,24128,26950,29017,34500,46035,53573,58629,66145,84878
+Other managers and proprietors,50-59,,12,30100,18104,21133,23849,25502,27305,32999,37286,40019,42872,x
+Professional occupations,50-59,TRUE,2,37713,23573,28718,30936,32574,34999,40667,43088,45339,47566,55661
+"Science, research, engineering and technology professionals",50-59,,21,39764,21149,29628,31868,33941,36198,43062,48007,48805,52055,x
+Health professionals,50-59,,22,35874,23884,28798,30496,31732,34331,39085,41192,42467,44479,x
+Teaching and educational professionals,50-59,,23,39809,23771,30338,33112,34871,37713,42314,45833,47380,49290,55689
+"Business, media and public service professionals",50-59,,24,36265,23340,27192,29025,31241,33787,38725,42128,44501,47570,x
+Associate professional and technical occupations,50-59,TRUE,3,27909,18584,21066,22318,23482,25883,30248,34022,36346,39061,48011
+"Science, engineering and technology associate professionals",50-59,,31,22191,15178,17739,18731,19202,20552,25048,27925,29962,31850,x
+Health and social care associate professionals,50-59,,32,24592,17632,19822,20887,21988,23261,26579,27829,28658,29941,x
+Protective service occupations,50-59,,33,32761,x,23923,24767,27466,29437,36472,38815,41139,x,x
+"Culture, media and sports occupations",50-59,,34,28771,x,x,x,23631,25680,x,x,x,x,x
+Business and public service associate professionals,50-59,,35,30258,19761,22930,24487,25733,27918,33104,37168,39496,41709,53828
+Administrative and secretarial occupations,50-59,TRUE,4,21907,15161,17270,18101,18944,20110,23440,25583,26895,28473,34214
+Administrative occupations,50-59,,41,22191,15468,17649,18526,19210,20402,23711,25818,27116,28913,34114
+Secretarial and related occupations,50-59,,42,20581,14346,16170,17103,17803,19267,22570,25000,26392,27885,34399
+Skilled trades occupations,50-59,TRUE,5,18743,12720,14716,15436,16081,17167,20127,22093,22961,25060,x
+Skilled agricultural and related trades,50-59,,51,x,x,x,x,x,x,x,x,x,x,x
+"Skilled metal, electrical and electronic trades",50-59,,52,x,x,x,x,x,x,x,x,x,x,x
+Skilled construction and building trades,50-59,,53,x,x,x,x,x,x,x,x,x,x,x
+"Textiles, printing and other skilled trades",50-59,,54,18151,12413,14621,15280,16011,16882,19272,20429,21199,x,x
+"Caring, leisure and other service occupations",50-59,TRUE,6,18224,12165,14132,14975,15649,17069,19675,21408,22322,23435,25944
+Caring personal service occupations,50-59,,61,18121,12169,14128,14932,15515,16987,19601,21361,22236,23335,25890
+"Leisure, travel and related personal service occupations",50-59,,62,19019,11745,14538,15725,16382,17821,20443,21886,23092,24324,x
+Sales and customer service occupations,50-59,TRUE,7,16758,11964,13138,13726,14144,15379,18184,19972,21408,23252,28177
+Sales occupations,50-59,,71,14964,11385,12526,12909,13292,13987,15924,17219,18066,18905,x
+Customer service occupations,50-59,,72,20616,14933,16628,17589,18073,19267,22638,25153,26570,28255,x
+"Process, plant and machine operatives",50-59,TRUE,8,17666,13113,14381,14688,15195,16801,19334,21452,22174,22978,x
+"Process, plant and machine operatives",50-59,,81,17291,13029,14232,14669,15116,16472,18396,20527,21284,22030,x
+Transport and mobile machine drivers and operatives,50-59,,82,22481,x,14652,15070,16546,18893,24253,x,x,x,x
+Elementary occupations,50-59,TRUE,9,15270,11145,12515,13164,13505,14426,16334,17916,18693,20068,24232
+Elementary trades and related occupations,50-59,,91,16339,13426,14178,14497,14822,15837,18116,19936,20945,21757,x
+Elementary administration and service occupations,50-59,,92,14955,x,12196,12701,13182,14068,16011,17528,18161,19512,x
+"Managers, directors and senior officials",60+,TRUE,1,29907,15927,18717,19851,20966,25172,37309,42118,47455,52679,x
+Corporate managers and directors,60+,,11,32598,15733,18618,20113,21749,25366,40981,48405,53903,x,x
+Other managers and proprietors,60+,,12,27907,x,18567,19497,20276,23123,30158,34631,x,x,x
+Professional occupations,60+,TRUE,2,34868,19900,23798,25473,27672,31991,36895,40381,43222,45867,x
+"Science, research, engineering and technology professionals",60+,,21,x,x,x,x,x,x,x,x,x,x,x
+Health professionals,60+,,22,33180,21509,24695,26826,27967,31239,34923,37550,39446,x,x
+Teaching and educational professionals,60+,,23,37871,20183,25534,31670,32709,35409,41332,44334,46179,48120,x
+"Business, media and public service professionals",60+,,24,29958,x,20828,22063,22844,24943,33575,x,x,x,x
+Associate professional and technical occupations,60+,TRUE,3,25730,17372,20134,21307,22012,23505,28461,30785,31892,33512,x
+"Science, engineering and technology associate professionals",60+,,31,21794,x,x,x,x,21290,x,x,x,x,x
+Health and social care associate professionals,60+,,32,27393,x,21058,21464,22260,24925,28588,29580,x,x,x
+Protective service occupations,60+,,33,25329,x,x,x,x,x,x,x,x,x,x
+"Culture, media and sports occupations",60+,,34,x,x,x,x,x,x,x,x,x,x,x
+Business and public service associate professionals,60+,,35,25771,17256,20435,21382,22321,23802,29342,31891,33488,x,x
+Administrative and secretarial occupations,60+,TRUE,4,21115,14910,16918,17635,18295,19680,22579,24634,25794,27374,32537
+Administrative occupations,60+,,41,21054,14973,17289,17828,18485,19845,22521,24204,25454,27373,x
+Secretarial and related occupations,60+,,42,21715,14854,16025,17135,17794,19279,22965,24945,26540,27386,x
+Skilled trades occupations,60+,TRUE,5,16351,x,13336,14089,14902,15598,17117,19815,x,x,x
+Skilled agricultural and related trades,60+,,51,x,x,x,x,x,x,x,x,x,x,x
+"Skilled metal, electrical and electronic trades",60+,,52,x,x,x,x,x,x,x,x,x,x,x
+Skilled construction and building trades,60+,,53,,,,,,,,,,,
+"Textiles, printing and other skilled trades",60+,,54,16572,x,13494,14063,14464,15886,18136,x,x,x,x
+"Caring, leisure and other service occupations",60+,TRUE,6,18365,x,14119,14948,15584,17022,19606,21145,22042,23316,x
+Caring personal service occupations,60+,,61,18620,x,14185,14997,15769,17168,19799,21282,22188,23339,x
+"Leisure, travel and related personal service occupations",60+,,62,16450,x,13574,14272,14876,15668,18666,x,x,x,x
+Sales and customer service occupations,60+,TRUE,7,15682,11312,12609,13211,13575,x,16633,18254,x,x,x
+Sales occupations,60+,,71,14867,10876,11881,12506,12947,13714,15664,16628,17391,17978,x
+Customer service occupations,60+,,72,19052,x,x,x,x,x,x,x,x,x,x
+"Process, plant and machine operatives",60+,TRUE,8,15382,x,12774,13139,13453,14755,16370,18367,x,x,x
+"Process, plant and machine operatives",60+,,81,14976,x,12610,12800,13152,14147,15601,17093,x,x,x
+Transport and mobile machine drivers and operatives,60+,,82,x,x,x,x,x,x,x,x,x,x,x
+Elementary occupations,60+,TRUE,9,15104,10163,12103,12708,13085,13807,16023,17611,18805,20122,x
+Elementary trades and related occupations,60+,,91,15532,x,x,x,x,15152,16543,x,x,x,x
+Elementary administration and service occupations,60+,,92,14962,9900,11965,12516,12924,13684,15951,17171,18597,19759,x
