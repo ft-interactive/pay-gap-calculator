@@ -41,10 +41,10 @@
       </div>
       <div class="input-feedback">
         <p>
-          An average <span class="gender-choice">woman</span>
+          A <span class="gender-choice">woman</span>
           in their <span class="age-choice"></span>s
            working full-time will earn
-           <span class="salary-difference-gender-age">TBC</span>% than an
+           <span class="salary-difference-gender-age">TBC% less</span> than an
           average <span class="gender-choice-inverse">man</span>  in the same age group
         </p>
       </div>
@@ -54,15 +54,22 @@
     <div class="input-box-sector">
       <hr>
       <label>3. Choose what type of job you have:</label>
+
       <div class="sector-desktop-view">
         <div class="input-sector-list"></div>
         <button class="see-more o-buttons o-buttons--big"><span class="toggle-more-sectors-text"></span></button>
       </div>
+
       <div class="sector-mobile-view">
-        <p class="sector-back-button">< Pay gap calculator</p>
+        <p class="sector-back-button"><a href="#anchor-mobile-view-sector">< Pay gap calculator</a></p>
         <div class="input-sector-list"></div>
-        <button class="see-all o-buttons o-buttons--big"><span class="see-all-sectors-text"></span></button>
+        <button class="see-all o-buttons o-buttons--big">
+          <span class="see-all-sectors-text"></span>
+        </button>
       </div>
+
+      <div id="anchor-mobile-view-sector"></div>
+
       <div class="data-error-feedback">
         <p>
           Sorry: there's not enough data on people in their
@@ -71,6 +78,7 @@
           Try selecting one of the bolded occupations to get a general view of the pay gap.
         </p>
       </div>
+
       <div class="input-feedback sector-selected">
         <p>
           <span class="sector-choice"></span>
@@ -78,10 +86,10 @@
       </div>
       <div class="input-feedback">
         <p>
-          An average <span class="gender-choice">woman</span> in their <span class="age-choice"></span>s
+          A <span class="gender-choice">woman</span> in their <span class="age-choice"></span>s
           working full-time in a <span class="sector-choice">Associate Health Professional</span> role
-          will earn <span class="salary-difference-gender-age-sector"></span>%
-          of what a <span class="gender-choice-inverse">man</span> in the same age group and job type gets.
+          will earn <span class="salary-difference-gender-age-sector"></span>
+          than a <span class="gender-choice-inverse">man</span> in the same age group and job type.
         </p>
       </div>
     </div>
@@ -98,7 +106,7 @@
         <p>I earn:</p>
       </div>
       <div class="input-salary-container">
-        <input type="salary" placeholder="e.g. 20,000 or 45,000" class="input-salary o-forms__text"></input>
+        <input type="number" placeholder="e.g. 20,000 or 45,000" class="input-salary o-forms__text"></input>
         <span>before tax</span>
       </div>
     </div>
