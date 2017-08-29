@@ -218,7 +218,9 @@ box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 article.small.sector-choice .article-head,
 article.small.sector-choice .article-body footer,
 article.small.sector-choice .article-body .gap-calculator .output-container,
-article.small.sector-choice .article-body .gap-calculator .input-container > div:not(.input-box-sector) {
+article.small.sector-choice .article-body .gap-calculator .input-container > div:not(.input-box-sector),
+article.small.sector-choice .article-body .gap-calculator .input-container .input-feedback,
+article.small.sector-choice .article-body .gap-calculator .input-container .data-error-feedback {
   display:none;
 }
 
