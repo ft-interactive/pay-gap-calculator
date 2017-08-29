@@ -50,9 +50,11 @@ hr{
 }
 
 label {
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 1.4em;
   display: block;
-  margin: .2em 0;
+  margin: 0.3em 0;
+  color:#33302E;
 }
 .hidden {
   display: none;
@@ -64,13 +66,13 @@ label {
   padding: .1em 1.5em .2em 1.5em;
 }
 .input-container .input-feedback {
-  border-top: 4px solid #B3D8DC;
+  border-top: 2px solid #14bdcc;
   background-color: #fff;
 }
 .input-container .input-feedback p,
 .input-container .data-error-feedback p {
-  color: #4D4845;
-  font-family: MetricWeb, sans-serif;
+ font: normal 1em/1.2em MetricWeb,sans-serif;
+ color: #66605C;
 }
 
 article .selection-made .input-feedback{
@@ -80,10 +82,13 @@ article .selection-made .input-feedback{
   display: none;
 }
 .input-feedback span:not(.gender-choice-inverse) {
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1.1em;
+  color: black;
 }
 .input-feedback.sector-selected{
-  background-color: #9fe0d9;
+  background-color: #8bd7da;
+  border-top: 2px solid #8bd7da;
 }
 .input-feedback.sector-selected p{
   padding: 0;
@@ -155,7 +160,7 @@ article.insufficient-data .input-compute{
   width: 1.2em;
   padding: 0 1.2%;
   position: absolute;
-  top: 6em;
+  top: 7em;
   left: 200px;
   -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
@@ -168,8 +173,7 @@ box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
   }
 }
 .input-container .icon-option.selected {
-  background-color: #12A5B3;
-  color:white;   
+  background-color: #14bdcc;
 }
 
 
@@ -205,11 +209,17 @@ box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 .input-container .input-box-age button{
   margin: .2em .3em;
 }
+
+.input-container .input-box-age button:hover{
+  background-color: #0d7680;
+}
 .input-container .input-box-age button.selected{
-  background-color: #1AECFF;
+  background-color: #14bdcc;
+  color:#08474d;
+  border-color: #14bdcc;
 }
 .input-container div {
-  margin: .5em 0;
+ margin: 0.8em 0;
 }
 
 /* SECTOR ALL */
@@ -327,7 +337,9 @@ div.input-salary-time-period p{
   right: 10px;
 }
 .input-container button.input-salary-time.selected{
-  background-color: #1AECFF;
+  background-color: #14bdcc;
+  border-color: #14bdcc;
+  color:#08474d;
 }
 
 
