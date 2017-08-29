@@ -16,7 +16,6 @@ async function calculation(config){
       const comparisonGender = gender === 'woman' ? 'man' : 'woman';
       const salarySetComparison = findSalaryRange(comparisonGender, age, sector);
       const selectedDecile = findSalaryDecile(salary, salarySetSelected);
-      console.log("DECILE", selectedDecile);
       const comparisonSalary = findComparisionDecile(selectedDecile, salarySetComparison);
       const ratio = getRatio(selectedDecile.salary, comparisonSalary);
       const swappedSalary = outputSwappedSalary(salary, ratio);
