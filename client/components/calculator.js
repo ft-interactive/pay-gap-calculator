@@ -20,7 +20,6 @@ async function calculation(config){
       const ratio = getRatio(selectedDecile.salary, comparisonSalary);
       const swappedSalary = outputSwappedSalary(salary, ratio);
       console.log("RATIO", ratio);
-      console.log("Output Salary", swappedSalary);
       return { swappedSalary, ratio, salary };
 
     } catch (err) {
