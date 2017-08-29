@@ -3,11 +3,11 @@ import './styles.scss';
 
 import * as d3 from 'd3';
 
-import {calculation, calculationWithoutSalary} from './components/calculator';
+import {calculation, calculationAgeSector, calculationAge} from './components/calculator';
 import {fillOutput} from './components/output/fillOutput';
 import {toggleSelection, formatSalaryInput, setElementsToChange} from './components/helpers';
 import {makeSectorComponents, sectorAddShowHideEvents} from './components/sectors/index';
-import {handleCalculationWithoutSalaryResponse, toggleFeedbackBoxes} from './components/feedback/feedback';
+import {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes} from './components/feedback/feedback';
 
 const article = document.querySelector("body main article");
 const outputContainer = d3.select('.output-container');
@@ -32,9 +32,14 @@ dispatch.on("updateState", async function (o){
   state.set(key, value);
   console.log(`STATE IS NOW:`, state);
   toggleFeedbackBoxes(state);
-  if(state.has("sector") && state.has("age")){
-    const response = await calculationWithoutSalary(state);
-    handleCalculationWithoutSalaryResponse(response);
+
+  if(state.has("age") && !state.has("sector")){
+    const response = await calculationAge(state);
+    handleCalculationAge(response);
+  }
+  else if(state.has("age") && state.has("sector")){
+    const response = await calculationAgeSector(state);
+    handleCalculationAgeSector(response);
   }
 });
 
