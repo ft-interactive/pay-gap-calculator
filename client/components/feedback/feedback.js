@@ -65,8 +65,13 @@ function addFeedbackText(elements, value){
 function formatPercentageDifference(ratio){
   if(ratio < 1){
     const diff = 1 - ratio;
-    const diffBasedOnLowerSalary = ((diff / ratio) * 100).toFixed(1);
-    return diffBasedOnLowerSalary;
+    const diffPercent = (diff * 100).toFixed(1);
+    return `${diffPercent}% less`;
+  }
+  else {
+    const diff = ratio - 1;
+    const diffPercent = (diff * 100).toFixed(1);
+    return `${diffPercent}% more`;
   }
 }
 
