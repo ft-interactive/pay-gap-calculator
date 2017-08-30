@@ -135,14 +135,12 @@ article.insufficient-data .input-compute{
   display: flex;
   align-items: center;
   max-width: 400px;
-  
+
 }
 
 .input-container .input-box-gender > hr {
   background-color: #66605C; height: 1px; border: 0;
 }
-
-
 
 .input-container .icon-option {
   flex: 1 1 auto;
@@ -175,8 +173,6 @@ box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 .input-container .icon-option.selected {
   background-color: #14bdcc;
 }
-
-
 .input-container .icon-option.selected span {
   color:white;
 }
@@ -226,6 +222,10 @@ box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 .input-box-sector .input-sector-group{
   cursor: pointer;
 }
+article .input-box-sector .sector-desktop-view label,
+article .input-box-sector .sector-mobile-view label {
+  display: block;
+}
 
 /* SECTOR INPUT MOBILE VIEW */
 article.small.sector-choice .article-head,
@@ -263,9 +263,6 @@ article.small .input-box-sector .sector-mobile-view{
 }
 article.small .input-box-sector .sector-mobile-view .o-forms.hidden{
   display: none;
-}
-article.small .input-box-sector .sector-mobile-view label:nth-of-type(1){
-  font-weight: 600;
 }
 article.small .input-box-sector .sector-mobile-view .sub-section-box{
   border-top: solid gray 0.8px;
@@ -316,6 +313,7 @@ article .input-box-sector .sector-desktop-view p.main-category{
   font-weight: 500;
 }
 
+
 /* SALARY INPUT */
 div.input-salary-time-period div{
   display: inline-block;
@@ -341,7 +339,6 @@ div.input-salary-time-period p{
   border-color: #14bdcc;
   color:#08474d;
 }
-
 
 /* OUTPUT BOX */
 article.computed .output-container{
