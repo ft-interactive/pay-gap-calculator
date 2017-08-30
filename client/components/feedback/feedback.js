@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import {renameSectorShort} from '../sectors/renamer';
 
 const article = document.querySelector("body main article");
 const parentGender = document.querySelector('.input-box-gender');
@@ -52,7 +53,8 @@ function toggleFeedbackBoxes(state){
 
   if(state.has("sector") && state.has("age")){
     parentSector.classList.add("selection-made");
-    addFeedbackText(sectorText, state.get("sector"));
+    const renamedSector = renameSectorShort(state.get("sector")).renamedRoleShort;
+    addFeedbackText(sectorText, renamedSector);
   }
   else {parentSector.classList.remove("selection-made")}
 }
