@@ -3,7 +3,7 @@ import './styles.scss';
 
 import * as d3 from 'd3';
 
-import {calculation, calculationAgeSector, calculationAge} from './components/calculator';
+import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
 import {toggleSelection, formatSalaryInput, setElementsToChange} from './components/helpers';
 import {makeSectorComponents, sectorAddShowHideEvents} from './components/sectors/index';

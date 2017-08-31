@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
-import women from '../data/women.csv';
-import men from '../data/men.csv'
-import summary from '../data/median_pay_summary.csv'
+import women from '../../data/women.csv';
+import men from '../../data/men.csv'
+import summary from '../../data/median_pay_summary.csv'
 
 const womenPay = d3.csvParse(women);
 const menPay = d3.csvParse(men);
@@ -18,6 +18,7 @@ async function calculation(config){
       const comparisonGender = gender === 'woman' ? 'man' : 'woman';
       const salarySetComparison = findSalaryRange(comparisonGender, age, sector);
       const selectedDecile = findSalaryDecile(salary, salarySetSelected);
+      const
       const comparisonSalary = findComparisionDecile(selectedDecile, salarySetComparison);
       const ratio = getRatio(selectedDecile.salary, comparisonSalary);
       const swappedSalary = outputSwappedSalary(salary, ratio);
@@ -96,11 +97,36 @@ async function calculation(config){
     return selected;
   };
 
-  function findSalaryDecile(salary, salarySet) {
-    const keys = Object.keys(salarySet);
-    const payGroups = keys.filter(x => x.includes('percent'));
+  // function getSalaryDecileThatWorks(){
+  //   const selectedGenderDecile = findSalaryDecile(salary, salarySet);
+  //   const inverseGenderDecile = findSalaryDecile(salary, comparisonSalarySet);
+  //
+  //   if(selectedGenderDecile === inverseGenderDecile){ return selectedGenderDecile };
+  // 
+  //   if(matchingCategory === null){
+  //     //use median
+  //     const salaryMedian = {group: 'medianPay', salary: parseInt(salarySet.medianPay)};
+  //   }
+  // }
 
-    const salarySetNum = payGroups.reduce((acc, curr, index) => {
+  function findSalaryDecile(salary, salarySet) {
+    const payBands = findAvailablePayBandsForSelected(salarySet);
+    const payBandsFormatted = formatPayBands(payBands);
+
+    const salaryMedian = {group: 'medianPay', salary: parseInt(salarySet.medianPay)};
+    const salaryDecilesDesc = payBandsFormatted.sort((a, b) => b.salary - a.salary);
+    const matchingCategory = getMatchingCategory(salary, salaryDecilesDesc, salaryMedian);
+
+    return matchingCategory;
+  };
+
+  function findAvailablePayBandsForSelected(salarySet){
+    const keys = Object.keys(salarySet);
+    return keys.filter(x => x.includes('percent'));
+  }
+
+  function formatPayBands(payBands){
+    return payBands.reduce((acc, curr, index) => {
       const salaryAsNum = parseInt(salarySet[curr]);
       acc[index] = {
         group: curr,
@@ -108,24 +134,19 @@ async function calculation(config){
       };
       return acc;
     }, []);
-
-    const salaryMedian = {group: 'medianPay', salary: parseInt(salarySet.medianPay)};
-
-    const salaryDecilesDesc = salarySetNum.sort((a, b) => b.salary - a.salary);
-    const matchingCategory = getMatchingCategory(salary, salaryDecilesDesc, salaryMedian);
-    return matchingCategory;
-  };
+  }
 
   function getMatchingCategory(salary, salaryDeciles, median){
     for (let i = 0; i < salaryDeciles.length; i++) {
-      let current = salaryDeciles[i];
+      let currentDecile = salaryDeciles[i];
 
-      if (salary > current.salary) {
-        return current;
+      if (salary > currentDecile.salary) {
+        return currentDecile;
       }
       else if(i === (salaryDeciles.length - 1)){
-        if(salary < current.salary){ return current }
-        else { return median }
+        if(salary < currentDecile.salary){ return currentDecile }
+        // if no deciles match, have to use the median for the age & sector
+        else { return {group: 'medianPay', salary: parseInt(salarySet.medianPay)}}
       }
     };
   };
