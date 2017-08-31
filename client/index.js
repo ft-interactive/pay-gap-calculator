@@ -41,6 +41,10 @@ dispatch.on("updateState", async function (o){
     const response = await calculationAgeSector(state);
     handleCalculationAgeSector(response);
   }
+
+  if(state.has("age") && state.has("sector") && state.has("salary")){
+    article.classList.remove('inputs-incomplete');
+  }
 });
 
 dispatch.on("compute", async function(config){

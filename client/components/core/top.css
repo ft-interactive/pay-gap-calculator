@@ -118,6 +118,10 @@ article.insufficient-data .input-compute{
   disabled: true;
 }
 
+/* INPUT ERROR HANDLING - DISABLE CALCULATION UNLESS ALL INPUTS ARE FILLED IN */
+article.inputs-incomplete button.input-compute {
+  disabled: true;
+}
 
 /* ALL INPUT BOXES */
 .input-container div[class^='input-box']{
@@ -329,6 +333,7 @@ div.input-salary-time-period p{
   max-width: 380px;
 }
 .input-salary-container input{
+  autofocus: false;
   padding-left: 17px;
 }
 .input-salary-container span{
