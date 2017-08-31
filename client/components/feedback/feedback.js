@@ -15,26 +15,6 @@ const payDifferentialAgeSectorText = document.querySelectorAll('.salary-differen
 
 const computeButton = d3.select('.input-compute');
 
-// HANDLE INSUFFICIENT DATA ERRORS
-function handleCalculationAgeSector(response){
-  const ratio = response.ratio;
-  if(Number.isNaN(ratio)){
-    article.classList.add('insufficient-data');
-    computeButton.attr("disabled", true);
-    return;
-  }
-  else if(typeof ratio === 'number'){
-    addFeedbackText(payDifferentialAgeSectorText, formatPercentageDifference(ratio));
-    article.classList.remove('insufficient-data');
-    computeButton.attr("disabled", null);
-  }
-}
-
-function handleCalculationAge(response){
-  const ratio = response.ratio;
-  addFeedbackText(payDifferentialAgeText, formatPercentageDifference(ratio))
-}
-
 // UPDATE FEEDBACK BOX DISPLAY BASED ON STATE
 function toggleFeedbackBoxes(state){
   if(state.has("gender")){
@@ -47,7 +27,8 @@ function toggleFeedbackBoxes(state){
 
   if(state.has("age")){
     parentAge.classList.add("selection-made");
-    addFeedbackText(ageText, state.get("age"));
+    const ageGroup = formatAgeGroup(state.get("age"));
+    addFeedbackText(ageText, ageGroup);
   }
    else {parentAge.classList.remove("selection-made")}
 
@@ -66,6 +47,12 @@ function addFeedbackText(elements, value){
   })
 }
 
+// FORMAT AGE OUTPUT
+function formatAgeGroup(age){
+  const decade = age.split('').shift();
+  return `${decade}0s`;
+}
+
 // FORMAT SECTOR OUTPUT
 function formatPercentageDifference(ratio){
   if(ratio < 1){
@@ -78,6 +65,27 @@ function formatPercentageDifference(ratio){
     const diffPercent = (diff * 100).toFixed(1);
     return `${diffPercent}% more`;
   }
+}
+
+
+// HANDLE INSUFFICIENT DATA ERRORS
+function handleCalculationAgeSector(response){
+  const ratio = response.ratio;
+  if(Number.isNaN(ratio)){
+    article.classList.add('insufficient-data');
+    computeButton.attr("disabled", true);
+    return;
+  }
+  else if(typeof ratio === 'number'){
+    addFeedbackText(payDifferentialAgeSectorText, formatPercentageDifference(ratio));
+    article.classList.remove('insufficient-data');
+    computeButton.attr("disabled", null);
+  }
+}
+
+function handleCalculationAge(response){
+  const ratio = response.ratio;
+  addFeedbackText(payDifferentialAgeText, formatPercentageDifference(ratio))
 }
 
 export {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes};
