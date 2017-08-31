@@ -42,7 +42,7 @@ const nameConfigShort = {
   "Health professionals": "Health professional",
   "Science, research, engineering and technology professionals": "Science, engineering or technology professional",
   "Teaching and educational professionals": "Teacher or other education professional",
-  "Business, media and public service professionals": "Civil servant, business or media professional",
+  "Business, media and public service professionals": "Business or media professional, or civil servant",
   "Associate professional and technical occupations": "Assistant professional",
   "Science, engineering and technology associate professionals": "Science, engineering and technology associate professional",
   "Health and social care associate professionals": "Health & social work associate professional",
