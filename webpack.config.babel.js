@@ -81,6 +81,7 @@ module.exports = async (env = 'development') => ({
   devServer: {
     hot: true,
     contentBase: resolve(__dirname, 'client'),
+    disableHostCheck: true,
   },
   devtool: 'source-map',
   plugins: [
