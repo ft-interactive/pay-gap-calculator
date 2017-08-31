@@ -133,6 +133,13 @@ article.inputs-incomplete button.input-compute {
   .input-compute, .see-more, .see-all {
     width: 100%;
   }
+
+  button.see-all.o-buttons.o-buttons--big {
+   background: #F2DFCE;
+   border-style: none;
+   height: 40px;
+   font-size: 1em;
+  }
 }
 
 /* GENDER INPUT */
@@ -152,7 +159,7 @@ article.inputs-incomplete button.input-compute {
   display: flex;
   justify-content: center;
   width: 50%;
-  height: 7em;
+  height: 7.8em;
   background-color: #F2E4DA;
 }
 .input-container .input-box-gender .or-box {
@@ -163,8 +170,8 @@ article.inputs-incomplete button.input-compute {
   width: 1.2em;
   padding: 0 1.2%;
   position: absolute;
-  top: 7em;
-  left: 200px;
+  top: 7.8em;
+  left: 197px;
   -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
@@ -209,6 +216,9 @@ box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 /* AGE INPUT */
 .input-container .input-box-age button{
   margin: .2em .3em;
+  height: 40px;
+  width: 75px;
+  font-size: 1em;
 }
 
 .input-container .input-box-age button:hover{
@@ -230,8 +240,8 @@ box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 article .input-box-sector .sector-desktop-view label,
 article .input-box-sector .sector-mobile-view label {
   display: block;
-  font-size: 1.0em;
-  line-height: 1.1em;
+  font-size: 1em;
+  line-height: 1.2em;
 }
 
 
@@ -302,14 +312,14 @@ article .input-box-sector .sector-mobile-view{
 }
 
 p.main-category::after{
-  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-registry);
+  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?&tint=0d7680,0d7680&source=origami-registry);
   width: 20px;
   top: 6px;
   position: relative;
   display: inline-block;
 }
 p.main-category.expanded::after{
-  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-registry);
+  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?&tint=0d7680,0d7680&source=origami-registry);
   width: 20px;
   top: 6px;
   display: inline-block;
