@@ -107,7 +107,7 @@ if (cutsTheMustard) {
   salaryInput.on("keyup", function(){
     const salary = calculateSalary(this.value);
     dispatch.call("updateState", this, {salary: salary});
-    formatSalaryInput(this.value); // format number we show users
+    // formatSalaryInput(this.value); // format number we show users
   });
 
   computeButton.on("click", function(){
