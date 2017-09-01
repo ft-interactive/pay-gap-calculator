@@ -72,8 +72,9 @@ label {
 }
 .input-container .input-feedback p,
 .input-container .data-error-feedback p {
- font: normal 1em/1.2em MetricWeb,sans-serif;
+ font: normal 1.1em/1.3em MetricWeb,sans-serif;
  color: #66605C;
+ margin-top: 0.4em;
 }
 
 article .selection-made .input-feedback{
@@ -84,16 +85,22 @@ article .selection-made .input-feedback{
 }
 .input-feedback span:not(.gender-choice-inverse) {
   font-weight: 600;
-  font-size: 1.1em;
+  font-size: 1em;
   color: black;
 }
 .input-feedback.sector-selected{
-  background-color: #8bd7da;
-  border-top: 2px solid #8bd7da;
+  background-color: #14bdcc;
+  border-top: 2px solid #14bdcc;
+  text-align: center;
+
 }
-.input-feedback.sector-selected p{
-  padding: 0;
+
+.input-feedback.sector-selected p span {
+  color: #08474d;
 }
+
+
+
 
 /* DATA ERROR HANDLING */
 .input-container .data-error-feedback {
@@ -128,6 +135,14 @@ article.inputs-incomplete button.input-compute {
   width: 100%;
 }
 
+.see-more.o-buttons.o-buttons--big {
+  background: #F2DFCE;
+  border-style: none;
+  height: 50px;
+  font-size: 1em;
+  min-width: 80px;
+}
+
 /* WIDE BUTTONS */
 @media(max-width:400px){
   .input-compute, .see-more, .see-all {
@@ -135,10 +150,10 @@ article.inputs-incomplete button.input-compute {
   }
 
   button.see-all.o-buttons.o-buttons--big {
-   background: #F2DFCE;
-   border-style: none;
-   height: 40px;
-   font-size: 1em;
+  background: #F2DFCE;
+  border-style: none;
+  height: 50px !important;
+  font-size: 1em;
   }
 }
 
@@ -163,14 +178,14 @@ article.inputs-incomplete button.input-compute {
   background-color: #F2E4DA;
 }
 .input-container .input-box-gender .or-box {
-  background-color: white;
-  font-size: .9em;
-  line-height: 22px;
-  border-radius: 3px;
-  width: 1.2em;
-  padding: 0 1.2%;
-  position: absolute;
-  top: 7.8em;
+     background-color: white;
+    font-size: 1em;
+    line-height: 22px;
+    border-radius: 3px;
+    width: 1.3em;
+    padding: 0.7px 1.6%;
+    position: absolute;
+    top: 7em;
   left: 197px;
   -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
@@ -217,7 +232,7 @@ box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 .input-container .input-box-age button{
   margin: .2em .3em;
   height: 40px;
-  width: 75px;
+  width: 62px;
   font-size: 1em;
 }
 
@@ -230,7 +245,7 @@ box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
   border-color: #14bdcc;
 }
 .input-container div {
- margin: 0.8em 0;
+ margin: 1em 0;
 }
 
 /* SECTOR ALL */
@@ -240,7 +255,7 @@ box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 article .input-box-sector .sector-desktop-view label,
 article .input-box-sector .sector-mobile-view label {
   display: block;
-  font-size: 1em;
+  font-size: 1.1em;
   line-height: 1.2em;
 }
 
@@ -261,8 +276,10 @@ article.small div.sector-mobile-view .sector-back-button {
   display: none;
 }
 
+
 article.small div.sector-mobile-view .see-all-sectors-text::after{
-  content: 'See job types'
+  content: 'See job types';
+  color:#00757F;
 }
 
 /* when sector choice box is open show its elements */
