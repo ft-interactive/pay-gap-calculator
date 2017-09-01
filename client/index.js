@@ -108,6 +108,11 @@ salaryInput.on("keyup", function(){
   formatSalaryInput(this.value); // format number we show users
 });
 
+computeButton.on("click", function(){
+  dispatch.call("compute", this, state)
+});
+
+// DECIDE IF SALARY IS MONTHLY OR YEARLY
 function calculateSalary(salary){
   const period = document.querySelector('button.input-salary-time.selected').getAttribute('data');
   const salaryMultiplier = period === 'year' ? 1 : 12;
@@ -115,10 +120,6 @@ function calculateSalary(salary){
   const adjustedSalary = parseInt(cleanSalary) * salaryMultiplier;
   return adjustedSalary;
 };
-
-computeButton.on("click", function(){
-  dispatch.call("compute", this, state)
-});
 
 // CHECK SCREEN WIDTH & SET ARTICLE CLASS
 window.addEventListener("resize", resizeThrottler, false);

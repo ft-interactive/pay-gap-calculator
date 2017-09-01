@@ -42,7 +42,6 @@ async function calculationAgeSector(config) {
   let gender = config.get("gender");
   let age = config.get("age");
   let sector = config.get("sector");
-
   try {
     const salarySetSelected = findSalarySet(gender, age, sector);
     const comparisonGender = gender === 'woman' ? 'man' : 'woman';
@@ -61,9 +60,8 @@ async function calculationAgeSector(config) {
 async function calculationAge(config) {
   let gender = config.get("gender");
   let age = config.get("age");
-
   try {
-    const salaryAgeSelected = findAgeGroup(age);
+    const salaryAgeSelected = findAgeGroup(age, summaryPay);
     const maleSalary = salaryAgeSelected.men;
     const femaleSalary = salaryAgeSelected.women;
     const salaryForSelectedGender = gender === 'woman' ? femaleSalary : maleSalary;
@@ -77,24 +75,20 @@ async function calculationAge(config) {
   }
 }
 
-function findAgeGroup(age) {
-  const ageSelected = summaryPay.filter(row => {
-    const [lowestAge, highestAge] = row.age.split("-");
+function findAgeGroup(age, dataSource) {
+  const ageGroupSelected = dataSource.filter(row => {
+    let lowestAge = parseInt(row.age.match(/\d+/)[0]);
+    let highestAge = lowestAge === 22 ? 29 : lowestAge + 9;
     return age <= highestAge && age >= lowestAge;
-  });
-  return ageSelected[0];
+  })
+  return ageGroupSelected[0];
 }
 
 function findSalarySet(gender, age, sector) {
   const dataSource = gender === 'woman' ? womenPay : menPay;
-  const sectorSelected = dataSource.filter(row => row.role === sector);
-  const ageSectorSelected = sectorSelected.filter(row => {
-    const [lowestAge, highestAge] = row.age.split("-");
-    return age <= highestAge && age >= lowestAge;
-  })
-  const selected = { ...ageSectorSelected[0]
-  };
-  return selected;
+  const sectorSelectedRows = dataSource.filter(row => row.role === sector);
+  const ageSectorSalarySet = findAgeGroup(age, sectorSelectedRows);
+  return ageSectorSalarySet;
 };
 
 function getSalaryDecileThatWorks(salary, salarySetSelected, comparisonSalarySet) {
