@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import ImageminWebpackPlugin from 'imagemin-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import HtmlWebpackInlineSourcePlugin from 'html-webpack-inline-source-plugin';
 // import { HotModuleReplacementPlugin } from 'webpack';
 import { resolve } from 'path';
 import getContext from './config';
@@ -129,7 +130,9 @@ module.exports = async (env = 'development') => ({
     }),
     new HtmlWebpackPlugin({
       template: 'client/index.html',
+      inlineSource: '.(js|css)$',
     }),
+    new HtmlWebpackInlineSourcePlugin(),
     env === 'production'
       ? new ImageminWebpackPlugin({ test: /\.(jpe?g|png|gif|svg)$/i })
       : undefined,

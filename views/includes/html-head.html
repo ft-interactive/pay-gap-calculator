@@ -63,7 +63,7 @@
 <!-- Add CTM checks -->
 <script type="text/javascript">
   window.cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window && typeof Function.prototype.bind !== 'undefined')
-  document.documentElement.className = document.documentElement.className.replace(/core/g, 'enhanced');
+  if (window.cutsTheMustard) document.documentElement.className = document.documentElement.className.replace(/core/g, 'enhanced');
 </script>
 
 {%- if flags.analytics %}

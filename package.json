@@ -40,6 +40,7 @@
     "file-loader": "^0.11.2",
     "ft-graphics-deploy": "^2.1.2",
     "html-loader": "^0.5.1",
+    "html-webpack-inline-source-plugin": "0.0.9",
     "html-webpack-plugin": "^2.30.1",
     "imagemin-webpack-plugin": "^1.5.0-beta.0",
     "jsdom": "^11.1.0",

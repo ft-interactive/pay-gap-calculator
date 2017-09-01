@@ -15,6 +15,26 @@ main {
   display:block
 }
 
+.enhanced .browser-not-supported {
+  display: none;
+}
+
+.core .gap-calculator {
+  display: none;
+}
+
+.gap-calculator {
+  display: none;
+}
+
+.calculator-ready .gap-calculator {
+  display: block;
+}
+
+.calculator-ready .loading-indicator {
+  display: none;
+}
+
 .core .o--if-js,
 .enhanced .o--if-no-js,
 .is-next .hide-next,
