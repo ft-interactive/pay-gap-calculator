@@ -11,5 +11,4 @@ function fillOutput(element, data){
   element.select('.output-daily-salary').text(`£${cleanDaily} ${comparatorWord}`);
 };
 
-
 module.exports = {fillOutput};

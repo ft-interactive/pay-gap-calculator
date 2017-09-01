@@ -64,7 +64,13 @@ genderButtons.on("click", function(){
   dispatch.call("updateState", this, {gender: this.getAttribute('data')} );
 });
 
-ageInput.on("click", function(){
+ageInput.on("mousedown", function(){
+  const prevSelectedEl = document.querySelector('.input-age.selected');
+  toggleSelection(this, prevSelectedEl);
+  dispatch.call("updateState", this, {age: this.getAttribute('data')} );
+});
+
+ageInput.on("touchstart", function(){
   const prevSelectedEl = document.querySelector('.input-age.selected');
   toggleSelection(this, prevSelectedEl);
   dispatch.call("updateState", this, {age: this.getAttribute('data')} );
