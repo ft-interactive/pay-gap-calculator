@@ -78,7 +78,8 @@ async function calculationAge(config) {
 function findAgeGroup(age, dataSource) {
   const ageGroupSelected = dataSource.filter(row => {
     let lowestAge = parseInt(row.age.match(/\d+/)[0]);
-    let highestAge = lowestAge === 22 ? 29 : lowestAge + 9;
+    if(lowestAge === 18) return;
+    let highestAge = lowestAge == 22 ? 29 : lowestAge + 9;
     return age <= highestAge && age >= lowestAge;
   })
   return ageGroupSelected[0];
