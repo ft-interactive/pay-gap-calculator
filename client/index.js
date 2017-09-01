@@ -3,7 +3,7 @@ import './styles.scss';
 
 import * as d3 from 'd3';
 
-import {calculation, calculationAgeSector, calculationAge} from './components/calculator';
+import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
 import {toggleSelection, formatSalaryInput, setElementsToChange} from './components/helpers';
 import {makeSectorComponents, sectorAddShowHideEvents} from './components/sectors/index';
@@ -64,7 +64,13 @@ genderButtons.on("click", function(){
   dispatch.call("updateState", this, {gender: this.getAttribute('data')} );
 });
 
-ageInput.on("click", function(){
+ageInput.on("mousedown", function(){
+  const prevSelectedEl = document.querySelector('.input-age.selected');
+  toggleSelection(this, prevSelectedEl);
+  dispatch.call("updateState", this, {age: this.getAttribute('data')} );
+});
+
+ageInput.on("touchstart", function(){
   const prevSelectedEl = document.querySelector('.input-age.selected');
   toggleSelection(this, prevSelectedEl);
   dispatch.call("updateState", this, {age: this.getAttribute('data')} );

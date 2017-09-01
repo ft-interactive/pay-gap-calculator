@@ -14,7 +14,7 @@ export default () => ({ // eslint-disable-line
   headline: 'Genderswap your salary',
 
   // summary === standfirst (Summary is what the content API calls it)
-  summary: 'How much could you spend on lunch if you were a man?',
+  summary: 'How much would you earn if you were a man?',
 
   topic: {
     name: 'Starter Kit',
