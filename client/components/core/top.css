@@ -135,8 +135,6 @@ article .selection-made .input-feedback{
 }
 
 
-
-
 /* DATA ERROR HANDLING */
 .input-container .data-error-feedback {
   border-top: 5px solid #CC0000;
@@ -160,9 +158,19 @@ article.insufficient-data .input-compute{
   disabled: true;
 }
 
-/* INPUT ERROR HANDLING - DISABLE CALCULATION UNLESS ALL INPUTS ARE FILLED IN */
-article.inputs-incomplete button.input-compute {
-  disabled: true;
+/* INPUT ERROR HANDLING  */
+article.no-salary button.input-compute,
+article.no-salary button.input-compute:hover,
+article.no-salary button.input-compute:active {
+  background-color: #FF1A66;
+  color: white;
+}
+article.no-salary button.input-compute span.compute-text {
+  content: 'Please enter a salary';
+}
+article.no-salary button.input-compute span::before {
+  content: url('../images/gp_error_icon.svg');
+  width: 10px;
 }
 
 /* ALL INPUT BOXES */
