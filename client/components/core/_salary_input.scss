@@ -37,8 +37,33 @@ div.input-salary-time-period p{
 
 article {
   button.input-compute {
+    height: 50px;
     span::after {
       content: 'Reveal the pay gap';
+    }
+  }
+}
+
+/* IF USER INPUTS ARE INCOMPLETE, GIVE VALIDATION ERRORS  */
+
+article.no-salary {
+  button.input-compute,
+  button.input-compute:hover,
+  button.input-compute:active {
+    background-color: #FF1A66;
+    border-color: #FF1A66;
+    min-width: 200px;
+    span::after {
+      content:'\00a0 \00a0 \00a0 \00a0 \00a0 Please enter a salary';
+      background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon:warning?width=40&format=png&source=o-icons&tint=ffffff');
+      display: inline-block;
+      height: 24px;
+      line-height: 24px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 50% left;
+      background-color: transparent;
+      vertical-align: middle;
     }
   }
 }
