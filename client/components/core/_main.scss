@@ -90,11 +90,139 @@ label {
   }
 }
 
+/* USER INPUT VALIDATION */
+/* IF USER INPUTS ARE INCOMPLETE, GIVE VALIDATION ERRORS  */
+
+article.no-salary {
+  button.input-compute,
+  button.input-compute:hover,
+  button.input-compute:active {
+    background-color: #FF1A66;
+    color: white;
+    min-width: 200px;
+    span::after {
+      display: inline-block;
+    }
+  }
+  input.input-salary {
+    border-color: #FF1A66;
+  }
+}
+
+article.no-age {
+  button.input-compute {
+    background-color: #FF1A66;
+    color: white;
+    span::after {
+      content: url(components/images/gp_error_icon.svg) ' Please enter an age';
+    }
+  }
+}
+article.no-sector {
+  button.input-compute {
+    background-color: #FF1A66;
+    color: white;
+    span::after {
+      content: url(components/images/gp_error_icon.svg) ' Please enter a job type';
+    }
+  }
+}
+article.no-salary {
+  button.input-compute {
+    span::after {
+      content: url(components/images/gp_error_icon.svg) ' Please enter a salary';
+    }
+  }
+}
+article.no-age.no-sector {
+  button.input-compute {
+    span::after {
+      content: url(components/images/gp_error_icon.svg) ' Please enter an age and job type';
+    }
+  }
+}
+article.no-age.no-salary {
+  button.input-compute {
+    span::after {
+      content: url(components/images/gp_error_icon.svg) ' Please enter an age and salary';
+    }
+  }
+}
+article.no-age.no-sector.no-salary {
+  button.input-compute {
+    span::after {
+      content: url(components/images/gp_error_icon.svg) ' Please enter an age, job type and salary';
+    }
+  }
+}
+article.no-sector.no-salary {
+  button.input-compute {
+    span::after {
+      content: url(components/images/gp_error_icon.svg) ' Please enter a job type and salary';
+    }
+  }
+}
+
+
+article.no-sector,
+article.no-age {
+  .input-box-sector {
+    button.see-more,
+    button.see-more:hover,
+    button.see-more:active {
+      background: #FF1A66;
+      color: white;
+      min-width: 200px;
+      span::after {
+        content: url(components/images/gp_error_icon.svg) ' Please select your job type';
+        display: inline-block;
+      }
+    }
+  }
+}
+
+article.no-age {
+  .input-box-sector {
+    button.see-more {
+      span::after {
+        content: url(components/images/gp_error_icon.svg) ' Please select your age';
+      }
+    }
+  },
+  .input-box-age{
+    .input-age {
+      border-color: #FF1A66;
+    }
+  }
+}
+
+article.no-sector {
+  .input-box-sector {
+    button.see-more {
+      span::after {
+        content: url(components/images/gp_error_icon.svg) ' Please select your job type';
+      }
+    }
+  }
+}
+//
+// article.no-age.no-sector {
+//   .input-box-sector {
+//     button.see-more {
+//       span::after {
+//         content: url(components/images/gp_error_icon.svg) ' Please select your age and job type';
+//       }
+//     }
+//   }
+// }
+
+
+
+
 /* FEEDBACK BOXES */
 .input-feedback {
     display: none;
 }
-
 .input-container .input-feedback,
 .input-container .data-error-feedback {
   padding: 0.1em 0.5em .2em 0.5em;
@@ -134,25 +262,39 @@ article .selection-made .input-feedback{
 
 /* DATA ERROR HANDLING */
 .input-container .data-error-feedback {
-  border-top: 5px solid #CC0000;
-  background-color: #fff;
+  border-top: 5px solid #FF1A66;
+  background-color: #FFDBD7;
+  display: flex;
+  flex-direction: row;
+  div {
+    flex: 1 1 auto;
+    padding: 0 .5em 0 .5em;
+    margin: .4em 0 0 0;
+    p {
+      margin-top: 0;
+    }
+    img {
+      margin-top: .1em;
+    }
+  }
 }
-article .data-error-feedback {
+
+article .input-container .data-error-feedback {
   display: none;
 }
 
 article.insufficient-data .data-error-feedback{
-  display: block;
+  display: flex;
 }
 
 article.insufficient-data div.selection-made.input-box-sector .input-feedback{
   display: none;
 }
-article.insufficient-data .input-salary{
-  background-color: #CCC1B7;
+article.insufficient-data .input-box-salary{
+  display: none;
 }
 article.insufficient-data .input-compute{
-  disabled: true;
+  display: none;
 }
 
 /* OUTPUT BOX */

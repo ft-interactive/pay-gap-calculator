@@ -42,22 +42,3 @@ article {
     }
   }
 }
-
-/* IF USER INPUTS ARE INCOMPLETE, GIVE VALIDATION ERRORS  */
-
-article.no-salary {
-  button.input-compute,
-  button.input-compute:hover,
-  button.input-compute:active {
-    background-color: #FF1A66;
-    color: white;
-    min-width: 200px;
-    span::after {
-      content: url(components/images/gp_error_icon.svg) ' Please enter a salary';
-      // width: 20px;
-      display: inline-block;
-      // position: absolute;
-      // left: 20px;
-    }
-  }
-}
