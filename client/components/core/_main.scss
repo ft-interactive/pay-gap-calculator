@@ -91,6 +91,10 @@ label {
 }
 
 /* FEEDBACK BOXES */
+.input-feedback {
+    display: none;
+}
+
 .input-container .input-feedback,
 .input-container .data-error-feedback {
   padding: 0.1em 0.5em .2em 0.5em;

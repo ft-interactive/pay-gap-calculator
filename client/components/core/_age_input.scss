@@ -6,7 +6,7 @@
   flex:1 1 auto;
 }
 
-.input-box-age > div {
+.input-box-age > div:not(.input-feedback) {
   max-width: 428px;
   min-width: 320px;
   display:flex;
