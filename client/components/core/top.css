@@ -65,6 +65,21 @@ main {
 }
 
 /* CUSTOM CALCULATOR STYLES */
+.o-header{
+  background-color: #fff1e5 !important;
+}
+
+header p {
+  font-size: 1.3em;
+  color:#333;
+}
+
+@media(max-width: 400px){
+  header p {
+  font-size: 1em;
+}
+}
+
 hr{
   background-color: #E5D8CE; height: 1px; border: 0;
 }
@@ -199,18 +214,18 @@ article.inputs-incomplete button.input-compute {
   background-color: #F2E4DA;
 }
 .input-container .input-box-gender .or-box {
-     background-color: white;
-    font-size: 1em;
-    line-height: 22px;
-    border-radius: 3px;
-    width: 1.3em;
-    padding: 0.7px 1.6%;
-    position: absolute;
-    top: 7em;
+  background-color: white;
+  font-size: 1em;
+  line-height: 22px;
+  border-radius: 3px;
+  width: 1.3em;
+  padding: 0.7px 1.6%;
+  position: absolute;
+  top: 9em;
   left: 197px;
   -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
--moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 }
 
 @media(max-width: 400px){
@@ -253,7 +268,6 @@ box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
 .input-container .input-box-age button{
   margin: .3em 1.6%;
   height: 40px;
-  min-width: 16%;
   font-size: 1em;
   flex:1 1 auto;
 }
