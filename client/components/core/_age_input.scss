@@ -1,0 +1,27 @@
+/* AGE INPUT */
+.input-container .input-box-age button{
+  margin: .3em 1.6%;
+  height: 40px;
+  font-size: 1em;
+  flex:1 1 auto;
+}
+
+.input-box-age > div {
+  max-width: 428px;
+  min-width: 320px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input-container .input-box-age button:hover{
+  background-color: #0d7680;
+}
+.input-container .input-box-age button.selected{
+  background-color: #14bdcc;
+  color:#08474d;
+  border-color: #14bdcc;
+}
+.input-container div {
+ margin: 1em 0;
+}

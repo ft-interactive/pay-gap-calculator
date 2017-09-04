@@ -1,0 +1,108 @@
+/* SECTOR ALL */
+.input-box-sector .input-sector-group{
+  cursor: pointer;
+}
+article .input-box-sector .sector-desktop-view label,
+article .input-box-sector .sector-mobile-view label {
+  display: block;
+  font-size: 1.1em;
+  line-height: 1.2em;
+}
+
+
+/* SECTOR INPUT MOBILE VIEW */
+article.small.sector-choice .article-head,
+article.small.sector-choice .article-body footer,
+article.small.sector-choice .article-body .gap-calculator .output-container,
+article.small.sector-choice .article-body .gap-calculator .input-container > div:not(.input-box-sector),
+article.small.sector-choice .article-body .gap-calculator .input-container .input-feedback,
+article.small.sector-choice .article-body .gap-calculator .input-container .data-error-feedback {
+  display:none;
+}
+
+/* when sector choice box is closed, hide its elements */
+article.small div.sector-mobile-view .o-forms,
+article.small div.sector-mobile-view .sector-back-button {
+  display: none;
+}
+
+article.small div.sector-mobile-view .see-all-sectors-text::after{
+  background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%230D7680,%230D7680&format=svg);
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  background-color: transparent;
+  position: relative;
+  vertical-align: middle;
+  color: #0d7680;
+}
+
+/* when sector choice box is open show its elements */
+article.small.sector-choice div.sector-mobile-view .o-forms,
+article.small.sector-choice div.sector-mobile-view .sector-back-button {
+  display: block;
+}
+article.small.sector-choice div.sector-mobile-view .see-all-sectors-text::after{
+  content: 'Continue with pay gap calculator'
+}
+article.small .input-box-sector .sector-desktop-view{
+  display: none;
+}
+article.small .input-box-sector .sector-mobile-view{
+  display: block;
+}
+article.small .input-box-sector .sector-mobile-view .o-forms.hidden{
+  display: none;
+}
+article.small .input-box-sector .sector-mobile-view .sub-section-box{
+  border-top: solid gray 0.8px;
+}
+article.small .input-box-sector .sector-mobile-view .sector-back-button{
+  font-family: $font-sans;
+  color: #00757f;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* SECTOR INPUT DESKTOP */
+article .input-box-sector .sector-desktop-view{
+  display: block;
+}
+article .input-box-sector .sector-mobile-view{
+  display: none;
+}
+.input-container div.input-sector-list p{
+  font-family: $font-sans;
+  padding: .2em 0;
+}
+
+.sector-desktop-view .toggle-more-sectors-text::after{
+  content:'See more job types';
+}
+.sector-desktop-view.expanded .toggle-more-sectors-text::after{
+  content:'See fewer job types';
+}
+
+p.main-category::after{
+  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?&tint=0d7680,0d7680&source=origami-registry);
+  width: 20px;
+  top: 6px;
+  position: relative;
+  display: inline-block;
+}
+p.main-category.expanded::after{
+  content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?&tint=0d7680,0d7680&source=origami-registry);
+  width: 20px;
+  top: 6px;
+  display: inline-block;
+  position: relative;
+}
+article .input-box-sector .sector-desktop-view p.main-category{
+  font-family: $font-sans;
+  color: #0d7680;
+  font-weight: 500;
+}

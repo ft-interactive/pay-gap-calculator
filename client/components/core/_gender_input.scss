@@ -1,0 +1,70 @@
+/* GENDER INPUT */
+.input-container .input-box-gender > div{
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+
+}
+
+.input-container .input-box-gender > hr {
+  background-color: #66605C; height: 1px; border: 0;
+}
+
+.input-container .icon-option {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 7.8em;
+  background-color: #F2E4DA;
+}
+.input-container .input-box-gender .or-box {
+  background-color: white;
+  font-size: 1em;
+  line-height: 22px;
+  border-radius: 3px;
+  width: 1.3em;
+  padding: 0.7px 1.6%;
+  position: absolute;
+  top: 9em;
+  left: 197px;
+  -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+}
+
+@media(max-width: 400px){
+  .input-container .input-box-gender .or-box {
+    left: 47%;
+  }
+}
+.input-container .icon-option.selected {
+  background-color: #14bdcc;
+}
+.input-container .icon-option.selected span {
+  color:white;
+}
+
+.input-container .icon-option.selected #Layer_1 path {
+   fill:white;
+}
+
+.input-container .icon-option #Layer_1 path {
+   fill:#CCC1B7;
+}
+
+.input-container .icon-option div.icon-content{
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5em;
+}
+
+.input-container .icon-option span {
+  text-transform: uppercase;
+  color: #8F857E;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-top: .4em;
+}
