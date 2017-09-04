@@ -32,3 +32,162 @@ body {
     }
   }
 }
+
+/****** CUSTOM CALCULATOR STYLES ******/
+.o-header{
+  background-color: #fff1e5 !important;
+}
+
+header p {
+  font-size: 1.3em;
+  color:#333;
+}
+
+@media(max-width: 400px){
+  header p {
+  font-size: 1em;
+}
+}
+
+hr{
+  background-color: #E5D8CE; height: 1px; border: 0;
+}
+
+label {
+  font-weight: 400;
+  font-size: 1.4em;
+  display: block;
+  margin: 0.3em 0;
+  color:#33302E;
+}
+.hidden {
+  display: none;
+}
+
+/* ALL INPUT BOXES */
+.input-container div[class^='input-box']{
+  width: 100%;
+}
+
+.see-more.o-buttons.o-buttons--big {
+  background: #F2DFCE;
+  border-style: none;
+  height: 40px;
+  font-size: 1em;
+  min-width: 80px;
+}
+
+/* WIDE BUTTONS */
+@media(max-width:400px){
+  .input-compute, .see-more, .see-all {
+    width: 100%;
+  }
+
+  button.see-all.o-buttons.o-buttons--big {
+  background: #F2DFCE;
+  border-style: none;
+  font-size: 1em;
+  }
+}
+
+/* FEEDBACK BOXES */
+.input-container .input-feedback,
+.input-container .data-error-feedback {
+  padding: 0.1em 0.5em .2em 0.5em;
+  min-width: 90%;
+}
+.input-container .input-feedback {
+  border-top: 2px solid #14bdcc;
+  background-color: #fff;
+}
+.input-container .input-feedback p,
+.input-container .data-error-feedback p {
+ font: normal 1.1em/1.3em $font-sans;
+ color: #66605C;
+ margin-top: 0.4em;
+}
+
+article .selection-made .input-feedback{
+  display: block;
+}
+.input-feedback{
+  display: none;
+}
+.input-feedback span:not(.gender-choice-inverse) {
+  font-weight: 600;
+  font-size: 1em;
+  color: black;
+}
+.input-feedback.sector-selected{
+  background-color: #14bdcc;
+  border-top: 2px solid #14bdcc;
+  text-align: center;
+}
+
+.input-feedback.sector-selected p span {
+  color: #08474d;
+}
+
+/* DATA ERROR HANDLING */
+.input-container .data-error-feedback {
+  border-top: 5px solid #CC0000;
+  background-color: #fff;
+}
+article .data-error-feedback {
+  display: none;
+}
+
+article.insufficient-data .data-error-feedback{
+  display: block;
+}
+
+article.insufficient-data div.selection-made.input-box-sector .input-feedback{
+  display: none;
+}
+article.insufficient-data .input-salary{
+  background-color: #CCC1B7;
+}
+article.insufficient-data .input-compute{
+  disabled: true;
+}
+
+/* OUTPUT BOX */
+article.computed .output-container{
+  display: block;
+}
+.output-container {
+  display: none;
+}
+
+article.computed .output-container span[class^='output']{
+  font-family: $font-sans;
+  display: block;
+  font-size: 45px;
+  font-weight: 500;
+}
+article.computed .output-container {
+  background-color: #9fe0d9;
+  padding: 1.5em 1em;
+}
+article.computed .output-container p{
+  text-align: left;
+}
+article.computed .down-triangle {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 25px solid #fff1e5;
+  position: relative;
+  top: -1.5em;
+  left: 10%;
+}
+
+@media(max-width: 400px){
+  article.computed .down-triangle {
+    left: 46%;
+  }
+  article.computed .output-container p{
+    text-align: center;
+  }
+}

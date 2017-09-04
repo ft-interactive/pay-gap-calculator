@@ -50,8 +50,27 @@ if (cutsTheMustard) {
   });
 
   dispatch.on("compute", async function(config){
-    const outputData = await calculation(config);
-    handleCalculationFull(outputData);
+
+    console.log("this happened");
+    console.log("config", config);
+
+    if(config.has("age")){
+      article.classList.remove("no-age")
+    } else { article.classList.add("no-age")}
+
+    if(config.has("sector")){
+      article.classList.remove("no-sector")
+    } else { article.classList.add("no-sector")}
+
+    if(config.has("salary")){
+      article.classList.remove("no-salary")
+    } else { article.classList.add("no-salary")}
+
+    if(config.length === 4){
+      const outputData = await calculation(config);
+      handleCalculationFull(outputData);
+    }
+
   });
 
   function handleCalculationFull(outputData){

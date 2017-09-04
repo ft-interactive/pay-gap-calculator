@@ -1,0 +1,63 @@
+
+/* SALARY INPUT */
+div.input-salary-time-period div{
+  display: inline-block;
+  margin: 0 .5em;
+}
+div.input-salary-time-period p{
+  display: inline-block;
+  margin: 0;
+}
+.input-salary-container{
+  position: relative;
+  max-width: 380px;
+}
+.input-salary-container input{
+  autofocus: false;
+  padding-left: 17px;
+}
+.input-salary-container span{
+  position: absolute;
+  font-style: italic;
+  color: gray;
+}
+.input-salary-container span.before-tax{
+  top: 22px;
+  right: 10px;
+}
+.input-salary-container span.currency{
+  top: 22px;
+  left: 8px;
+}
+.input-container button.input-salary-time.selected{
+  background-color: #14bdcc;
+  border-color: #14bdcc;
+  color:#08474d;
+}
+
+article {
+  button.input-compute {
+    span::after {
+      content: 'Reveal the pay gap';
+    }
+  }
+}
+
+/* IF USER INPUTS ARE INCOMPLETE, GIVE VALIDATION ERRORS  */
+
+article.no-salary {
+  button.input-compute,
+  button.input-compute:hover,
+  button.input-compute:active {
+    background-color: #FF1A66;
+    color: white;
+    min-width: 200px;
+    span::after {
+      content: url(components/images/gp_error_icon.svg) ' Please enter a salary';
+      // width: 20px;
+      display: inline-block;
+      // position: absolute;
+      // left: 20px;
+    }
+  }
+}
