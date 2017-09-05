@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import {roles, mainRoles, groupedRoles} from './sectors';
 import {generateDesktopSectorList, generateMobileSectorList} from './generateSectorList';
 import {toggleSelection, formatSalaryInput, setElementsToChange} from '../helpers';
+import {ageCheck, sectorCheck, salaryCheck} from '../validation/validators';
 
 const mainSectors = Array.from(mainRoles);
 const sectors = Array.from(roles);
@@ -42,8 +43,10 @@ dispatch.on("toggleSectorsMobile", function(){
 });
 
 // ADD SHOW HIDE EVENTS
-function sectorAddShowHideEvents(){
+function sectorAddShowHideEvents(state){
   sectorDivDesktop.on("click", function(){
+    ageCheck(state);
+    if(!state.has("age")) return;
     // if main category heading is clicked, show/hide subsection
     const clicked = d3.event.target;
     if(clicked.classList.contains("main-category")){
@@ -53,6 +56,8 @@ function sectorAddShowHideEvents(){
   });
 
   seeMoreButton.on("click", function(){
+    ageCheck(state);
+    if(!state.has("age")) return;
     let inputs = document.querySelectorAll('.input-sector-group');
     let titles = document.querySelectorAll('.main-category');
     const inputsToChange = setElementsToChange(inputs, sectorsToShowDefault);
@@ -62,6 +67,8 @@ function sectorAddShowHideEvents(){
 
   // hide and show sector menu on mobile
   showAllMobileButton.on("click", function(){
+    ageCheck(state);
+    if(!state.has("age")) return;
     dispatch.call("toggleSectorsMobile", this);
   });
 
