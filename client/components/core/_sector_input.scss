@@ -28,17 +28,16 @@ article.small div.sector-mobile-view .sector-back-button {
 
 article.small div.sector-mobile-view .see-all-sectors-text::after{
   background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%230D7680,%230D7680&format=svg);
-  content: '';
-  width: 24px;
-  height: 24px;
+  content: 'See job types';
   display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  width: 55%;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: 50%;
+  background-position: 100% 0%;
   background-color: transparent;
-  position: relative;
   vertical-align: middle;
-  color: #0d7680;
 }
 
 /* when sector choice box is open show its elements */
