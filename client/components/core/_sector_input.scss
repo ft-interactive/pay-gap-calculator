@@ -28,10 +28,11 @@ article.small div.sector-mobile-view .sector-back-button {
 
 article.small div.sector-mobile-view .see-all-sectors-text::after{
   background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%230D7680,%230D7680&format=svg);
-  content: 'See job types \00a0 \00a0 \00a0 \00a0';
+  content: 'See job types';
   display: inline-block;
-  height: 24px;
-  line-height: 24px;
+  height: 28px;
+  line-height: 28px;
+  width: 55%;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 100% 0%;
