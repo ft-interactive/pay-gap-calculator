@@ -1,6 +1,11 @@
 {% import "macros.html" as macros %} {% extends "layout.html" %} {% block article_body %}
 
-<p>Intro copy intro copy.</p>
+<p>Your age, your sector and your seniority all affect how
+  much the gender pay gap works against you. The average gender pay gap in the UK
+  is 9.4% for full-time workers.
+  (Add in part-timers, and it jumps to 18.1% for every hour worked).</p>
+
+<p>Find out if you're beating the gap, or suffering from it.</p>
 
 <div class="browser-not-supported">
   Sorry, your browser is not supported.
@@ -14,7 +19,6 @@
       <hr>
       <label>1. Are you a woman or a man?</label>
       <div>
-        <div class="or-box">OR</div>
         <div class="input-gender icon-option selected" data="woman">
           <div class="icon-content">
             <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" alt="woman icon">
@@ -36,9 +40,9 @@
             <span>Man</span>
           </div>
         </div>
+        <div class="or-box">OR</div>
       </div>
     </div>
-
 
     <div class="input-box-age">
       <hr>
@@ -61,7 +65,6 @@
       </div>
       <div class="no-age-error"><span></span></div>
     </div>
-
 
     <div class="input-box-sector">
       <hr>
@@ -142,6 +145,12 @@
       <p>giving you <span class="output-daily-salary"></span> spending money every day (before tax)</p>
       <p>As a person in your <span class="age-choice"></span> working in <span class="sector-choice"></span>
     </div>
+    <div class="output-box-percentile">
+      <p>Your salary puts you in the top <span>TBC</span> of <span></span> earners in your age group and sector. A woman at the <span>XXX</span> percentiles
+        earns XXXX, a man at the <span>XXX</span> percentile of men earns XXX. That puts the gender pay gap for a woman of your age, sector and salary level at <span>-12%</span>.
+      </p>
+    </div>
+    <p>This calculator is based on ONS 2016 data on the salaries of full-time workers in the UK.</p>
   </div>
 </div>
 
