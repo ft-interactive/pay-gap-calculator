@@ -3,7 +3,7 @@ import './styles.scss';
 
 import * as d3 from 'd3';
 
-import {ageCheck, sectorCheck, salaryCheck} from './components/validation/validators';
+import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings} from './components/validation/validators';
 import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
 import {toggleSelection, formatSalaryInput, setElementsToChange} from './components/helpers';
@@ -33,22 +33,16 @@ if (cutsTheMustard) {
     const value = Object.values(o)[0];
     state.set(key, value);
     console.log(`STATE IS NOW:`, state);
+
     toggleFeedbackBoxes(state);
+    clearEmptyWarnings(state);
+    article.classList.remove("computed");
 
     if(state.has("age")){
-      article.classList.remove("no-age")
       const response = await calculationAge(state);
       handleCalculationAge(response);
     }
-    if(state.has("salary")){
-      article.classList.remove("no-salary");
-    }
-    if(state.has("sector")){
-      article.classList.remove("no-sector");
-    }
-
     if(state.has("age") && state.has("sector")){
-      article.classList.remove("no-sector")
       const response = await calculationAgeSector(state);
       handleCalculationAgeSector(response);
     }
@@ -58,13 +52,14 @@ if (cutsTheMustard) {
     ageCheck(config);
     sectorCheck(config);
     salaryCheck(config);
+    const salaryValid = state.has("salary") && !Number.isNaN(state.get("salary"));
 
-    if(state.has("age") && state.has("sector") && state.has("salary")){
-      console.log("this ran!!")
+    if(state.has("age") && state.has("sector") && salaryValid){
       const outputData = await calculation(config);
       handleCalculationFull(outputData);
     }
   });
+
 
   function handleCalculationFull(outputData){
     article.classList.add("computed");
@@ -94,6 +89,7 @@ if (cutsTheMustard) {
     const selectedInput = document.querySelector(".sector-desktop-view .o-forms__radio:checked");
     if(selectedInput !== null){
       dispatch.call("updateState", this, {sector: selectedInput.value} );
+
     }
   });
 
@@ -124,7 +120,6 @@ if (cutsTheMustard) {
     sectorCheck(state);
     const salary = calculateSalary(this.value);
     dispatch.call("updateState", this, {salary: salary});
-    // formatSalaryInput(this.value); // format number we show users
   });
 
   computeButton.on("click", function(){

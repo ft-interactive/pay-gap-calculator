@@ -14,8 +14,25 @@ function sectorCheck(config){
 
 function salaryCheck(config){
   if(config.has("salary")){
-    article.classList.remove("no-salary")
-  } else { article.classList.add("no-salary")}
+    if(!Number.isNaN(config.get("salary"))){
+      article.classList.remove("no-salary")
+    }
+    else { article.classList.add("no-salary")}
+  }
+  else { article.classList.add("no-salary")}
 }
 
-export {ageCheck, sectorCheck, salaryCheck};
+
+function clearEmptyWarnings(state){
+  if(state.has("salary")){
+    article.classList.remove("no-salary");
+  }
+  if(state.has("sector")){
+    article.classList.remove("no-sector");
+  }
+  if(state.has("age")){
+    article.classList.remove("no-age")
+  }
+}
+
+export {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings};
