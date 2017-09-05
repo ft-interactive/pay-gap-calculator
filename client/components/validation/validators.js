@@ -14,8 +14,12 @@ function sectorCheck(config){
 
 function salaryCheck(config){
   if(config.has("salary")){
-    article.classList.remove("no-salary")
-  } else { article.classList.add("no-salary")}
+    if(!Number.isNaN(config.get("salary"))){
+      article.classList.remove("no-salary")
+    }
+    else { article.classList.add("no-salary")}
+  }
+  else { article.classList.add("no-salary")}
 }
 
 

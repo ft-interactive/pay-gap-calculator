@@ -12,8 +12,6 @@ import {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes} f
 
 if (cutsTheMustard) {
   const article = document.querySelector("body main article");
-  const desktopSectorContainer = document.querySelector('.sector-desktop-view');
-
   const outputContainer = d3.select('.output-container');
   const sectorDivDesktop = d3.select('div.sector-desktop-view');
   const sectorDivMobile = d3.select('div.sector-mobile-view');
@@ -35,6 +33,7 @@ if (cutsTheMustard) {
     const value = Object.values(o)[0];
     state.set(key, value);
     console.log(`STATE IS NOW:`, state);
+
     toggleFeedbackBoxes(state);
     clearEmptyWarnings(state);
     article.classList.remove("computed");
@@ -53,8 +52,9 @@ if (cutsTheMustard) {
     ageCheck(config);
     sectorCheck(config);
     salaryCheck(config);
+    const salaryValid = state.has("salary") && !Number.isNaN(state.get("salary"));
 
-    if(state.has("age") && state.has("sector") && state.has("salary")){
+    if(state.has("age") && state.has("sector") && salaryValid){
       const outputData = await calculation(config);
       handleCalculationFull(outputData);
     }
@@ -98,10 +98,6 @@ if (cutsTheMustard) {
     const selectedInput = document.querySelector(".sector-mobile-view .o-forms__radio:checked");
     if(selectedInput !== null){
       dispatch.call("updateState", this, {sector: selectedInput.value} );
-      if(article.classList.contains('sector-choice')){
-        article.classList.remove("sector-choice");
-        window.scroll(0, 600);
-      }
     }
   });
 

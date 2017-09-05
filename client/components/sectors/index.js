@@ -8,16 +8,18 @@ import {ageCheck, sectorCheck, salaryCheck} from '../validation/validators';
 const mainSectors = Array.from(mainRoles);
 const sectors = Array.from(roles);
 const sectorsToShowDefault = 4;
+const article = document.querySelector('article');
 
 const sectorDivDesktop = d3.select('div.sector-desktop-view .input-sector-list');
 const sectorDivMobile = d3.select('div.sector-mobile-view .input-sector-list');
+const mobileSectorOptions = d3.select('div.sector-mobile-view .o-forms');
 
 const seeMoreButton = d3.select('.see-more');
 const showAllMobileButton = d3.select('.input-box-sector .see-all');
 const hideAllMobileButton = d3.select('.input-box-sector .sector-back-button');
 
 
-const dispatch = d3.dispatch("toggleSectorsDesktop", "toggleSubsectionDesktop", "toggleSectorsMobile");
+const dispatch = d3.dispatch("toggleSectorsDesktop", "toggleSubsectionDesktop", "showSectorsMobile", "hideSectorsMobile");
 
 // DEFINE SECTOR SHOW / HIDE EVENTS
 dispatch.on("toggleSectorsDesktop", function(inputsToChange, titlesToChange){
@@ -37,9 +39,14 @@ dispatch.on("toggleSubsectionDesktop", function(selectedSector){
   subSectorToToggle.classList.toggle("hidden");
 });
 
-dispatch.on("toggleSectorsMobile", function(){
-  const article = document.querySelector('article');
-  article.classList.toggle("sector-choice");
+dispatch.on("showSectorsMobile", function(){
+  article.classList.add("sector-choice");
+});
+
+dispatch.on("hideSectorsMobile", function(){
+  console.log("hide fired");
+  article.classList.remove("sector-choice");
+  window.scroll(0, 600);
 });
 
 // ADD SHOW HIDE EVENTS
@@ -66,15 +73,16 @@ function sectorAddShowHideEvents(state){
   });
 
   // hide and show sector menu on mobile
+  sectorDivMobile.on("click", function(){
+    dispatch.call("hideSectorsMobile", this);
+  })
+
   showAllMobileButton.on("click", function(){
     ageCheck(state);
     if(!state.has("age")) return;
-    dispatch.call("toggleSectorsMobile", this);
+    dispatch.call("showSectorsMobile", this);
   });
 
-  hideAllMobileButton.on("click", function(){
-    dispatch.call("toggleSectorsMobile", this);
-  });
 };
 
 function makeSectorComponents(){

@@ -7,7 +7,30 @@ article.no-salary,
 article.no-sector {
   button.input-compute,
   button.input-compute:active,
-  button.input-compute:hover,
+  button.input-compute:hover {
+    background-color: #FF1A66;
+    border-color: #FF1A66;
+    min-width: 200px;
+    color: #fff;
+
+    span::after {
+      background-image: url($exclamation-symbol-url);
+      display: inline-block;
+      height: 24px;
+      line-height: 24px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 50% left;
+      background-color: transparent;
+      vertical-align: middle;
+    }
+  }
+}
+
+/* USER INPUT VALIDATION */
+/* IF USER INPUTS ARE INCOMPLETE, GIVE VALIDATION ERRORS  */
+article.no-age,
+article.no-sector {
   button.see-more.o-buttons,
   button.see-more:active,
   button.see-more:hover,

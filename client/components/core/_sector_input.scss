@@ -14,10 +14,20 @@ article .input-box-sector .sector-mobile-view label {
 /* SECTOR INPUT MOBILE VIEW */
 article.small.sector-choice .article-head,
 article.small.sector-choice .article-body footer,
+article.small.sector-choice .article-body p,
 article.small.sector-choice .article-body .gap-calculator .output-container,
-article.small.sector-choice .article-body .gap-calculator .input-container > div:not(.input-box-sector),
-article.small.sector-choice .article-body .gap-calculator .input-container .input-feedback,
-article.small.sector-choice .article-body .gap-calculator .input-container .data-error-feedback {
+article.small.sector-choice .article-body .gap-calculator .input-container > div:not(.input-box-sector){
+  display:none;
+}
+
+article.small.sector-choice .article-body .gap-calculator .input-box-sector > label{
+  display:none;
+}
+
+article.small.sector-choice .article-body .gap-calculator .input-box-sector button{
+  display:none;
+}
+article.small.sector-choice .article-body .gap-calculator .input-box-sector hr{
   display:none;
 }
 
@@ -27,7 +37,7 @@ article.small div.sector-mobile-view .sector-back-button {
   display: none;
 }
 
-.see-all-sectors-text::after{
+article.small div.sector-mobile-view .see-all-sectors-text::after{
   background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%230D7680,%230D7680&format=svg);
   display: inline-block;
   height: 28px;
@@ -44,12 +54,8 @@ article.small div.sector-mobile-view .sector-back-button {
 }
 
 /* when sector choice box is open show its elements */
-article.small.sector-choice div.sector-mobile-view .o-forms,
-article.small.sector-choice div.sector-mobile-view .sector-back-button {
+article.small.sector-choice div.sector-mobile-view .o-forms {
   display: block;
-}
-article.small.sector-choice div.sector-mobile-view .see-all-sectors-text::after{
-  content: 'Continue with pay gap calculator'
 }
 article.small .input-box-sector .sector-desktop-view{
   display: none;
