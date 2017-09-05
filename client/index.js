@@ -3,7 +3,7 @@ import './styles.scss';
 
 import * as d3 from 'd3';
 
-import {ageCheck, sectorCheck, salaryCheck} from './components/validation/validators';
+import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings} from './components/validation/validators';
 import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
 import {toggleSelection, formatSalaryInput, setElementsToChange} from './components/helpers';
@@ -12,6 +12,8 @@ import {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes} f
 
 if (cutsTheMustard) {
   const article = document.querySelector("body main article");
+  const desktopSectorContainer = document.querySelector('.sector-desktop-view');
+
   const outputContainer = d3.select('.output-container');
   const sectorDivDesktop = d3.select('div.sector-desktop-view');
   const sectorDivMobile = d3.select('div.sector-mobile-view');
@@ -34,21 +36,14 @@ if (cutsTheMustard) {
     state.set(key, value);
     console.log(`STATE IS NOW:`, state);
     toggleFeedbackBoxes(state);
+    clearEmptyWarnings(state);
+    article.classList.remove("computed");
 
     if(state.has("age")){
-      article.classList.remove("no-age")
       const response = await calculationAge(state);
       handleCalculationAge(response);
     }
-    if(state.has("salary")){
-      article.classList.remove("no-salary");
-    }
-    if(state.has("sector")){
-      article.classList.remove("no-sector");
-    }
-
     if(state.has("age") && state.has("sector")){
-      article.classList.remove("no-sector")
       const response = await calculationAgeSector(state);
       handleCalculationAgeSector(response);
     }
@@ -60,11 +55,11 @@ if (cutsTheMustard) {
     salaryCheck(config);
 
     if(state.has("age") && state.has("sector") && state.has("salary")){
-      console.log("this ran!!")
       const outputData = await calculation(config);
       handleCalculationFull(outputData);
     }
   });
+
 
   function handleCalculationFull(outputData){
     article.classList.add("computed");
@@ -94,6 +89,7 @@ if (cutsTheMustard) {
     const selectedInput = document.querySelector(".sector-desktop-view .o-forms__radio:checked");
     if(selectedInput !== null){
       dispatch.call("updateState", this, {sector: selectedInput.value} );
+
     }
   });
 
@@ -102,6 +98,10 @@ if (cutsTheMustard) {
     const selectedInput = document.querySelector(".sector-mobile-view .o-forms__radio:checked");
     if(selectedInput !== null){
       dispatch.call("updateState", this, {sector: selectedInput.value} );
+      if(article.classList.contains('sector-choice')){
+        article.classList.remove("sector-choice");
+        window.scroll(0, 600);
+      }
     }
   });
 
@@ -124,7 +124,6 @@ if (cutsTheMustard) {
     sectorCheck(state);
     const salary = calculateSalary(this.value);
     dispatch.call("updateState", this, {salary: salary});
-    // formatSalaryInput(this.value); // format number we show users
   });
 
   computeButton.on("click", function(){

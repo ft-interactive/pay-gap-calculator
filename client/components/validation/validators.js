@@ -18,4 +18,17 @@ function salaryCheck(config){
   } else { article.classList.add("no-salary")}
 }
 
-export {ageCheck, sectorCheck, salaryCheck};
+
+function clearEmptyWarnings(state){
+  if(state.has("salary")){
+    article.classList.remove("no-salary");
+  }
+  if(state.has("sector")){
+    article.classList.remove("no-sector");
+  }
+  if(state.has("age")){
+    article.classList.remove("no-age")
+  }
+}
+
+export {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings};

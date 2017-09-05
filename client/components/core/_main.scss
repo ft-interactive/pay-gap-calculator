@@ -91,6 +91,7 @@ label {
     font-size: 1em;
   }
 }
+<<<<<<< HEAD
 /* USER INPUT VALIDATION */
 /* IF USER INPUTS ARE INCOMPLETE, GIVE VALIDATION ERRORS  */
 article.no-age,
@@ -201,62 +202,9 @@ article.no-age.no-sector.no-salary {
     }
   }
 }
+=======
+>>>>>>> validation bugs
 
-article.no-sector.no-salary {
-  button.input-compute {
-    span::after {
-      content: '\00a0 \00a0 \00a0 \00a0 \00a0 Please enter a job type and salary';
-    }
-  }
-}
-
-/* BUTTONS ON JOB TYPE SECTION */
-
-article.no-age,
-article.no-sector,
-button.see-more {
-  span::after{
-    width: 100%;
-    background-position: 0%;
-  }
-}
-
-article.no-age {
-  .input-box-sector {
-    button.see-more,
-    button.see-all {
-      span::after {
-        content: '\00a0 \00a0 \00a0 \00a0 \00a0 Please select your age';
-      }
-    }
-  },
-  .input-box-age {
-    .input-age {
-      border-color: #FF1A66;
-    }
-  }
-}
-
-article.no-sector {
-  .input-box-sector {
-    button.see-more,
-    button.see-all {
-      span::after {
-        content: '\00a0 \00a0 \00a0 \00a0 \00a0 Please select your job type';
-      }
-    }
-  }
-}
-
-article.no-age.no-sector {
-  .input-box-sector {
-    button.see-more {
-      span::after {
-        content: '\00a0 \00a0 \00a0 \00a0 \00a0 Please select your job type';
-      }
-    }
-  }
-}
 
 /* FEEDBACK BOXES */
 .input-feedback {
