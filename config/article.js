@@ -11,10 +11,10 @@ export default () => ({ // eslint-disable-line
   //       new Date('2016-05-17T17:11:22Z')
   publishedDate: new Date(),
 
-  headline: 'Genderswap your salary',
+  headline: 'Calculate your personal gender pay gap',
 
   // summary === standfirst (Summary is what the content API calls it)
-  summary: 'How much would you earn if you were a man?',
+  summary: 'Use this tool to find out how much would you earn if you were a man?',
 
   topic: {
     name: 'Starter Kit',
