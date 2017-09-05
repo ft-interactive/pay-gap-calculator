@@ -129,14 +129,18 @@ article.no-sector {
 article.no-age {
   .input-box-age{
     div.no-age-error{
+      // font-weight: 400;
       display: block;
+      margin-top: 4px;
       span::before {
+        content: '\00a0 \00a0 \00a0 \00a0 Please select an age to reveal your pay gap';
         background-image: url($exclamation-symbol-url-pink);
         display: inline-block;
         height: 24px;
         line-height: 24px;
         background-repeat: no-repeat;
         background-size: contain;
+        background-position: 50% left;
         background-color: transparent;
         vertical-align: middle;
       }
