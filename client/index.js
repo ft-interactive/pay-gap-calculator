@@ -3,6 +3,7 @@ import './styles.scss';
 
 import * as d3 from 'd3';
 
+import {ageCheck, sectorCheck, salaryCheck} from './components/validation/validators';
 import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
 import {toggleSelection, formatSalaryInput, setElementsToChange} from './components/helpers';
@@ -65,24 +66,6 @@ if (cutsTheMustard) {
     }
   });
 
-  function ageCheck(config){
-    if(config.has("age")){
-      article.classList.remove("no-age")
-    } else { article.classList.add("no-age")}
-  }
-
-  function sectorCheck(config){
-    if(config.has("sector")){
-      article.classList.remove("no-sector")
-    } else { article.classList.add("no-sector")}
-  }
-
-  function salaryCheck(config){
-    if(config.has("salary")){
-      article.classList.remove("no-salary")
-    } else { article.classList.add("no-salary")}
-  }
-
   function handleCalculationFull(outputData){
     article.classList.add("computed");
     fillOutput(outputContainer, outputData);
@@ -108,7 +91,6 @@ if (cutsTheMustard) {
   });
 
   sectorDivDesktop.on("click", function(){
-    ageCheck(state);
     const selectedInput = document.querySelector(".sector-desktop-view .o-forms__radio:checked");
     if(selectedInput !== null){
       dispatch.call("updateState", this, {sector: selectedInput.value} );
@@ -178,7 +160,7 @@ if (cutsTheMustard) {
 
   actualResizeHandler();
   makeSectorComponents();
-  sectorAddShowHideEvents();
+  sectorAddShowHideEvents(state);
 
   article.classList.add('calculator-ready');
 }
