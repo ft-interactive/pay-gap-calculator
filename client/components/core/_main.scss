@@ -2,6 +2,7 @@ $font-sans: MetricWeb, sans-serif;
 $font-serif: Georgia, serif;
 $font-display: FinancierDisplayWeb, Georgia, serif;
 $exclamation-symbol-url: 'https://www.ft.com/__origami/service/image/v2/images/raw/fticon:warning?width=40&format=png&source=o-icons&tint=ffffff';
+$exclamation-symbol-url-pink: 'https://www.ft.com/__origami/service/image/v2/images/raw/fticon:warning?width=40&format=png&source=o-icons&tint=FF1A66';
 
 body {
   @include oColorsFor(page, background);
@@ -119,6 +120,26 @@ article.no-sector {
       background-position: 50% left;
       background-color: transparent;
       vertical-align: middle;
+    }
+  }
+}
+
+/* AGE ERROR MESSAGE */
+
+article.no-age {
+  .input-box-age{
+    div.no-age-error{
+      display: block;
+      span::before {
+        background-image: url($exclamation-symbol-url-pink);
+        display: inline-block;
+        height: 24px;
+        line-height: 24px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+        vertical-align: middle;
+      }
     }
   }
 }

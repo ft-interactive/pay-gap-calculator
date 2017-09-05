@@ -1,3 +1,4 @@
+
 /* AGE INPUT */
 .input-container .input-box-age button{
   margin: .3em 1.6%;
@@ -24,4 +25,16 @@
 }
 .input-container div {
  margin: 1em 0;
+}
+
+article {
+  .input-box-age{
+    div.no-age-error{
+      display: none;
+    }
+  }
+}
+div.no-age-error{
+  font-weight: 600;
+  color: #FF1A66;
 }
