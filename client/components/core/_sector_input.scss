@@ -7,6 +7,7 @@ article .input-box-sector .sector-mobile-view label {
   display: block;
   font-size: 1.1em;
   line-height: 1.2em;
+  padding-top: 0;
 }
 
 
@@ -58,7 +59,7 @@ article.small .input-box-sector .sector-mobile-view .o-forms.hidden{
   display: none;
 }
 article.small .input-box-sector .sector-mobile-view .sub-section-box{
-  border-top: solid gray 0.8px;
+  border-top: solid #E5D8CE 1px;
 }
 article.small .input-box-sector .sector-mobile-view .sector-back-button{
   font-family: $font-sans;
