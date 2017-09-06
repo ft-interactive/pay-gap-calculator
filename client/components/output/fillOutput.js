@@ -1,26 +1,39 @@
 
 import * as d3 from 'd3';
+import {formatPercentageDifference} from '../helpers';
 
-function fillOutput(element, data){
+function fillOutput(element, data, state){
+  console.log("RETURNED DATA", data);
+
   const cleanSalary = parseInt(data.swappedSalary).toLocaleString();
   const salaryDifference = data.swappedSalary - data.salary;
-
-  console.log("DATA", data);
   const cleanWeekly = (salaryDifference / 52).toFixed(2);
   const cleanDaily = (salaryDifference / 365).toFixed(2);
   const comparatorWord = salaryDifference > 0 ? 'more' : 'less';
-  const genderAdjective = getGenderAdjective('woman');
 
-  showCorrectDataBox(element, data.selectedDecile);
+  const gender = state.get("gender");
+  const genderAdjective = getGenderAdjective(gender);
+
+  const percentageGroup = data.selectedDecile === 'medianPay' ? "median" : getPercentageGroup(data.selectedDecile);
+  const percentageDifference = formatPercentageDifference(data.ratio);
 
   const d3element = d3.select(element);
-
   d3element.select('.output-yearly-salary').text(`£${cleanSalary}`);
   d3element.select('.output-weekly-salary').text(`£${cleanWeekly} ${comparatorWord}`);
   d3element.select('.output-daily-salary').text(`£${cleanDaily} ${comparatorWord}`);
-  d3element.select('.gender-choice-adjective').text(`${genderAdjective}`);
+  d3element.selectAll('.gender-choice-adjective').text(`${genderAdjective}`);
+  d3element.selectAll('.percentile').text(`${percentageGroup}%`);
+  d3element.selectAll('.percentile-pay-gap').text(`${percentageDifference}`);
 
+  showCorrectDataBox(element, data.selectedDecile);
 };
+
+function getPercentageGroup(decile){
+  const decileNum = decile.match(/\d+/)[0];
+  const inTheTopPercentage = 100 - decileNum;
+  return inTheTopPercentage;
+}
+
 
 function getGenderAdjective(gender){
   return gender === 'woman' ? 'female' : 'male';

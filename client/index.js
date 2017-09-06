@@ -6,7 +6,7 @@ import * as d3 from 'd3';
 import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings} from './components/validation/validators';
 import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
-import {toggleSelection, formatSalaryInput, setElementsToChange} from './components/helpers';
+import {toggleSelection, setElementsToChange} from './components/helpers';
 import {makeSectorComponents, sectorAddShowHideEvents} from './components/sectors/index';
 import {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes} from './components/feedback/feedback';
 
@@ -56,14 +56,14 @@ if (cutsTheMustard) {
 
     if(state.has("age") && state.has("sector") && salaryValid){
       const outputData = await calculation(config);
-      handleCalculationFull(outputData);
+      handleCalculationFull(outputData, state);
     }
   });
 
 
-  function handleCalculationFull(outputData){
+  function handleCalculationFull(outputData, state){
     article.classList.add("computed");
-    fillOutput(outputContainer, outputData);
+    fillOutput(outputContainer, outputData, state);
   }
 
   // ADD EVENT LISTENERS
