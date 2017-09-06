@@ -180,6 +180,8 @@ article.insufficient-data .input-box-salary {
 article.insufficient-data .input-compute {
   display: none;
 }
+
+
 /* OUTPUT BOX */
 article.computed .output-container {
   display: block;
@@ -222,5 +224,22 @@ article.computed .down-triangle {
 
   article.computed .output-container p {
     text-align: center;
+  }
+}
+
+article.computed .output-container.median {
+  .output-box-median {
+    display: block;
+  }
+  .output-box-percentile{
+    display:none;
+  }
+}
+article.computed .output-container.percentile {
+  .output-box-median {
+    display: none;
+  }
+  .output-box-percentile{
+    display: block;
   }
 }

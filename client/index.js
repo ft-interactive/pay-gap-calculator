@@ -12,7 +12,7 @@ import {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes} f
 
 if (cutsTheMustard) {
   const article = document.querySelector("body main article");
-  const outputContainer = d3.select('.output-container');
+  const outputContainer = document.querySelector('.output-container');
   const sectorDivDesktop = d3.select('div.sector-desktop-view');
   const sectorDivMobile = d3.select('div.sector-mobile-view');
   const genderButtons = d3.selectAll(".input-gender");
