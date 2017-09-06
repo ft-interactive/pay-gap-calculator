@@ -1,11 +1,15 @@
 {% import "macros.html" as macros %} {% extends "layout.html" %} {% block article_body %}
 
-<p>Your age, your sector and your seniority all affect how
-  much the gender pay gap works against you. The average gender pay gap in the UK
+<!--<p>Your age, your sector and your seniority all affect how
+  much the gender pay gap works against you. </p>
+   <p>The average gender pay gap in the UK
   is 9.4% for full-time workers.
   (Add in part-timers, and it jumps to 18.1% for every hour worked).</p>
 
-<p>Find out if you're beating the gap, or suffering from it.</p>
+<p>Find out if you're beating the gap, or suffering from it.</p>-->
+
+<p>Your gender has a big effect on how much you get paid.
+  Find out how much more - or less - you'd get, if you swapped gender for a day. </p>
 
 <div class="browser-not-supported">
   Sorry, your browser is not supported.
@@ -143,14 +147,36 @@
     </div>
     <div class="output-box-daily-salary">
       <p>giving you <span class="output-daily-salary"></span> spending money every day (before tax)</p>
-      <p>As a person in your <span class="age-choice"></span> working in <span class="sector-choice"></span>
-    </div>
-    <div class="output-box-percentile">
-      <p>Your salary puts you in the top <span>TBC</span> of <span></span> earners in your age group and sector. A woman at the <span>XXX</span> percentiles
-        earns XXXX, a man at the <span>XXX</span> percentile of men earns XXX. That puts the gender pay gap for a woman of your age, sector and salary level at <span>-12%</span>.
-      </p>
-    </div>
-    <p>This calculator is based on ONS 2016 data on the salaries of full-time workers in the UK.</p>
+      </div>
+      <div class="output-box-percentile">
+        <p>
+          Your salary puts you in the top <span class="percentile"></span> of
+          <span class="gender-choice-adjective"></span> earners in your age group and sector.
+        </p>
+        <p>
+          As a <span class="gender-choice"></span> in the top <span class="percentile"></span> of
+          <span class="gender-choice-adjective"></span> full-time earners in their
+          <span class="age-choice"></span> in
+          <span class="sector-choice"></span> roles, you earn on average
+          <span class="percentile-pay-gap"></span> than a
+          <span class="gender-choice-inverse"></span>.
+        </p>
+
+        <p>The average gender pay gap in the UK is <span>9.4%</span> for full-time workers. (Add in part-timers, and it jumps to <span>18.1%</span> for every hour worked).</p>
+        <small>
+          NB: You may be in a higher salary bracket than shown above, but ONS data doesn't have complete data sets for all age groups and sectors, so we've had
+          to use the closest available data point.
+        </small>
+      </div>
+      <div class="output-box-median">
+        <p>
+          We used the median salary for women and men in your sector and age group to calculate the ratio which we used to generate
+          your personalised gender pay gap. Unfortunately
+          there is no more granular data for your age group and sector so we can't take into account how your salary sits
+          in the range of recorded salaries.
+        </p>
+      </div>
+      <small>This calculator is based on <a href="" target="_blank">ONS 2016 data</a> on the salaries of full-time workers in the UK.</small>
   </div>
 </div>
 

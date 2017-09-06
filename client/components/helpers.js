@@ -5,17 +5,6 @@ function toggleSelection(selectedEl, prevSelectedEl){
   selectedEl.classList.add("selected");
 };
 
-function formatSalaryInput(input){
-  if(input){
-    const inputBox = document.querySelector('.input-salary');
-    const cleanInput = input.split(",").join("");
-    console.log("CLEANDED", cleanInput);
-    const formattedInput = parseInt(cleanInput).toLocaleString();
-    inputBox.value = formattedInput;
-  }
-  else{ return }
-};
-
 function setElementsToChange(elements, sectorsToShowDefault){
   let elementsToChange = [];
   elements.forEach(function(currValue, index){
@@ -24,4 +13,17 @@ function setElementsToChange(elements, sectorsToShowDefault){
   return elementsToChange;
 }
 
-export{toggleSelection, formatSalaryInput, setElementsToChange};
+function formatPercentageDifference(ratio){
+  if(ratio < 1){
+    const diff = 1 - ratio;
+    const diffPercent = (diff * 100).toFixed(1);
+    return `${diffPercent}% less`;
+  }
+  else {
+    const diff = ratio - 1;
+    const diffPercent = (diff * 100).toFixed(1);
+    return `${diffPercent}% more`;
+  }
+}
+
+export{toggleSelection, setElementsToChange, formatPercentageDifference};
