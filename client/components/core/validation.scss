@@ -107,6 +107,9 @@ article.no-salary {
       content: '\00a0 \00a0 \00a0 \00a0 \00a0 Please enter a salary';
     }
   }
+  input {
+    border-color:  red;
+  }
 }
 
 article.no-age.no-sector {
