@@ -12,10 +12,17 @@ function fillOutput(element, data, state){
   const comparatorWord = salaryDifference > 0 ? 'more' : 'less';
 
   const gender = state.get("gender");
+  const age = state.get("age");
+  const sector = state.get("sector");
   const genderAdjective = getGenderAdjective(gender);
 
   const percentageGroup = data.selectedDecile === 'medianPay' ? "median" : getPercentageGroup(data.selectedDecile);
   const percentageDifference = formatPercentageDifference(data.ratio);
+
+  const twitterShareText = `https://twitter.com/home?status= A ${gender} in their ${age}s in a ${sector} earns ${percentageDifference} 
+    Find out your personal gender pay gap: https://ig.ft.com/pay-gap-calculator/`;
+
+  showCorrectDataBox(element, data.selectedDecile);
 
   const d3element = d3.select(element);
   d3element.select('.output-yearly-salary').text(`£${cleanSalary}`);
@@ -25,7 +32,9 @@ function fillOutput(element, data, state){
   d3element.selectAll('.percentile').text(`${percentageGroup}%`);
   d3element.selectAll('.percentile-pay-gap').text(`${percentageDifference}`);
 
-  showCorrectDataBox(element, data.selectedDecile);
+  element.querySelector('.output-share a').href = `${twitterShareText}`;
+
+
 };
 
 function getPercentageGroup(decile){
@@ -48,6 +57,10 @@ function showCorrectDataBox(element, decile){
     element.classList.add("decile");
     element.classList.remove("median");
   }
+}
+
+function tweetText(text){
+  return ``;
 }
 
 

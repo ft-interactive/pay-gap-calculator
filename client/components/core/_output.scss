@@ -66,3 +66,16 @@ article.computed .output-container.median {
     display:none;
   }
 }
+
+.output-container .output-share {
+  text-align: center;
+  padding: .5em 0 1em 0;
+  button {
+    background-color: #1da1f2;
+    border: none;
+    font-size: 20px;
+    height: 36px;
+    border-radius: 3px;
+    color: #fff;
+  }
+}
