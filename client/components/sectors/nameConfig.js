@@ -3,7 +3,7 @@
 
 const nameConfigFull = {
   "Managers, directors and senior officials": "Management",
-  "Corporate managers and directors": "Corporate management, e.g. c-suite executive, marketing director, bank manager",
+  "Corporate managers and directors": "Corporate management, e.g. CEO, marketing director, service director",
   "Other managers and proprietors": "Proprietors, other types of managers, e.g. hotel manager, restaurant owner, landlord",
   "Professional occupations": "Professional role, requiring a degree",
   "Health professionals": "Health professional, eg. doctor, nurse",
@@ -12,7 +12,7 @@ const nameConfigFull = {
   "Business, media and public service professionals": "Business or media professional, or civil servant eg. lawyer, financial analyst",
   "Associate professional and technical occupations": "Professional role, not requiring a degree",
   "Science, engineering and technology associate professionals": "Science, engineering and technology associate professionals, eg. lab technician, building inspector",
-  "Health and social care associate professionals": "Health & social work associate professionals, eg. paramedic, youth worker",
+  "Health and social care associate professionals": "Health or social work associate professionals, eg. paramedic, youth worker",
   "Protective service occupations": "Police, firefighters, other roles in security",
   "Culture, media and sports occupations": "Culture, media and sports, eg. designers, musicians, fitness instructors",
   "Business and public service associate professionals": "Associate roles in business and public services, eg. underwriters, paralegals",
@@ -45,7 +45,7 @@ const nameConfigShort = {
   "Business, media and public service professionals": "Business or media professional, or civil servant",
   "Associate professional and technical occupations": "Associate professional",
   "Science, engineering and technology associate professionals": "Science, engineering and technology associate professional",
-  "Health and social care associate professionals": "Health & social work associate professional",
+  "Health and social care associate professionals": "Health or social work associate professional",
   "Protective service occupations": "Police, firefighters, other roles in security",
   "Culture, media and sports occupations": "Culture, media and sports",
   "Business and public service associate professionals": "Associate professional in business or public service",

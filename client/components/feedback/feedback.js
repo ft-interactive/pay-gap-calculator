@@ -88,4 +88,4 @@ function handleCalculationAge(response){
   addFeedbackText(payDifferentialAgeText, formatPercentageDifference(ratio))
 }
 
-export {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes};
+export {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes, formatAgeGroup, formatPercentageDifference};
