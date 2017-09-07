@@ -19,8 +19,7 @@ function fillOutput(element, data, state){
   const percentageGroup = data.selectedDecile === 'medianPay' ? "median" : getPercentageGroup(data.selectedDecile);
   const percentageDifference = formatPercentageDifference(data.ratio);
 
-  const twitterShareText = `https://twitter.com/home?status= A ${gender} in their ${age}s in a ${sector} earns ${percentageDifference} 
-    Find out your personal gender pay gap: https://ig.ft.com/pay-gap-calculator/`;
+  const twitterShareText = `https://twitter.com/home?status= A ${gender} in their ${age}s in a ${sector} earns ${percentageDifference} Find out your personal gender pay gap: https://ig.ft.com/pay-gap-calculator/`;
 
   showCorrectDataBox(element, data.selectedDecile);
 
@@ -58,10 +57,5 @@ function showCorrectDataBox(element, decile){
     element.classList.remove("median");
   }
 }
-
-function tweetText(text){
-  return ``;
-}
-
 
 module.exports = {fillOutput};
