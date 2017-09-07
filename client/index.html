@@ -1,15 +1,14 @@
 {% import "macros.html" as macros %} {% extends "layout.html" %} {% block article_body %}
 
-<p>Many factors affect how much you get paid. One of them is your gender.
-  Your age, your sector and your seniority also play a part. </p>
-<p>The average gender pay gap in the UK
-  is 9.4% for full-time workers.
-  Add in part-timers, and it jumps to 18.1% for every hour worked.</p>
+<p>Many factors affect how much you get paid: your sector, your age and your seniority among others. </p>
+<p>As a UK government ruling forces companies to reveal their gender pay gap before April 2018, there's been a renewed focus on how gender affects pay-packets.
+  The average gender pay gap in the UK
+  is 9.4% for full-time workers. Add in part-timers, and it jumps to 18.1% for every hour worked. </p>
 
-<p>Find out if you're beating the gap, or suffering from it. </p>
+<p>Find out if you're beating the gap, or getting hit by it. </p>
 
 <p>Our calculations are based on <a href="" target="_blank">ONS earnings data</a> for full-time earners in the UK.
-  See more of <a href="#methodology">our methodology</a>.</p>
+  See <a href="#methodology">our methodology</a>.</p>
 
 <div class="browser-not-supported">
   Sorry, your browser is not supported.
@@ -21,7 +20,7 @@
   <div class="input-container">
     <div class="input-box-gender selection-made">
       <hr>
-      <label>1. Are you a woman or a man?</label>
+      <label>1. Are you male or female?</label>
       <div>
         <div class="input-gender icon-option selected" data="woman">
           <div class="icon-content">
@@ -181,12 +180,53 @@
         NB: You may be in a different salary bracket than shown above, but ONS data doesn't have complete data sets for all age groups and sectors, so we've had
         to use the closest available data point. In some cases this is the median.
       </small>
-      <small>This calculator is based on <a href="" target="_blank">ONS 2016 data</a> on the salaries of full-time workers in the UK.</small>
   </div>
 </div>
 
 <h2 id="methodology"> Our methodology </h2>
-<p> Some explanation of the data, provided by Federica </p>
+<h3>What data did we use?</h3>
+<p>
+  To calculate the gender pay gap as it applies to individuals we looked at data
+  from the Office for National Statistics' annual survey of hours and earnings.
+  We extracted figures on how much men and women in full-time work earn, depending on their age
+  groups and the profession they belong to, a classification that ONS statisticians call "SOC2010".
+</p>
+
+<h3>How detailed is it?</h3>
+<p>
+  We drilled into the data even further by analysing different decile groups.
+  Statisticians split the individuals they surveyed within each gender, role and age group
+  into ten equal groups. That's done as a way of identifying what the average wage of someone
+  in the top ten percent of that category would earn, as opposed to the bottom ten percent, for example.
+</p>
+<p>
+  We decided to include that data so that if for example, we were looking at the average
+  gross annual salary of a nurse in her 30s, we would be able to identify which decile
+  she belonged to and compare her salary to that of a male nurse in his 30s belonging to the same decile.
+</p>
+
+<h3>How does it work?</h3>
+<p>
+  When an individual using a calculator enters its gender, age and salary our calculator
+  immediately identifies which decile group he or she belongs to within their profession.
+  However, the survey doesn't always have enough information to drill into this level of data.
+  So when the data for one decile is not available, we calculate the difference
+  between her salary and that of her male counterpart (or vice-versa) in the closest
+  earning group for which there is data. So if data for the top 10 per cent is not available,
+  we would move to the ninth decile or the eight decile if that is also not available.
+  In some cases, only the median is available, so we use that. This was
+  done to be as precise as possible, and to reflect the fact that people in the same
+  job and age group may be paid differently based on their experience and skill level.
+</p>
+
+<h3>Why did we just look at full-time workers?</h3>
+<p>
+  A lot more women than men work in part-time jobs and we were concerned this would
+  skew the data and make the gender pay gap appear wider than it is when circumstances are equal.
+</p>
+
+<h3>Any feedback?</h3>
+<p>Please comment.</p>
 
 <script src="//origami-build.ft.com/v2/bundles/js?modules=o-forms%404.0.4%3A%2Fdemos%2Fsrc%2Fdemo.js%2Co-fonts%40%5E3%2Co-buttons%40%5E5"></script>
 {% endblock %}
