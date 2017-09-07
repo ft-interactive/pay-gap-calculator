@@ -37,8 +37,8 @@ article.no-sector {
   button.see-all.o-buttons,
   button.see-all:active,
   button.see-all:hover {
-    background-color: #FF1A66;
-    border-color: #FF1A66;
+    background-color: oColorsGetPaletteColor('claret-100');
+    border-color: oColorsGetPaletteColor('claret-100');
     min-width: 200px;
     color: #fff;
 
@@ -81,7 +81,7 @@ article.no-age {
 
 article.no-age {
   button.input-compute {
-    background-color: #FF1A66;
+    background-color: oColorsGetPaletteColor('claret-100');
     color: white;
 
     span::after {
@@ -92,7 +92,7 @@ article.no-age {
 
 article.no-sector {
   button.input-compute {
-    background-color: #FF1A66;
+    background-color: oColorsGetPaletteColor('claret-100');
     color: white;
 
     span::after {
@@ -108,7 +108,7 @@ article.no-salary {
     }
   }
   input {
-    border-color:  red;
+    border-color:  oColorsGetPaletteColor('claret-100');
   }
 }
 
