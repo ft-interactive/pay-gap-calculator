@@ -1,15 +1,15 @@
 {% import "macros.html" as macros %} {% extends "layout.html" %} {% block article_body %}
 
-<!--<p>Your age, your sector and your seniority all affect how
-  much the gender pay gap works against you. </p>
-   <p>The average gender pay gap in the UK
+<p>Many factors affect how much you get paid. One of them is your gender.
+  Your age, your sector and your seniority also play a part. </p>
+<p>The average gender pay gap in the UK
   is 9.4% for full-time workers.
-  (Add in part-timers, and it jumps to 18.1% for every hour worked).</p>
+  Add in part-timers, and it jumps to 18.1% for every hour worked.</p>
 
-<p>Find out if you're beating the gap, or suffering from it.</p>-->
-<!--
-<p>Your gender has a big effect on how much you get paid.
-  Find out how much more - or less - you'd get, if you swapped gender for a day. </p> -->
+<p>Find out if you're beating the gap, or suffering from it. </p>
+
+<p>Our calculations are based on <a href="" target="_blank">ONS earnings data</a> for full-time earners in the UK.
+  See more of <a href="#methodology">our methodology</a>.</p>
 
 <div class="browser-not-supported">
   Sorry, your browser is not supported.
@@ -161,7 +161,6 @@
           <span class="percentile-pay-gap"></span> than a
           <span class="gender-choice-inverse"></span>.
         </p>
-        <p>The average gender pay gap in the UK is <span>9.4%</span> for full-time workers. (Add in part-timers, and it jumps to <span>18.1%</span> for every hour worked).</p>
       </div>
       <div class="output-box-median">
         <p>
@@ -171,7 +170,6 @@
           which we used to generate
           your personalised gender pay gap.
         </p>
-        <p>The average gender pay gap in the UK is <span>9.4%</span> for full-time workers. (Add in part-timers, and it jumps to <span>18.1%</span> for every hour worked).</p>
       </div>
       <div class="output-share">
         <a href="https://twitter.com/home?status= The gender pay is..: https://ig.ft.com/gender-pay-gap-calculator/"
@@ -186,6 +184,9 @@
       <small>This calculator is based on <a href="" target="_blank">ONS 2016 data</a> on the salaries of full-time workers in the UK.</small>
   </div>
 </div>
+
+<h2 id="methodology"> Our methodology </h2>
+<p> Some explanation of the data, provided by Federica </p>
 
 <script src="//origami-build.ft.com/v2/bundles/js?modules=o-forms%404.0.4%3A%2Fdemos%2Fsrc%2Fdemo.js%2Co-fonts%40%5E3%2Co-buttons%40%5E5"></script>
 {% endblock %}
