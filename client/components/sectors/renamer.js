@@ -17,6 +17,7 @@ function removeMainCategoryWhereNotNeeded(roleGroup){
   if(rolesSet.has("Sales and customer service occupations")) rolesSet.delete("Sales and customer service occupations");
   if(rolesSet.has("Elementary occupations")) rolesSet.delete("Elementary occupations");
   if(rolesSet.has("Professional occupations")) rolesSet.delete("Professional occupations");
+  if(rolesSet.has("Managers, directors and senior officials")) rolesSet.delete("Managers, directors and senior officials");
   if(rolesSet.has("Associate professional and technical occupations")) rolesSet.delete("Associate professional and technical occupations");
 
   const rolesArr = Array.from(rolesSet);

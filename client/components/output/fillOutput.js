@@ -1,6 +1,7 @@
 
 import * as d3 from 'd3';
-import {formatPercentageDifference} from '../helpers';
+import {formatAgeGroup, formatPercentageDifference} from '../feedback/feedback';
+import {renameSectorShort} from '../sectors/renamer';
 
 function fillOutput(element, data, state){
   console.log("RETURNED DATA", data);
@@ -13,13 +14,18 @@ function fillOutput(element, data, state){
 
   const gender = state.get("gender");
   const age = state.get("age");
-  const sector = state.get("sector");
+  const sector = renameSectorShort(state.get("sector")).renamedRoleShort;
   const genderAdjective = getGenderAdjective(gender);
+  const comparisionGender = gender === 'woman' ? 'man' : 'woman';
 
   const percentageGroup = data.selectedDecile === 'medianPay' ? "median" : getPercentageGroup(data.selectedDecile);
   const percentageDifference = formatPercentageDifference(data.ratio);
+  const percentageDifferenceForTwitter = replacePercentSign(percentageDifference);
 
-  const twitterShareText = `https://twitter.com/home?status= A ${gender} in their ${age}s in a ${sector} earns ${percentageDifference} Find out your personal gender pay gap: https://ig.ft.com/pay-gap-calculator/`;
+
+  const twitterShareText = `A ${gender} in their ${age}s in a ${sector} earns ${percentageDifferenceForTwitter} `;
+  const pageUrl = `https://ig.ft.com/pay-gap-calculator/`;
+  const twitterShare = `https://twitter.com/home?status=${twitterShareText} Calculate your pay gap @FT ${pageUrl}`;
 
   showCorrectDataBox(element, data.selectedDecile);
 
@@ -31,10 +37,13 @@ function fillOutput(element, data, state){
   d3element.selectAll('.percentile').text(`${percentageGroup}%`);
   d3element.selectAll('.percentile-pay-gap').text(`${percentageDifference}`);
 
-  element.querySelector('.output-share a').href = `${twitterShareText}`;
-
+  element.querySelector('.output-share a').href = `${twitterShare}`;
 
 };
+
+function replacePercentSign(str){
+  return str.replace(/%/, '%25');
+}
 
 function getPercentageGroup(decile){
   const decileNum = decile.match(/\d+/)[0];
