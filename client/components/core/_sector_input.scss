@@ -49,9 +49,6 @@ article.small div.sector-mobile-view .see-all-sectors-text::after{
   background-color: transparent;
   vertical-align: middle;
 }
- .see-all-sectors-text::after{
-  content: 'See job types';
-}
 
 /* when sector choice box is open show its elements */
 article.small.sector-choice div.sector-mobile-view .o-forms {
@@ -86,13 +83,6 @@ article .input-box-sector .sector-mobile-view{
 .input-container div.input-sector-list p{
   font-family: $font-sans;
   padding: .2em 0;
-}
-
-.sector-desktop-view .toggle-more-sectors-text::after{
-  content:'See more job types';
-}
-.sector-desktop-view.expanded .toggle-more-sectors-text::after{
-  content:'See fewer job types';
 }
 
 p.main-category::after{

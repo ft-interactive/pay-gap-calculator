@@ -19,7 +19,7 @@ const nameConfigFull = {
   "Administrative and secretarial occupations": "Administrative or secretarial",
   "Administrative occupations": "Administrative roles, eg. book-keeping, bank clerk, office manager",
   "Secretarial and related occupations": "Secretarial roles, eg. medical secretary, receptionist",
-  "Skilled trades occupations": "Skilled trade, eg. electrician, builder, chef",
+  "Skilled trades occupations": "Skilled trade",
   "Caring, leisure and other service occupations": "Caring or personal service",
   "Caring personal service occupations": "Caring roles eg. childcare, vetinary nurse",
   "Leisure, travel and related personal service occupations": "Leisure, travel and hospitality roles, eg. hairdressers, cleaners, train conductors",

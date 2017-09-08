@@ -3,7 +3,7 @@ import './styles.scss';
 
 import * as d3 from 'd3';
 
-import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings} from './components/validation/validators';
+import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings, setAppropriateWarnings} from './components/validation/validators';
 import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
 import {toggleSelection, setElementsToChange} from './components/helpers';
@@ -33,9 +33,10 @@ if (cutsTheMustard) {
     const value = Object.values(o)[0];
     state.set(key, value);
     console.log(`STATE IS NOW:`, state);
-
+    // setAppropriateWarnings(state);
     toggleFeedbackBoxes(state);
     clearEmptyWarnings(state);
+
     article.classList.remove("computed");
 
     if(state.has("age")){
@@ -52,6 +53,7 @@ if (cutsTheMustard) {
     ageCheck(config);
     sectorCheck(config);
     salaryCheck(config);
+    setAppropriateWarnings(state);
     const salaryValid = state.has("salary") && !Number.isNaN(state.get("salary"));
 
     if(state.has("age") && state.has("sector") && salaryValid){
@@ -77,20 +79,24 @@ if (cutsTheMustard) {
     const prevSelectedEl = document.querySelector('.input-age.selected');
     toggleSelection(this, prevSelectedEl);
     dispatch.call("updateState", this, {age: this.getAttribute('data')} );
+    setAppropriateWarnings(state);
   });
 
   ageInput.on("touchstart", function(){
     const prevSelectedEl = document.querySelector('.input-age.selected');
     toggleSelection(this, prevSelectedEl);
     dispatch.call("updateState", this, {age: this.getAttribute('data')} );
+    setAppropriateWarnings(state);
   });
 
   sectorDivDesktop.on("click", function(){
+    ageCheck(state);
+
     const selectedInput = document.querySelector(".sector-desktop-view .o-forms__radio:checked");
     if(selectedInput !== null){
       dispatch.call("updateState", this, {sector: selectedInput.value} );
-
     }
+    setAppropriateWarnings(state);
   });
 
   sectorDivMobile.on("click", function(){
@@ -99,6 +105,7 @@ if (cutsTheMustard) {
     if(selectedInput !== null){
       dispatch.call("updateState", this, {sector: selectedInput.value} );
     }
+    setAppropriateWarnings(state);
   });
 
   salaryTimePeriodInput.on("click", function(){
@@ -112,6 +119,7 @@ if (cutsTheMustard) {
     if(salaryInput){
       const salary = calculateSalary(salaryInput);
       dispatch.call("updateState", this, {salary: salary});
+      setAppropriateWarnings(state);
     }
   });
 
@@ -120,6 +128,7 @@ if (cutsTheMustard) {
     sectorCheck(state);
     const salary = calculateSalary(this.value);
     dispatch.call("updateState", this, {salary: salary});
+    setAppropriateWarnings(state);
   });
 
   computeButton.on("click", function(){
