@@ -1,12 +1,8 @@
 
 import * as d3 from 'd3';
-<<<<<<< HEAD
 import {formatAgeGroup, formatPercentageDifference} from '../feedback/feedback';
 import {renameSectorShort} from '../sectors/renamer';
-=======
-import {formatPercentageDifference} from '../helpers';
 import {generateTweet} from './fillTweet';
->>>>>>> tweet improvements
 
 function fillOutput(element, data, state){
   console.log("RETURNED DATA", data);
@@ -18,27 +14,16 @@ function fillOutput(element, data, state){
   const comparatorWord = salaryDifference > 0 ? 'more' : 'less';
 
   const gender = state.get("gender");
-<<<<<<< HEAD
   const age = state.get("age");
   const sector = renameSectorShort(state.get("sector")).renamedRoleShort;
-=======
->>>>>>> tweet improvements
   const genderAdjective = getGenderAdjective(gender);
   const comparisionGender = gender === 'woman' ? 'man' : 'woman';
 
   const percentageGroup = data.selectedDecile === 'medianPay' ? "median" : getPercentageGroup(data.selectedDecile);
   const percentageDifference = formatPercentageDifference(data.ratio);
-  const percentageDifferenceForTwitter = replacePercentSign(percentageDifference);
 
-<<<<<<< HEAD
-
-  const twitterShareText = `A ${gender} in their ${age}s in a ${sector} earns ${percentageDifferenceForTwitter} `;
-  const pageUrl = `https://ig.ft.com/pay-gap-calculator/`;
-  const twitterShare = `https://twitter.com/home?status=${twitterShareText} Calculate your pay gap @FT ${pageUrl}`;
-
-=======
   generateTweet(state, percentageDifference, percentageGroup);
->>>>>>> tweet improvements
+
   showCorrectDataBox(element, data.selectedDecile);
 
   const d3element = d3.select(element);
@@ -46,24 +31,18 @@ function fillOutput(element, data, state){
   d3element.select('.output-weekly-salary').text(`£${cleanWeekly} ${comparatorWord}`);
   d3element.select('.output-daily-salary').text(`£${cleanDaily} ${comparatorWord}`);
   d3element.selectAll('.gender-choice-adjective').text(`${genderAdjective}`);
-  d3element.selectAll('.percentile').text(`${percentageGroup}%`);
+  d3element.selectAll('.percentile').text(`${percentageGroup}`);
   d3element.selectAll('.percentile-pay-gap').text(`${percentageDifference}`);
-<<<<<<< HEAD
-
-  element.querySelector('.output-share a').href = `${twitterShare}`;
-
-=======
->>>>>>> tweet improvements
 };
-
-function replacePercentSign(str){
-  return str.replace(/%/, '%25');
-}
 
 function getPercentageGroup(decile){
   const decileNum = decile.match(/\d+/)[0];
-  const inTheTopPercentage = 100 - decileNum;
-  return inTheTopPercentage;
+  if(decileNum < 50){
+    return `bottom ${decileNum}%`;
+  }
+  else if(decileNum >= 50){
+    return `top ${100 - decileNum}%`;
+  }
 }
 
 function getGenderAdjective(gender){
