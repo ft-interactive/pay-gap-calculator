@@ -39,8 +39,5 @@ div.input-salary-time-period p{
 article {
   button.input-compute {
     height: 50px;
-    span::after {
-      content: 'Show pay gap';
-    }
   }
 }

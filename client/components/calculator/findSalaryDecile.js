@@ -27,7 +27,7 @@ function formatPayBands(payBands, salarySet){
   }, []);
 }
 
-function getMatchingCategory(salary, salaryDeciles, median){
+function getMatchingCategory(salary, salaryDeciles){
   for (let i = 0; i < salaryDeciles.length; i++) {
     let currentDecile = salaryDeciles[i];
 
@@ -35,7 +35,7 @@ function getMatchingCategory(salary, salaryDeciles, median){
       return currentDecile.group;
     }
     else if(i === (salaryDeciles.length - 1)){
-      if(salary < currentDecile.salary){ return currentDecile.group }
+      if(salary < currentDecile.salary){ return currentDecile.group } //if below lowest, return lowest
       else { return null } // if no deciles match
     }
   };

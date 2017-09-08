@@ -19,14 +19,14 @@ const nameConfigFull = {
   "Administrative and secretarial occupations": "Administrative or secretarial",
   "Administrative occupations": "Administrative roles, eg. book-keeping, bank clerk, office manager",
   "Secretarial and related occupations": "Secretarial roles, eg. medical secretary, receptionist",
-  "Skilled trades occupations": "Skilled trade, eg. electrician, builder, chef",
+  "Skilled trades occupations": "Skilled trade",
   "Caring, leisure and other service occupations": "Caring or personal service",
   "Caring personal service occupations": "Caring roles eg. childcare, vetinary nurse",
   "Leisure, travel and related personal service occupations": "Leisure, travel and hospitality roles, eg. hairdressers, cleaners, train conductors",
   "Sales and customer service occupations": "Sales or customer service",
   "Sales occupations": "Sales, eg. shop assistant, telesales, sales rep",
   "Customer service occupations": "Customer service, eg. call centre agent, customer advisor",
-  "Process, plant and machine operatives": "Factory workers or machine operatives, eg. machinist, assembler, scaffolder",
+  "Process, plant and machine operatives": "Factory workers or machine operatives",
   "Transport and mobile machine drivers and operatives": "Drivers, transport roles, eg. train driver, taxi driver",
   "Elementary occupations": "Low-skilled jobs",
   "Elementary trades and related occupations": "Elementary trades, eg. industrial cleaning, farm working",
@@ -54,7 +54,7 @@ const nameConfigShort = {
   "Secretarial and related occupations": "Secretarial",
   "Skilled trades occupations": "Skilled trade",
   "Caring, leisure and other service occupations": "Caring or personal service",
-  "Caring personal service occupations": "Caring roles eg. childcare, vetinary nurse",
+  "Caring personal service occupations": "Caring roles",
   "Leisure, travel and related personal service occupations": "Leisure, travel and hospitality roles",
   "Sales and customer service occupations": "Sales or customer service",
   "Sales occupations": "Sales",
@@ -66,4 +66,38 @@ const nameConfigShort = {
   "Elementary administration and service occupations": "Elementary administration and service roles"
 }
 
-export {nameConfigFull, nameConfigShort};
+// used for feedback boxes, sector names given without examples
+const nameConfigTwitter = {
+  "Managers, directors and senior officials": "Management",
+  "Corporate managers and directors": "Corporate managers",
+  "Other managers and proprietors": "Proprietors or managers",
+  "Professional occupations": "Professional role requiring a degree",
+  "Health professionals": "Health professionals",
+  "Science, research, engineering and technology professionals": "Sci or tech professionals",
+  "Teaching and educational professionals": "Education professionals",
+  "Business, media and public service professionals": "Business %26 civil service roles",
+  "Associate professional and technical occupations": "Associate professional",
+  "Science, engineering and technology associate professionals": "Sci or tech associate professionals",
+  "Health and social care associate professionals": "Health%26 social work assoc roles",
+  "Protective service occupations": "Protective services roles",
+  "Culture, media and sports occupations": "Culture, media %26 sports roles",
+  "Business and public service associate professionals": "Business%26public sector roles",
+  "Administrative and secretarial occupations": "Administrative or secretarial",
+  "Administrative occupations": "Admin roles",
+  "Secretarial and related occupations": "Secretarial roles",
+  "Skilled trades occupations": "Skilled trade roles",
+  "Caring, leisure and other service occupations": "Caring or personal service",
+  "Caring personal service occupations": "Caring roles",
+  "Leisure, travel and related personal service occupations": "Leisure %26 hospitality roles",
+  "Sales and customer service occupations": "Sales or customer service",
+  "Sales occupations": "Sales roles",
+  "Customer service occupations": "Customer service roles",
+  "Process, plant and machine operatives": "Factory or machine operator roles",
+  "Transport and mobile machine drivers and operatives": "Drivers or transport roles",
+  "Elementary occupations": "Low-skilled jobs",
+  "Elementary trades and related occupations": "Elementary trades",
+  "Elementary administration and service occupations": "Elementary admin/service roles"
+}
+
+
+export {nameConfigFull, nameConfigShort, nameConfigTwitter};

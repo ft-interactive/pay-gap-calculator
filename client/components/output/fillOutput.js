@@ -2,6 +2,7 @@
 import * as d3 from 'd3';
 import {formatAgeGroup, formatPercentageDifference} from '../feedback/feedback';
 import {renameSectorShort} from '../sectors/renamer';
+import {generateTweet} from './fillTweet';
 
 function fillOutput(element, data, state){
   console.log("RETURNED DATA", data);
@@ -20,12 +21,8 @@ function fillOutput(element, data, state){
 
   const percentageGroup = data.selectedDecile === 'medianPay' ? "median" : getPercentageGroup(data.selectedDecile);
   const percentageDifference = formatPercentageDifference(data.ratio);
-  const percentageDifferenceForTwitter = replacePercentSign(percentageDifference);
 
-
-  const twitterShareText = `A ${gender} in their ${age}s in a ${sector} earns ${percentageDifferenceForTwitter} `;
-  const pageUrl = `https://ig.ft.com/pay-gap-calculator/`;
-  const twitterShare = `https://twitter.com/home?status=${twitterShareText} Calculate your pay gap @FT ${pageUrl}`;
+  generateTweet(state, percentageDifference, percentageGroup);
 
   showCorrectDataBox(element, data.selectedDecile);
 
@@ -34,23 +31,19 @@ function fillOutput(element, data, state){
   d3element.select('.output-weekly-salary').text(`£${cleanWeekly} ${comparatorWord}`);
   d3element.select('.output-daily-salary').text(`£${cleanDaily} ${comparatorWord}`);
   d3element.selectAll('.gender-choice-adjective').text(`${genderAdjective}`);
-  d3element.selectAll('.percentile').text(`${percentageGroup}%`);
+  d3element.selectAll('.percentile').text(`${percentageGroup}`);
   d3element.selectAll('.percentile-pay-gap').text(`${percentageDifference}`);
-
-  element.querySelector('.output-share a').href = `${twitterShare}`;
-
 };
-
-function replacePercentSign(str){
-  return str.replace(/%/, '%25');
-}
 
 function getPercentageGroup(decile){
   const decileNum = decile.match(/\d+/)[0];
-  const inTheTopPercentage = 100 - decileNum;
-  return inTheTopPercentage;
+  if(decileNum < 50){
+    return `bottom ${decileNum}%`;
+  }
+  else if(decileNum >= 50){
+    return `top ${100 - decileNum}%`;
+  }
 }
-
 
 function getGenderAdjective(gender){
   return gender === 'woman' ? 'female' : 'male';

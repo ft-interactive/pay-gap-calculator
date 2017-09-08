@@ -1,4 +1,4 @@
-import {nameConfigFull, nameConfigShort} from './nameConfig';
+import {nameConfigFull, nameConfigShort, nameConfigTwitter} from './nameConfig';
 
 function renameAndRemoveSectors(roles){
   const thinnedRoles = roles.map(roleGroup => {
@@ -30,12 +30,16 @@ function renameSectors(roleGroup){
 
 function renameSectorFull(role){
   const renamedRole = nameConfigFull[role];
-  return {role, renamedRole}
+  return {role, renamedRole};
 }
 
 function renameSectorShort(role){
   const renamedRoleShort = nameConfigShort[role];
-  return {role, renamedRoleShort}
+  return {role, renamedRoleShort};
+}
+function renameSectorTwitter(role){
+  const renamedRoleTwitter = nameConfigTwitter[role];
+  return {role, renamedRoleTwitter};
 }
 
-export {renameAndRemoveSectors, renameSectors, renameSectorShort};
+export {renameAndRemoveSectors, renameSectors, renameSectorShort, renameSectorTwitter};
