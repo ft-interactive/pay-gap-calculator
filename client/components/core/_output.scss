@@ -10,20 +10,41 @@ article.computed .output-container {
 article.computed .output-container span[class^='output'] {
   font-family: $font-sans;
   display: block;
-  font-size: 45px;
+  font-size: 48px;
   font-weight: 500;
 }
 
 article.computed .output-container {
-  background-color: #9fe0d9;
-  padding: 1.5em 1em;
+  background-color: oColorsGetPaletteColor('teal-90');
+  padding: 1.5em 1.7em;
+  .output-box-yearly-salary, .output-box-daily-salary{
+    >hr {
+      height: 1px; color: oColorsGetPaletteColor('teal-70');
+      background-color: oColorsGetPaletteColor('teal-70');
+      width: 150px;
+      margin-left: 0;
+    }
+
+  }
+  >.output-box-median {
+    font-size: 20px;
+  }
 }
 
 article.computed .output-container p {
   text-align: left;
+  font-family: MetricWeb, sans-serif;
+  font-size: 28px;
+  color: oColorsGetPaletteColor('teal-30');
+  > .output-yearly-salary, .output-daily-salary{
+    @include oTypographySans($scale:7, $line-height: 48px);
+  }
 }
 
+
+
 article.computed .down-triangle {
+  display: none;
   width: 0;
   height: 0;
   border-left: 25px solid transparent;
@@ -43,8 +64,15 @@ article.computed .down-triangle {
   }
 }
 
-article.computed .output-container .output-box-percentile p span {
-  font-weight: 600;
+article.computed .output-container .output-box-percentile{
+  p{font-size:20px;
+    line-height: 28px;
+    margin: 0;
+
+  }span {
+    font-weight: 600;
+
+  }
 }
 
 /* If decile is used, hide explainer box about medians */
@@ -54,6 +82,7 @@ article.computed .output-container.decile {
   }
   .output-box-percentile{
     display: block;
+
   }
 }
 
@@ -61,6 +90,7 @@ article.computed .output-container.decile {
 article.computed .output-container.median {
   .output-box-median {
     display: block;
+
   }
   .output-box-percentile{
     display:none;
