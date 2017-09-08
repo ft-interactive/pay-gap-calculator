@@ -23,6 +23,7 @@ article.computed .output-container {
       background-color: oColorsGetPaletteColor('teal-70');
       width: 150px;
       margin-left: 0;
+      margin-bottom: 20px;
     }
 
   }
@@ -67,8 +68,6 @@ article.computed .down-triangle {
 article.computed .output-container .output-box-percentile{
   p{font-size:20px;
     line-height: 28px;
-    margin: 0;
-
   }span {
     font-weight: 600;
 
@@ -82,7 +81,9 @@ article.computed .output-container.decile {
   }
   .output-box-percentile{
     display: block;
-
+    p {
+    margin-bottom: 0;
+    }
   }
 }
 
@@ -94,6 +95,7 @@ article.computed .output-container.median {
   }
   .output-box-percentile{
     display:none;
+
   }
 }
 
@@ -101,8 +103,7 @@ article.computed .output-container.median {
   text-align: center;
   padding: .5em 0 1em 0;
   button {
-    background-color: #1da1f2;
-    border: none;
+    border: 1px solid red;
     font-size: 20px;
     height: 36px;
     border-radius: 3px;
