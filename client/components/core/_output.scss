@@ -10,20 +10,64 @@ article.computed .output-container {
 article.computed .output-container span[class^='output'] {
   font-family: $font-sans;
   display: block;
-  font-size: 45px;
+  font-size: 48px;
   font-weight: 500;
 }
 
 article.computed .output-container {
-  background-color: #9fe0d9;
-  padding: 1.5em 1em;
+  background-color: oColorsGetPaletteColor('teal-90');
+  padding: 1.5em 1.7em;
+
+    >.output-box-percentile {
+      margin: 20px auto;
+      }  
+
+  .output-box-yearly-salary, .output-box-daily-salary{
+  
+    >hr {
+      height: 1px; color: oColorsGetPaletteColor('teal-70');
+      background-color: oColorsGetPaletteColor('teal-70');
+      width: 150px;
+      margin:20px 0;
+     }
+
+    @media(max-width: 400px) {
+      hr {
+        margin:0 auto;
+      }
+
+        >p {
+      text-align: center;
+    }
+
+    }
+  }
+
+  >.output-box-median {
+    margin-top: 20px;
+  }
+
+  >.output-box-median p,
+  .output-box-percentile p {
+    font-size: 20px;
+    text-align: left;
+  }
 }
 
 article.computed .output-container p {
   text-align: left;
+  font-family: MetricWeb, sans-serif;
+  font-size: 28px;
+  color: oColorsGetPaletteColor('teal-30');
+  > .output-yearly-salary, .output-daily-salary{
+    @include oTypographySans($scale:7, $line-height: 48px);
+  }
 }
 
+
+
 article.computed .down-triangle {
+  display: none;
   width: 0;
   height: 0;
   border-left: 25px solid transparent;
@@ -37,14 +81,16 @@ article.computed .down-triangle {
   article.computed .down-triangle {
     left: 46%;
   }
-
-  article.computed .output-container p {
-    text-align: center;
-  }
 }
 
-article.computed .output-container .output-box-percentile p span {
-  font-weight: 600;
+article.computed .output-container .output-box-percentile{
+  p{font-size:20px;
+    line-height: 28px;
+    text-align: left;
+  }span {
+    font-weight: 600;
+
+  }
 }
 
 /* If decile is used, hide explainer box about medians */
@@ -54,6 +100,9 @@ article.computed .output-container.decile {
   }
   .output-box-percentile{
     display: block;
+    p {
+    margin-bottom: 0;
+    }
   }
 }
 
@@ -61,21 +110,45 @@ article.computed .output-container.decile {
 article.computed .output-container.median {
   .output-box-median {
     display: block;
+
   }
   .output-box-percentile{
     display:none;
+
   }
 }
 
 .output-container .output-share {
-  text-align: center;
   padding: .5em 0 1em 0;
-  button {
-    background-color: #1da1f2;
-    border: none;
-    font-size: 20px;
-    height: 36px;
-    border-radius: 3px;
-    color: #fff;
-  }
+   >.o-buttons--big {
+        font-size: 20px;
+        height: 50px;
+        color: #08474d !important;
+        min-width: 150px;
+        margin-left: 0;
+      > a {
+        color: #08474d !important;
+      }  
+
+        @media(max-width: 400px){
+        width: 100% !important;
+        color: #08474d !important;
+        }
+       
+    }
+}
+
+.output-share .o-buttons:not([disabled]):hover{
+  background-color: rgba(13, 120, 130, 0.3);
+}
+
+
+
+.output-container .output-share button::before{
+   position:absolute;
+   top: 10px;
+   left: 5px;
+   background: url($exclamation-symbol-url) no-repeat center center;
+   width: 32px;
+   height: 32px;
 }
