@@ -9,7 +9,7 @@
   padding: 6px 2px 6px 2px;
 }
 
-.input-box-age > div:not(.input-feedback) {
+.input-box-age > div:not(.input-feedback, .no-age-error) {
   max-width: 428px;
   min-width: 300px;
   display:flex;
