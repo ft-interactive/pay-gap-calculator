@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import "babel-polyfill";
 import './styles.scss';
 
 import * as d3 from 'd3';

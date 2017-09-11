@@ -34,7 +34,9 @@ module.exports = async (env = 'development') => ({
         use: {
           loader: 'babel-loader',
           options: {
+            // plugins: ["babel-root-slash-import"],
             presets: [
+              'es2015',
               [
                 'env',
                 {

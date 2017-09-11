@@ -79,7 +79,8 @@
     "prebuild": "npm run clean",
     "pretest": "npm run build",
     "qa": "mocha ./test/**/*.spec.js",
-    "start": "webpack-dev-server --watch"
+    "start": "webpack-dev-server --watch",
+    "test": "mocha ./test/*.spec.js"
   },
   "dependencies": {
     "d3": "^4.10.0",

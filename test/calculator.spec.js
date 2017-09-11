@@ -1,7 +1,6 @@
 const chai = require('chai');
-const { readFileSync } = require('fs');
 
-import {calculation, calculationAgeSector, calculationAge} from `${__dirname}/../client/components/calculator.js`;
+import {calculation, calculationAgeSector, calculationAge} from '../client/components/calculator.js';
 const should = chai.should();
 
 
