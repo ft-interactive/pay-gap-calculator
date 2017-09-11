@@ -16,8 +16,6 @@ function fillOutput(element, data, state){
   const netSalary = getSalaryAfterTax(data.salary);
   const dailyNetDifference = getDailySalaryDifference(netSwappedSalary, netSalary);
 
-  console.log(dailyNetDifference);
-
   const gender = state.get("gender");
   const age = state.get("age");
   const sector = renameSectorShort(state.get("sector")).renamedRoleShort;
