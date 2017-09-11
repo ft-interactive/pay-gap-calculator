@@ -41,13 +41,19 @@ function clearEmptyWarnings(state){
   }
 }
 
+function setAgeWarningTop(state){
+  console.log("in age warning", state);
+  if(!state.has("age")){
+    computeButton.textContent = 'Enter an age';
+    seeSectorButtonDesktop.textContent = 'Enter an age';
+    seeSectorButtonMobile.textContent = 'Enter an age';
+  }
+  else{
+    setNormalText();
+  }
+}
+
 function setAppropriateWarnings(state){
-
-  console.log("this function was at least initiated");
-  console.log("state", state);
-  console.log("this ran true", (state.has("age") && !state.has("sector") && !isSalaryTrue) );
-
-
   const isSalaryTrue = salaryTrue(state);
   if(state.has("age") && state.has("sector") && isSalaryTrue){
     setNormalText();
@@ -119,4 +125,4 @@ function setNormalText(){
 }
 
 
-export {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings, setAppropriateWarnings};
+export {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings, setAppropriateWarnings, setAgeWarningTop};

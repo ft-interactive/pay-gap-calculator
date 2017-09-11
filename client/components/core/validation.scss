@@ -57,7 +57,7 @@ article.no-sector {
         background-repeat: no-repeat;
         background-size: contain;
         background-position: 50% left;
-        background-color: transparent;;
+        background-color: transparent;
     }
   }
 }
@@ -93,10 +93,15 @@ article.no-age {
     div.no-age-error {
       display: block;
       margin-top: 4px;
-
-      span::after {
-        content: '';
+      position: relative;
+      padding-left: 2.3em;
+      span::before {
+        content:'';
+        position: absolute;
         background-image: url($exclamation-symbol-url-pink);
+        left: 5px;
+        top: -3px;
+        width: 100%;
         display: inline-block;
         height: 24px;
         line-height: 24px;
@@ -104,7 +109,6 @@ article.no-age {
         background-size: contain;
         background-position: 50% left;
         background-color: transparent;
-        vertical-align: middle;
       }
     }
   }

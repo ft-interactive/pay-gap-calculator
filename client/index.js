@@ -3,7 +3,7 @@ import './styles.scss';
 
 import * as d3 from 'd3';
 
-import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings, setAppropriateWarnings} from './components/validation/validators';
+import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings, setAppropriateWarnings, setAgeWarningTop} from './components/validation/validators';
 import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
 import {toggleSelection, setElementsToChange} from './components/helpers';
@@ -33,7 +33,6 @@ if (cutsTheMustard) {
     const value = Object.values(o)[0];
     state.set(key, value);
     console.log(`STATE IS NOW:`, state);
-    // setAppropriateWarnings(state);
     toggleFeedbackBoxes(state);
     clearEmptyWarnings(state);
 
@@ -79,14 +78,16 @@ if (cutsTheMustard) {
     const prevSelectedEl = document.querySelector('.input-age.selected');
     toggleSelection(this, prevSelectedEl);
     dispatch.call("updateState", this, {age: this.getAttribute('data')} );
-    setAppropriateWarnings(state);
+    ageCheck(state);
+    setAgeWarningTop(state);
   });
 
   ageInput.on("touchstart", function(){
     const prevSelectedEl = document.querySelector('.input-age.selected');
     toggleSelection(this, prevSelectedEl);
     dispatch.call("updateState", this, {age: this.getAttribute('data')} );
-    setAppropriateWarnings(state);
+    ageCheck(state);
+    setAgeWarningTop(state);
   });
 
   sectorDivDesktop.on("click", function(){
@@ -96,7 +97,7 @@ if (cutsTheMustard) {
     if(selectedInput !== null){
       dispatch.call("updateState", this, {sector: selectedInput.value} );
     }
-    setAppropriateWarnings(state);
+    setAgeWarningTop(state);
   });
 
   sectorDivMobile.on("click", function(){
@@ -105,7 +106,7 @@ if (cutsTheMustard) {
     if(selectedInput !== null){
       dispatch.call("updateState", this, {sector: selectedInput.value} );
     }
-    setAppropriateWarnings(state);
+    setAgeWarningTop(state);
   });
 
   salaryTimePeriodInput.on("click", function(){
