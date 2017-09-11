@@ -3,15 +3,18 @@ import * as d3 from 'd3';
 import {formatAgeGroup, formatPercentageDifference} from '../feedback/feedback';
 import {renameSectorShort} from '../sectors/renamer';
 import {generateTweet} from './fillTweet';
+import {getSalaryAfterTax} from './calculateTax';
 
 function fillOutput(element, data, state){
   console.log("RETURNED DATA", data);
 
+  const dailyGrossDifference = getDailySalaryDifference(data.swappedSalary, data.salary)
+  const comparatorWord = dailyGrossDifference > 0 ? 'more' : 'less';
   const cleanSalary = parseInt(data.swappedSalary).toLocaleString();
-  const salaryDifference = data.swappedSalary - data.salary;
-  const cleanWeekly = (salaryDifference / 52).toFixed(2);
-  const cleanDaily = (salaryDifference / 365).toFixed(2);
-  const comparatorWord = salaryDifference > 0 ? 'more' : 'less';
+
+  const netSwappedSalary = getSalaryAfterTax(data.swappedSalary);
+  const netSalary = getSalaryAfterTax(data.salary);
+  const dailyNetDifference = getDailySalaryDifference(netSwappedSalary, netSalary);
 
   const gender = state.get("gender");
   const age = state.get("age");
@@ -28,12 +31,18 @@ function fillOutput(element, data, state){
 
   const d3element = d3.select(element);
   d3element.select('.output-yearly-salary').text(`£${cleanSalary}`);
-  d3element.select('.output-weekly-salary').text(`£${cleanWeekly} ${comparatorWord}`);
-  d3element.select('.output-daily-salary').text(`£${cleanDaily} ${comparatorWord}`);
+  d3element.select('.output-daily-net-difference').text(`£${dailyNetDifference} ${comparatorWord}`);
+  d3element.select('.output-daily-gross-difference').text(`£${dailyGrossDifference} ${comparatorWord}`);
   d3element.selectAll('.gender-choice-adjective').text(`${genderAdjective}`);
   d3element.selectAll('.percentile').text(`${percentageGroup}`);
   d3element.selectAll('.percentile-pay-gap').text(`${percentageDifference}`);
 };
+
+function getDailySalaryDifference(salary1, salary2){
+  const yearlyDifference = salary1 - salary2;
+  const dailyDifference = (yearlyDifference / 365).toFixed(2);
+  return dailyDifference;
+}
 
 function getPercentageGroup(decile){
   const decileNum = decile.match(/\d+/)[0];

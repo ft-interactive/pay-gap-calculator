@@ -148,8 +148,8 @@
       <hr>
     </div>
     <div class="output-box-daily-salary">
-      <p>giving you <span class="output-daily-salary"></span> spending money every day (before tax)</p>
-       <hr>
+      <p>giving you <span class="output-daily-net-difference"></span> spending money every day after tax.
+        Or <span class="output-daily-gross-difference"></span> before tax.</p>
       </div>
       <div class="output-box-percentile">
         <p>
@@ -167,11 +167,9 @@
       </div>
       <div class="output-box-median">
         <p>
-          We used the median salary for women and men in your sector and age group to calculate that
+          We used the median salary for your sector and age group to calculate that a
           <span class="gender-choice"></span>  will earn
-          <span class="salary-difference-gender-age-sector"></span> than
-          which we used to generate
-          your personalised gender pay gap.
+          <span class="salary-difference-gender-age-sector"></span> than a <span class="gender-choice-inverse"></span>.
         </p>
       </div>
       <div class="output-share">
@@ -227,6 +225,14 @@
 <p>
   A lot more women than men work in part-time jobs and we were concerned this would
   skew the data and make the gender pay gap appear wider than it is when circumstances are equal.
+</p>
+
+<h3>How do you calculate tax?</h3>
+<p>
+  We calculate tax and national insurance payments based on the formulas in this
+  <a href="https://www.npmjs.com/package/uk-tax-calculator" target="_blank">open source UK tax calculator</a>.
+  It subtracts tax and national insurance based on a given salary.
+   Student loan payments and pension contributions are not included.
 </p>
 
 <h3>Any feedback?</h3>
