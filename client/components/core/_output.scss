@@ -17,18 +17,40 @@ article.computed .output-container span[class^='output'] {
 article.computed .output-container {
   background-color: oColorsGetPaletteColor('teal-90');
   padding: 1.5em 1.7em;
+
+    >.output-box-percentile {
+      margin: 20px auto;
+      }  
+
   .output-box-yearly-salary, .output-box-daily-salary{
+  
     >hr {
       height: 1px; color: oColorsGetPaletteColor('teal-70');
       background-color: oColorsGetPaletteColor('teal-70');
       width: 150px;
-      margin-left: 0;
-      margin-bottom: 20px;
+      margin:20px 0;
+     }
+
+    @media(max-width: 400px) {
+      hr {
+        margin:0 auto;
+      }
+
+        >p {
+      text-align: center;
     }
 
+    }
   }
+
   >.output-box-median {
+    margin-top: 20px;
+  }
+
+  >.output-box-median p,
+  .output-box-percentile p {
     font-size: 20px;
+    text-align: left;
   }
 }
 
@@ -59,15 +81,12 @@ article.computed .down-triangle {
   article.computed .down-triangle {
     left: 46%;
   }
-
-  article.computed .output-container p {
-    text-align: center;
-  }
 }
 
 article.computed .output-container .output-box-percentile{
   p{font-size:20px;
     line-height: 28px;
+    text-align: left;
   }span {
     font-weight: 600;
 
@@ -108,5 +127,15 @@ article.computed .output-container.median {
     height: 36px;
     border-radius: 3px;
     color: #fff;
+    min-width: 100%;
   }
+}
+
+.output-container .output-share button::before{
+   position:absolute;
+   top: 10px;
+   left: 5px;
+   background: url($exclamation-symbol-url) no-repeat center center;
+   width: 32px;
+   height: 32px;
 }
