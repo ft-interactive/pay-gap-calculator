@@ -7,7 +7,7 @@ article.computed .output-container {
   display: none;
 }
 
-article.computed .output-container span[class^='output'] {
+article.computed .output-container span[class^='output']:not(.output-daily-gross-difference) {
   font-family: $font-sans;
   display: block;
   font-size: 48px;
@@ -20,10 +20,10 @@ article.computed .output-container {
 
     >.output-box-percentile {
       margin: 20px auto;
-      }  
+      }
 
   .output-box-yearly-salary, .output-box-daily-salary{
-  
+
     >hr {
       height: 1px; color: oColorsGetPaletteColor('teal-70');
       background-color: oColorsGetPaletteColor('teal-70');
@@ -128,13 +128,13 @@ article.computed .output-container.median {
         margin-left: 0;
       > a {
         color: #08474d !important;
-      }  
+      }
 
         @media(max-width: 400px){
         width: 100% !important;
         color: #08474d !important;
         }
-       
+
     }
 }
 
