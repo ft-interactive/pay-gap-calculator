@@ -29,7 +29,6 @@ function generateShareMessage(state, percentageDifference, percentile){
 };
 
 function cleanPercentSign(text){
-  console.log(text);
   return text.replace(/%/, '%25');
 }
 function appendTweet(tweet){
