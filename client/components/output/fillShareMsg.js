@@ -3,9 +3,10 @@ import {renameSectorTwitter} from '../sectors/renamer';
 import {formatAgeGroup} from '../feedback/feedback';
 
 const pageUrl = `https://ig.ft.com/pay-gap-calculator`;
-const twitterButton = document.querySelector('.output-share a');
+const twitterButton = document.querySelector('.output-share .twitter a');
+const whatsappButton = document.querySelector('.output-share .whatsapp a');
 
-function generateTweet(state, percentageDifference, percentile){
+function generateShareMessage(state, percentageDifference, percentile){
 
   const gender = state.get("gender");
   const inverseGender = gender === 'woman' ? 'man' : 'woman';
@@ -17,11 +18,14 @@ function generateTweet(state, percentageDifference, percentile){
   const percentDiffClean = cleanPercentSign(percentageDifference);
   const percentGroupClean = cleanPercentSign(percentile);
 
-  const tweetIntro = formatIntroForTwitter(gender, percentGroupClean, sectorTwitter);
+  const msgIntro = formatIntroForTwitter(gender, percentGroupClean, sectorTwitter);
+  const msgFull = `${msgIntro} in ${genderPossessive} ${age} earns ${percentDiffClean} than a ${inverseGender}. Get your gap @FT https://ig.ft.com/pay-gap-calculator/`;
 
-  const twitterShareText = `https://twitter.com/home?status=${tweetIntro} in ${genderPossessive} ${age} earns ${percentDiffClean} than a ${inverseGender}. Get your gap @FT https://ig.ft.com/pay-gap-calculator/`;
+  const twitterShareText = `https://twitter.com/home?status=${msgFull}`;
+  const whatsappMsg = `whatsapp://send?text=${msgFull}`;
 
   appendTweet(twitterShareText);
+  appendWhatsappMsg(whatsappMsg);
 };
 
 function cleanPercentSign(text){
@@ -30,6 +34,9 @@ function cleanPercentSign(text){
 }
 function appendTweet(tweet){
   twitterButton.href = `${tweet}`;
+}
+function appendWhatsappMsg(msg){
+  whatsappButton.href = `${msg}`;
 }
 function formatIntroForTwitter(gender, percentGroupClean, sector){
   if(percentGroupClean === 'median'){
@@ -40,4 +47,4 @@ function formatIntroForTwitter(gender, percentGroupClean, sector){
   }
 }
 
-export {generateTweet};
+export {generateShareMessage};
