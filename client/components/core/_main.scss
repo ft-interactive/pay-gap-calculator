@@ -75,7 +75,7 @@ label {
   border-style: none;
   height: 50px;
   font-size: 1em;
-  min-width: 80px;
+  min-width: 150px;
 }
 /* WIDE BUTTONS */
 @media(max-width:400px) {
@@ -83,6 +83,10 @@ label {
   .see-all,
   .see-more {
     width: 100%;
+  }
+
+.o-buttons.o-buttons--big{
+    min-width: 150px;
   }
 
   button.see-all.o-buttons.o-buttons--big {
