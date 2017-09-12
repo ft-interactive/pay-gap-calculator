@@ -7,26 +7,10 @@ article.no-sector {
   button.input-compute,
   button.input-compute:active,
   button.input-compute:hover {
-    background-color: #FF1A66;
+    background-color: oColorsGetPaletteColor('claret-100');
     border-color: #FF1A66;
     min-width: 200px;
     color: #fff;
-    position: relative;
-    span::before {
-        content:'';
-        position: absolute;
-        background-image: url($exclamation-symbol-url);
-        left: 15px;
-        top: 12px;
-        width: 100%;
-        display: inline-block;
-        height: 24px;
-        line-height: 24px;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: 50% left;
-        background-color: transparent;
-    }
   }
 }
 /* USER INPUT VALIDATION ON SEE ALL SECTOR BUTTON */
@@ -39,43 +23,10 @@ article.no-sector {
   button.see-more.o-buttons,
   button.see-more:active,
   button.see-more:hover {
-    background-color: #FF1A66;
+    background-color: oColorsGetPaletteColor('claret-100');
     border-color: #FF1A66;
     min-width: 200px;
     color: #fff;
-    position: relative;
-    span::before {
-        content:'';
-        position: absolute;
-        background-image: url($exclamation-symbol-url);
-        left: 15px;
-        top: 12px;
-        width: 100%;
-        display: inline-block;
-        height: 24px;
-        line-height: 24px;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: 50% left;
-        background-color: transparent;
-    }
-  }
-}
-article.no-age,
-article.no-sector {
-  button.see-all.o-buttons,
-  button.see-more.o-buttons {
-    span{
-      margin-left: 20px;
-    }
-  }
-}
-article.no-age,
-article.no-sector {
-  button.input-compute {
-    span{
-      margin-left: 20px;
-    }
   }
 }
 
@@ -110,28 +61,6 @@ article.no-age {
         background-position: 50% left;
         background-color: transparent;
       }
-    }
-  }
-}
-
-article.no-age {
-  button.input-compute {
-    background-color: oColorsGetPaletteColor('claret-100');
-    color: white;
-  }
-}
-
-article.no-sector {
-  button.input-compute {
-    background-color: oColorsGetPaletteColor('claret-100');
-    color: white;
-  }
-}
-
-article.no-salary {
-  button.input-compute {
-    input {
-      border-color: oColorsGetPaletteColor('claret-100');
     }
   }
 }
