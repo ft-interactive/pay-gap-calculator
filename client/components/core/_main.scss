@@ -121,11 +121,15 @@ article .selection-made .input-feedback {
   background-color: #14bdcc;
   border-top: 2px solid #14bdcc;
   text-align: center;
+
+  >p {
+    margin: 0.6em 0;
+    >span {
+    color: #08474d;
+    }
+  }
 }
 
-.input-feedback.sector-selected p span {
-  color: #08474d;
-}
 /* DATA ERROR HANDLING */
 .input-container .data-error-feedback {
   border-top: 2px solid #FF1A66;

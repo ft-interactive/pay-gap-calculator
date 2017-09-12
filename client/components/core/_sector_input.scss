@@ -83,9 +83,12 @@ article .input-box-sector .sector-desktop-view{
 article .input-box-sector .sector-mobile-view{
   display: none;
 }
-.input-container div.input-sector-list p{
-  font-family: $font-sans;
-  padding: .2em 0;
+.input-container div {
+  margin: 1.3em 0;
+  >.input-sector-list p{
+    font-family: $font-sans;
+    padding: .2em 0;
+  }
 }
 
 .see-more {
