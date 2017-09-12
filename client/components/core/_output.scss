@@ -28,7 +28,7 @@ article.computed .output-container {
       height: 1px; color: oColorsGetPaletteColor('teal-70');
       background-color: oColorsGetPaletteColor('teal-70');
       width: 150px;
-      margin:20px 0;
+      margin:1em 0;
      }
 
     @media(max-width: 400px) {
@@ -58,6 +58,7 @@ article.computed .output-container p {
   text-align: left;
   font-family: MetricWeb, sans-serif;
   font-size: 28px;
+  line-height: 1.5em;
   color: oColorsGetPaletteColor('teal-30');
   > .output-yearly-salary, .output-daily-salary{
     @include oTypographySans($scale:7, $line-height: 48px);
