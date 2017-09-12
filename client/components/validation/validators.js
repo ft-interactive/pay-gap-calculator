@@ -1,15 +1,22 @@
 const article = document.querySelector("body main article");
-const seeSectorButtonMobile = document.querySelector("button.see-all span");
-const seeSectorButtonDesktop = document.querySelector("button.see-more span");
-const computeButton = document.querySelector("button.input-compute span");
+const seeSectorButtonMobileSpan = document.querySelector("button.see-all span");
+const seeSectorButtonDesktopSpan = document.querySelector("button.see-more span");
+const computeButtonSpan = document.querySelector("button.input-compute span");
+
+const seeSectorButtonMobile = document.querySelector("button.see-all");
+const seeSectorButtonDesktop = document.querySelector("button.see-more");
+const computeButton = document.querySelector("button.input-compute");
+
 const desktopSectorBox = document.querySelector(".sector-desktop-view");
 
+// check whether state has any validation errors and asisgn article class
 function ageCheck(config){
   if(config.has("age")){
-    article.classList.remove("no-age")
+    article.classList.remove("no-age");
   } else {
     article.classList.add("no-age");
   }
+  setStyleAndText();
 }
 
 function sectorCheck(config){
@@ -18,6 +25,7 @@ function sectorCheck(config){
   } else {
     article.classList.add("no-sector")
   }
+  setStyleAndText();
 }
 
 function salaryCheck(config){
@@ -27,6 +35,129 @@ function salaryCheck(config){
   else {
     article.classList.add("no-salary")
   }
+  setStyleAndText();
+}
+
+// using those classes, determine correct behaviour for each state
+
+function setStyleAndText(){
+  if(article.classList.contains("no-age")
+      && !article.classList.contains("no-sector")
+      && !article.classList.contains("no-salary")){
+    noAgeOnly();
+  }
+  else if(article.classList.contains("no-sector")
+    && !article.classList.contains("no-age")
+    && !article.classList.contains("no-salary")){
+    noSectorOnly();
+  }
+  else if(article.classList.contains("no-salary")
+    && !article.classList.contains("no-sector")
+    && !article.classList.contains("no-age")){
+    noSalaryOnly()
+  }
+  else if(article.classList.contains("no-salary")
+    && article.classList.contains("no-sector")
+    && !article.classList.contains("no-age")){
+    noSalaryNoSector();
+  }
+  else if(article.classList.contains("no-salary")
+    && !article.classList.contains("no-sector")
+    && article.classList.contains("no-age")){
+    noSalaryNoAge();
+  }
+  else if(article.classList.contains("no-salary")
+    && article.classList.contains("no-sector")
+    && article.classList.contains("no-age")){
+    noSalaryNoSectorNoAge();
+  }
+  else if(article.classList.contains("no-salary")
+    && !article.classList.contains("no-sector")
+    && article.classList.contains("no-age")){
+    noSectorNoAge();
+  }
+  else{
+    removeWarning(seeSectorButtonMobile);
+    removeWarning(seeSectorButtonDesktop);
+    removeWarning(computeButton);
+    setNormalText();
+  }
+}
+
+// different dom configurations for each state
+function noAgeOnly(){
+  addWarning(seeSectorButtonMobile);
+  addWarning(seeSectorButtonDesktop)
+  addWarning(computeButton);
+  computeButtonSpan.textContent = 'Enter an age';
+  seeSectorButtonDesktopSpan.textContent = 'Enter an age';
+  seeSectorButtonMobileSpan.textContent = 'Enter an age';
+}
+
+function noSectorOnly(){
+  addWarning(seeSectorButtonMobile );
+  addWarning(seeSectorButtonDesktop);
+  addWarning(computeButton);
+  computeButtonSpan.textContent = 'Enter a sector';
+  seeSectorButtonDesktopSpan.textContent = 'Enter a sector';
+  seeSectorButtonMobileSpan.textContent = 'Enter a sector';
+}
+
+function noSalaryOnly(){
+  console.log("the no salary ony button fired");
+  removeWarning(seeSectorButtonMobile);
+  removeWarning(seeSectorButtonDesktop);
+  addWarning(computeButton);
+  computeButtonSpan.textContent = 'Enter a salary';
+  if(desktopSectorBox.classList.contains('expanded')){
+    seeSectorButtonDesktopSpan.textContent = 'See fewer job types'
+  }
+  else { seeSectorButtonDesktopSpan.textContent = 'See more job types'};
+  seeSectorButtonMobileSpan.textContent = 'See all job types';
+}
+
+function noSalaryNoSector(){
+  addWarning(seeSectorButtonMobile);
+  addWarning(seeSectorButtonDesktop);
+  addWarning(computeButton);
+  computeButtonSpan.textContent = 'Enter a sector and a salary';
+  seeSectorButtonDesktopSpan.textContent = 'Enter a sector';
+  seeSectorButtonMobileSpan.textContent = 'Enter a sector';
+}
+
+function noSalaryNoAge(){
+  addWarning(seeSectorButtonMobile);
+  addWarning(seeSectorButtonDesktop);
+  addWarning(computeButton);
+  computeButtonSpan.textContent = 'Enter an age and a salary';
+  seeSectorButtonDesktopSpan.textContent = 'Enter an age';
+  seeSectorButtonMobileSpan.textContent = 'Enter an age';
+}
+function noSalaryNoSectorNoAge(){
+  addWarning(seeSectorButtonMobile );
+  addWarning(seeSectorButtonDesktop);
+  addWarning(computeButton);
+  computeButtonSpan.textContent = 'Enter an age, a sector and a salary';
+  seeSectorButtonDesktopSpan.textContent = 'Enter an age and a sector';
+  seeSectorButtonMobileSpan.textContent = 'Enter an age and a sector';
+}
+function noSectorNoAge(){
+  addWarning(seeSectorButtonMobile );
+  addWarning(seeSectorButtonDesktop);
+  addWarning(computeButton);
+  computeButtonSpan.textContent = 'Enter an age and a sector';
+  seeSectorButtonDesktopSpan.textContent = 'Enter an age and a sector';
+  seeSectorButtonMobileSpan.textContent = 'Enter an age and a sector';
+}
+
+// helper methods;
+function addWarning(element){
+  element.classList.add("o-buttons-icon--warning");
+  element.classList.add("o-buttons-icon");
+}
+function removeWarning(element){
+  element.classList.remove("o-buttons-icon--warning");
+  element.classList.remove("o-buttons-icon");
 }
 
 function clearEmptyWarnings(state){
@@ -41,71 +172,6 @@ function clearEmptyWarnings(state){
   }
 }
 
-function setAgeWarningTop(state){
-  console.log("in age warning", state);
-  if(!state.has("age")){
-    computeButton.textContent = 'Enter an age';
-    seeSectorButtonDesktop.textContent = 'Enter an age';
-    seeSectorButtonMobile.textContent = 'Enter an age';
-  }
-  else{
-    setNormalText();
-  }
-}
-
-function setAppropriateWarnings(state){
-  const isSalaryTrue = salaryTrue(state);
-  if(state.has("age") && state.has("sector") && isSalaryTrue){
-    setNormalText();
-  }
-  // no salary
-  else if(state.has("age") && state.has("sector") && !isSalaryTrue){
-    computeButton.textContent = 'Enter a salary';
-    if(desktopSectorBox.classList.contains('expanded')){
-      seeSectorButtonDesktop.textContent = 'See fewer job types'
-    }
-    else { seeSectorButtonDesktop.textContent = 'See more job types'};
-    seeSectorButtonMobile.textContent = 'See all job types';
-  }
-  // no salary no sector
-  else if(state.has("age") && !state.has("sector") && !isSalaryTrue){
-    console.log("this fired, as only age is correct");
-    computeButton.textContent = 'Enter a sector and a salary';
-    seeSectorButtonDesktop.textContent = 'Enter a sector';
-    seeSectorButtonMobile.textContent = 'Enter a sector';
-  }
-  // no salary no sector no age
-  else if(!state.has("age") && !state.has("sector") && !isSalaryTrue){
-    computeButton.textContent = 'Enter an age, a sector and a salary';
-    seeSectorButtonDesktop.textContent = 'Enter an age and a sector';
-    seeSectorButtonMobile.textContent = 'Enter an age and a sector';
-  }
-  // no age
-  else if(!state.has("age") && state.has("sector") && isSalaryTrue){
-    computeButton.textContent = 'Enter an age';
-    seeSectorButtonDesktop.textContent = 'Enter an age';
-    seeSectorButtonMobile.textContent = 'Enter an age';
-  }
-  // no age no sector
-  else if(!state.has("age") && !state.has("sector") && isSalaryTrue){
-    computeButton.textContent = 'Enter an age and a sector';
-    seeSectorButtonDesktop.textContent = 'Enter an age and a sector';
-    seeSectorButtonMobile.textContent = 'Enter an age and a sector';
-  }
-  // no age no salary
-  else if(!state.has("age") && state.has("sector") && !isSalaryTrue){
-    computeButton.textContent = 'Enter an age and a salary';
-    seeSectorButtonDesktop.textContent = 'Enter an age';
-    seeSectorButtonMobile.textContent = 'Enter an age';
-  }
-  // no sector
-  else if(state.has("age") && !state.has("sector") && !isSalaryTrue){
-    computeButton.textContent = 'Enter a sector';
-    seeSectorButtonDesktop.textContent = 'Enter a sector';
-    seeSectorButtonMobile.textContent = 'Enter a sector';
-  }
-}
-
 function salaryTrue(config){
   if(config.has("salary")){
     if(!Number.isNaN(config.get("salary"))){
@@ -117,12 +183,11 @@ function salaryTrue(config){
 
 function setNormalText(){
   if(desktopSectorBox.classList.contains('expanded')){
-    seeSectorButtonDesktop.textContent = 'See fewer job types'
+    seeSectorButtonDesktopSpan.textContent = 'See fewer job types'
   }
-  else { seeSectorButtonDesktop.textContent = 'See more job types'};
-  seeSectorButtonMobile.textContent = 'See job types';
-  computeButton.textContent = 'Show pay gap';
+  else { seeSectorButtonDesktopSpan.textContent = 'See more job types'};
+  seeSectorButtonMobileSpan.textContent = 'See job types';
+  computeButtonSpan.textContent = 'Show pay gap';
 }
 
-
-export {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings, setAppropriateWarnings, setAgeWarningTop};
+export {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings};

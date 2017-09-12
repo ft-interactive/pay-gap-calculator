@@ -3,7 +3,7 @@ import './styles.scss';
 
 import * as d3 from 'd3';
 
-import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings, setAppropriateWarnings, setAgeWarningTop} from './components/validation/validators';
+import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings} from './components/validation/validators';
 import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
 import {toggleSelection, setElementsToChange} from './components/helpers';
@@ -52,7 +52,6 @@ if (cutsTheMustard) {
     ageCheck(config);
     sectorCheck(config);
     salaryCheck(config);
-    setAppropriateWarnings(state);
     const salaryValid = state.has("salary") && !Number.isNaN(state.get("salary"));
 
     if(state.has("age") && state.has("sector") && salaryValid){
@@ -79,7 +78,6 @@ if (cutsTheMustard) {
     toggleSelection(this, prevSelectedEl);
     dispatch.call("updateState", this, {age: this.getAttribute('data')} );
     ageCheck(state);
-    setAgeWarningTop(state);
   });
 
   ageInput.on("touchstart", function(){
@@ -87,17 +85,15 @@ if (cutsTheMustard) {
     toggleSelection(this, prevSelectedEl);
     dispatch.call("updateState", this, {age: this.getAttribute('data')} );
     ageCheck(state);
-    setAgeWarningTop(state);
   });
 
   sectorDivDesktop.on("click", function(){
     ageCheck(state);
-
     const selectedInput = document.querySelector(".sector-desktop-view .o-forms__radio:checked");
     if(selectedInput !== null){
       dispatch.call("updateState", this, {sector: selectedInput.value} );
+      sectorCheck(state);
     }
-    setAgeWarningTop(state);
   });
 
   sectorDivMobile.on("click", function(){
@@ -105,8 +101,8 @@ if (cutsTheMustard) {
     const selectedInput = document.querySelector(".sector-mobile-view .o-forms__radio:checked");
     if(selectedInput !== null){
       dispatch.call("updateState", this, {sector: selectedInput.value} );
+      sectorCheck(state);
     }
-    setAgeWarningTop(state);
   });
 
   salaryTimePeriodInput.on("click", function(){
@@ -120,16 +116,16 @@ if (cutsTheMustard) {
     if(salaryInput){
       const salary = calculateSalary(salaryInput);
       dispatch.call("updateState", this, {salary: salary});
-      setAppropriateWarnings(state);
+      salaryCheck();
     }
   });
 
   salaryInput.on("keyup", function(){
-    ageCheck(state);
-    sectorCheck(state);
     const salary = calculateSalary(this.value);
     dispatch.call("updateState", this, {salary: salary});
-    setAppropriateWarnings(state);
+    ageCheck(state);
+    sectorCheck(state);
+    salaryCheck();
   });
 
   computeButton.on("click", function(){

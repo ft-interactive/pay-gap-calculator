@@ -70,13 +70,7 @@ label {
   width: 100%;
 }
 
-.see-more.o-buttons.o-buttons--big {
-  background: #F2DFCE;
-  border-style: none;
-  height: 50px;
-  font-size: 1em;
-  min-width: 150px;
-}
+
 /* WIDE BUTTONS */
 @media(max-width:400px) {
   .input-compute,
@@ -84,18 +78,7 @@ label {
   .see-more {
     width: 100%;
   }
-
-.o-buttons.o-buttons--big{
-    min-width: 150px;
-  }
-
-  button.see-all.o-buttons.o-buttons--big {
-    background: #F2DFCE;
-    border-style: none;
-    font-size: 1em;
-  }
 }
-
 
 /* FEEDBACK BOXES */
 .input-feedback {
@@ -201,4 +184,3 @@ p.methodology-para{
   font: 18px/1.4 MetricWeb, sans-serif;
 
 }
-
