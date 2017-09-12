@@ -71,8 +71,8 @@ function setStyleAndText(){
     && article.classList.contains("no-age")){
     noSalaryNoSectorNoAge();
   }
-  else if(article.classList.contains("no-salary")
-    && !article.classList.contains("no-sector")
+  else if(!article.classList.contains("no-salary")
+    && article.classList.contains("no-sector")
     && article.classList.contains("no-age")){
     noSectorNoAge();
   }
@@ -142,6 +142,7 @@ function noSalaryNoSectorNoAge(){
   seeSectorButtonMobileSpan.textContent = 'Enter an age and a sector';
 }
 function noSectorNoAge(){
+  console.log("this fired correctly");
   addWarning(seeSectorButtonMobile );
   addWarning(seeSectorButtonDesktop);
   addWarning(computeButton);
