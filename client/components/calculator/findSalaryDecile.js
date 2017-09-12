@@ -5,13 +5,9 @@ function findSalaryDecile(salary, salarySet) {
   const payBands = findAvailablePayBandsForSelected(salarySet);
   const payBandsFormatted = formatPayBands(payBands, salarySet);
 
-  console.log('payBands', payBandsFormatted);
-
   // this function should rmove nans
   const salaryDecilesDesc = payBandsFormatted.filter(band => !isNaN(band.salary)).sort((a, b) => b.salary - a.salary);
   const matchingCategory = getMatchingCategory(salary, salaryDecilesDesc);
-
-  console.log("matchingCategory", matchingCategory)
   return matchingCategory;
 };
 

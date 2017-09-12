@@ -142,7 +142,6 @@ function noSalaryNoSectorNoAge(){
   seeSectorButtonMobileSpan.textContent = 'Enter an age and a sector';
 }
 function noSectorNoAge(){
-  console.log("this fired correctly");
   addWarning(seeSectorButtonMobile );
   addWarning(seeSectorButtonDesktop);
   addWarning(computeButton);
