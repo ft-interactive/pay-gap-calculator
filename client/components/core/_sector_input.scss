@@ -37,18 +37,21 @@ article.small div.sector-mobile-view .sector-back-button {
   display: none;
 }
 
-article.small div.sector-mobile-view .see-all-sectors-text::after{
-  background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%230D7680,%230D7680&format=svg);
-  display: inline-block;
-  height: 28px;
-  line-height: 28px;
-  width: 55%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 100% 0%;
-  background-color: transparent;
-  vertical-align: middle;
-}
+// article.small div.sector-mobile-view .see-all-sectors-text::after{
+//   background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%230D7680,%230D7680&format=svg);
+//   display: inline-block;
+//   height: 28px;
+//   line-height: 28px;
+//   width: 55%;
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   background-position: 100% 0%;
+//   background-color: transparent;
+//   vertical-align: middle;
+// }
+// article.small div.sector-mobile-view button.o-buttons-icon--warning .see-all-sectors-text::after {
+//   content: '';
+// }
 
 /* when sector choice box is open show its elements */
 article.small.sector-choice div.sector-mobile-view .o-forms {
@@ -85,6 +88,23 @@ article .input-box-sector .sector-mobile-view{
   padding: .2em 0;
 }
 
+.see-more {
+  background-color: #F2DFCE;
+  border-style: none;
+  height: 50px;
+  font-size: 1em;
+  min-width: 80px;
+}
+/* WIDE BUTTONS */
+@media(max-width:400px) {
+  .see-all {
+    background-color: #F2DFCE;
+    border-style: none;
+    font-size: 1em;
+  }
+}
+
+/* CATEGORY HEADINGS */
 p.main-category::after{
   content: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?&tint=0d7680,0d7680&source=origami-registry);
   width: 20px;

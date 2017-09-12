@@ -1,6 +1,6 @@
 const chai = require('chai');
 
-import {calculation, calculationAgeSector, calculationAge} from 'client/components/calculator.js';
+// import {calculation, calculationAgeSector, calculationAge} from 'client/components/calculator.js';
 const should = chai.should();
 
 
