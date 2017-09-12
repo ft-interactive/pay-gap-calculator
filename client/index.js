@@ -9,6 +9,7 @@ import {fillOutput} from './components/output/fillOutput';
 import {toggleSelection, setElementsToChange} from './components/helpers';
 import {makeSectorComponents, sectorAddShowHideEvents} from './components/sectors/index';
 import {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes} from './components/feedback/feedback';
+import {gaEventTracking} from './components/tracking/ga-custom-tracking';
 
 if (cutsTheMustard) {
   const article = document.querySelector("body main article");
@@ -36,6 +37,8 @@ if (cutsTheMustard) {
     toggleFeedbackBoxes(state);
     clearEmptyWarnings(state);
 
+    gaEventTracking(`PayGap-${key}`, 'PayGap-valueChange', 'PayGap Calculator');
+
     article.classList.remove("computed");
 
     if(state.has("age")){
@@ -57,9 +60,9 @@ if (cutsTheMustard) {
     if(state.has("age") && state.has("sector") && salaryValid){
       const outputData = await calculation(config);
       handleCalculationFull(outputData, state);
+      gaEventTracking(`PayGap-CalculationButton`, 'PayGap-submitData', 'PayGap Calculator');
     }
   });
-
 
   function handleCalculationFull(outputData, state){
     article.classList.add("computed");
@@ -106,17 +109,17 @@ if (cutsTheMustard) {
   });
 
   salaryTimePeriodInput.on("click", function(){
-    ageCheck(state);
-    sectorCheck(state);
     const prevSelectedEl = document.querySelector('button.input-salary-time.selected');
     const clickedEl = d3.event.target;
     toggleSelection(clickedEl, prevSelectedEl);
+    ageCheck(state);
+    sectorCheck(state);
 
     const salaryInput = document.querySelector(".input-salary").value;
     if(salaryInput){
       const salary = calculateSalary(salaryInput);
       dispatch.call("updateState", this, {salary: salary});
-      salaryCheck();
+      salaryCheck(state);
     }
   });
 
@@ -125,7 +128,7 @@ if (cutsTheMustard) {
     dispatch.call("updateState", this, {salary: salary});
     ageCheck(state);
     sectorCheck(state);
-    salaryCheck();
+    salaryCheck(state);
   });
 
   computeButton.on("click", function(){
