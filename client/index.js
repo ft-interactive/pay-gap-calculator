@@ -33,7 +33,6 @@ if (cutsTheMustard) {
     const key = Object.keys(o)[0];
     const value = Object.values(o)[0];
     state.set(key, value);
-    console.log(`STATE IS NOW:`, state);
     toggleFeedbackBoxes(state);
     clearEmptyWarnings(state);
 
