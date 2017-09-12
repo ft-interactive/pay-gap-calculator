@@ -2,7 +2,7 @@
 import * as d3 from 'd3';
 import {formatAgeGroup, formatPercentageDifference} from '../feedback/feedback';
 import {renameSectorShort} from '../sectors/renamer';
-import {generateTweet} from './fillTweet';
+import {generateShareMessage} from './fillShareMsg';
 import {getSalaryAfterTax} from './calculateTax';
 
 function fillOutput(element, data, state){
@@ -25,7 +25,7 @@ function fillOutput(element, data, state){
   const percentageGroup = data.selectedDecile === 'medianPay' ? "median" : getPercentageGroup(data.selectedDecile);
   const percentageDifference = formatPercentageDifference(data.ratio);
 
-  generateTweet(state, percentageDifference, percentageGroup);
+  generateShareMessage(state, percentageDifference, percentageGroup);
 
   showCorrectDataBox(element, data.selectedDecile);
 
