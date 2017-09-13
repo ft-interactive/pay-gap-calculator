@@ -1,11 +1,9 @@
 {% import "macros.html" as macros %} {% extends "layout.html" %} {% block article_body %}
 
-<p>Many factors affect how much you get paid: including your sector, your age and your seniority. </p>
-<p>But as a new law forces UK employers to reveal their gender pay gap data,
-  the spotlight is on on how gender affects pay-packets.</p>
+<p>Many factors affect how much you get paid: your sector, your age and your seniority, among others. </p>
+<p>But as a new law forces UK employers to reveal their gender pay gap data, the spotlight is on on how gender affects pay-packets.</p>
 <p>
-  The average woman working full-time in the UK
-  earns 9.4% less than a man. For part-timers, the gap jumps to 18.1% for every hour worked. </p>
+  The average woman working full-time in the UK earns 9.4% less than a man. For part-timers, the gap jumps to 18.1% for every hour worked. </p>
 
 <p>Find out if you're beating the gap, or getting hit by it, by filling in our calculator below</p>
 
@@ -60,11 +58,8 @@
       </div>
       <div class="input-feedback">
         <p>
-          A <span class="gender-choice">woman</span>
-          in their <span class="age-choice"></span>
-           working full-time will earn
-           <span class="salary-difference-gender-age"></span> than an
-          average <span class="gender-choice-inverse">man</span>  in the same age group
+          A <span class="gender-choice">woman</span> in their <span class="age-choice"></span> working full-time will earn
+          <span class="salary-difference-gender-age"></span> than an average <span class="gender-choice-inverse">man</span> in the same age group
         </p>
       </div>
       <div class="no-age-error"><span>Please enter your age</span></div>
@@ -92,12 +87,12 @@
 
       <div class="data-error-feedback">
         <div><img src="components/images/gp_sad_face.svg" width="30px"></div>
-        <div><p>
-          Sorry: there's not enough data on people in their
-          <span class="age-choice"></span>
-          working in <span class="sector-choice">Associate Health Professional</span> roles to calculate the gender pay gap.
-          Try selecting another occupation to get a general view.
-        </p></div>
+        <div>
+          <p>
+            Sorry: there's not enough data on people in their
+            <span class="age-choice"></span> working in <span class="sector-choice">Associate Health Professional</span> roles to calculate the gender pay gap. Try selecting another occupation to get a general view.
+          </p>
+        </div>
       </div>
 
       <div class="input-feedback sector-selected">
@@ -107,10 +102,7 @@
       </div>
       <div class="input-feedback">
         <p>
-          A <span class="gender-choice">woman</span> in their <span class="age-choice"></span>
-          working full-time in a <span class="sector-choice">Associate Health Professional</span> role
-          will earn <span class="salary-difference-gender-age-sector"></span>
-          than a <span class="gender-choice-inverse">man</span> in the same age group and job type.
+          A <span class="gender-choice">woman</span> in their <span class="age-choice"></span> working full-time in a <span class="sector-choice">Associate Health Professional</span> role will earn <span class="salary-difference-gender-age-sector"></span>          than a <span class="gender-choice-inverse">man</span> in the same age group and job type.
         </p>
       </div>
     </div>
@@ -148,101 +140,91 @@
       <hr>
     </div>
     <div class="output-box-daily-salary">
-      <p>giving you <span class="output-daily-net-difference"></span> spending money every day after tax.
-        Or <span class="output-daily-gross-difference"></span> before tax.</p>
-        <hr>
+      <p>giving you <span class="output-daily-net-difference"></span> spending money every day after tax. Or <span class="output-daily-gross-difference"></span> before tax.</p>
+      <hr>
     </div>
 
-      <div class="output-box-percentile">
-        <p>
-          Your salary puts you in the <span class="percentile"></span> of
-          <span class="gender-choice-adjective"></span> earners in your age group and sector.
-        </p>
-        <p>
-          As a <span class="gender-choice"></span> in the <span class="percentile"></span> of
-          <span class="gender-choice-adjective"></span> full-time earners in their
-          <span class="age-choice"></span> in
-          <span class="sector-choice"></span> roles, you earn on average
-          <span class="percentile-pay-gap"></span> than a
-          <span class="gender-choice-inverse"></span>.
-        </p>
-      </div>
-      <div class="output-box-median">
-        <p>
-          We used the median salary for your sector and age group to calculate that a
-          <span class="gender-choice"></span>  will earn
-          <span class="salary-difference-gender-age-sector"></span> than a <span class="gender-choice-inverse"></span>.
-        </p>
-      </div>
-      <div class="output-share">
-        <button class="o-buttons o-buttons--big twitter">
+    <div class="output-box-percentile">
+      <p>
+        Your salary puts you in the <span class="percentile"></span> of
+        <span class="gender-choice-adjective"></span> earners in your age group and sector.
+      </p>
+      <p>
+        As a <span class="gender-choice"></span> in the <span class="percentile"></span> of
+        <span class="gender-choice-adjective"></span> full-time earners in their
+        <span class="age-choice"></span> in
+        <span class="sector-choice"></span> roles, you earn on average
+        <span class="percentile-pay-gap"></span> than a
+        <span class="gender-choice-inverse"></span>.
+      </p>
+    </div>
+    <div class="output-box-median">
+      <p>
+        We used the median salary for your sector and age group to calculate that a
+        <span class="gender-choice"></span> will earn
+        <span class="salary-difference-gender-age-sector"></span> than a <span class="gender-choice-inverse"></span>.
+      </p>
+    </div>
+    <div class="output-share">
+      <button class="o-buttons o-buttons--big twitter">
           <a href="" target="_blank" rel="noreferrer noopener">Tweet this</a>
          </button>
-         <button class="o-buttons o-buttons--big whatsapp">
+      <button class="o-buttons o-buttons--big whatsapp">
            <a href="" target="_blank" rel="noreferrer noopener" data-trackable="whatsapp">Whatsapp this</a>
           </button>
-      </div>
-      <small>
+    </div>
+    <small>
         NB: You may be in a different salary bracket than shown above, but ONS data doesn't have complete data sets for all age groups and sectors, so we've had
         to use the closest available data point. In some cases this is the median.
       </small>
   </div>
 </div>
-<h2 id="methodology"> Our methodology </h2>
-<h3 class="methodology-heading">What data did we use?</h3>
-<p class="methodology-para">
-  To calculate the gender pay gap as it applies to individuals we looked at data
-  from the
-  <a target="_blank" href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2016provisionalresults">
+<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="hidden">
+  <h2 id="methodology"> Our methodology </h2>
+  <div class="o-expander__content">
+    <h3 class="methodology-heading">What data did we use?</h3>
+    <p class="methodology-para">
+      To calculate the gender pay gap as it applies to individuals we looked at data from the
+      <a target="_blank" href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2016provisionalresults">
     Office for National Statistics' annual survey of hours and earnings.
-  </a>
-  We extracted figures on how much men and women in full-time work earn, depending on their age
-  groups and the profession they belong to, a classification that ONS statisticians call "SOC2010".
-</p>
+  </a> We extracted figures on how much men and women in full-time work earn, depending on their age groups and the profession they belong to, a classification that ONS statisticians call "SOC2010".
+    </p>
 
-<h3 class="methodology-heading">How detailed is it?</h3>
-<p class="methodology-para">
-  We drilled into the data even further by analysing different decile groups.
-  Statisticians split the individuals they surveyed within each gender, role and age group
-  into ten equal groups. That's done as a way of identifying what the average wage of someone
-  in the top ten percent of that category would earn, as opposed to the bottom ten percent, for example.
-</p>
-<p class="methodology-para">
-  We decided to include that data so that if for example, we were looking at the average
-  gross annual salary of a nurse in her 30s, we would be able to identify which decile
-  she belonged to and compare her salary to that of a male nurse in his 30s belonging to the same decile.
-</p>
+    <h3 class="methodology-heading">How detailed is it?</h3>
+    <p class="methodology-para">
+      We drilled into the data even further by analysing different decile groups. Statisticians split the individuals they surveyed within each gender, role and age group into ten equal groups. That's done as a way of identifying what the average wage of someone
+      in the top ten percent of that category would earn, as opposed to the bottom ten percent, for example.
+    </p>
+    <p class="methodology-para">
+      We decided to include that data so that if for example, we were looking at the average gross annual salary of a nurse in her 30s, we would be able to identify which decile she belonged to and compare her salary to that of a male nurse in his 30s belonging
+      to the same decile.
+    </p>
 
-<h3 class="methodology-heading">How does it work?</h3>
-<p class="methodology-para">
-  When an individual using a calculator enters its gender, age and salary our calculator
-  immediately identifies which decile group he or she belongs to within their profession.
-  However, the survey doesn't always have enough information to drill into this level of data.
-  So when the data for one decile is not available, we calculate the difference
-  between her salary and that of her male counterpart (or vice-versa) in the closest
-  earning group for which there is data. So if data for the top 10 per cent is not available,
-  we would move to the ninth decile or the eight decile if that is also not available.
-  In some cases, only the median is available, so we use that. This was
-  done to be as precise as possible, and to reflect the fact that people in the same
-  job and age group may be paid differently based on their experience and skill level.
-</p>
+    <h3 class="methodology-heading">How does it work?</h3>
+    <p class="methodology-para">
+      When an individual using a calculator enters its gender, age and salary our calculator immediately identifies which decile group he or she belongs to within their profession. However, the survey doesn't always have enough information to drill into this
+      level of data. So when the data for one decile is not available, we calculate the difference between her salary and that of her male counterpart (or vice-versa) in the closest earning group for which there is data. So if data for the top 10 per
+      cent is not available, we would move to the ninth decile or the eight decile if that is also not available. In some cases, only the median is available, so we use that. This was done to be as precise as possible, and to reflect the fact that people
+      in the same job and age group may be paid differently based on their experience and skill level.
+    </p>
 
-<h3 class="methodology-heading">Why did we just look at full-time workers?</h3>
-<p class="methodology-para">
-  A lot more women than men work in part-time jobs and we were concerned this would
-  skew the data and make the gender pay gap appear wider than it is when circumstances are equal.
-</p>
+    <h3 class="methodology-heading">Why did we just look at full-time workers?</h3>
+    <p class="methodology-para">
+      A lot more women than men work in part-time jobs and we were concerned this would skew the data and make the gender pay gap appear wider than it is when circumstances are equal.
+    </p>
 
-<h3 class="methodology-heading">How do you calculate tax?</h3>
-<p class="methodology-para">
-  We calculate tax and national insurance payments based on the formulas in this
-  <a href="https://www.npmjs.com/package/uk-tax-calculator" target="_blank">open source UK tax calculator</a>.
-  It subtracts tax and national insurance based on a given salary.
-   Student loan payments and pension contributions are not included.
-</p>
+    <h3 class="methodology-heading">How do you calculate tax?</h3>
+    <p class="methodology-para">
+      We calculate tax and national insurance payments based on the formulas in this
+      <a href="https://www.npmjs.com/package/uk-tax-calculator" target="_blank">open source UK tax calculator</a>. It subtracts tax and national insurance based on a given salary. Student loan payments and pension contributions are not included.
+    </p>
 
-<h3 class="methodology-heading">Any feedback?</h3>
-<p class="methodology-para">Please comment.</p>
+    <h3 class="methodology-heading">Any feedback?</h3>
+    <p class="methodology-para">Please comment.</p>
+  </div>
+  <button class="o-expander__toggle o--if-js">View</button>
+</div>
 
 <script src="//origami-build.ft.com/v2/bundles/js?modules=o-forms%404.0.4%3A%2Fdemos%2Fsrc%2Fdemo.js%2Co-fonts%40%5E3%2Co-buttons%40%5E5"></script>
+<script src="//origami-build.ft.com/v2/bundles/js?modules=o-expander%404.3.0%3A%2Fdemos%2Fsrc%2Fdemo.js"></script>
 {% endblock %}
