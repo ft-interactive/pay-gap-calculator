@@ -1,6 +1,6 @@
 role,age,mainGroup,code,medianPay,percent10,percent20,percent25,percent30,percent40,percent60,percent70,percent75,percent80,percent90
 "Managers, directors and senior officials",18-21,TRUE,1,x,x,x,x,x,x,x,x,x,x,x
-Corporate managers and directors,18-21,,11,x,x,x,x,x,x,x,x,x,x,x
+"Corporate managers and directors",18-21,,11,x,x,x,x,x,x,x,x,x,x,x
 Other managers and proprietors,18-21,,12,,,,,,,,,,,
 Professional occupations,18-21,TRUE,2,15607,x,x,x,x,x,17048,x,x,x,x
 "Science, research, engineering and technology professionals",18-21,,21,15147,x,x,x,x,x,x,x,x,x,x

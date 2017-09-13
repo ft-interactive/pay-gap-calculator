@@ -6,9 +6,9 @@ import {
   findSalaryDecile
 } from './findSalaryDecile';
 
-const womenPay = d3.csvParse(women);
-const menPay = d3.csvParse(men);
-const summaryPay = d3.csvParse(summary);
+function readCsvToJs(file){
+  return d3.csvParse(file);
+}
 
 async function calculation(config) {
   let gender = config.get("gender");
@@ -61,7 +61,8 @@ async function calculationAge(config) {
   let gender = config.get("gender");
   let age = config.get("age");
   try {
-    const salaryAgeSelected = findAgeGroup(age, summaryPay);
+    const dataSet = readCsvToJs(summary);
+    const salaryAgeSelected = findAgeGroup(age, dataSet);
     const maleSalary = salaryAgeSelected.men;
     const femaleSalary = salaryAgeSelected.women;
     const salaryForSelectedGender = gender === 'woman' ? femaleSalary : maleSalary;
@@ -86,7 +87,8 @@ function findAgeGroup(age, dataSource) {
 }
 
 function findSalarySet(gender, age, sector) {
-  const dataSource = gender === 'woman' ? womenPay : menPay;
+  const dataFileName = gender === 'woman' ? women : men;
+  const dataSource = readCsvToJs(dataFileName);
   const sectorSelectedRows = dataSource.filter(row => row.role === sector);
   const ageSectorSalarySet = findAgeGroup(age, sectorSelectedRows);
   return ageSectorSalarySet;
