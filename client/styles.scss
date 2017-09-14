@@ -2,6 +2,7 @@ $o-buttons-is-silent: false;
 $o-grid-is-silent: false;
 $o-forms-is-silent: false;
 $o-expander-is-silent: false;
+$o-loading-is-silent: false;
 
 @import 'o-colors/main';
 @import 'o-grid/main';
@@ -9,6 +10,7 @@ $o-expander-is-silent: false;
 @import 'o-forms/main';
 @import 'o-icons/main';
 @import 'o-expander/main';
+@import 'o-loading/main';
 @import 'components/core/main';
 @import 'components/core/age_input';
 @import 'components/core/gender_input';
