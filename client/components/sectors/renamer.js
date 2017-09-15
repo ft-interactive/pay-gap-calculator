@@ -1,4 +1,4 @@
-import {nameConfigFull, nameConfigShort, nameConfigTwitter} from './nameConfig';
+import {nameConfigFull, nameConfigShort, nameConfigTwitter, nameConfigCategory} from './nameConfig';
 
 function renameAndRemoveSectors(roles){
   const thinnedRoles = roles.map(roleGroup => {
@@ -27,19 +27,24 @@ function removeMainCategoryWhereNotNeeded(roleGroup){
 function renameSectors(roleGroup){
   return roleGroup.map(role => renameSectorFull(role));
 };
-
+function renameSectorCategories(roleGroup){
+  return roleGroup.map(role => renameSectorMainCategory(role));
+}
 function renameSectorFull(role){
   const renamedRole = nameConfigFull[role];
   return {role, renamedRole};
 }
-
 function renameSectorShort(role){
   const renamedRoleShort = nameConfigShort[role];
   return {role, renamedRoleShort};
+}
+function renameSectorMainCategory(role){
+  const renamedCategory = nameConfigCategory[role];
+  return {role, renamedCategory};
 }
 function renameSectorTwitter(role){
   const renamedRoleTwitter = nameConfigTwitter[role];
   return {role, renamedRoleTwitter};
 }
 
-export {renameAndRemoveSectors, renameSectors, renameSectorShort, renameSectorTwitter};
+export {renameAndRemoveSectors, renameSectors, renameSectorShort, renameSectorTwitter, renameSectorCategories};

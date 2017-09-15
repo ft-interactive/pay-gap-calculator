@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import women from '../../data/women.csv';
-import {renameAndRemoveSectors, renameSectors} from './renamer';
+import {renameAndRemoveSectors, renameSectors, renameSectorCategories} from './renamer';
 
 const womenPay = d3.csvParse(women);
 
@@ -18,7 +18,7 @@ function getSectors(){
   const rolesClean = removeSectorsPatchyFemaleSalaryData(rolesDeduped);
 
   const mainRolesDeduped = new Set(mainRoles);
-  const mainRolesRenamed = renameSectors(Array.from(mainRolesDeduped));
+  const mainRolesRenamed = renameSectorCategories(Array.from(mainRolesDeduped));
 
   const groupedRoles = groupSubRoles(rolesClean, mainRolesDeduped);
   const groupedRolesRenamed = renameAndRemoveSectors(groupedRoles);

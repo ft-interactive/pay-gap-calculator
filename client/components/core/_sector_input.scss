@@ -16,6 +16,8 @@ article.small.sector-choice .article-head,
 article.small.sector-choice .article-body footer,
 article.small.sector-choice .article-body p,
 article.small.sector-choice .article-body .gap-calculator .output-container,
+article.small.sector-choice .article-body .methodology-box,
+article.small.sector-choice .article-body .next-story,
 article.small.sector-choice .article-body .gap-calculator .input-container > div:not(.input-box-sector){
   display:none;
 }
@@ -36,22 +38,6 @@ article.small div.sector-mobile-view .o-forms,
 article.small div.sector-mobile-view .sector-back-button {
   display: none;
 }
-
-// article.small div.sector-mobile-view .see-all-sectors-text::after{
-//   background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%230D7680,%230D7680&format=svg);
-//   display: inline-block;
-//   height: 28px;
-//   line-height: 28px;
-//   width: 55%;
-//   background-repeat: no-repeat;
-//   background-size: contain;
-//   background-position: 100% 0%;
-//   background-color: transparent;
-//   vertical-align: middle;
-// }
-// article.small div.sector-mobile-view button.o-buttons-icon--warning .see-all-sectors-text::after {
-//   content: '';
-// }
 
 /* when sector choice box is open show its elements */
 article.small.sector-choice div.sector-mobile-view .o-forms {

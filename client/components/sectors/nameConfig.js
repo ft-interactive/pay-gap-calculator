@@ -19,7 +19,7 @@ const nameConfigFull = {
   "Administrative and secretarial occupations": "Administrative or secretarial",
   "Administrative occupations": "Administrative roles, eg. book-keeping, bank clerk, office manager",
   "Secretarial and related occupations": "Secretarial roles, eg. medical secretary, receptionist",
-  "Skilled trades occupations": "Skilled trade",
+  "Skilled trades occupations": "Skilled trade, eg. builder, chef",
   "Caring, leisure and other service occupations": "Caring or personal service",
   "Caring personal service occupations": "Caring roles eg. childcare, vetinary nurse",
   "Leisure, travel and related personal service occupations": "Leisure, travel and hospitality roles, eg. hairdressers, cleaners, train conductors",
@@ -31,6 +31,18 @@ const nameConfigFull = {
   "Elementary occupations": "Low-skilled jobs",
   "Elementary trades and related occupations": "Elementary trades, eg. industrial cleaning, farm working",
   "Elementary administration and service occupations": "Elementary administration and service roles, eg. shelf-filling, waiters"
+}
+
+const nameConfigCategory = {
+  "Managers, directors and senior officials": "Management",
+  "Professional occupations": "Professional role, requiring a degree",
+  "Associate professional and technical occupations": "Professional role, not requiring a degree",
+  "Administrative and secretarial occupations": "Administrative or secretarial",
+  "Skilled trades occupations": "Skilled trade",
+  "Caring, leisure and other service occupations": "Caring or personal service",
+  "Sales and customer service occupations": "Sales or customer service",
+  "Process, plant and machine operatives": "Factory workers or machine operatives",
+  "Elementary occupations": "Low-skilled jobs",
 }
 
 // used for feedback boxes, sector names given without examples
@@ -100,4 +112,4 @@ const nameConfigTwitter = {
 }
 
 
-export {nameConfigFull, nameConfigShort, nameConfigTwitter};
+export {nameConfigFull, nameConfigShort, nameConfigTwitter, nameConfigCategory};

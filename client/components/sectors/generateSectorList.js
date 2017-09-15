@@ -23,7 +23,7 @@ function generateDesktopSectorList(mainSectors, sectorDiv){
     sectionEl.append("p")
       .attr('class', "main-category")
       .classed('hidden', index > 3)
-      .text(sector.renamedRole);
+      .text(sector.renamedCategory);
 
     const subsection = generateSubSector(sectionEl, sector, index);
     sectorDiv.selectAll('.sub-section-box')
