@@ -210,37 +210,46 @@
     <p class="methodology-para">
       To calculate the gender pay gap as it applies to individuals we looked at data from the
       <a target="_blank" href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2016provisionalresults">
-    Office for National Statistics' annual survey of hours and earnings.
-  </a> We extracted figures on how much men and women in full-time work earn, depending on their age groups and the profession they belong to, a classification that ONS statisticians call "SOC2010".
+      Office for National Statistics' annual survey of hours and earnings.
+      </a>. We extracted figures on how much men and women in full-time work earn,
+      depending on their age groups and the profession they belong to, a classification that ONS statisticians call "SOC2010".
     </p>
 
     <h3 class="methodology-heading">How detailed is it?</h3>
     <p class="methodology-para">
-      We drilled into the data even further by analysing different decile groups. Statisticians split the individuals they surveyed within each gender, role and age group into ten equal groups. That's done as a way of identifying what the average wage of someone
-      in the top ten percent of that category would earn, as opposed to the bottom ten percent, for example.
+    We drilled into the data even further by analysing different decile groups.
+    The ONS splits the individuals they surveyed within each gender,
+    role and age group into ten equal groups.
     </p>
     <p class="methodology-para">
-      We decided to include that data so that if for example, we were looking at the average gross annual salary of a nurse in her 30s, we would be able to identify which decile she belonged to and compare her salary to that of a male nurse in his 30s belonging
-      to the same decile.
-    </p>
-
-    <h3 class="methodology-heading">How does it work?</h3>
-    <p class="methodology-para">
-      When an individual using a calculator enters its gender, age and salary our calculator immediately identifies which decile group he or she belongs to within their profession. However, the survey doesn't always have enough information to drill into this
-      level of data. So when the data for one decile is not available, we calculate the difference between her salary and that of her male counterpart (or vice-versa) in the closest earning group for which there is data. So if data for the top 10 per
-      cent is not available, we would move to the ninth decile or the eight decile if that is also not available. In some cases, only the median is available, so we use that. This was done to be as precise as possible, and to reflect the fact that people
-      in the same job and age group may be paid differently based on their experience and skill level.
+      We included this data on deciles so that if we were looking, for example,
+      at the average gross annual salary of a nurse in her 30s, we would be able to identify which decile
+      she belonged to and compare her salary to that of a male nurse in his 30s belonging to the same decile.
     </p>
 
-    <h3 class="methodology-heading">Why did we just look at full-time workers?</h3>
+    <h3 class="methodology-heading">How does the calculator work?</h3>
     <p class="methodology-para">
-      A lot more women than men work in part-time jobs and we were concerned this would skew the data and make the gender pay gap appear wider than it is when circumstances are equal.
+      When someone enters their gender, age and salary our
+      calculator identifies which decile group they belong to in their profession.
+      If the data for one decile is not available,
+      we calculate the difference in salaries
+      in the closest earning group for which there are data. So if data for the top 10 per cent are not available,
+      we would move to the ninth decile or further down depending on availabilty of data.
+      In some cases, only the median is available, so we use that. This is in order to be as precise as possible, and to
+      reflect the fact that people in the same job and age group may be paid differently based on their experience and skill level.
     </p>
 
-    <h3 class="methodology-heading">How do you calculate tax?</h3>
+    <h3 class="methodology-heading">Why did we just use data on full-time workers?</h3>
     <p class="methodology-para">
-      We calculate tax and national insurance payments based on the formulas in this
-      <a href="https://www.npmjs.com/package/uk-tax-calculator" target="_blank">open source UK tax calculator</a>. It subtracts tax and national insurance based on a given salary. Student loan payments and pension contributions are not included.
+      A lot more women than men work in part-time jobs and we were concerned this would skew
+      the data and make the gender pay gap appear wider.
+    </p>
+
+    <h3 class="methodology-heading">What about tax?</h3>
+    <p class="methodology-para">
+      We calculate tax and national insurance payments based on the formulas in
+      this <a href="https://www.npmjs.com/package/uk-tax-calculator" target="_blank">open source UK tax calculator</a>.
+      This subtracts tax and national insurance based on a given salary. Student loan payments and pension contributions are not included.
     </p>
 
     <h3 class="methodology-heading">Any feedback?</h3>
