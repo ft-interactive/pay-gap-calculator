@@ -14,7 +14,7 @@ export default () => ({ // eslint-disable-line
   headline: 'Calculate your personal gender pay gap',
 
   // summary === standfirst (Summary is what the content API calls it)
-  summary: 'Find out how much you would earn if you were a man',
+  summary: '',
 
   topic: {
     name: 'Starter Kit',
