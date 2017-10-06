@@ -6,7 +6,6 @@ import {generateShareMessage} from './fillShareMsg';
 import {getSalaryAfterTax} from './calculateTax';
 
 function fillOutput(element, data, state){
-  console.log("RETURNED DATA", data);
 
   const dailyGrossDifference = getDailySalaryDifference(data.swappedSalary, data.salary)
   const comparatorWord = dailyGrossDifference > 0 ? 'more' : 'less';

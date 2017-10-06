@@ -11,13 +11,13 @@ export default () => ({ // eslint-disable-line
   //       new Date('2016-05-17T17:11:22Z')
   publishedDate: new Date(),
 
-  headline: 'Calculate your personal gender pay gap',
+  headline: 'Work out your personal gender pay gap',
 
   // summary === standfirst (Summary is what the content API calls it)
   summary: '',
 
   topic: {
-    name: 'Starter Kit',
+    name: 'Gender Pay Gap',
     url: '/foo',
   },
 
@@ -96,7 +96,7 @@ export default () => ({ // eslint-disable-line
 
     Microsite Name
 
-    e.g. guffipedia, business-books, baseline.
+    eg guffipedia, business-books, baseline.
     Used to query groups of pages, not intended for use with
     one off interactive pages. If you're building a microsite
     consider more custom tracking to allow better analysis.
