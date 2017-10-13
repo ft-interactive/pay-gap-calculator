@@ -49,17 +49,21 @@ header p {
 }
 
 hr {
-  background-color: #E5D8CE;
-  height: 1px;
-  border: 0;
+  background-color: oColorsGetPaletteColor('black-10'); height: 8px; border: 0;
 }
 
 label {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1.4em;
   display: block;
   margin: 0.3em 0;
   color: #33302E;
+  >span{
+  display: block;
+  font-weight: 700;
+  font-size: 3em;
+  color: oColorsGetPaletteColor('black-10');
+  }
 }
 
 .hidden {
