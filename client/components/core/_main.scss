@@ -92,7 +92,6 @@ label {
 }
 
 .input-container .input-feedback {
-  border-top: 2px solid #14bdcc;
   background-color: #fff;
 }
 
@@ -105,6 +104,7 @@ label {
 
 article .selection-made .input-feedback {
   display: block;
+  padding: .5em 1em;
 }
 
 .input-feedback span:not(.gender-choice-inverse) {
