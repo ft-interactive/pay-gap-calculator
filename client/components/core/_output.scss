@@ -7,7 +7,7 @@ article.computed .output-container {
   display: none;
 }
 
-article.computed .output-container span[class^='output']:not(.output-daily-gross-difference) {
+article.computed .output-container span[class^='output']:not(.output-daily-net-difference, .output-yearly-net-difference) {
   font-family: $font-sans;
   display: block;
   font-size: 48px;
@@ -22,7 +22,9 @@ article.computed .output-container {
       margin: 20px auto;
       }
 
-  .output-box-yearly-salary, .output-box-daily-salary{
+  .output-box-yearly-salary,
+  .output-box-daily-salary,
+  .output-box-yearly-difference {
 
     >hr {
       height: 1px; color: oColorsGetPaletteColor('teal-70');

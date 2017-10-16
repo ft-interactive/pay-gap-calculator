@@ -7,14 +7,18 @@ import {getSalaryAfterTax} from './calculateTax';
 
 function fillOutput(element, data, state){
 
-  const dailyGrossDifference = getDailySalaryDifference(data.swappedSalary, data.salary)
-  const comparatorWord = dailyGrossDifference > 0 ? 'more' : 'less';
-  const cleanSalary = parseInt(data.swappedSalary).toLocaleString();
+  const cleanSalary = formatAsCurrency(data.swappedSalary);
+
+  const yearlyGrossDifference = formatAsCurrency(getYearlySalaryDifference(data.swappedSalary, data.salary));
+  const dailyGrossDifference = formatAsCurrency(getDailySalaryDifference(data.swappedSalary, data.salary));
 
   const netSwappedSalary = getSalaryAfterTax(data.swappedSalary);
   const netSalary = getSalaryAfterTax(data.salary);
-  const dailyNetDifference = getDailySalaryDifference(netSwappedSalary, netSalary);
 
+  const yearlyNetDifference = formatAsCurrency(getYearlySalaryDifference(netSwappedSalary, netSalary));
+  const dailyNetDifference = formatAsCurrency(getDailySalaryDifference(netSwappedSalary, netSalary));
+
+  const comparatorWord = getYearlySalaryDifference(data.swappedSalary, data.salary) > 0 ? 'more' : 'less';
   const gender = state.get("gender");
   const age = state.get("age");
   const sector = renameSectorShort(state.get("sector")).renamedRoleShort;
@@ -30,15 +34,29 @@ function fillOutput(element, data, state){
 
   const d3element = d3.select(element);
   d3element.select('.output-yearly-salary').text(`£${cleanSalary}`);
+
+  d3element.select('.output-yearly-net-difference').text(`£${yearlyNetDifference} ${comparatorWord}`);
+  d3element.select('.output-yearly-gross-difference').text(`£${yearlyGrossDifference} ${comparatorWord}`);
+
   d3element.select('.output-daily-net-difference').text(`£${dailyNetDifference} ${comparatorWord}`);
   d3element.select('.output-daily-gross-difference').text(`£${dailyGrossDifference} ${comparatorWord}`);
+
   d3element.selectAll('.gender-choice-adjective').text(`${genderAdjective}`);
   d3element.selectAll('.percentile').text(`${percentageGroup}`);
   d3element.selectAll('.percentile-pay-gap').text(`${percentageDifference}`);
 };
 
+function formatAsCurrency(number){
+  const formatted = convertToPostiveNumber(number);
+  return parseInt(formatted).toLocaleString();
+}
+
+function getYearlySalaryDifference(salary1, salary2){
+  return (salary1 - salary2).toFixed(0);
+}
+
 function getDailySalaryDifference(salary1, salary2){
-  const yearlyDifference = salary1 - salary2;
+  const yearlyDifference = getYearlySalaryDifference(salary1, salary2);
   const dailyDifference = (yearlyDifference / 365).toFixed(2);
   return dailyDifference;
 }
@@ -51,6 +69,11 @@ function getPercentageGroup(decile){
   else if(decileNum >= 50){
     return `top ${100 - decileNum}%`;
   }
+}
+
+function convertToPostiveNumber(num){
+  if(num > 0) return num
+  else { return -num };
 }
 
 function getGenderAdjective(gender){
