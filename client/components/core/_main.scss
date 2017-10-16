@@ -111,10 +111,6 @@ article .selection-made .input-feedback {
   display: block;
 }
 
-.input-feedback {
-  display: none;
-}
-
 .input-feedback span:not(.gender-choice-inverse) {
   font-weight: 600;
   font-size: 1em;
@@ -135,7 +131,7 @@ article .selection-made .input-feedback {
 }
 
 /* DATA ERROR HANDLING */
-.input-container .data-error-feedback {
+article .input-container .data-error-feedback {
   border-top: 2px solid #FF1A66;
   background-color: #FFDBD7;
   display: flex;
