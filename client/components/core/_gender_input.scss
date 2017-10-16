@@ -1,5 +1,11 @@
 /* GENDER INPUT */
-.input-container .input-box-gender .button-container{
+.input-container .input-box-gender {
+
+> hr {
+  background-color: oColorsGetPaletteColor('black-10'); height: 8px; border: 0;
+}
+
+> div{
   display: flex;
   align-items: center;
   max-width: 428px;
@@ -7,9 +13,8 @@
   margin: 0;
 }
 
-.input-container .input-box-gender > hr {
-  background-color: #66605C; height: 1px; border: 0;
 }
+
 
 .input-container .icon-option {
   flex: 1 1 auto;
