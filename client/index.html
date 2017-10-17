@@ -150,8 +150,23 @@
 
   <div class="output-container">
     <div class="down-triangle"></div>
+
+    <div class="output-box-percentile">
+      <p>
+        Your salary puts you in the <span class="percentile"></span> of
+        full-time <span class="gender-choice-adjective"></span> earners in your age group and sector.
+      </p>
+    </div>
+
     <div class="output-box-yearly-salary">
-      <p>If you were a <span class="gender-choice-inverse"></span> you would earn <span class="output-yearly-salary"></span> per year.</p>
+      <p>
+        A <span class="gender-choice-inverse"></span>
+        in the <span class="percentile"></span> of
+        <span class="gender-choice-inverse-adjective"></span> full-time earners in their
+        <span class="age-choice"></span> in
+        <span class="sector-choice"></span> roles, earns:
+        <span class="output-yearly-salary"></span> per year.
+      </p>
       <hr>
     </div>
     <div class="output-box-yearly-difference">
@@ -163,20 +178,6 @@
       <hr>
     </div>
 
-    <div class="output-box-percentile">
-      <!-- <p>
-        Your salary puts you in the <span class="percentile"></span> of
-        <span class="gender-choice-adjective"></span> earners in your age group and sector.
-      </p> -->
-      <p>
-        As a <span class="gender-choice"></span> in the <span class="percentile"></span> of
-        <span class="gender-choice-adjective"></span> full-time earners in their
-        <span class="age-choice"></span> in
-        <span class="sector-choice"></span> roles, you earn on average
-        <span class="percentile-pay-gap"></span> than a
-        <span class="gender-choice-inverse"></span>.
-      </p>
-    </div>
     <div class="output-box-median">
       <p>
         We used the median salary for your sector and age group to calculate that a
@@ -193,7 +194,7 @@
           </button>
     </div>
     <small>
-        NB: You may be in a different salary bracket than shown above, but ONS doesn't have complete data for all age groups and sectors, so we've had
+        NB: You may be in a more specific salary bracket than that shown above, but ONS doesn't have complete data for all age groups and sectors, so we've had
         to use the closest available data point. In some cases this is the median.
       </small>
   </div>
