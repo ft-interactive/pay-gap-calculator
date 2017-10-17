@@ -1,7 +1,7 @@
 export default () => ({ // eslint-disable-line
 
   // link file UUID
-  id: '',
+  id: '9ffa399c-b31b-11e7-a398-73d59db9e399',
 
   // canonical URL of the published page
   //  get filled in by the ./configure script
@@ -18,7 +18,7 @@ export default () => ({ // eslint-disable-line
 
   topic: {
     name: 'Gender Pay Gap',
-    url: '/foo',
+    url: '/gender-pay-gap',
   },
 
   mainImage: {
