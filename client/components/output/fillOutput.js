@@ -24,6 +24,7 @@ function fillOutput(element, data, state){
   const sector = renameSectorShort(state.get("sector")).renamedRoleShort;
   const genderAdjective = getGenderAdjective(gender);
   const comparisionGender = gender === 'woman' ? 'man' : 'woman';
+  const comparisonGenderAdjective = getGenderAdjective(comparisionGender);
 
   const percentageGroup = data.selectedDecile === 'medianPay' ? "median" : getPercentageGroup(data.selectedDecile);
   const percentageDifference = formatPercentageDifference(data.ratio);
@@ -42,6 +43,7 @@ function fillOutput(element, data, state){
   d3element.select('.output-daily-gross-difference').text(`£${dailyGrossDifference} ${comparatorWord}`);
 
   d3element.selectAll('.gender-choice-adjective').text(`${genderAdjective}`);
+  d3element.selectAll('.gender-choice-inverse-adjective').text(`${comparisonGenderAdjective}`);
   d3element.selectAll('.percentile').text(`${percentageGroup}`);
   d3element.selectAll('.percentile-pay-gap').text(`${percentageDifference}`);
 };

@@ -49,8 +49,7 @@ article.computed .output-container {
     margin-top: 20px;
   }
 
-  >.output-box-median p,
-  .output-box-percentile p {
+  >.output-box-median p{
     font-size: 20px;
     text-align: left;
   }
@@ -81,8 +80,7 @@ article.computed .output-share button {
 }
 
 article.computed .output-container .output-box-percentile{
-  p{font-size:20px;
-    line-height: 28px;
+  p{
     text-align: left;
   } span {
     font-weight: 600;
