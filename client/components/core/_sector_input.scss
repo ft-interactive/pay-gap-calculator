@@ -77,19 +77,11 @@ article .input-box-sector .sector-mobile-view{
   }
 }
 
-.see-more {
-  background-color: #F2DFCE;
-  border-style: none;
-  height: 50px;
-  font-size: 1em;
-  min-width: 80px;
-}
 /* WIDE BUTTONS */
 @media(max-width:400px) {
   .see-all {
-    background-color: #F2DFCE;
-    border-style: none;
     font-size: 1em;
+    min-height: 50px;
   }
 }
 

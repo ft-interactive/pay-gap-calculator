@@ -45,7 +45,7 @@ body {
 }
 
 hr {
-  background-color: oColorsGetPaletteColor('black-10'); height: 8px; border: 0;
+  background-color: oColorsGetPaletteColor('black-20'); height: 1px; border: 0;
 }
 
 label {
@@ -92,7 +92,6 @@ label {
 }
 
 .input-container .input-feedback {
-  border-top: 2px solid #14bdcc;
   background-color: #fff;
 }
 
@@ -105,6 +104,7 @@ label {
 
 article .selection-made .input-feedback {
   display: block;
+  padding: .5em 1em;
 }
 
 .input-feedback span:not(.gender-choice-inverse) {
@@ -169,22 +169,23 @@ article.insufficient-data .input-compute {
 }
 
 .next-story {
-  h3 {
-  font-family: MetricWeb, sans-serif;
-  @include oTypographySize($scale: 3);
-  font-weight: 400;
-  }
-  border-top: 1px solid #ccc1b7;
-  padding-top: 16px;
-  p {font-family: MetricWeb, sans-serif;
-    font-size: 20px;
-    line-height: 20px;
-    > a .icon-right-arrow{
-      position: relative;
-      top: 4px;
-      @include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('teal'), 20);
+  margin: 30px 0 0 0;
+  border: 1px solid #ccc1b7;
+  padding: 16px;
+    h3 {
+    font-family: MetricWeb, sans-serif;
+    @include oTypographySize($scale: 3);
+    font-weight: 400;
     }
-  }
+    p {font-family: MetricWeb, sans-serif;
+      font-size: 20px;
+      line-height: 20px;
+      > a .icon-right-arrow{
+        position: relative;
+        top: 4px;
+        @include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('teal'), 20);
+      }
+    }
 
 }
 
@@ -193,9 +194,8 @@ article.insufficient-data .input-compute {
     @include oTypographySize($scale: 2);
     font-weight: 500;
     font-style: normal;
-    border-top: 1px solid #ccc1b7;
     padding-top: 0.6em;
-    margin-top: 1.2em;
+    margin-top: 1em;
 }
 
 h3.methodology-heading {
