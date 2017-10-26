@@ -6,8 +6,7 @@ import {
   findSalaryDecile
 } from './findSalaryDecile';
 
-const weeklyHours = 40;
-const weeksPerYear = 46.4; // Using this figure: https://www.gov.uk/holiday-entitlement-rights 
+const weeksPerYear = 46.4; // Using this figure of weeks worked per year: https://www.gov.uk/holiday-entitlement-rights
 
 function readCsvToJs(file){
   return d3.csvParse(file);
@@ -18,7 +17,7 @@ async function calculation(config) {
   let age = config.get("age");
   let sector = config.get("sector");
   let annualSalary = cleanSalary(config.get("salary"));
-  // let weeklyHours = config.get("weeklyHours");
+  let weeklyHours = config.get("weeklyHours");
   let hourlySalary = convertToHourly(annualSalary, weeklyHours);
 
   try {

@@ -18,7 +18,7 @@ export default () => ({ // eslint-disable-line
 
   topic: {
     name: 'Gender Pay Gap',
-    url: '/gender-pay-gap',
+    url: 'https://www.ft.com/gender-pay-gap',
   },
 
   mainImage: {

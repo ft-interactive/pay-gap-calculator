@@ -28,6 +28,7 @@ if (cutsTheMustard) {
   // DEFAULT CONFIG
   const state = new Map;
   state.set("gender", "woman");
+  state.set("weeklyHours", 40);
 
   // DEFINE EVENTS
   dispatch.on("updateState", async function (o){

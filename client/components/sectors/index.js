@@ -10,6 +10,8 @@ const sectors = Array.from(roles);
 const sectorsToShowDefault = 4;
 const article = document.querySelector('article');
 
+const sectorBox = document.querySelector('.input-box-sector');
+
 const sectorDivDesktop = d3.select('div.sector-desktop-view .input-sector-list');
 const sectorDivMobile = d3.select('div.sector-mobile-view .input-sector-list');
 const mobileSectorOptions = d3.select('div.sector-mobile-view .o-forms');
@@ -44,9 +46,9 @@ dispatch.on("showSectorsMobile", function(){
 });
 
 dispatch.on("hideSectorsMobile", function(){
-  console.log("hide fired");
   article.classList.remove("sector-choice");
-  window.scroll(0, 600);
+  const sectorDivYPos = window.pageYOffset + sectorBox.getBoundingClientRect().top;
+  window.scroll(0, sectorDivYPos);
 });
 
 // ADD SHOW HIDE EVENTS
