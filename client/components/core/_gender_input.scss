@@ -1,29 +1,17 @@
 /* GENDER INPUT */
 .input-container .input-box-gender {
 
-// >hr {
-//   background-color: oColorsGetPaletteColor('black-20'); height: 1px; border: 0;
-// }
-
-  > div{
-    display: flex;
-    align-items: center;
+  .button-and-or-container {
     max-width: 428px;
-    justify-content: center;
 
-    .button-and-or-container {
-      max-width: 428px;
-
-      .button-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-      }
+    .button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
     }
   }
 }
-
 
 .input-container .icon-option {
   flex: 1 1 auto;
