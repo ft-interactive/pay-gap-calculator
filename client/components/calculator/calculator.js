@@ -6,6 +6,9 @@ import {
   findSalaryDecile
 } from './findSalaryDecile';
 
+const weeklyHours = 40;
+const weeksPerYear = 46.4; // Using this figure: https://www.gov.uk/holiday-entitlement-rights 
+
 function readCsvToJs(file){
   return d3.csvParse(file);
 }
@@ -14,23 +17,27 @@ async function calculation(config) {
   let gender = config.get("gender");
   let age = config.get("age");
   let sector = config.get("sector");
-  let salary = cleanSalary(config.get("salary"));
+  let annualSalary = cleanSalary(config.get("salary"));
+  // let weeklyHours = config.get("weeklyHours");
+  let hourlySalary = convertToHourly(annualSalary, weeklyHours);
 
   try {
     const salarySetSelected = findSalarySet(gender, age, sector);
     const comparisonGender = gender === 'woman' ? 'man' : 'woman';
     const salarySetComparison = findSalarySet(comparisonGender, age, sector);
-    const selectedDecile = getSalaryDecileThatWorks(salary, salarySetSelected, salarySetComparison);
+    const selectedDecile = getSalaryDecileThatWorks(hourlySalary, salarySetSelected, salarySetComparison);
 
     const selectedSalary = getSalaryFromDecile(selectedDecile, salarySetSelected);
     const comparisonSalary = getSalaryFromDecile(selectedDecile, salarySetComparison);
 
     const ratio = getRatio(selectedSalary, comparisonSalary);
-    const swappedSalary = outputSwappedSalary(salary, ratio);
+    const hourlySwappedSalary = outputSwappedSalary(hourlySalary, ratio);
+    const annualSwappedSalary = convertToAnnual(hourlySwappedSalary, weeklyHours);
+
     return {
-      swappedSalary,
+      swappedSalary: annualSwappedSalary,
+      salary: annualSalary,
       ratio,
-      salary,
       selectedDecile
     };
   } catch (err) {
@@ -136,6 +143,14 @@ function cleanSalary(rawSalary) {
     const cleanSalary = noComma.match(/(\d+)(.\d+)?/);
     return parseInt(cleanSalary);
   }
+}
+
+function convertToHourly(annualSalary, weeklyHours){
+  return annualSalary / weeklyHours / weeksPerYear;
+};
+
+function convertToAnnual(hourlySalary, weeklyHours){
+  return hourlySalary * weeklyHours * weeksPerYear;
 }
 
 export {
