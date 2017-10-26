@@ -6,6 +6,7 @@ import * as d3 from 'd3';
 import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings} from './components/validation/validators';
 import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
+import {calculateSalary} from './components/salary/salary-calculations';
 import {toggleSelection, setElementsToChange} from './components/helpers';
 import {makeSectorComponents, sectorAddShowHideEvents} from './components/sectors/index';
 import {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes} from './components/feedback/feedback';
@@ -133,15 +134,6 @@ if (cutsTheMustard) {
   computeButton.on("click", function(){
     dispatch.call("compute", this, state)
   });
-
-  // DECIDE IF SALARY IS MONTHLY OR YEARLY
-  function calculateSalary(salary){
-    const period = document.querySelector('button.input-salary-time.selected').getAttribute('data');
-    const salaryMultiplier = period === 'year' ? 1 : 12;
-    const cleanSalary = salary.split(",").join("");
-    const adjustedSalary = parseInt(cleanSalary) * salaryMultiplier;
-    return adjustedSalary;
-  };
 
   // CHECK SCREEN WIDTH & SET ARTICLE CLASS
   window.addEventListener("resize", resizeThrottler, false);
