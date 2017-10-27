@@ -1,3 +1,5 @@
+const maxHoursPerWeek = 70;
+const minHoursPerWeek = 35;
 
 // DECIDE IF SALARY IS MONTHLY OR YEARLY
 function calculateSalary(salary){
@@ -7,4 +9,17 @@ function calculateSalary(salary){
   return parseInt(cleanSalary) * salaryMultiplier;
 };
 
-export {calculateSalary}
+// ITERATE HOURS WORKED COUNT BY 1
+function updateHours(hours, buttonClickedAction){
+  const hoursNum = parseInt(hours);
+
+  if(buttonClickedAction === "+1"){
+    return hoursNum >= maxHoursPerWeek ? hoursNum : hoursNum + 1;
+  }
+  else if(buttonClickedAction === "-1"){
+    return hoursNum <= minHoursPerWeek ? hoursNum : hoursNum - 1;
+  }
+  else {return hoursNum };
+}
+
+export {calculateSalary, updateHours};
