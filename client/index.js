@@ -131,22 +131,20 @@ if (cutsTheMustard) {
   salaryHoursWorkedInput.on("mousedown", function(){
     startHoursWorked();
   });
-  salaryHoursWorkedInput.on("touchdown", function(){
+  salaryHoursWorkedInput.on("touchstart", function(){
     startHoursWorked();
   });
   salaryHoursWorkedInput.on("mouseup", function(){
     stopHoursWorked();
   });
-  salaryHoursWorkedInput.on("touchup", function(){
+  salaryHoursWorkedInput.on("touchend", function(){
     stopHoursWorked();
-  });
-  salaryHoursWorkedInput.on("click", function(){
-    updateHoursWorked(d3.event.target);
   });
 
   function startHoursWorked(e){
     const element = d3.event.target;
-    updateHoursTimer = setInterval(function(){updateHoursWorked(element)}, 200);
+    updateHoursWorked(element);
+    updateHoursTimer = setInterval(function(){updateHoursWorked(element)}, 250);
   };
 
   function stopHoursWorked(){
