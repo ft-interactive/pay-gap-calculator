@@ -23,6 +23,7 @@ if (cutsTheMustard) {
   const salaryHoursWorkedInput = d3.select('.input-salary-hours-worked .hour-input');
   const salaryInput = d3.select(".input-salary");
   const computeButton = d3.select('.input-compute');
+  var updateHoursTimer;
 
   const dispatch = d3.dispatch("updateState", "compute");
 
@@ -127,20 +128,38 @@ if (cutsTheMustard) {
     }
   });
 
-  salaryHoursWorkedInput.on("click", function(){
-    hoursWorked();
+  salaryHoursWorkedInput.on("mousedown", function(){
+    startHoursWorked();
   });
   salaryHoursWorkedInput.on("touchdown", function(){
-    hoursWorked();
+    startHoursWorked();
+  });
+  salaryHoursWorkedInput.on("mouseup", function(){
+    stopHoursWorked();
+  });
+  salaryHoursWorkedInput.on("touchup", function(){
+    stopHoursWorked();
+  });
+  salaryHoursWorkedInput.on("click", function(){
+    updateHoursWorked(d3.event.target);
   });
 
-  function hoursWorked(){
+  function startHoursWorked(e){
+    const element = d3.event.target;
+    updateHoursTimer = setInterval(function(){updateHoursWorked(element)}, 200);
+  };
+
+  function stopHoursWorked(){
+    clearInterval(updateHoursTimer);
+  };
+
+  function updateHoursWorked(element){
     const hoursInput = document.querySelector('.hours-worked');
-    const buttonClickedAction = d3.event.target.getAttribute('data');
+    const buttonClickedAction = element.getAttribute('data');
     const updatedHours = updateHours(hoursInput.value, buttonClickedAction);
     hoursInput.value = updatedHours;
     dispatch.call("updateState", this, {weeklyHours: updatedHours});
-  }
+  };
 
   salaryInput.on("keyup", function(){
     const salary = calculateSalary(this.value);
