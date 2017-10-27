@@ -12,27 +12,33 @@ article .input-box-sector .sector-mobile-view label {
 
 
 /* SECTOR INPUT MOBILE VIEW */
-article.small.sector-choice .article-head,
-article.small.sector-choice .article-body footer,
-article.small.sector-choice .article-body p,
-article.small.sector-choice .article-body .gap-calculator .output-container,
-article.small.sector-choice .article-body .methodology-box,
-article.small.sector-choice .article-body .next-story,
-article.small.sector-choice .article-body .input-feedback,
-article.small.sector-choice .article-body .gap-calculator .input-container > div:not(.input-box-sector){
-  display:none;
+// main.sector-choice article.small {
+article.small.sector-choice {
+  .article-head {
+    display: none;
+  },
+  .article-body {
+    footer,
+    p,
+    .gap-calculator .output-container,
+    .methodology-box,
+    .next-story,
+    .input-feedback,
+    .gap-calculator .input-container > div:not(.input-box-sector){
+      display:none;
+    }
+  }
 }
 
-article.small.sector-choice .article-body .gap-calculator .input-box-sector > label{
-  display:none;
+article.small.sector-choice .article-body .gap-calculator .input-box-sector{
+  > label{
+    display:none;
+  }
+  button, hr {
+    display:none;
+  }
 }
 
-article.small.sector-choice .article-body .gap-calculator .input-box-sector button{
-  display:none;
-}
-article.small.sector-choice .article-body .gap-calculator .input-box-sector hr{
-  display:none;
-}
 
 /* when sector choice box is closed, hide its elements */
 article.small div.sector-mobile-view .o-forms,
