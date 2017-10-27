@@ -18,6 +18,7 @@ article.small.sector-choice .article-body p,
 article.small.sector-choice .article-body .gap-calculator .output-container,
 article.small.sector-choice .article-body .methodology-box,
 article.small.sector-choice .article-body .next-story,
+article.small.sector-choice .article-body .input-feedback,
 article.small.sector-choice .article-body .gap-calculator .input-container > div:not(.input-box-sector){
   display:none;
 }
@@ -38,6 +39,7 @@ article.small div.sector-mobile-view .o-forms,
 article.small div.sector-mobile-view .sector-back-button {
   display: none;
 }
+
 
 /* when sector choice box is open show its elements */
 article.small.sector-choice div.sector-mobile-view .o-forms {
