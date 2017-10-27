@@ -7,4 +7,7 @@ function calculateSalary(salary){
   return parseInt(cleanSalary) * salaryMultiplier;
 };
 
+// ITERATE HOURS WORKED COUNT BY 1
+
+
 export {calculateSalary}

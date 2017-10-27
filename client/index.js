@@ -20,6 +20,7 @@ if (cutsTheMustard) {
   const genderButtons = d3.selectAll(".input-gender");
   const ageInput = d3.selectAll(".input-age");
   const salaryTimePeriodInput = d3.select('.input-salary-time-period .o-buttons__group');
+  const salaryHoursWorkedInput = d3.select('.input-salary-hours-worked .hour-input');
   const salaryInput = d3.select(".input-salary");
   const computeButton = d3.select('.input-compute');
 
@@ -77,6 +78,7 @@ if (cutsTheMustard) {
     dispatch.call("updateState", this, {gender: this.getAttribute('data')} );
   });
 
+  // AGE
   ageInput.on("mousedown", function(){
     const prevSelectedEl = document.querySelector('.input-age.selected');
     toggleSelection(this, prevSelectedEl);
@@ -91,6 +93,7 @@ if (cutsTheMustard) {
     ageCheck(state);
   });
 
+  // SECTORS
   sectorDivDesktop.on("click", function(){
     ageCheck(state);
     const selectedInput = document.querySelector(".sector-desktop-view .o-forms__radio:checked");
@@ -109,6 +112,7 @@ if (cutsTheMustard) {
     }
   });
 
+  // SALARY
   salaryTimePeriodInput.on("click", function(){
     const prevSelectedEl = document.querySelector('button.input-salary-time.selected');
     const clickedEl = d3.event.target;
@@ -122,6 +126,13 @@ if (cutsTheMustard) {
       dispatch.call("updateState", this, {salary: salary});
       salaryCheck(state);
     }
+  });
+
+  salaryHoursWorkedInput.on("keydown", function(){
+    const hours = document.querySelector('.hours-worked').value;
+    const buttonclicked = d3.event.target;
+    const hoursWorked = 40;
+    dispatch.call("updateState", this, {weeklyHours: hoursWorked});
   });
 
   salaryInput.on("keyup", function(){
