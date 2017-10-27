@@ -6,7 +6,7 @@ import * as d3 from 'd3';
 import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings} from './components/validation/validators';
 import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
-import {calculateSalary} from './components/salary/salary-calculations';
+import {calculateSalary, updateHours} from './components/salary/salary-calculations';
 import {toggleSelection, setElementsToChange} from './components/helpers';
 import {makeSectorComponents, sectorAddShowHideEvents} from './components/sectors/index';
 import {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes} from './components/feedback/feedback';
@@ -29,7 +29,7 @@ if (cutsTheMustard) {
   // DEFAULT CONFIG
   const state = new Map;
   state.set("gender", "woman");
-  state.set("weeklyHours", 40);
+  state.set("weeklyHours", 37);
 
   // DEFINE EVENTS
   dispatch.on("updateState", async function (o){
@@ -38,7 +38,6 @@ if (cutsTheMustard) {
     state.set(key, value);
     toggleFeedbackBoxes(state);
     clearEmptyWarnings(state);
-
     gaEventTracking(`PayGap-${key}`, 'PayGap-valueChange', 'PayGap Calculator');
 
     article.classList.remove("computed");
@@ -128,12 +127,20 @@ if (cutsTheMustard) {
     }
   });
 
-  salaryHoursWorkedInput.on("keydown", function(){
-    const hours = document.querySelector('.hours-worked').value;
-    const buttonclicked = d3.event.target;
-    const hoursWorked = 40;
-    dispatch.call("updateState", this, {weeklyHours: hoursWorked});
+  salaryHoursWorkedInput.on("click", function(){
+    hoursWorked();
   });
+  salaryHoursWorkedInput.on("touchdown", function(){
+    hoursWorked();
+  });
+
+  function hoursWorked(){
+    const hoursInput = document.querySelector('.hours-worked');
+    const buttonClickedAction = d3.event.target.getAttribute('data');
+    const updatedHours = updateHours(hoursInput.value, buttonClickedAction);
+    hoursInput.value = updatedHours;
+    dispatch.call("updateState", this, {weeklyHours: updatedHours});
+  }
 
   salaryInput.on("keyup", function(){
     const salary = calculateSalary(this.value);

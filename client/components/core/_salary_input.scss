@@ -50,9 +50,18 @@ div.input-salary-hours-worked p {
   font-size: 24px;
   color: #0d7680;
 }
-.hour-input span.hours-worked {
+.hour-input .plus-hour,
+.hour-input .minus-hour {
+  cursor: pointer;
+}
+.hour-input input.hours-worked {
   font-weight: 600;
   font-size: 20px;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  width: 1.8em;
+  text-align: center;
 }
 article {
   button.input-compute {
