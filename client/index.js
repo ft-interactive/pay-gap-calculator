@@ -25,6 +25,8 @@ if (cutsTheMustard) {
   const computeButton = d3.select('.input-compute');
   var updateHoursTimer;
 
+  const mobileScreenWidth = 420;
+
   const dispatch = d3.dispatch("updateState", "compute");
 
   // DEFAULT CONFIG
@@ -191,7 +193,7 @@ if (cutsTheMustard) {
   }
   function actualResizeHandler(){
     const screenWidth = window.innerWidth;
-    if(screenWidth < 400){ article.classList.add('small')}
+    if(screenWidth < mobileScreenWidth){ article.classList.add('small')}
     else { article.classList.remove('small')}
   }
 

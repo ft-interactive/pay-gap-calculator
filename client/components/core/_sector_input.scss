@@ -12,8 +12,7 @@ article .input-box-sector .sector-mobile-view label {
 
 
 /* SECTOR INPUT MOBILE VIEW */
-// main.sector-choice article.small {
-article.small.sector-choice {
+main.sector-choice article.small {
   .article-head {
     display: none;
   },
@@ -30,7 +29,13 @@ article.small.sector-choice {
   }
 }
 
-article.small.sector-choice .article-body .gap-calculator .input-box-sector{
+/* hide onward journey */
+
+main.sector-choice aside {
+  display:none;
+}
+
+main.sector-choice article.small .article-body .gap-calculator .input-box-sector{
   > label{
     display:none;
   }
@@ -48,7 +53,7 @@ article.small div.sector-mobile-view .sector-back-button {
 
 
 /* when sector choice box is open show its elements */
-article.small.sector-choice div.sector-mobile-view .o-forms {
+main.sector-choice article.small div.sector-mobile-view .o-forms {
   display: block;
 }
 article.small .input-box-sector .sector-desktop-view{
