@@ -107,7 +107,7 @@ article .selection-made .input-feedback {
   padding: .5em 1em;
 }
 
-.input-feedback span:not(.gender-choice-inverse) {
+.input-feedback span:not(.gender-choice-inverse, .gender-possessive) {
   font-weight: 600;
   font-size: 1em;
   color: black;
@@ -195,6 +195,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+/* DATA SECTION */
 #methodology{
     font-family: MetricWeb, sans-serif;
     @include oTypographySize($scale: 2);

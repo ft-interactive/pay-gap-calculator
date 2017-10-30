@@ -23,6 +23,8 @@ function fillOutput(element, data, state){
   const age = state.get("age");
   const sector = renameSectorShort(state.get("sector")).renamedRoleShort;
   const genderAdjective = getGenderAdjective(gender);
+  const genderPossessive = gender === 'woman' ? 'her' : 'his';
+  const genderPossessiveInverse = gender === 'woman' ? 'his' : 'her';
   const comparisionGender = gender === 'woman' ? 'man' : 'woman';
   const comparisonGenderAdjective = getGenderAdjective(comparisionGender);
 
@@ -46,6 +48,8 @@ function fillOutput(element, data, state){
   d3element.selectAll('.gender-choice-inverse-adjective').text(`${comparisonGenderAdjective}`);
   d3element.selectAll('.percentile').text(`${percentageGroup}`);
   d3element.selectAll('.percentile-pay-gap').text(`${percentageDifference}`);
+  d3element.selectAll('.gender-possessive').text(`${genderPossessive}`);
+  d3element.selectAll('.gender-possessive-inverse').text(`${genderPossessiveInverse}`);
 
 };
 
