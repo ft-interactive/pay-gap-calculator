@@ -46,6 +46,7 @@ function fillOutput(element, data, state){
   d3element.selectAll('.gender-choice-inverse-adjective').text(`${comparisonGenderAdjective}`);
   d3element.selectAll('.percentile').text(`${percentageGroup}`);
   d3element.selectAll('.percentile-pay-gap').text(`${percentageDifference}`);
+
 };
 
 function formatAsCurrency(number){
