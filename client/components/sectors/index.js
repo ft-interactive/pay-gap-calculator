@@ -8,7 +8,7 @@ import {ageCheck, sectorCheck, salaryCheck} from '../validation/validators';
 const mainSectors = Array.from(mainRoles);
 const sectors = Array.from(roles);
 const sectorsToShowDefault = 4;
-const article = document.querySelector('article');
+const article = document.querySelector('main');
 
 const sectorBox = document.querySelector('.input-box-sector');
 
@@ -19,7 +19,6 @@ const mobileSectorOptions = d3.select('div.sector-mobile-view .o-forms');
 const seeMoreButton = d3.select('.see-more');
 const showAllMobileButton = d3.select('.input-box-sector .see-all');
 const hideAllMobileButton = d3.select('.input-box-sector .sector-back-button');
-
 
 const dispatch = d3.dispatch("toggleSectorsDesktop", "toggleSubsectionDesktop", "showSectorsMobile", "hideSectorsMobile");
 
@@ -42,6 +41,7 @@ dispatch.on("toggleSubsectionDesktop", function(selectedSector){
 });
 
 dispatch.on("showSectorsMobile", function(){
+  window.scroll(0, 0);
   article.classList.add("sector-choice");
 });
 
