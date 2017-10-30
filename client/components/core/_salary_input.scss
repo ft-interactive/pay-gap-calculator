@@ -8,7 +8,7 @@ div.input-salary-time-period div{
   margin: 0 .5em;
 }
 div.input-salary-hours-worked div {
-  margin: 0 .2em;
+  margin: 0 .1em;
 }
 
 div.input-salary-time-period p,
@@ -50,7 +50,7 @@ div.input-salary-hours-worked p {
   text-align: center;
   border: 1.5px solid #0d7680;
   min-width: 1.1em;
-  font-size: 24px;
+  font-size: 1.25em;
   color: #0d7680;
 }
 .hour-input .plus-hour,
@@ -59,7 +59,7 @@ div.input-salary-hours-worked p {
 }
 .hour-input input.hours-worked {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.5em;
   appearance: none;
   border: none;
   background-color: transparent;
@@ -67,6 +67,7 @@ div.input-salary-hours-worked p {
 }
 .hour-input input.hours-worked:focus {
   border: none;
+  outline:none;
 }
 .input-salary-hours-worked {
     user-select: none;

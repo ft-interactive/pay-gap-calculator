@@ -25,7 +25,7 @@ if (cutsTheMustard) {
   const computeButton = d3.select('.input-compute');
   var updateHoursTimer;
 
-  const mobileScreenWidth = 420;
+  const mobileScreenWidth = 400;
 
   const dispatch = d3.dispatch("updateState", "compute");
 
@@ -148,11 +148,12 @@ if (cutsTheMustard) {
 
   salaryHoursWorkedInput.on("click", function(){
     updateHoursWorked(d3.event.target);
+    d3.event.preventDefault();
   });
 
-  function startHoursWorked(e){
+  function startHoursWorked(){
     const element = d3.event.target;
-    updateHoursTimer = setInterval(function(){updateHoursWorked(element)}, 500);
+    updateHoursTimer = setInterval(function(){updateHoursWorked(element)}, 250);
   };
 
   function stopHoursWorked(){
