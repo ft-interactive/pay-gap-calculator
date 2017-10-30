@@ -140,11 +140,17 @@ if (cutsTheMustard) {
   salaryHoursWorkedInput.on("touchend", function(){
     stopHoursWorked();
   });
+  salaryHoursWorkedInput.on("mouseout", function(){
+    stopHoursWorked();
+  });
+
+  salaryHoursWorkedInput.on("click", function(){
+    updateHoursWorked(d3.event.target);
+  });
 
   function startHoursWorked(e){
     const element = d3.event.target;
-    updateHoursWorked(element);
-    updateHoursTimer = setInterval(function(){updateHoursWorked(element)}, 250);
+    updateHoursTimer = setInterval(function(){updateHoursWorked(element)}, 500);
   };
 
   function stopHoursWorked(){
