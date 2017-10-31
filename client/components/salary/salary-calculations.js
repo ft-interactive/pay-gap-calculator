@@ -22,4 +22,18 @@ function updateHours(hours, buttonClickedAction){
   else {return hoursNum };
 }
 
-export {calculateSalary, updateHours};
+// APPLY FADED CLASS TO BUTTONS WHEN MAX OR MIN HOURS IS REACHED
+function fadeButton(amount, buttonContainer){
+  if(amount === 70){
+    buttonContainer.classList.add("plus-faded");
+  }
+  else if(amount === 35){
+    buttonContainer.classList.add("minus-faded");
+  }
+  else {
+    if(buttonContainer.classList.contains("plus-faded")) buttonContainer.classList.remove("plus-faded");
+    if(buttonContainer.classList.contains("minus-faded")) buttonContainer.classList.remove("minus-faded");
+  }
+}
+
+export {calculateSalary, updateHours, fadeButton};

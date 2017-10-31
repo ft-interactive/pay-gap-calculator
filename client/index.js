@@ -6,7 +6,7 @@ import * as d3 from 'd3';
 import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings} from './components/validation/validators';
 import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
-import {calculateSalary, updateHours} from './components/salary/salary-calculations';
+import {calculateSalary, updateHours, fadeButton} from './components/salary/salary-calculations';
 import {toggleSelection, setElementsToChange} from './components/helpers';
 import {makeSectorComponents, sectorAddShowHideEvents} from './components/sectors/index';
 import {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes} from './components/feedback/feedback';
@@ -153,7 +153,7 @@ if (cutsTheMustard) {
 
   function startHoursWorked(){
     const element = d3.event.target;
-    updateHoursTimer = setInterval(function(){updateHoursWorked(element)}, 250);
+    updateHoursTimer = setInterval(function(){updateHoursWorked(element)}, 150);
   };
 
   function stopHoursWorked(){
@@ -164,7 +164,14 @@ if (cutsTheMustard) {
     const hoursInput = document.querySelector('.hours-worked');
     const buttonClickedAction = element.getAttribute('data');
     const updatedHours = updateHours(hoursInput.value, buttonClickedAction);
+
+    // set UI to show new value
     hoursInput.value = updatedHours;
+
+    // fade button if value too high/low
+    fadeButton(updatedHours, salaryHoursWorkedInput.node());
+
+    // update state
     dispatch.call("updateState", this, {weeklyHours: updatedHours});
   };
 
