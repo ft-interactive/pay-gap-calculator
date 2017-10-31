@@ -100,6 +100,9 @@ div.input-salary-hours-worked p {
 }
 .input-salary-hours-worked {
     user-select: none;
+    >div{
+      margin: 0px 0.4em !important; 
+    }
 }
 
 article {
