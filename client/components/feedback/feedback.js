@@ -8,6 +8,7 @@ const parentSector = document.querySelector('.input-box-sector');
 
 const genderText = document.querySelectorAll('.gender-choice');
 const inverseGenderText = document.querySelectorAll('.gender-choice-inverse');
+const genderPossessiveText = document.querySelectorAll('.gender-possessive');
 const ageText = document.querySelectorAll('.age-choice');
 const sectorText = document.querySelectorAll('.sector-choice');
 const payDifferentialAgeText = document.querySelectorAll('.salary-difference-gender-age');
@@ -20,8 +21,10 @@ function toggleFeedbackBoxes(state){
   if(state.has("gender")){
     parentGender.classList.add("selection-made");
     let inverseGender = state.get('gender') === 'woman' ? "man" : "woman";
+    let genderPossessive = state.get('gender') === 'woman' ? "her" : "his";
     addFeedbackText(genderText, state.get('gender'));
     addFeedbackText(inverseGenderText, inverseGender);
+    addFeedbackText(genderPossessiveText, genderPossessive);
   }
   else {parentGender.classList.remove("selection-made")}
 

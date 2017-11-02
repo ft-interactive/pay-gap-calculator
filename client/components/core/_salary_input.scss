@@ -68,8 +68,7 @@ div.input-salary-hours-worked p {
     background-color: transparent;
     text-align: center;
 
-    :focus{
-      border: none;
+    &:focus{
       outline:none;
     }
   }
