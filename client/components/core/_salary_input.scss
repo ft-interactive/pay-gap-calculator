@@ -50,13 +50,14 @@ div.input-salary-hours-worked p {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   .plus-hour, .minus-hour {
       text-align: center;
-      border: 1.5px solid #0d7680;
+      border: 1px solid #0d7680;
       min-width: 1.1em;
       font-size: 1.25em;
       color: #0d7680;
       cursor: pointer;
-      height: 1em;
-      width: 1em;
+      height: 1.4em;
+      width: 1.4em;
+      vertical-align: top;
       background-position: center;
       background-repeat: no-repeat;
   }
@@ -98,6 +99,9 @@ div.input-salary-hours-worked p {
 }
 .input-salary-hours-worked {
     user-select: none;
+    >div{
+      margin: 0px 0.4em !important; 
+    }
 }
 
 article {
