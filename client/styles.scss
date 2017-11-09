@@ -18,3 +18,16 @@ $o-loading-is-silent: false;
 @import 'components/core/salary_input';
 @import 'components/core/validation';
 @import 'components/core/output';
+
+.o-forms__checkbox + .o-forms__label::before,
+.o-forms__radio + .o-forms__label::before {
+  left: 50%;
+  bottom: -33px;
+  top: auto;
+}
+
+.o-forms__radio + .o-forms__label::after {
+  bottom: -27px;
+  top: auto;
+  left: calc(50% + 6px);
+}
