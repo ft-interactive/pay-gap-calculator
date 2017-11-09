@@ -5,7 +5,7 @@ export default (environment = 'development') => ({ // eslint-disable-line
 
   // canonical URL of the published page
   //  get filled in by the ./configure script
-  url: '',
+  url: 'https://ig.ft.com/gender-pay-gap-calculator/',
 
   // To set an exact publish date do this:
   //       new Date('2016-05-17T17:11:22Z')
@@ -41,7 +41,7 @@ export default (environment = 'development') => ({ // eslint-disable-line
   ],
 
   // Appears in the HTML <title>
-  title: '',
+  title: 'Work out your personal gender pay gap',
 
   // meta data
   description: '',
