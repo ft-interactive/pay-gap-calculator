@@ -6,6 +6,7 @@ import * as d3 from 'd3';
 import {ageCheck, sectorCheck, salaryCheck, clearEmptyWarnings} from './components/validation/validators';
 import {calculation, calculationAgeSector, calculationAge} from './components/calculator/calculator';
 import {fillOutput} from './components/output/fillOutput';
+import {calculateSalary, updateHours, fadeButton} from './components/salary/salary-calculations';
 import {toggleSelection, setElementsToChange} from './components/helpers';
 import {makeSectorComponents, sectorAddShowHideEvents} from './components/sectors/index';
 import {handleCalculationAgeSector, handleCalculationAge, toggleFeedbackBoxes} from './components/feedback/feedback';
@@ -19,14 +20,19 @@ if (cutsTheMustard) {
   const genderButtons = d3.selectAll(".input-gender");
   const ageInput = d3.selectAll(".input-age");
   const salaryTimePeriodInput = d3.select('.input-salary-time-period .o-buttons__group');
+  const salaryHoursWorkedInput = d3.select('.input-salary-hours-worked .hour-input');
   const salaryInput = d3.select(".input-salary");
   const computeButton = d3.select('.input-compute');
+  var updateHoursTimer;
+
+  const mobileScreenWidth = 400;
 
   const dispatch = d3.dispatch("updateState", "compute");
 
   // DEFAULT CONFIG
   const state = new Map;
   state.set("gender", "woman");
+  state.set("weeklyHours", 37);
 
   // DEFINE EVENTS
   dispatch.on("updateState", async function (o){
@@ -35,7 +41,6 @@ if (cutsTheMustard) {
     state.set(key, value);
     toggleFeedbackBoxes(state);
     clearEmptyWarnings(state);
-
     gaEventTracking(`PayGap-${key}`, 'PayGap-valueChange', 'PayGap Calculator');
 
     article.classList.remove("computed");
@@ -75,6 +80,7 @@ if (cutsTheMustard) {
     dispatch.call("updateState", this, {gender: this.getAttribute('data')} );
   });
 
+  // AGE
   ageInput.on("mousedown", function(){
     const prevSelectedEl = document.querySelector('.input-age.selected');
     toggleSelection(this, prevSelectedEl);
@@ -89,6 +95,7 @@ if (cutsTheMustard) {
     ageCheck(state);
   });
 
+  // SECTORS
   sectorDivDesktop.on("click", function(){
     ageCheck(state);
     const selectedInput = document.querySelector(".sector-desktop-view .o-forms__radio:checked");
@@ -107,6 +114,7 @@ if (cutsTheMustard) {
     }
   });
 
+  // SALARY
   salaryTimePeriodInput.on("click", function(){
     const prevSelectedEl = document.querySelector('button.input-salary-time.selected');
     const clickedEl = d3.event.target;
@@ -122,6 +130,51 @@ if (cutsTheMustard) {
     }
   });
 
+  salaryHoursWorkedInput.on("mousedown", function(){
+    startHoursWorked();
+  });
+  salaryHoursWorkedInput.on("touchstart", function(){
+    startHoursWorked();
+  });
+  salaryHoursWorkedInput.on("mouseup", function(){
+    stopHoursWorked();
+  });
+  salaryHoursWorkedInput.on("touchend", function(){
+    stopHoursWorked();
+  });
+  salaryHoursWorkedInput.on("mouseout", function(){
+    stopHoursWorked();
+  });
+
+  salaryHoursWorkedInput.on("click", function(){
+    updateHoursWorked(d3.event.target);
+    d3.event.preventDefault();
+  });
+
+  function startHoursWorked(){
+    const element = d3.event.target;
+    updateHoursTimer = setInterval(function(){updateHoursWorked(element)}, 150);
+  };
+
+  function stopHoursWorked(){
+    clearInterval(updateHoursTimer);
+  };
+
+  function updateHoursWorked(element){
+    const hoursInput = document.querySelector('.hours-worked');
+    const buttonClickedAction = element.getAttribute('data');
+    const updatedHours = updateHours(hoursInput.value, buttonClickedAction);
+
+    // set UI to show new value
+    hoursInput.value = updatedHours;
+
+    // fade button if value too high/low
+    fadeButton(updatedHours, salaryHoursWorkedInput.node());
+
+    // update state
+    dispatch.call("updateState", this, {weeklyHours: updatedHours});
+  };
+
   salaryInput.on("keyup", function(){
     const salary = calculateSalary(this.value);
     dispatch.call("updateState", this, {salary: salary});
@@ -133,15 +186,6 @@ if (cutsTheMustard) {
   computeButton.on("click", function(){
     dispatch.call("compute", this, state)
   });
-
-  // DECIDE IF SALARY IS MONTHLY OR YEARLY
-  function calculateSalary(salary){
-    const period = document.querySelector('button.input-salary-time.selected').getAttribute('data');
-    const salaryMultiplier = period === 'year' ? 1 : 12;
-    const cleanSalary = salary.split(",").join("");
-    const adjustedSalary = parseInt(cleanSalary) * salaryMultiplier;
-    return adjustedSalary;
-  };
 
   // CHECK SCREEN WIDTH & SET ARTICLE CLASS
   window.addEventListener("resize", resizeThrottler, false);
@@ -157,7 +201,7 @@ if (cutsTheMustard) {
   }
   function actualResizeHandler(){
     const screenWidth = window.innerWidth;
-    if(screenWidth < 400){ article.classList.add('small')}
+    if(screenWidth < mobileScreenWidth){ article.classList.add('small')}
     else { article.classList.remove('small')}
   }
 

@@ -8,7 +8,9 @@ import {ageCheck, sectorCheck, salaryCheck} from '../validation/validators';
 const mainSectors = Array.from(mainRoles);
 const sectors = Array.from(roles);
 const sectorsToShowDefault = 4;
-const article = document.querySelector('article');
+const article = document.querySelector('main');
+
+const sectorBox = document.querySelector('.input-box-sector');
 
 const sectorDivDesktop = d3.select('div.sector-desktop-view .input-sector-list');
 const sectorDivMobile = d3.select('div.sector-mobile-view .input-sector-list');
@@ -17,7 +19,6 @@ const mobileSectorOptions = d3.select('div.sector-mobile-view .o-forms');
 const seeMoreButton = d3.select('.see-more');
 const showAllMobileButton = d3.select('.input-box-sector .see-all');
 const hideAllMobileButton = d3.select('.input-box-sector .sector-back-button');
-
 
 const dispatch = d3.dispatch("toggleSectorsDesktop", "toggleSubsectionDesktop", "showSectorsMobile", "hideSectorsMobile");
 
@@ -40,13 +41,14 @@ dispatch.on("toggleSubsectionDesktop", function(selectedSector){
 });
 
 dispatch.on("showSectorsMobile", function(){
+  window.scroll(0, 0);
   article.classList.add("sector-choice");
 });
 
 dispatch.on("hideSectorsMobile", function(){
-  console.log("hide fired");
   article.classList.remove("sector-choice");
-  window.scroll(0, 600);
+  const sectorDivYPos = window.pageYOffset + sectorBox.getBoundingClientRect().top;
+  window.scroll(0, sectorDivYPos);
 });
 
 // ADD SHOW HIDE EVENTS

@@ -1,10 +1,18 @@
 
 /* SALARY INPUT */
-div.input-salary-time-period div{
+div.input-salary-time-period div,
+div.input-salary-hours-worked div {
   display: inline-block;
+}
+div.input-salary-time-period div{
   margin: 0 .5em;
 }
-div.input-salary-time-period p{
+div.input-salary-hours-worked div {
+  margin: 0 .1em;
+}
+
+div.input-salary-time-period p,
+div.input-salary-hours-worked p {
   display: inline-block;
   margin: 0;
 }
@@ -34,6 +42,66 @@ div.input-salary-time-period p{
   background-color: #14bdcc;
   border-color: #14bdcc;
   color:#08474d;
+}
+
+/* HOURS WORKED */
+
+.hour-input {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  .plus-hour, .minus-hour {
+      text-align: center;
+      border: 1px solid #0d7680;
+      min-width: 1.1em;
+      font-size: 1.25em;
+      color: #0d7680;
+      cursor: pointer;
+      height: 1.4em;
+      width: 1.4em;
+      vertical-align: top;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  input.hours-worked {
+    font-weight: 600;
+    font-size: 1.5em;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+
+    &:focus{
+      outline:none;
+    }
+  }
+  .plus-hour {
+    background-image: url('components/images/plus.svg');
+  }
+  .minus-hour {
+    background-image: url('components/images/minus.svg');
+  }
+}
+
+.hour-input.minus-faded {
+  .plus-hour {
+    opacity: 1;
+  }
+  .minus-hour {
+    opacity: 0.5;
+  }
+}
+.hour-input.plus-faded {
+  .plus-hour {
+    opacity: 0.5;
+  }
+  .minus-hour {
+    opacity: 1;
+  }
+}
+.input-salary-hours-worked {
+    user-select: none;
+    >div{
+      margin: 0px 0.4em !important; 
+    }
 }
 
 article {

@@ -7,7 +7,7 @@ article.computed .output-container {
   display: none;
 }
 
-article.computed .output-container span[class^='output']:not(.output-daily-gross-difference) {
+article.computed .output-container span[class^='output']:not(.output-daily-net-difference, .output-yearly-net-difference) {
   font-family: $font-sans;
   display: block;
   font-size: 48px;
@@ -22,7 +22,9 @@ article.computed .output-container {
       margin: 20px auto;
       }
 
-  .output-box-yearly-salary, .output-box-daily-salary{
+  .output-box-yearly-salary,
+  .output-box-daily-salary,
+  .output-box-yearly-difference {
 
     >hr {
       height: 1px; color: oColorsGetPaletteColor('teal-70');
@@ -47,8 +49,7 @@ article.computed .output-container {
     margin-top: 20px;
   }
 
-  >.output-box-median p,
-  .output-box-percentile p {
+  >.output-box-median p{
     font-size: 20px;
     text-align: left;
   }
@@ -57,11 +58,12 @@ article.computed .output-container {
 article.computed .output-container p {
   text-align: left;
   font-family: MetricWeb, sans-serif;
-  font-size: 28px;
-  line-height: 1.5em;
+  font-size: 20px;
+  line-height: 1.3em;
   color: oColorsGetPaletteColor('teal-30');
-  > .output-yearly-salary, .output-daily-salary{
+  > .output-yearly-salary, .output-daily-salary, .output-yearly-gross-difference, .output-daily-gross-difference {
     @include oTypographySans($scale:7, $line-height: 48px);
+    margin: 0.1em 0;
   }
 }
 
@@ -69,7 +71,7 @@ article.computed .output-share .whatsapp {
   display: none;
 }
 article.computed .output-share button {
-  margin-bottom: .5em;
+  margin-bottom: .4em;
 }
 
 @media(max-width: 450px) {
@@ -79,8 +81,7 @@ article.computed .output-share button {
 }
 
 article.computed .output-container .output-box-percentile{
-  p{font-size:20px;
-    line-height: 28px;
+  p{
     text-align: left;
   } span {
     font-weight: 600;
@@ -114,15 +115,16 @@ article.computed .output-container.median {
 }
 
 .output-container .output-share {
-  padding: .5em 0 1em 0;
+  padding: 1em 0 1em 0;
    >.o-buttons--big {
         font-size: 20px;
         height: 50px;
         color: #08474d !important;
         min-width: 150px;
-        margin-left: 0;
+        margin: 0.5em 0;
       > a {
         color: #08474d !important;
+        border-bottom: none;
       }
 
         @media(max-width: 400px){

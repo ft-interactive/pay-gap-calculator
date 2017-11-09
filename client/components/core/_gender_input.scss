@@ -1,14 +1,16 @@
 /* GENDER INPUT */
-.input-container .input-box-gender .button-container{
-  display: flex;
-  align-items: center;
-  max-width: 428px;
-  justify-content: center;
-  margin: 0;
-}
+.input-container .input-box-gender {
 
-.input-container .input-box-gender > hr {
-  background-color: #66605C; height: 1px; border: 0;
+  .button-and-or-container {
+    max-width: 428px;
+
+    .button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+  }
 }
 
 .input-container .icon-option {
@@ -19,15 +21,17 @@
   background-color: #F2E4DA;
   margin-bottom: 0;
 }
+
 .input-box-gender div {
   position: relative;
 }
-.gender-choice-frame{
+
+.gender-choice-frame {
   position: relative;
   max-width: 428px;
 }
 
-.input-container .input-box-gender .gender-choice-frame .or-box {
+.input-container .input-box-gender .or-box {
   top: -76px;
   margin: 0 auto;
   background-color: white;
@@ -37,29 +41,28 @@
   width: 1.3em;
   padding: 0.7px 1.6%;
   position: relative;
-  -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
-  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
 }
-
-
 
 .input-container .icon-option.selected {
   background-color: #14bdcc;
 }
+
 .input-container .icon-option.selected span {
-  color:white;
+  color: white;
 }
 
 .input-container .icon-option.selected #Layer_1 path {
-   fill:white;
+  fill: white;
 }
 
 .input-container .icon-option #Layer_1 path {
-   fill:#CCC1B7;
+  fill: #CCC1B7;
 }
 
-.input-container .icon-option div.icon-content{
+.input-container .icon-option div.icon-content {
   flex: 0 1 auto;
   display: flex;
   flex-direction: column;
@@ -72,5 +75,5 @@
   color: #8F857E;
   font-size: 0.9em;
   font-weight: 600;
-  margin-top: .4em;
+  margin-top: 0.4em;
 }

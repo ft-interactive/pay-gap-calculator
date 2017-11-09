@@ -1,7 +1,7 @@
 export default (environment = 'development') => ({ // eslint-disable-line
 
   // link file UUID
-  id: '',
+  id: '9ffa399c-b31b-11e7-a398-73d59db9e399',
 
   // canonical URL of the published page
   //  get filled in by the ./configure script
@@ -11,27 +11,27 @@ export default (environment = 'development') => ({ // eslint-disable-line
   //       new Date('2016-05-17T17:11:22Z')
   publishedDate: new Date(),
 
-  headline: 'Calculate your personal gender pay gap',
+  headline: 'Work out your personal gender pay gap',
 
   // summary === standfirst (Summary is what the content API calls it)
   summary: '',
 
   topic: {
-    name: 'Starter Kit',
-    url: '/foo',
+    name: 'Gender Pay Gap',
+    url: 'https://www.ft.com/gender-pay-gap',
   },
 
   mainImage: {
-    title: '',
-    description: '',
-    credit: '',
+    title: 'Gender pay gap illustration',
+    description: 'Women and men looking at a calculator',
+    credit: 'Clare Mallison',
 
     // You can provide a UUID to an image and it was populate everything else
-    uuid: '',
+    // uuid: '981c76c4-c543-11e7-b30e-a7c1c7c13aab',
 
     // You can also provide a URL
-    // url: 'https://image.webservices.ft.com/v1/images/raw/http%3A%2F%2Fcom.ft.imagepublish.prod.s3.amazonaws.com%2Fc4bf0be4-7c15-11e4-a7b8-00144feabdc0?source=ig&fit=scale-down&width=700',
-  },
+    url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A981c76c4-c543-11e7-b30e-a7c1c7c13aab?source=ig&width=600',
+      },
 
   // Byline can by a plain string, markdown, or array of authors
   // if array of authors, url is optional
@@ -96,7 +96,7 @@ export default (environment = 'development') => ({ // eslint-disable-line
 
     Microsite Name
 
-    e.g. guffipedia, business-books, baseline.
+    eg guffipedia, business-books, baseline.
     Used to query groups of pages, not intended for use with
     one off interactive pages. If you're building a microsite
     consider more custom tracking to allow better analysis.

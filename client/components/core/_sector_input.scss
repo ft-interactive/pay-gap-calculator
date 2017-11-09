@@ -12,26 +12,38 @@ article .input-box-sector .sector-mobile-view label {
 
 
 /* SECTOR INPUT MOBILE VIEW */
-article.small.sector-choice .article-head,
-article.small.sector-choice .article-body footer,
-article.small.sector-choice .article-body p,
-article.small.sector-choice .article-body .gap-calculator .output-container,
-article.small.sector-choice .article-body .methodology-box,
-article.small.sector-choice .article-body .next-story,
-article.small.sector-choice .article-body .gap-calculator .input-container > div:not(.input-box-sector){
+main.sector-choice article.small {
+  .article-head {
+    display: none;
+  },
+  .article-body {
+    footer,
+    p,
+    .gap-calculator .output-container,
+    .methodology-box,
+    .next-story,
+    .input-feedback,
+    .gap-calculator .input-container > div:not(.input-box-sector){
+      display:none;
+    }
+  }
+}
+
+/* hide onward journey */
+
+main.sector-choice aside {
   display:none;
 }
 
-article.small.sector-choice .article-body .gap-calculator .input-box-sector > label{
-  display:none;
+main.sector-choice article.small .article-body .gap-calculator .input-box-sector{
+  > label{
+    display:none;
+  }
+  button, hr {
+    display:none;
+  }
 }
 
-article.small.sector-choice .article-body .gap-calculator .input-box-sector button{
-  display:none;
-}
-article.small.sector-choice .article-body .gap-calculator .input-box-sector hr{
-  display:none;
-}
 
 /* when sector choice box is closed, hide its elements */
 article.small div.sector-mobile-view .o-forms,
@@ -39,8 +51,9 @@ article.small div.sector-mobile-view .sector-back-button {
   display: none;
 }
 
+
 /* when sector choice box is open show its elements */
-article.small.sector-choice div.sector-mobile-view .o-forms {
+main.sector-choice article.small div.sector-mobile-view .o-forms {
   display: block;
 }
 article.small .input-box-sector .sector-desktop-view{
@@ -77,19 +90,11 @@ article .input-box-sector .sector-mobile-view{
   }
 }
 
-.see-more {
-  background-color: #F2DFCE;
-  border-style: none;
-  height: 50px;
-  font-size: 1em;
-  min-width: 80px;
-}
 /* WIDE BUTTONS */
 @media(max-width:400px) {
   .see-all {
-    background-color: #F2DFCE;
-    border-style: none;
     font-size: 1em;
+    min-height: 50px;
   }
 }
 

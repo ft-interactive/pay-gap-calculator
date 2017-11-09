@@ -7,4 +7,4 @@
 
 ## The data
 
-The data behind this app comes from the [ONS ASHE statistics for 2016](https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2016provisionalresults).
+The data behind this app comes from the [ONS ASHE statistics for 2017](https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2016provisionalresults).
