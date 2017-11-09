@@ -17,7 +17,7 @@
   The calculator only has data for <strong>full-time workers</strong>.
 </p>
 
-<p>See <a href="#methodology">our data and methodology</a>.</p>
+<p>See <a href="#methodology" data-trackable="ig-paygap:jumptodata">our data and methodology</a>.</p>
 
 <div class="browser-not-supported">
   Sorry, your browser is not supported.
@@ -39,19 +39,16 @@
 
       <div class="button-and-or-container">
         <div class="button-container">
-          <div class="input-gender icon-option selected" data="woman">
-            <div class="icon-content o-forms">
-              <img src='/components/images/woman.png' alt='woman'>
-              <input type="radio" id="woman" name="gender" checked class="o-forms__radio">
-              <label class="o-forms__label" for="woman"> </label>
-            </div>
-          </div>
-
           <div class="input-gender icon-option" data="man">
             <div class="icon-content o-forms">
-              <img src='/components/images/man.png' alt='man'>
-              <input type="radio" id="man" name="gender" class="o-forms__radio">
-              <label class="o-forms__label" for="man"> </label>
+              <input type="radio" id="man" name="gender" class="o-forms__radio" data-trackable="ig-paygap:gender" data-trackable-context-value="man">
+              <label class="o-forms__label" for="man"><img src='/components/images/man.png' alt='man'></label>
+            </div>
+          </div>
+          <div class="input-gender icon-option selected" data="woman">
+            <div class="icon-content o-forms">
+              <input type="radio" id="woman" name="gender" checked class="o-forms__radio" data-trackable="ig-paygap:gender" data-trackable-context-value="woman">
+              <label class="o-forms__label" for="woman"><img src='/components/images/woman.png' alt='woman'></span></label>
             </div>
           </div>
         </div>
@@ -63,11 +60,11 @@
       <hr>
       <label><span>02</span> How old are you?</label>
       <div>
-        <button class="input-age o-buttons" data="22">22-29</button>
-        <button class="input-age o-buttons" data="30">30-39</button>
-        <button class="input-age o-buttons" data="40">40-49</button>
-        <button class="input-age o-buttons" data="50">50-59</button>
-        <button class="input-age o-buttons" data="60">60+</button>
+        <button class="input-age o-buttons" data="22" data-trackable="ig-paygap:age" data-trackable-context-value="22-29">22-29</button>
+        <button class="input-age o-buttons" data="30" data-trackable="ig-paygap:age" data-trackable-context-value="30-39">30-39</button>
+        <button class="input-age o-buttons" data="40" data-trackable="ig-paygap:age" data-trackable-context-value="40-49">40-49</button>
+        <button class="input-age o-buttons" data="50" data-trackable="ig-paygap:age" data-trackable-context-value="50-59">50-59</button>
+        <button class="input-age o-buttons" data="60" data-trackable="ig-paygap:age" data-trackable-context-value="60+">60+</button>
       </div>
       <div class="input-feedback">
         <p>
@@ -157,7 +154,7 @@
 
     <hr>
     <div class="input-box-compute">
-      <button class="input-compute o-buttons o-buttons--primary o-buttons--big">
+      <button class="input-compute o-buttons o-buttons--primary o-buttons--big" data-trackable="ig-paygap:calculationbutton">
           <span class="compute-text">Show pay gap</span>
       </button>
     </div>
@@ -221,7 +218,7 @@
 
 
 <div data-o-component="o-expander" class="o-expander methodology-box" data-o-expander-shrink-to="hidden">
-  <h2 id="methodology"> Our data and methodology <span class="o-expander__toggle o--if-js"></span></h2>
+  <h2 id="methodology"> Our data and methodology <button class="o-expander__toggle o--if-js" data-trackable="ig-paygap:toggleshowdata"></button></h2>
   <div class="o-expander__content">
     <h3 class="methodology-heading">What data did we use?</h3>
     <p class="methodology-para">
