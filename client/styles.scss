@@ -29,5 +29,6 @@ $o-loading-is-silent: false;
 .o-forms__radio + .o-forms__label::after {
   bottom: -27px;
   top: auto;
+  left: 53.5%;
   left: calc(50% + 6px);
 }
