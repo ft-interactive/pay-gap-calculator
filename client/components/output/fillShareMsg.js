@@ -19,7 +19,7 @@ function generateShareMessage(state, percentageDifference, percentile){
   const percentGroupClean = cleanPercentSign(percentile);
 
   const msgIntro = formatIntroForTwitter(gender, percentGroupClean, sectorTwitter);
-  const msgFull = `${msgIntro} in ${genderPossessive} ${age} earns ${percentDiffClean} than a ${inverseGender}. Get your gap @FT https://ig.ft.com/pay-gap-calculator/`;
+  const msgFull = `${msgIntro} in ${genderPossessive} ${age} earns ${percentDiffClean} than a ${inverseGender}. Find yr pay gap @FT https://ig.ft.com/pay-gap-calculator`;
 
   const twitterShareText = `https://twitter.com/intent/tweet?text=${msgFull}`;
   const whatsappMsg = `whatsapp://send?text=${msgFull}`;
