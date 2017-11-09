@@ -13,6 +13,28 @@
   }
 }
 
+// radio button positioning
+.input-gender .icon-content {
+  input {
+    &:checked{
+      outline-color: black;
+    }
+    &:focus{
+      outline: none;
+      box-shadow: none;
+    }
+  }
+  img{
+    max-height: 150px;
+  }
+}
+
+.o-forms__radio+.o-forms__label {
+    margin-right: 20px;
+    padding-left: 20px;
+    margin-top: 100px
+}
+
 .input-container .icon-option {
   flex: 1 1 auto;
   display: flex;
@@ -32,7 +54,7 @@
 }
 
 .input-container .input-box-gender .or-box {
-  top: -76px;
+  top: -120px;
   margin: 0 auto;
   background-color: white;
   font-size: 1em;
@@ -65,8 +87,8 @@
 .input-container .icon-option div.icon-content {
   flex: 0 1 auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: space-between;
   padding: 0.5em;
 }
 
