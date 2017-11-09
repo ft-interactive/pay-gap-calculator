@@ -74,13 +74,8 @@ article.computed .output-share button {
   margin-bottom: .4em;
 }
 
-@media(max-width: 450px) {
-  article.computed .output-share .whatsapp {
-    display: inline-block;
-  }
-}
-
-article.computed .output-container .output-box-percentile{
+@media(max-width: 375px) {
+  article.computed .output-container .output-box-percentile{
   p{
     text-align: left;
   } span {
@@ -88,6 +83,12 @@ article.computed .output-container .output-box-percentile{
 
   }
 }
+  article.computed .output-share .whatsapp {
+    display: inline-block;
+  }
+}
+
+
 
 /* If decile is used, hide explainer box about medians */
 article.computed .output-container.decile {
