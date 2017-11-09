@@ -23,7 +23,7 @@ export default (environment = 'development') => ({ // eslint-disable-line
 
   mainImage: {
     title: 'Gender pay gap illustration',
-    description: 'Women and men looking at a calculator',
+    description: '',
     credit: 'Clare Mallison',
 
     // You can provide a UUID to an image and it was populate everything else
