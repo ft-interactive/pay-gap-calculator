@@ -1,4 +1,4 @@
-export default () => ({
+export default (environment = 'development') => ({ // eslint-disable-line
   relatedContent: [
     { rows: 1, list: 'list/graphics' },
     { rows: 1, list: 'thing/MTcw-U2VjdGlvbnM=' },
