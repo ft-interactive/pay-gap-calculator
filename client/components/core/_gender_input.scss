@@ -13,6 +13,19 @@
       .o-forms__radio+.o-forms__label {
         margin-right: 20px;
         padding-left: 20px;
+
+        &::before {
+          left: 50%;
+          bottom: -33px;
+          top: auto;
+        }
+
+        &::after {
+          bottom: -27px;
+          top: auto;
+          left: 53.5%;
+          left: calc(50% + 6px);
+        }
       }
     }
   }
