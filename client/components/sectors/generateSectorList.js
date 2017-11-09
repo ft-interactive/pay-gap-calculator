@@ -51,6 +51,7 @@ function generateSubSector(sectionEl, sectorName, index){
         if(isMobile){ return `${subSectorJoined}-mobile`}
         return subSectorJoined;
       })
+      .attr('data-trackable', 'ig-paygap:sector');
 
     subSectorBox.append("label")
       .attr("class", "o-forms__label")
