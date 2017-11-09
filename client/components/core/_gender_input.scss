@@ -9,6 +9,11 @@
       align-items: center;
       justify-content: center;
       margin: 0;
+
+      .o-forms__radio+.o-forms__label {
+        margin-right: 20px;
+        padding-left: 20px;
+      }
     }
   }
 }
@@ -20,20 +25,11 @@
   }
 }
 
-
-// radio button positioning
-.o-forms__radio+.o-forms__label {
-    margin-right: 20px;
-    padding-left: 20px;
-    margin-top: 100px
-}
-
 .input-container .icon-option {
   flex: 1 1 auto;
   display: flex;
   justify-content: center;
   width: 50%;
-  // background-color: #F2E4DA;
   margin-bottom: 0;
 }
 
@@ -47,41 +43,20 @@
 }
 
 .input-container .input-box-gender .or-box {
-  top: -120px;
+  top: -160px;
   margin: 0 auto;
-  background-color: white;
-  font-size: 1em;
+  font-size: 1.3em;
   line-height: 22px;
-  border-radius: 3px;
   width: 1.3em;
   padding: 0.7px 1.6%;
   position: relative;
-  -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
-  -moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
-}
-
-.input-container .icon-option.selected {
-  background-color: #14bdcc;
-}
-
-.input-container .icon-option.selected span {
-  color: white;
-}
-
-.input-container .icon-option.selected #Layer_1 path {
-  fill: white;
-}
-
-.input-container .icon-option #Layer_1 path {
-  fill: #CCC1B7;
 }
 
 .input-container .icon-option div.icon-content {
   flex: 0 1 auto;
   display: flex;
-  flex-direction: row;
-  align-items: space-between;
+  flex-direction: column;
+  align-items: center;
   padding: 0.5em;
 }
 
