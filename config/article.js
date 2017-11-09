@@ -23,7 +23,7 @@ export default (environment = 'development') => ({ // eslint-disable-line
 
   mainImage: {
     title: 'Gender pay gap illustration',
-    description: 'Women and men looking at a calculator',
+    description: '',
     credit: 'Clare Mallison',
 
     // You can provide a UUID to an image and it was populate everything else
@@ -60,9 +60,9 @@ export default (environment = 'development') => ({ // eslint-disable-line
         optional social meta data?
   */
   // General social
-  // socialImage: '',
-  // socialHeadline: '',
-  // socialDescription: '',
+  socialImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A981c76c4-c543-11e7-b30e-a7c1c7c13aab?source=ig&width=600',
+  socialHeadline: 'Work out your personal gender pay gap',
+  socialDescription: 'Find out whether there is a gender pay gap for your job with our calculator.',
   // twitterCreator: '@author's_account', // shows up in summary_large_image cards
 
   // TWEET BUTTON CUSTOM TEXT
