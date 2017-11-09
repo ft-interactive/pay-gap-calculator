@@ -7,7 +7,7 @@ import {getSalaryAfterTax} from './calculateTax';
 
 function fillOutput(element, data, state){
 
-  const cleanSalary = formatAsCurrency(data.swappedSalary);
+  const cleanSalary = formatAsCurrency(data.swappedSalary.toFixed(0));
 
   const yearlyGrossDifference = formatAsCurrency(getYearlySalaryDifference(data.swappedSalary, data.salary));
   const dailyGrossDifference = formatAsCurrency(getDailySalaryDifference(data.swappedSalary, data.salary));
@@ -55,7 +55,7 @@ function fillOutput(element, data, state){
 
 function formatAsCurrency(number){
   const formatted = convertToPostiveNumber(number);
-  return parseInt(formatted).toLocaleString();
+  return parseFloat(formatted).toLocaleString();
 }
 
 function getYearlySalaryDifference(salary1, salary2){

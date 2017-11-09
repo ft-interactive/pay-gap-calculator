@@ -78,9 +78,9 @@ export default (environment = 'development') => ({ // eslint-disable-line
   // twitterDescription: '',
 
   // FACEBOOK
-  // facebookImage: '',
-  // facebookHeadline: '',
-  // facebookDescription: '',
+  facebookImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A981c76c4-c543-11e7-b30e-a7c1c7c13aab?source=ig&width=600',
+  facebookHeadline: 'Work out your personal gender pay gap',
+  facebookDescription: 'Find out whether there is a gender pay gap for your job, and how big it is, with our calculator.',
 
   //ADVERTISING
   ads: {
