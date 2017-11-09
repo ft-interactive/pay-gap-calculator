@@ -76,7 +76,9 @@ if (cutsTheMustard) {
   // ADD EVENT LISTENERS
   genderButtons.on("click", function(){
     const prevSelectedEl = document.querySelector('.input-gender.selected')
+    const selectedRadioButton = this.querySelector('input[type=radio]');
     toggleSelection(this, prevSelectedEl);
+    selectedRadioButton.checked = true;
     dispatch.call("updateState", this, {gender: this.getAttribute('data')} );
   });
 
