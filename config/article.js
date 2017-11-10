@@ -38,6 +38,7 @@ export default (environment = 'development') => ({ // eslint-disable-line
   byline: [
     { name: 'Anna Leach', url: 'https://www.ft.com/anna-leach' },
     { name: 'Federica Cocco', url: 'https://www.ft.com/federica-cocco' },
+    { name: 'Caroline Nevitt', url: 'https://www.ft.com/caroline-nevitt' },
   ],
 
   // Appears in the HTML <title>
