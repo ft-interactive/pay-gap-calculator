@@ -30,6 +30,7 @@ function fillOutput(element, data, state){
 
   const percentageGroup = data.selectedDecile === 'medianPay' ? "median" : getPercentageGroup(data.selectedDecile);
   const percentageDifference = formatPercentageDifference(data.ratio);
+  const inversePercentageDiff = formatPercentageDifference(getInverseRatio(data.ratio));
 
   generateShareMessage(state, percentageDifference, percentageGroup);
 
@@ -47,6 +48,7 @@ function fillOutput(element, data, state){
   d3element.selectAll('.gender-choice-adjective').text(`${genderAdjective}`);
   d3element.selectAll('.gender-choice-inverse-adjective').text(`${comparisonGenderAdjective}`);
   d3element.selectAll('.percentile').text(`${percentageGroup}`);
+  d3element.selectAll('.percentile-pay-gap-inverse').text(`${inversePercentageDiff}`);
   d3element.selectAll('.percentile-pay-gap').text(`${percentageDifference}`);
   d3element.selectAll('.gender-possessive').text(`${genderPossessive}`);
   d3element.selectAll('.gender-possessive-inverse').text(`${genderPossessiveInverse}`);
@@ -76,6 +78,10 @@ function getPercentageGroup(decile){
   else if(decileNum >= 50){
     return `top ${100 - decileNum}%`;
   }
+}
+
+function getInverseRatio(ratio){
+  return 1 / ratio;
 }
 
 function convertToPostiveNumber(num){
