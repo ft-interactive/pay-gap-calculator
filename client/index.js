@@ -68,7 +68,7 @@ if (cutsTheMustard) {
 
       const event = new CustomEvent('oTracking.event', {
         detail: Object.assign({
-          category: 'ig-paygap:submit',
+          category: 'ig-paygap',
           action: 'submit',
         }, {
           gender: config.get('gender'),
