@@ -65,6 +65,20 @@ if (cutsTheMustard) {
       const outputData = await calculation(config);
       handleCalculationFull(outputData, state);
       gaEventTracking(`PayGap-CalculationButton`, 'PayGap-submitData', 'PayGap Calculator');
+
+      const event = new CustomEvent('oTracking.event', {
+        detail: Object.assign({
+          category: 'ig-paygap:submit',
+          action: 'submit',
+        }, {
+          gender: config.get('gender'),
+          age: config.get('age'),
+          sector: config.get('sector'),
+        }),
+        bubbles: true,
+      });
+
+      document.body.dispatchEvent(event);
     }
   });
 
