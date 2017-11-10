@@ -68,6 +68,7 @@ label {
 /* ALL INPUT BOXES */
 .input-container div[class^='input-box'] {
   width: 100%;
+  overflow-x: hidden;
 }
 
 
