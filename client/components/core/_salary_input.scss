@@ -62,6 +62,7 @@ div.input-salary-hours-worked p {
       background-repeat: no-repeat;
   }
   input.hours-worked {
+    width: 1.8em;
     font-weight: 600;
     font-size: 1.5em;
     appearance: none;
@@ -100,7 +101,7 @@ div.input-salary-hours-worked p {
 .input-salary-hours-worked {
     user-select: none;
     >div{
-      margin: 0px 0.4em !important; 
+      margin: 0px 0.4em !important;
     }
 }
 
