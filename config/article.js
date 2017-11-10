@@ -9,7 +9,7 @@ export default (environment = 'development') => ({ // eslint-disable-line
 
   // To set an exact publish date do this:
   //       new Date('2016-05-17T17:11:22Z')
-  publishedDate: new Date(),
+  publishedDate: new Date('2017-11-10T04:00:25.998Z'),
 
   headline: 'Work out your personal gender pay gap',
 
